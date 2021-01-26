@@ -50,6 +50,7 @@ class ConfigurationState(Configuration, State):
         return successors
 
     def _get_successors_for_relation(self, relation: 'Relation') -> list['ConfigurationState']:
+        """List of ConfigurationState that can be reached due to the given relation."""
         successors = []
         possible_features_choices = self._get_undecided_features_for_relation(relation)
         for pfc in possible_features_choices:
@@ -57,6 +58,7 @@ class ConfigurationState(Configuration, State):
         return successors
 
     def _get_undecided_features_for_relation(self, relation: 'Relation') -> list['Feature']:
+        """List of undecided features of the given relation. That is, features that have not been already selected in the configuration."""
         if relation.is_mandatory() or relation.is_optional():
             return relation.children
         elif relation.is_alternative():
@@ -67,7 +69,7 @@ class ConfigurationState(Configuration, State):
             return [child for child in relation.children if child not in self.elements]
 
     def _get_undecided_mandatory_relations(self) -> list['Relation']:
-        """Undecided mandatory relations are those relation that need to be decided in order to move closer to a valid configuration according to the tree hierarchy."""
+        """Undecided mandatory relations are those relation that needs to be decided in order to move closer to the next configuration according to the tree hierarchy."""
         res = []
         for feature in self.elements:
             for r in feature.get_relations():
@@ -76,7 +78,7 @@ class ConfigurationState(Configuration, State):
         return res
 
     def _get_undecided_optional_relations(self) -> list['Relation']:
-        """Undecided optional relations are those relation that may be decided (but not required by the tree hierarchy) in order to move closer to a valid configuration."""
+        """Undecided optional relations are those relations that may be decided (but not required by the tree hierarchy) in order to move closer to the next configuration."""
         res = []
         for feature in self.elements:
             for r in feature.get_relations():
@@ -85,27 +87,38 @@ class ConfigurationState(Configuration, State):
         return res
 
     def find_random_successor(self):
-        """A successor of a configuration is a possible selection of features where at least all mandatory decisions are covered."""
-        selected_features = []
+        """A successor of the configuration with an additional feature selected."""
+        relations = self._get_undecided_mandatory_relations()
+        if not relations:
+            relations = self._get_undecided_optional_relations()
+        random_relation = random.choice(relations)
+        features = _get_undecided_features_for_relation(random_relation)
+        random_feature = random.choice(features)
+        return ConfigurationState(self.feature_model, self.elements + [random_feature])
 
-        mandatory_decisions = self._open_decision_relations[0]
-        optional_decisions = self._open_decision_relations[1]
-        for relation in mandatory_decisions:
-            selected_features.extend(self._select_random_decision(relation, self.elements))
-        for relation in optional_decisions: # "PRoblema: si no selecciona ninguna y no quedan mandatories puede devolver el mismo estado como sucesor."
-            if random.getrandbits(1):
-                selected_features.extend(self._select_random_decision(relation, self.elements))
 
-        # Complete the configuration with the possible new mandatory selections.
-        mandatory_decisions = self._get_open_decision_relations(selected_features)[0]
-        while mandatory_decisions:
-            mandatory_features = []
-            for relation in mandatory_decisions:
-                mandatory_features.extend(self._select_random_decision(relation, selected_features))
-            selected_features.extend(mandatory_features)
-            mandatory_decisions = self._get_open_decision_relations(mandatory_features)[0]
-
-        return ConfigurationState(self.feature_model, self.elements + selected_features)
+    # def find_random_successor(self):
+    #     """A successor of a configuration is a possible selection of features where at least all mandatory decisions are covered."""
+    #     selected_features = []
+    #
+    #     mandatory_decisions = self._open_decision_relations[0]
+    #     optional_decisions = self._open_decision_relations[1]
+    #     for relation in mandatory_decisions:
+    #         selected_features.extend(self._select_random_decision(relation, self.elements))
+    #     for relation in optional_decisions: # "PRoblema: si no selecciona ninguna y no quedan mandatories puede devolver el mismo estado como sucesor."
+    #         if random.getrandbits(1):
+    #             selected_features.extend(self._select_random_decision(relation, self.elements))
+    #
+    #     # Complete the configuration with the possible new mandatory selections.
+    #     mandatory_decisions = self._get_open_decision_relations(selected_features)[0]
+    #     while mandatory_decisions:
+    #         mandatory_features = []
+    #         for relation in mandatory_decisions:
+    #             mandatory_features.extend(self._select_random_decision(relation, selected_features))
+    #         selected_features.extend(mandatory_features)
+    #         mandatory_decisions = self._get_open_decision_relations(mandatory_features)[0]
+    #
+    #     return ConfigurationState(self.feature_model, self.elements + selected_features)
 
     def is_terminal(self):
         """A configuration is terminal if no more possible decisions can be taken."""

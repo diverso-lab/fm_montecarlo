@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from montecarlo4fms.models import State
 
 class MonteCarlo(ABC):
     """

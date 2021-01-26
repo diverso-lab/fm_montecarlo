@@ -1,4 +1,5 @@
-from state import State
-from fm_godelization import FMGodelization
+from .state import State
+from .configuration_state import ConfigurationState
+from .fm_godelization import FMGodelization
 
-__all__ = ['State', 'FMGodelization']
+__all__ = ['State', 'ConfigurationState', 'FMGodelization']

@@ -1,4 +1,7 @@
+import random
+from collections import defaultdict
 from montecarlo4fms.algorithms import MonteCarlo
+from montecarlo4fms.models import State
 
 class MonteCarloBasic(MonteCarlo):
     """

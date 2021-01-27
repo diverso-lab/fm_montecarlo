@@ -52,7 +52,7 @@ def read_configuration(feature_model: FeatureModel, config: list['str']) -> Conf
 
 if __name__ == '__main__':
     fm = read_feature_model()
-    initial_config = read_configuration(fm, ['A', 'B', 'B1', 'E', 'E1'])
+    initial_config = read_configuration(fm, [])
 
     print(f"Initial config: {initial_config}")
     print(f"is terminal: {initial_config.is_terminal()}")
@@ -60,13 +60,14 @@ if __name__ == '__main__':
 
     print("-----MonteCarlo-----")
     mc = MonteCarloBasic(1000)
-    #initial_config = read_configuration(fm, ['A'])
-    mc_successor = mc.choose(initial_config)
-    print(f"Best successor: {mc_successor}")
-    mc_successor2 = mc.choose(mc_successor)
-    print(f"Best successor 2: {mc_successor2}")
+    config = initial_config
+    print(f"Config {hash(config)}: {config} -> reward? {config.reward()}")
+    while not config.is_terminal():
+        config = mc.choose(config)
+        mc.print_MC_values()
+        print(f"Config {hash(config)}: {config} -> reward? {config.reward()}")
 
-    print(f"Original config: {initial_config}")
+
 
     ###
     # print(fm)

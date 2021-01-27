@@ -11,21 +11,28 @@ class MonteCarloBasic(MonteCarlo):
 
     def __init__(self, n_simulations: int):
         self.n_simulations = n_simulations
+        self._initialize()
+
+    def _initialize(self):
+        self.Q = defaultdict(int)   # total reward of each state
+        self.N = defaultdict(int)   # total visit count of each state
 
     def choose(self, state: State) -> State:
         if state.is_terminal():
             raise RuntimeError(f"Montecarlo choose method called on terminal state {state}")
 
-        self.Q = defaultdict(int)   # total reward of each state
-        self.N = defaultdict(int)   # total visit count of each state
+        self._initialize()
         successors = state.find_successors()
-        for i in range(self.n_simulations):
-            s = random.choice(successors)
-            reward = self.simulate(s)
-            self.Q[s] += s.reward()
-            self.N[s] += 1
+        if len(successors) == 1:
+            return successors[0]
+        else:
+            for i in range(self.n_simulations):
+                s = random.choice(successors)
+                reward = self.simulate(s)
+                self.Q[s] += s.reward()
+                self.N[s] += 1
 
-        return max(self.Q.keys(), key=self.score)
+            return max(self.Q.keys(), key=self.score)
 
     def simulate(self, state: State) -> int:
         while not state.is_terminal():
@@ -36,3 +43,7 @@ class MonteCarloBasic(MonteCarlo):
         if self.N[state] == 0:
             return float("-inf")              # avoid unseen state
         return self.Q[state] / self.N[state]  # average reward
+
+    def print_MC_values(self):
+        for s in self.Q.keys():
+            print(f"//MC values for state: {s} -> {self.Q[s]}/{self.N[s]} -> {self.score(s)}")

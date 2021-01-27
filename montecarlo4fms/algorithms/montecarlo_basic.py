@@ -29,7 +29,7 @@ class MonteCarloBasic(MonteCarlo):
             for i in range(self.n_simulations):
                 s = random.choice(successors)
                 reward = self.simulate(s)
-                self.Q[s] += s.reward()
+                self.Q[s] += reward
                 self.N[s] += 1
 
             return max(self.Q.keys(), key=self.score)

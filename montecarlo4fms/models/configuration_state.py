@@ -66,6 +66,10 @@ class ConfigurationState(Configuration, State):
 
     def is_terminal(self):
         """A configuration is terminal if all mandatory decisions have been taken."""
+        #return self.elements and not self._get_undecided_mandatory_relations()
+        return self._is_valid() and any(x for x in self.elements if x.name == 'F12')
+
+    def _is_valid(self):
         return self.elements and not self._get_undecided_mandatory_relations()
 
     def reward(self):
@@ -76,8 +80,7 @@ class ConfigurationState(Configuration, State):
         # print(pysatm)
         # operation = dm.use_operation(src=pysatm, operation='Valid')
         # print("Result operation 'Valid configuration':", operation.is_valid())
-
-        return 1 if self.elements and not self._get_undecided_mandatory_relations() else 0
+        return len(self.feature_model.get_features()) - len(self.elements)
 
     def _get_successors_for_relation(self, relation: 'Relation') -> list['ConfigurationState']:
         """List of ConfigurationState that can be reached due to the given relation."""

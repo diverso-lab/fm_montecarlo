@@ -3,8 +3,12 @@ sys.path.append('../')
 from fm_metamodel.famapy.metamodels.fm_metamodel.models.feature_model import Feature, FeatureModel, Relation, Constraint
 from famapy.core.models import Configuration
 from montecarlo4fms.models import ConfigurationState
-from montecarlo4fms.algorithms import MonteCarloBasic
 import cProfile
+
+from pysat_metamodel.famapy.metamodels.pysat_metamodel.models.pysat_model import PySATModel
+from pysat_metamodel.famapy.metamodels.pysat_metamodel.operations.glucose3_products import Glucose3Products
+from pysat_metamodel.famapy.metamodels.pysat_metamodel.operations.glucose3_valid import Glucose3Valid
+from pysat_metamodel.famapy.metamodels.pysat_metamodel.transformations.fm_to_pysat import FmToPysat
 
 # Feature model input
 features_tree = {'A': [(['B'],1,1), (['C'],0,1), (['D'],0,1), (['E'],1,1), (['F'],0,1)],
@@ -49,15 +53,7 @@ def read_configuration(feature_model: FeatureModel, config: list['str']) -> Conf
     features = feature_model.get_features()
     return ConfigurationState(feature_model, [f for f in features if f.name in config])
 
-def montecarlo_basic(fm, config):
-    print("-----MonteCarlo-----")
-    mc = MonteCarloBasic(1000)
-    config = initial_config
-    print(f"Config {hash(config)}: {config} -> reward: {config.reward()}")
-    while not config.is_terminal():
-        config = mc.choose(config)
-        mc.print_MC_values()
-        print(f"Config {hash(config)}: {config} -> reward: {config.reward()}")
+
 
 if __name__ == '__main__':
     fm = read_feature_model()
@@ -67,15 +63,28 @@ if __name__ == '__main__':
     print(f"is terminal: {initial_config.is_terminal()}")
     print(f"Godel number: {hash(initial_config)}")
 
-    montecarlo_basic(fm, initial_config)
-    #cProfile.run("montecarlo_basic(fm, initial_config)")
+    # Create a detination metamodel (Pysat for the record)
+    sat = PySATModel()
 
+    # Transform the first onto the second
+    transform = FmToPysat(fm, sat)
+    transform.transform()
 
+    # Create the operation
+    valid = Glucose3Valid()
 
+    # Execute the operation . TODO Investigate how t avoid that sat parameter
+    valid.execute(sat)
 
-    ###
-    # print(fm)
-    # for f in fm.get_features():
-    #     print(f"{f} -> parent: {f.get_parent()}")
-    #     for r in f.get_relations():
-    #         print(f"{f} -> relations: {r}")
+    # Print the result
+    print("Is the model valid: " + str(valid.isValid()))
+
+    # Create the operation
+    products = Glucose3Products()
+
+    # Execute the operation . TODO Investigate how t avoid that sat parameter
+    products.execute(sat)
+
+    # Print the result
+    print("The products encoded in the model are: ")
+    print(products.getProducts())

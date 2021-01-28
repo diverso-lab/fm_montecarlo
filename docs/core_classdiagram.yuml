@@ -1,0 +1,36 @@
+// famapy Class Diagram
+// ------------------
+// ------------------
+
+// Core
+// ------------------
+
+// Feature
+[Feature{bg:gray}|name: str|__init__(name: str, relations: Sequence_Relation);add_relation(r: Relation);get_relations(): Sequence_Relation;get_parent(): Feature]
+[Feature]1<>-relations 1..*>[Relation]
+[Feature]-[note: every feature has at least one relation to its parent.{bg:wheat}]
+
+// Relation
+[Relation{bg:gray}|card_min: int; card_max: int|__init__(parent: Feature, children: Sequence_Relation, card_min: int, card_max: int);add_child(f: Feature);is_mandatory(): bool;is_optional(): bool; is_or(): bool;is_alternative(): bool]
+[Relation]<>-parent 0..1>[Feature]
+[Relation]<>-children 0..*>[Feature]
+
+// Constraint
+[Constraint{bg:gray}]
+
+// Feature Model
+[FeatureModel{bg:gray}||__init__(root: Feature, ctcs: Sequence_Constraint);get_relations(f: Feature = None): list_Relation;get_features():list_Feature;get_constraints(): Sequence_Constraint;get_feature_by_name(name: str): Feature]
+[FeatureModel]++-root 1..1>[Feature]
+[FeatureModel]++-ctcs 0..*>[Constraint]
+
+// Configuration
+[Configuration{bg:gray}|elements: list_Feature]
+
+// Utils
+// ------------------
+
+[FMGodelization{bg:green}|_fm_codes: dict;_fm_code_i: dict|__init__(fm: FeatureModel); godelization(config: Configuration): int;degodelization(config_number: int): list_Feature;_get_feature_model_codes(fm: FeatureModel): dict]
+[FMGodelization]-[note: Use of a Godel function to assign a unique identifier number to each feature and configuration (for efficiency reasons storing configurations).{bg:wheat}]
+
+[ConfigurationsSample{bg:green}|_configurations: set|__init__(fm: FeatureModel);add_configuration(config: Configuration;contains(config: Configuration): bool;remove(config: Configuration); get_configurations(): list_Configuration; size(): int]
+[ConfigurationsSample]-fm_godelization>[FMGodelization]

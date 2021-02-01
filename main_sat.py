@@ -4,11 +4,11 @@ from fm_metamodel.famapy.metamodels.fm_metamodel.models.feature_model import Fea
 from famapy.core.models import Configuration
 from montecarlo4fms.models import ConfigurationState
 import cProfile
-
+from typing import List
 from pysat_metamodel.famapy.metamodels.pysat_metamodel.models.pysat_model import PySATModel
-from pysat_metamodel.famapy.metamodels.pysat_metamodel.operations.glucose3_products import Glucose3Products
-from pysat_metamodel.famapy.metamodels.pysat_metamodel.operations.glucose3_valid import Glucose3Valid
 from pysat_metamodel.famapy.metamodels.pysat_metamodel.transformations.fm_to_pysat import FmToPysat
+
+from pysat.solvers import Glucose3
 
 # Feature model input
 features_tree = {'A': [(['B'],1,1), (['C'],0,1), (['D'],0,1), (['E'],1,1), (['F'],0,1)],
@@ -49,7 +49,7 @@ def read_feature_model() -> FeatureModel:
 
     return FeatureModel(root, [])
 
-def read_configuration(feature_model: FeatureModel, config: list['str']) -> Configuration:
+def read_configuration(feature_model: FeatureModel, config: List['str']) -> Configuration:
     features = feature_model.get_features()
     return ConfigurationState(feature_model, [f for f in features if f.name in config])
 
@@ -57,7 +57,11 @@ def read_configuration(feature_model: FeatureModel, config: list['str']) -> Conf
 
 if __name__ == '__main__':
     fm = read_feature_model()
-    initial_config = read_configuration(fm, [])
+    fm.ctcs.append(Constraint('ctc1', fm.get_feature_by_name('B11'), fm.get_feature_by_name('C2'), 'requires'))
+    fm.ctcs.append(Constraint('ctc2', fm.get_feature_by_name('E111'), fm.get_feature_by_name('E2'), 'excludes'))
+    fm.ctcs.append(Constraint('ctc3', fm.get_feature_by_name('C2'), fm.get_feature_by_name('F1'), 'requires'))
+
+    initial_config = read_configuration(fm, ['A', 'B', 'B1', 'B', 'E', 'E1', 'B12'])
 
     print(f"Initial config: {initial_config}")
     print(f"is terminal: {initial_config.is_terminal()}")
@@ -67,24 +71,49 @@ if __name__ == '__main__':
     sat = PySATModel()
 
     # Transform the first onto the second
-    transform = FmToPysat(fm, sat)
-    transform.transform()
+    transform = FmToPysat(fm)
+    cnf_model = transform.transform()
+    print(cnf_model)
 
-    # Create the operation
-    valid = Glucose3Valid()
+    ###################################
+    g = Glucose3()
+    for clause in cnf_model.cnf:  # AC es conjunto de conjuntos
+        g.add_clause(clause)  # añadimos la constraint
+    result = g.solve()
+    print(f"Valid: {result}")
+    print(f"Valid: {g.solve()}")
+    print(f"Valid: {g.solve(assumptions=[1, 2, 3, 4, 14, 15, -16])}") # para chequear configuraciones parciales.
 
-    # Execute the operation . TODO Investigate how t avoid that sat parameter
-    valid.execute(sat)
 
-    # Print the result
-    print("Is the model valid: " + str(valid.isValid()))
+    ###################################
+    products = []
+    for solutions in g.enum_models():
+        product = list()
+        for variable in solutions:
+            if variable > 0:  # This feature should appear in the product
+                product.append(cnf_model.features.get(variable))
+        products.append(product)
+    print(f"#Configurations: {len(products)}")
 
-    # Create the operation
-    products = Glucose3Products()
+    ###################################
+    g = Glucose3()
+    for clause in cnf_model.cnf:  # AC es conjunto de conjuntos
+        g.add_clause(clause)  # añadimos la constraint
 
-    # Execute the operation . TODO Investigate how t avoid that sat parameter
-    products.execute(sat)
+    for f in cnf_model.features.items():
+        print(f)
 
-    # Print the result
-    print("The products encoded in the model are: ")
-    print(products.getProducts())
+    core = g.get_core() # para chequear inconsistencias.
+    print(f"Core: {core}")
+
+    # Chequear configuraciones válidas.
+    for f in fm.get_features():
+        literal = 1 if f in initial_config.elements else -1
+        clause = [x[0]*literal for x in cnf_model.features.items() if x[1] == f.name]
+        if clause:
+            g.add_clause(clause)
+
+    for c in cnf_model.cnf:
+        print(type(c), c)
+
+    print(f"Valid config: {g.solve()}")

@@ -15,7 +15,7 @@ For a configuration of 50k features:
 - it takes around 7 ms to apply the godel function.
 - it takes around 2 ms to inverse the godel function.
 """
-
+from typing import List
 
 class FMGodelization:
     """
@@ -46,7 +46,7 @@ class FMGodelization:
             res[n - self._fm_codes[f]] = 1   # Create the binary number in reversed order. First feature at the left.
         return int(''.join([str(i) for i in res]), 2)
 
-    def degodelization(self, config_number: int) -> list['Feature']:
+    def degodelization(self, config_number: int) -> List['Feature']:
         """Get the configuration from its godel number (decimal)."""
         res = []
         bin_config = bin(config_number)[::-1]   # Reverse order. First feature at the left.

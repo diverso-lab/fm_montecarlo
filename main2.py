@@ -9,19 +9,10 @@ from typing import List
 from montecarlo4fms.utils import FMHelper
 
 # Feature model input
-features_tree = {'A': [(['B'],1,1), (['C'],0,1), (['D'],0,1), (['E'],1,1), (['F'],0,1)],
-                 'B': [(['B1'],1,1)],
-                 'B1': [(['B11', 'B12'],1,2)],
-                 'C': [(['C1', 'C2'],1,1)],
-                 'D': [(['D1'],1,1)],
-                 'D1': [(['D11', 'D12', 'D13'],1,3)],
-                 'E': [(['E1'],1,1), (['E2'],0,1)],
-                 'E1': [(['E11'],0,1)],
-                 'E11': [(['E111', 'E112', 'E113'],1,1)],
-                 'F': [(['F1'],0,1)],
-                 'F1': [(['F12'],1,1), (['F13'],1,1)],
-                 'F12': [(['F121'],0,1)],
-                 'F13': [(['F131'],0,1)]
+features_tree = {'Pizza': [(['CheesyCrust'],0,1), (['Topping'],1,1), (['Size'],1,1), (['Dough'],1,1)],
+                 'Topping': [(['Salami', 'Ham', 'Mozzarella'],1,3)],
+                 'Size': [(['Normal', 'Big'],1,1)],
+                 'Dough': [(['Neapolitan', 'Sicilian'],1,1)]
                  }
 
 def read_feature_model() -> FeatureModel:
@@ -63,18 +54,27 @@ def montecarlo_basic(fm, config):
 
 if __name__ == '__main__':
     fm = read_feature_model()
-    fm.ctcs.append(Constraint('ctc1', fm.get_feature_by_name('B11'), fm.get_feature_by_name('C2'), 'requires'))
-    fm.ctcs.append(Constraint('ctc2', fm.get_feature_by_name('E111'), fm.get_feature_by_name('E2'), 'excludes'))
-    fm.ctcs.append(Constraint('ctc3', fm.get_feature_by_name('C2'), fm.get_feature_by_name('F1'), 'requires'))
+    fm.ctcs.append(Constraint('ctc1', fm.get_feature_by_name('Neapolitan'), fm.get_feature_by_name('Salami'), 'excludes'))
+    fm.ctcs.append(Constraint('ctc2', fm.get_feature_by_name('Neapolitan'), fm.get_feature_by_name('Ham'), 'excludes'))
+    fm.ctcs.append(Constraint('ctc3', fm.get_feature_by_name('CheesyCrust'), fm.get_feature_by_name('Big'), 'requires'))
 
     initial_config = read_configuration(fm, [])
 
+    fm_helper = FMHelper(fm)
+    configurations = fm_helper.get_configurations()
+    count = 1
+    for c in configurations:
+        print(f"config {count}: {c}")
+        count += 1
+
+    print(f"#Configurations: {len(configurations)}")
     print(f"Initial config: {initial_config}")
     print(f"is terminal: {initial_config.is_terminal()}")
     print(f"Godel number: {hash(initial_config)}")
 
-    #montecarlo_basic(fm, initial_config)
-    cProfile.run("montecarlo_basic(fm, initial_config)")
+
+    montecarlo_basic(fm, initial_config)
+    #cProfile.run("montecarlo_basic(fm, initial_config)")
 
 
 

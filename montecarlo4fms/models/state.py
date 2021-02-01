@@ -8,7 +8,7 @@ class State(ABC):
     """
 
     @abstractmethod
-    def find_successors(self) -> list['State']:
+    def find_successors(self) -> list:
         """All possible successors of this state."""
         pass
 

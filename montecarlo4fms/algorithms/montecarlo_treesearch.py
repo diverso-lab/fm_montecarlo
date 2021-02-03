@@ -54,9 +54,19 @@ class MonteCarloTreeSearch(MonteCarlo):
                 s = unexplored.pop()
                 path.append(s)
                 return path
-            state = max(self.children[state], key=self.uct)
+            state = self._select_uct(state)
             path.append(state)
         return path
+
+    def _select_uct(self, state: State) -> State:
+        """Select a child of state, balancing exploration & exploitation."""
+        log_N_vertex = math.log(self.N[state])
+
+        def uct(s: State) -> float:
+            """Upper confidence bound for trees"""
+            return self.Q[s] / self.N[s] + self.exploration_weight * math.sqrt(log_N_vertex / self.N[s])
+
+        return max(self.children[state], key=uct)
 
     def _expand(self, state: State):
         "Update the `children` dict with the children of `state`"
@@ -78,11 +88,6 @@ class MonteCarloTreeSearch(MonteCarlo):
         if self.N[state] == 0:
             return float("-inf")              # avoid unseen state
         return self.Q[state] / self.N[state]  # average reward
-
-    def uct(self, state: State) -> float:
-        "Upper confidence bound for trees"
-        log_N_vertex = math.log(self.N[state])
-        return self.Q[state] / self.N[state] + self.exploration_weight * math.sqrt(log_N_vertex / self.N[state])
 
     def print_MC_values(self):
         if self.Q.keys():

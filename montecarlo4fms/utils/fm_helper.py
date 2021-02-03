@@ -25,7 +25,7 @@ class FMHelper:
     def is_valid_configuration(self, config: Configuration) -> bool:
         g = Glucose3()
         g.append_formula(self.formula)
-        config_names = [f.name for f in config.elements]
+        config_names = [feature.name for feature in config.elements]
         formula = [[clause[0]] if clause[1] in config_names else [-clause[0]] for clause in self.cnf_model.features.items()]
         g.append_formula(formula)
 

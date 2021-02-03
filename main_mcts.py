@@ -3,18 +3,25 @@ sys.path.append('../')
 from fm_metamodel.famapy.metamodels.fm_metamodel.models.feature_model import Feature, FeatureModel, Relation, Constraint
 from famapy.core.models import Configuration
 from montecarlo4fms.models import ConfigurationState
-from montecarlo4fms.algorithms import MonteCarloBasic
+from montecarlo4fms.algorithms import MonteCarloTreeSearch
 import cProfile
 from typing import List
 from montecarlo4fms.utils import FMHelper
-from collections import defaultdict
-
 
 # Feature model input
-features_tree = {'Pizza': [(['CheesyCrust'],0,1), (['Topping'],1,1), (['Size'],1,1), (['Dough'],1,1)],
-                 'Topping': [(['Salami', 'Ham', 'Mozzarella'],1,3)],
-                 'Size': [(['Normal', 'Big'],1,1)],
-                 'Dough': [(['Neapolitan', 'Sicilian'],1,1)]
+features_tree = {'A': [(['B'],1,1), (['C'],0,1), (['D'],0,1), (['E'],1,1), (['F'],0,1)],
+                 'B': [(['B1'],1,1)],
+                 'B1': [(['B11', 'B12'],1,2)],
+                 'C': [(['C1', 'C2'],1,1)],
+                 'D': [(['D1'],1,1)],
+                 'D1': [(['D11', 'D12', 'D13'],1,3)],
+                 'E': [(['E1'],1,1), (['E2'],0,1)],
+                 'E1': [(['E11'],0,1)],
+                 'E11': [(['E111', 'E112', 'E113'],1,1)],
+                 'F': [(['F1'],0,1)],
+                 'F1': [(['F12'],1,1), (['F13'],1,1)],
+                 'F12': [(['F121'],0,1)],
+                 'F13': [(['F131'],0,1)]
                  }
 
 def read_feature_model() -> FeatureModel:
@@ -44,48 +51,37 @@ def read_configuration(feature_model: FeatureModel, config: List['str']) -> Conf
     features = feature_model.get_features()
     return ConfigurationState(FMHelper(feature_model), [f for f in features if f.name in config])
 
-def montecarlo_basic(fm, config):
+def montecarlo_treesearch(fm, config):
     print("-----MonteCarlo-----")
-    mc = MonteCarloBasic(1000)
+    mc = MonteCarloTreeSearch(100)
     config = initial_config
-    print(f"Config {hash(config)}: {config} -> reward: {config.reward()}")
+    n_iteration = 1
     while not config.is_terminal():
+        print(f"Iteration: {n_iteration}")
+        n_iteration += 1
+        print(f"Current config {hash(config)}: {config} -> reward: {config.reward()}")
+        for s in config.find_successors():
+            print(f"Successor: {s}")
+
         config = mc.choose(config)
         mc.print_MC_values()
-        print(f"Config {hash(config)}: {config} -> reward: {config.reward()}")
+        print(f"Best successor {hash(config)}: {config} -> reward: {config.reward()}")
 
-    return config
 
 if __name__ == '__main__':
     fm = read_feature_model()
-    fm.ctcs.append(Constraint('ctc1', fm.get_feature_by_name('Neapolitan'), fm.get_feature_by_name('Salami'), 'excludes'))
-    fm.ctcs.append(Constraint('ctc2', fm.get_feature_by_name('Neapolitan'), fm.get_feature_by_name('Ham'), 'excludes'))
-    fm.ctcs.append(Constraint('ctc3', fm.get_feature_by_name('CheesyCrust'), fm.get_feature_by_name('Big'), 'requires'))
+    fm.ctcs.append(Constraint('ctc1', fm.get_feature_by_name('B11'), fm.get_feature_by_name('C2'), 'requires'))
+    fm.ctcs.append(Constraint('ctc2', fm.get_feature_by_name('E111'), fm.get_feature_by_name('E2'), 'excludes'))
+    fm.ctcs.append(Constraint('ctc3', fm.get_feature_by_name('C2'), fm.get_feature_by_name('F1'), 'requires'))
 
-    initial_config = read_configuration(fm, ['Pizza', 'Topping', 'Size', 'Dough'])
+    initial_config = read_configuration(fm, [])
 
-    fm_helper = FMHelper(fm)
-    configurations = fm_helper.get_configurations()
-    num = 1
-    for c in configurations:
-        print(f"config {num}: {c}")
-        num += 1
-
-    print(f"#Configurations: {len(configurations)}")
     print(f"Initial config: {initial_config}")
     print(f"is terminal: {initial_config.is_terminal()}")
     print(f"Godel number: {hash(initial_config)}")
 
-    counts = defaultdict(int)
-    for f in fm.get_features():
-        counts[f] = len([c for c in configurations if f.name in c])
-
-    for f in counts:
-        print(f"{f}: {counts[f]}")
-
-    config = montecarlo_basic(fm, initial_config)
+    montecarlo_treesearch(fm, initial_config)
     #cProfile.run("montecarlo_basic(fm, initial_config)")
-    print(f"Valid?: {fm_helper.is_valid_configuration(config)}")
 
 
 

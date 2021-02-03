@@ -70,8 +70,8 @@ class ConfigurationState(Configuration, State):
         """A configuration is terminal if all mandatory decisions have been taken."""
         #return self.elements and not self._get_undecided_mandatory_relations()
         #return self._is_valid() and any(x for x in self.elements if x.name == 'F12')
-        #return self.elements and (self._is_valid() or (not self._get_undecided_mandatory_relations() and not self._get_undecided_optional_relations()))
-        return self.elements and not self._get_undecided_mandatory_relations() and not self._get_undecided_optional_relations()
+        return self.elements and (self._is_valid() or (not self._get_undecided_mandatory_relations() and not self._get_undecided_optional_relations()))
+        #return self.elements and not self._get_undecided_mandatory_relations() and not self._get_undecided_optional_relations()
 
     def _is_valid(self):
         return self.fm_helper.is_valid_configuration(self)

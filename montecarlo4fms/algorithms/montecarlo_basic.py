@@ -46,4 +46,4 @@ class MonteCarloBasic(MonteCarlo):
 
     def print_MC_values(self):
         for s in self.Q.keys():
-            print(f"//MC values for state: {s} -> {self.Q[s]}/{self.N[s]} -> {self.score(s)}")
+            print(f"//MC values for state: {s} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")

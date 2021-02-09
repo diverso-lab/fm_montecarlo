@@ -48,7 +48,8 @@ class MonteCarloTreeSearch(MonteCarlo):
     def _select(self, state: State) -> List[State]:
         "Find an unexplored descendent of `state`"
         path = [state]
-        while state in self.children:
+        while state in self.children and self.children[state]:
+            # while state is neither explored nor terminal
             unexplored = self.children[state] - self.children.keys()
             if unexplored:
                 s = unexplored.pop()

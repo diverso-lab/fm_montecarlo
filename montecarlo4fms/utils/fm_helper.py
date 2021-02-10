@@ -31,6 +31,22 @@ class FMHelper:
 
         return g.solve()
 
+    def is_valid_partial_configuration(self, config: Configuration) -> bool:
+        g = Glucose3()
+        g.append_formula(self.formula)
+        config_names = [feature.name for feature in config.elements]
+        assumptions = [self.cnf_model.variables[name] for name in config_names]
+        return g.solve(assumptions=assumptions)
+
+    def is_valid_partial_selection(self, selected_features: Set[Feature], unselected_features: Set[Feature]) -> bool:
+        g = Glucose3()
+        g.append_formula(self.formula)
+        config_selected_names = [feature.name for feature in selected_features]
+        config_unselected_names = [feature.name for feature in unselected_features]
+        assumptions = [self.cnf_model.variables[name] for name in config_selected_names]
+        assumptions.extend([-1*self.cnf_model.variables[name] for name in config_unselected_names])
+        return g.solve(assumptions=assumptions)
+
     def get_configurations(self) -> Set[Feature]:
         g = Glucose3()
         g.append_formula(self.formula)
@@ -42,3 +58,17 @@ class FMHelper:
                     config.append(self.cnf_model.features.get(variable))
             configurations.append(config)
         return configurations
+
+    def get_core_features(self) -> Set[Feature]:
+        if not self.feature_model.root:  # void feature model
+            return set()
+
+        core_features = [self.feature_model.root]
+        features = [self.feature_model.root]
+        while features:
+            f = features.pop()
+            for relation in f.get_relations():
+                if relation.is_mandatory():
+                    core_features.extend(relation.children)
+                    features.extend(relation.children)
+        return set(core_features)

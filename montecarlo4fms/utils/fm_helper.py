@@ -11,8 +11,9 @@ class FMHelper:
     def __init__(self, feature_model: FeatureModel):
         self.feature_model = feature_model
         self.features = self.feature_model.get_features()
+        self.features_by_name = {f.name : f for f in self.features}
 
-        sat = PySATModel()
+        #sat = PySATModel()
         transform = FmToPysat(feature_model)
         self.cnf_model = transform.transform()
         self.fm_godelization = FMGodelization(feature_model)

@@ -10,7 +10,7 @@ class FMHelper:
 
     def __init__(self, feature_model: FeatureModel):
         self.feature_model = feature_model
-        self.features = self.feature_model.get_features()
+        self.features = self.feature_model.features
         self.features_by_name = {f.name : f for f in self.features}
 
         #sat = PySATModel()

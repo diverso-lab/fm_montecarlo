@@ -17,6 +17,8 @@ class ConfigurationState(Configuration, State):
     def __init__(self, fm_helper: 'FMHelper', config_elements: List['Feature']):
         super().__init__(config_elements)
         self.fm_helper = fm_helper
+        self.performance_model = PerformanceModel(fm_helper.feature_model)
+        self.performance_model.load_configurations_from_csv('logging-performance.csv', ['Framework', 'Message Size (b)', 'Output'], 'Computational Time (s)')
 
     def find_successors(self) -> List['ConfigurationState']:
         """
@@ -29,7 +31,6 @@ class ConfigurationState(Configuration, State):
         if not self.elements:
             return [ConfigurationState(self.fm_helper, [self.fm_helper.feature_model.root])]
 
-        print("finding successors...")
         successors = []
         features_selections = []
         undecided_mandatory_relations = self._get_undecided_mandatory_relations()
@@ -59,7 +60,6 @@ class ConfigurationState(Configuration, State):
             for relation in undecided_optional_relations:
                 new_successors = self._get_successors_for_relation(relation)
                 successors.extend(new_successors)
-        print("Finished finding successors.")
 
         return successors
 
@@ -68,14 +68,12 @@ class ConfigurationState(Configuration, State):
         if not self.elements:
             return ConfigurationState(self.fm_helper, [self.fm_helper.feature_model.root])
 
-        print("finding random successor...")
         relations = self._get_undecided_mandatory_relations()
         if not relations:
             relations = self._get_undecided_optional_relations()
         random_relation = random.choice(relations)
         features = self._get_undecided_features_for_relation(random_relation)
         random_feature = random.choice(features)
-        print("Finished finding random successor.")
         return ConfigurationState(self.fm_helper, self.elements + [random_feature])
 
     def is_terminal(self):
@@ -100,7 +98,7 @@ class ConfigurationState(Configuration, State):
         #return len(self.elements) if self._is_valid() else -len(self.elements)
         #n = len(self.fm_helper.feature_model.get_features()) - len(self.elements)
         #return n if self._is_valid() else -n
-        return 1 if self._is_valid() else -1
+        return -1*self.performance_model.get_value(self)
 
     def _get_successors_for_relation(self, relation: 'Relation') -> List['ConfigurationState']:
         """List of ConfigurationState that can be reached due to the given relation."""

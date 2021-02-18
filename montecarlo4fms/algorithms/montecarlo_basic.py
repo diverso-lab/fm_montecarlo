@@ -36,6 +36,7 @@ class MonteCarloBasic(MonteCarlo):
 
     def simulate(self, state: State) -> int:
         while not state.is_terminal():
+            print("simulating...")
             state = state.find_random_successor()
         return state.reward()
 

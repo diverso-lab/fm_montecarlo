@@ -9,6 +9,7 @@ from typing import List
 from montecarlo4fms.utils import FMHelper
 from montecarlo4fms.utils import PerformanceModel
 from montecarlo4fms.algorithms import MonteCarloTreeSearch
+import fm_featureide_parser
 
 # Feature model input
 # features_tree = {'A': [(['B'],1,1), (['C'],0,1), (['D'],0,1), (['E'],1,1), (['F'],0,1)],
@@ -68,7 +69,7 @@ def montecarlo_basic(fm, config):
     print(f"Config {hash(config)}: {config} -> reward: {config.reward()}")
     while not config.is_terminal():
         config = mc.choose(config)
-        mc.print_MC_values()
+        #mc.print_MC_values()
         print(f"Config {hash(config)}: {config} -> reward: {config.reward()}")
 
 def montecarlo_treesearch(fm, config):
@@ -80,27 +81,28 @@ def montecarlo_treesearch(fm, config):
         print(f"Iteration: {n_iteration}")
         n_iteration += 1
         print(f"Current config {hash(config)}: {config} -> reward: {config.reward()}")
-        for s in config.find_successors():
-            print(f"Successor: {s}")
+        # for s in config.find_successors():
+        #     print(f"Successor: {s}")
 
         config = mc.choose(config)
-        mc.print_MC_values()
+        #mc.print_MC_values()
         print(f"Best successor {hash(config)}: {config} -> reward: {config.reward()}")
 
 
 if __name__ == '__main__':
-    fm = read_feature_model()
+    fm = fm_featureide_parser.read_feature_model("input_fms/linux-2.6.33.3basic.xml")
     #fm.ctcs.append(Constraint('ctc1', fm.get_feature_by_name('B11'), fm.get_feature_by_name('C2'), 'requires'))
     #fm.ctcs.append(Constraint('ctc2', fm.get_feature_by_name('E111'), fm.get_feature_by_name('E2'), 'excludes'))
     #fm.ctcs.append(Constraint('ctc3', fm.get_feature_by_name('C2'), fm.get_feature_by_name('F1'), 'requires'))
 
-    initial_config = read_configuration(fm, [])
+    #initial_config = read_configuration(fm, [])
+    initial_config = ConfigurationState(FMHelper(fm), [])
 
-    print(fm)
-    for f in fm.get_features():
-        print(f"{f} -> parent: {f.get_parent()}")
-        for r in f.get_relations():
-            print(f"{f} -> relations: {r}")
+    # print(fm)
+    # for f in fm.get_features():
+    #     print(f"{f} -> parent: {f.get_parent()}")
+    #     for r in f.get_relations():
+    #         print(f"{f} -> relations: {r}")
 
     print(f"Initial config: {initial_config}")
     print(f"is terminal: {initial_config.is_terminal()}")
@@ -111,8 +113,8 @@ if __name__ == '__main__':
     # m = pm.get_model()
     # for c in m:
     #     print(f"{c.elements}: {m[c]}")
-    #montecarlo_basic(fm, initial_config)
-    montecarlo_treesearch(fm, initial_config)
+    montecarlo_basic(fm, initial_config)
+    #montecarlo_treesearch(fm, initial_config)
     #cProfile.run("montecarlo_basic(fm, initial_config)")
 
 

@@ -1,11 +1,23 @@
 from abc import ABC, abstractmethod
 from montecarlo4fms.models import State
 
+
 class MonteCarlo(ABC):
     """
     Generalization of a MonteCarlo strategy.
-    First rollout simulations, then choose a state (e.g., move, configuration).
+    First rollout simulations, then choose the best action (state).
     """
+
+    def run(self, state: State) -> State:
+        """Run the Monte Carlo algorithm. Return the best performing state."""
+        while not self.stopping_condition():
+            self.do_rollout(state)
+        return self.choose(state)
+
+    @abstractmethod
+    def do_rollout(self, state: State):
+        """Apply the Monte Carlo strategy."""
+        pass
 
     @abstractmethod
     def choose(self, state: State) -> State:
@@ -13,12 +25,7 @@ class MonteCarlo(ABC):
         pass
 
     @abstractmethod
-    def simulate(self, state: State) -> int:
-        """Returns the reward for a random simulation (to completion) from the given state."""
-        pass
-
-    @abstractmethod
-    def score(self, state: State) -> float:
-        """Returns the score of the state taking into account all simulations performed.
-        It is normally the average of the rewards for this state."""
+    def stopping_condition(self) -> bool:
+        """Return True if some computational budget is reached, False otherwise.
+        Typically a time, memory or iteration constraint."""
         pass

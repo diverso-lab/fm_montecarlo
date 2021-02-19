@@ -1,0 +1,21 @@
+namespace Salami
+
+features
+	Salami {abstract}
+		or
+			Dough
+				or
+					CheesyCrust
+						optional
+							Ham
+					Normal
+			Sicilian
+				alternative
+					Size
+						mandatory
+							Neapolitan
+					Mozzarella
+						or
+							Pizza
+							Big
+					Topping

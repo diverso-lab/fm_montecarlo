@@ -3,40 +3,49 @@ from collections import defaultdict
 from montecarlo4fms.algorithms import MonteCarlo
 from montecarlo4fms.models import State
 
+
 class MonteCarloBasic(MonteCarlo):
     """
     Basic implementation of the MonteCarlo strategy.
     It first runs n simulations, then chooses the best state.
     """
 
-    def __init__(self, n_simulations: int):
-        self.n_simulations = n_simulations
+    def __init__(self):
         self._initialize()
 
     def _initialize(self):
         self.Q = defaultdict(int)   # total reward of each state
         self.N = defaultdict(int)   # total visit count of each state
 
-    def choose(self, state: State) -> State:
-        if state.is_terminal():
-            raise RuntimeError(f"Montecarlo choose method called on terminal state {state}")
-
+    def run(self, state: State) -> State:
+        """Run the Monte Carlo algorithm.
+        It performs simulations until some predefined computational budget is reached.
+        Return the best performing state.
+        """
         self._initialize()
-        successors = state.find_successors()
-        if len(successors) == 1:
-            return successors[0]
-        else:
-            for i in range(self.n_simulations):
-                s = random.choice(successors)
-                reward = self.simulate(s)
-                self.Q[s] += reward
-                self.N[s] += 1
+        while not stopping_condition():
+            self.do_rollout(state)
+        return self.choose(state)
 
-            return max(self.Q.keys(), key=self.score)
+    def do_rollout(self, state: State):
+        """Perform a simulation and store the statistics."""
+        child = state.find_random_successor()
+        reward = self.simulate(child)
+        self.Q[child] += reward
+        self.N[child] += 1
 
-    def simulate(self, state: State) -> int:
+    def choose(self, state: State) -> State:
+        """Choose the best successor of node."""
+        #if state.is_terminal():
+        #    raise RuntimeError(f"Montecarlo choose method called on terminal state {state}")
+        return max(self.Q.keys(), key=self.score)
+
+    def simulate(self, state: State) -> float:
+        """
+        A simulation is rolled out using uniform random choices.
+        Return the simulation's reward (i.e., reward of the terminal state).
+        """
         while not state.is_terminal():
-            print("simulating...")
             state = state.find_random_successor()
         return state.reward()
 
@@ -47,4 +56,4 @@ class MonteCarloBasic(MonteCarlo):
 
     def print_MC_values(self):
         for s in self.Q.keys():
-            print(f"//MC values for state: {s} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
+            print(f"//MC values for state: {[str(f) for f in s.feature_model.get_features()]} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")

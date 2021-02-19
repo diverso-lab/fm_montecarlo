@@ -15,11 +15,16 @@ For a configuration of 50k features:
 - it takes around 7 ms to apply the godel function.
 - it takes around 2 ms to inverse the godel function.
 """
-from typing import List
+from typing import List, Dict
+
+from famapy.metamodels.fm_metamodel.models import FMConfiguration
 
 class FMGodelization:
     """
-    Use of a Godel function to assign a unique identifier number to each feature and/or configuration.
+    Use of a Godel function to assign a unique identifier number to each feature and configuration.
+    This works like a 'hash' function but it is possible to reverse.
+    However, this should be used for storing configurations that belong to the same feature model
+    Do not use as 'hash' or for comparing configurations that belong to different feature models.
 
     The Godel function works as follows:
     First, create the feature model codes:
@@ -46,16 +51,16 @@ class FMGodelization:
             res[n - self._fm_codes[f]] = 1   # Create the binary number in reversed order. First feature at the left.
         return int(''.join([str(i) for i in res]), 2)
 
-    def degodelization(self, config_number: int) -> List['Feature']:
+    def degodelization(self, config_number: int) -> 'FMConfiguration':
         """Get the configuration from its godel number (decimal)."""
         res = []
         bin_config = bin(config_number)[::-1]   # Reverse order. First feature at the left.
         for i in range(len(bin_config)):
             if bin_config[i] == '1':
                 res.append(self._fm_codes_i[i])
-        return res
+        return FMConfiguration(res)
 
-    def _get_feature_model_codes(self, feature_model: 'FeatureModel') -> dict:
-        """Dictionary of {feature : number}, assigning a unique number to each feature."""
+    def _get_feature_model_codes(self, feature_model: 'FeatureModel') -> Dict['Feature', int]:
+        """Dictionary of {Feature : int}, assigning a unique number to each feature."""
         features = feature_model.get_features()
         return {f : i for f, i in zip(features, range(len(features)))}

@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class State(ABC):
     """
     A representation of a single state.
@@ -23,7 +24,7 @@ class State(ABC):
         pass
 
     @abstractmethod
-    def reward(self) -> int:
+    def reward(self) -> float:
         """Assumes `self` is terminal node. Examples of reward: 1=win, 0=loss, .5=tie, etc."""
         pass
 

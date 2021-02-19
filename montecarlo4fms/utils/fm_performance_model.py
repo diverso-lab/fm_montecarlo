@@ -1,6 +1,6 @@
 import csv
 from typing import List
-from fm_metamodel.famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration
+from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration
 from famapy.core.models import Configuration
 
 class PerformanceModel:

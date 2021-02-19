@@ -1,0 +1,23 @@
+namespace CheesyCrust
+
+features
+	CheesyCrust {abstract}
+		mandatory
+			Normal
+				mandatory
+					Mozzarella
+				optional
+					Dough
+						optional
+							Ham
+			Topping
+		optional
+			Size
+				mandatory
+					Big
+						mandatory
+							Neapolitan
+								mandatory
+									Salami
+							Sicilian
+			Pizza

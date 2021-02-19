@@ -1,0 +1,24 @@
+namespace Normal
+
+features
+	Normal {abstract}
+	mandatory
+			Big
+			mandatory
+					Size
+					mandatory
+							Salami
+					optional
+							Topping
+	optional
+			Sicilian
+			optional
+					Mozzarella
+					optional
+							CheesyCrust
+					Neapolitan
+					Dough
+					mandatory
+							Pizza
+							mandatory
+									Ham

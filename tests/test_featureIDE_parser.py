@@ -1,4 +1,4 @@
-from famapy_fm.metamodels.fm_metamodel.transformations import FeatureIDEParser
+from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 import unittest
 
 
@@ -9,7 +9,8 @@ class TestFeatureIDEParser(unittest.TestCase):
         self.ext = '.' + self.parser.get_source_extension()
         self.input_folder = '../input_fms/'
         self.models = {'linux-2.6.33.3basic': [44079, 28821, 'root', 2238],      # fm_name -> nof_features, nof_constraints, root_name, core_features
-                       'automotive2_1basic':  [14098,   833, 'N_379925076__F_91527E35945B', 1412]}
+                       'automotive2_1basic':  [14098,   833, 'N_379925076__F_91527E35945B', 1412],
+                       'pizzas':              [12, 1, 'Pizza', 4]}
 
     def test_nof_features(self):
         for fm_input in self.models:

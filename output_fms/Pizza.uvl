@@ -1,0 +1,10 @@
+namespace Pizza
+
+features
+	Pizza {abstract}
+		or
+			CheesyCrust
+			Topping
+				optional
+					Mozzarella
+			Ham

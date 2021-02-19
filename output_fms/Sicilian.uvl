@@ -1,0 +1,4 @@
+namespace Sicilian
+
+features
+	Sicilian {abstract}

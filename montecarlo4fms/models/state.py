@@ -1,3 +1,4 @@
+import random
 from abc import ABC, abstractmethod
 
 
@@ -8,14 +9,21 @@ class State(ABC):
     MonteCarlo techniques rely on these states (e.g., MCTS works by constructing a tree of these states).
     """
 
-    @abstractmethod
+    def transition_function(self, action: 'Action') -> 'State':
+        """The transition function applies an action to the current state and returns the resulting state."""
+        return action.execute(self)
+
     def find_successors(self) -> list:
         """All possible successors of this state."""
-        pass
+        return [self.transition_function(a) for a in self.get_actions()]
+
+    def find_random_successor(self) -> 'State':
+        """Random successor of this state (redefine it for more efficient simulation)."""
+        return self.transition_function(random.choose(self.get_actions()))
 
     @abstractmethod
-    def find_random_successor(self) -> 'State':
-        """Random successor of this state (for more efficient simulation)."""
+    def get_actions(self) -> list:
+        """Valid actions that can be performed from this state."""
         pass
 
     @abstractmethod

@@ -1,5 +1,6 @@
 from famapy.metamodels.fm_metamodel.models import Feature
 
+
 def is_or_group(feature: Feature) -> bool:
     return any(r.is_or() for r in feature.get_relations())
 

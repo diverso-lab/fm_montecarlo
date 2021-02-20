@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 from typing import List
-from montecarlo4fms.models import State
 
 
 class Action(ABC):
@@ -14,8 +13,8 @@ class Action(ABC):
         pass
 
     @abstractmethod
-    def execute(self, state: State) -> List[State]:
-        """Return the state(s) resulting of applying the action to the given state."""
+    def execute(self, state: 'State') -> 'State':
+        """Return the state resulting of applying this action to the given state."""
         pass
 
     def __str__(self) -> str:

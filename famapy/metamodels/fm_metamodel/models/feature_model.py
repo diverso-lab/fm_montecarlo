@@ -128,8 +128,8 @@ class FeatureModel(VariabilityModel):
         return self.ctcs
 
     def get_feature_by_name(self, feature_name: str) -> Feature:
-        if not feature_name in self.features_by_name.keys():
-            raise ElementNotFoundException
+        if not feature_name in self.features_by_name:
+            raise Exception(f"Not feature with name: {feature_name}")
         return self.features_by_name[feature_name]
 
     def __str__(self) -> str:

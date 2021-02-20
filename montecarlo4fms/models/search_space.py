@@ -1,5 +1,5 @@
 from graphviz import Digraph
-
+from collections import defaultdict
 
 class SearchSpace:
 
@@ -9,6 +9,8 @@ class SearchSpace:
         self.graph = Digraph()
         self.graph.attr('edge', splines='line')
         self.ids = dict()
+        self.stats = defaultdict(int)
+        self.stats['nof_nodes'] = defaultdict(int)
         self.ni = 1
         self._built(self.initial_state, depth=0)
 
@@ -22,11 +24,13 @@ class SearchSpace:
             else:
                 self.graph.node(self.ids[state], '')
 
+            self.stats['nof_nodes'][depth] += 1
+
             if parent:
                 self.graph.edge(self.ids[parent], self.ids[state])#, label=action.get_name())
 
             for action in state.get_actions():
                 self._built(state.transition_function(action), state, action, depth=depth+1)
 
-    def save_graph(self, path: str, format: str):
-        self.graph.render(path, format=format, view=True)
+    def save_graph(self, path: str, format: str, view=True):
+        self.graph.render(path, format=format, view=view)

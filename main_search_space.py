@@ -23,7 +23,19 @@ def main():
     print(f"#Configurations: {len(configurations)}")
 
     initial_state = FMState(None, configurations)
-    ss = SearchSpace(initial_state, max_depth=5)
+    ss = SearchSpace(initial_state, max_depth=100)
+
+    nof_total_nodes = 0
+    for depth in ss.stats['nof_nodes']:
+        nof_nodes = ss.stats['nof_nodes'][depth]
+        nof_total_nodes += nof_nodes
+        print(f"Depth {depth}: {nof_nodes} nodes")
+    print(f"Total nodes: {nof_total_nodes}")
+
+
+    # print(ss.stats)
+    # print(ss.stats['nof_nodes'].values)
+    # print(f"#Nodes: {sum(ss.stats['nof_nodes'].values)}")
 
     format = "pdf"
     path = "output_fms/" + fm.root.name

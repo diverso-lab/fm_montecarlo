@@ -6,7 +6,7 @@ from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relatio
 from famapy.metamodels.fm_metamodel.utils import fm_utils
 
 from montecarlo4fms.models import State, Action
-#from montecarlo4fms.problems.reverse_engineering.actions import CreateFeatureModel
+
 
 class FMState(State):
 

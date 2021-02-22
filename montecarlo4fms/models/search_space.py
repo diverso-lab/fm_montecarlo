@@ -30,7 +30,7 @@ class SearchSpace:
                 self.graph.edge(self.ids[parent], self.ids[state])#, label=action.get_name())
 
             for action in state.get_actions():
-                self._built(state.transition_function(action), state, action, depth=depth+1)
+                self._built(action.execute(state), state, action, depth=depth+1)
 
     def save_graph(self, path: str, format: str, view=True):
         self.graph.render(path, format=format, view=view)

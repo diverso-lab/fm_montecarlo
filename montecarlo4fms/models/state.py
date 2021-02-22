@@ -9,17 +9,13 @@ class State(ABC):
     MonteCarlo techniques rely on these states (e.g., MCTS works by constructing a tree of these states).
     """
 
-    def transition_function(self, action: 'Action') -> 'State':
-        """The transition function applies an action to the current state and returns the resulting state."""
-        return action.execute(self)
-
     def find_successors(self) -> list:
         """All possible successors of this state."""
-        return [self.transition_function(a) for a in self.get_actions()]
+        return [a.execute(self) for a in self.get_actions()]
 
     def find_random_successor(self) -> 'State':
         """Random successor of this state (redefine it for more efficient simulation)."""
-        return self.transition_function(random.choose(self.get_actions()))
+        return random.choose(self.get_actions()).execute(self)
 
     @abstractmethod
     def get_actions(self) -> list:

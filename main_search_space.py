@@ -22,8 +22,8 @@ def main():
         nc += 1
     print(f"#Configurations: {len(configurations)}")
 
-    initial_state = FMState(None, configurations)
-    ss = SearchSpace(initial_state, max_depth=100)
+    initial_state = FMState(FeatureModel(root=None), configurations)
+    ss = SearchSpace(initial_state=initial_state, max_depth=100)
 
     nof_total_nodes = 0
     for depth in ss.stats['nof_nodes']:
@@ -39,7 +39,7 @@ def main():
 
     format = "pdf"
     path = "output_fms/" + fm.root.name
-    ss.save_graph(path, format)
+    ss.save_graph(path=path, format=format, view=False)
 
 if __name__ == '__main__':
     main()

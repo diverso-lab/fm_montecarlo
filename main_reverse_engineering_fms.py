@@ -2,15 +2,19 @@ from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration,
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser, UVLWritter
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
-from montecarlo4fms.models import StateFM
+from montecarlo4fms.problems.reverse_engineering.models import FMState
 from montecarlo4fms.algorithms import MCTSIterations, MCIterations
 
 
-if __name__ == '__main__':
+INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
+OUTPUT_PATH = "montecarlo4fms/problems/reverse_engineering/output_fms/"
+FM_NAME = "pizzas"
+
+def main():
     print("Reverse engineering problem")
 
     # Read the feature model
-    fide_parser = FeatureIDEParser("input_fms/pizzas.xml")
+    fide_parser = FeatureIDEParser(INPUT_PATH + FM_NAME + ".xml")
     fm = fide_parser.transform()
 
     print(f"#Features: {len(fm.get_features())} -> {[str(f) for f in fm.get_features()]}")
@@ -25,11 +29,11 @@ if __name__ == '__main__':
         nc += 1
     print(f"#Configurations: {len(configurations)}")
 
-    iterations = 100000
+    iterations = 100
     montecarlo = MCIterations(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
-    initial_state = StateFM(FeatureModel(None), configurations)
+    initial_state = FMState(FeatureModel(None), configurations)
 
     n = 0
     state = initial_state
@@ -55,7 +59,7 @@ if __name__ == '__main__':
 
     print(f"Final State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
 
-    path = "output_fms/" + state.feature_model.root.name + "." + UVLWritter.get_destination_extension()
+    path = OUTPUT_PATH + state.feature_model.root.name + "." + UVLWritter.get_destination_extension()
     uvl_writter = UVLWritter(path=path, source_model=state.feature_model)
     uvl_model = uvl_writter.transform()
 
@@ -102,3 +106,7 @@ if __name__ == '__main__':
     #
     # ss3 = ss2[0].find_successors()
     # print(len(ss3))
+
+
+if __name__ == '__main__':
+    main()

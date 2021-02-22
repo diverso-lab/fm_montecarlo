@@ -15,7 +15,7 @@ class State(ABC):
 
     def find_random_successor(self) -> 'State':
         """Random successor of this state (redefine it for more efficient simulation)."""
-        return random.choose(self.get_actions()).execute(self)
+        return random.choice(self.get_actions()).execute(self)
 
     @abstractmethod
     def get_actions(self) -> list:

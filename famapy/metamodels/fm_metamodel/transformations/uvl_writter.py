@@ -83,8 +83,8 @@ class UVLWritter(ModelToText):
     def _tranverse_constraints(self, ctcs: List[Constraint]) -> str:
         text = ""
         for c in ctcs:
-            if ctc_type == 'requires':
+            if c.ctc_type == 'requires':
                 text += "\t" + c.origin.name + " => " + c.destination.name + "\n"
-            elif ctc_type == 'excludes':
+            elif c.ctc_type == 'excludes':
                 text += "\t" + c.origin.name + " => !" + c.destination.name + "\n"
         return text

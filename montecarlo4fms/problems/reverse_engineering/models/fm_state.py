@@ -70,14 +70,22 @@ class FMState(State):
                     excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
                     if excludes_f1_f2 or excludes_f2_f1:
                         pass
-                    elif requires_f1_f2 and not requires_f2_f1:
-                        actions.append(AddRequiresConstraint(f2.name, f1.name))
-                    elif requires_f2_f1:
-                        actions.append(AddRequiresConstraint(f1.name, f2.name))
-                    else:
+                    elif not requires_f1_f2 and not requires_f2_f1:
                         actions.append(AddRequiresConstraint(f1.name, f2.name))
                         actions.append(AddRequiresConstraint(f2.name, f1.name))
                         actions.append(AddExcludesConstraint(f1.name, f2.name))
+                    elif not requires_f1_f2:
+                        actions.append(AddRequiresConstraint(f1.name, f2.name))
+                    elif not requires_f2_f1:
+                        actions.append(AddRequiresConstraint(f2.name, f1.name))
+                    # elif requires_f1_f2 and not requires_f2_f1:
+                    #     actions.append(AddRequiresConstraint(f2.name, f1.name))
+                    # elif not requires_f1_f2 and requires_f2_f1:
+                    #     actions.append(AddRequiresConstraint(f1.name, f2.name))
+                    # elif not requires_f1_f2 and not requires_f2_f1:
+                    #     actions.append(AddRequiresConstraint(f1.name, f2.name))
+                    #     actions.append(AddRequiresConstraint(f2.name, f1.name))
+                    #     actions.append(AddExcludesConstraint(f1.name, f2.name))
 
         return actions
 
@@ -94,7 +102,7 @@ class FMState(State):
         return prime * hash(self.feature_model) + sum(prime * hash(a.get_name()) for a in self.get_actions())
 
     def __eq__(s1: 'FMState', s2: 'FMState') -> bool:
-        return s1.feature_model == s2.feature_model
+        return hash(s1) == hash(s2)
 
     def __str__(self) -> str:
         return str(self.feature_model)

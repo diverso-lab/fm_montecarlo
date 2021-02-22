@@ -1,3 +1,5 @@
+import cProfile
+
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
@@ -9,6 +11,7 @@ from montecarlo4fms.problems.reverse_engineering.models import FMState
 INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
 OUTPUT_PATH = "montecarlo4fms/problems/reverse_engineering/output_fms/"
 FM_NAME = "features4"
+
 
 def main():
     # Read the feature model
@@ -28,7 +31,7 @@ def main():
     print(f"#Configurations: {len(configurations)}")
 
     initial_state = FMState(FeatureModel(root=None), configurations)
-    ss = SearchSpace(initial_state=initial_state, max_depth=100)
+    ss = SearchSpace(initial_state=initial_state, max_depth=10)
 
     nof_total_nodes = 0
     for depth in ss.stats['nof_nodes']:
@@ -47,4 +50,5 @@ def main():
     ss.save_graph(path=path, format=format, view=False)
 
 if __name__ == '__main__':
+    #cProfile.run("main()")
     main()

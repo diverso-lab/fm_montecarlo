@@ -15,14 +15,14 @@ class FMState(State):
         self.configurations = configurations
         self.missing_features = self._get_missing_features()
 
-    def _get_missing_features(self):
+    def _get_missing_features(self) -> set:
         """Return the set of features in the configurations that are missing in the feature model."""
         features = set()
         for c in self.configurations:
             features.update({f for f in c.elements.keys() if c.elements[f]})
         if not self.feature_model:
             return features
-        return features - set(self.feature_model.get_features())
+        return {f for f in features if f not in self.feature_model.get_features()}
 
     def get_actions(self) -> List['Action']:
         """Return the list of valid actions for this state."""
@@ -58,14 +58,26 @@ class FMState(State):
                     actions.append(AddFeatureToAlternativeGroup(feature.name, candidate_parent.name))
 
         candidate_features_for_constraints = list(self.feature_model.get_features())
-        candidate_features_for_constraints.remove(self.feature_model.root)
+        candidate_features_for_constraints.remove(self.feature_model.root)      # avoid constraint for root feature
+        ctcs = self.feature_model.ctcs
         if len(candidate_features_for_constraints) > 1:
             combinations = itertools.combinations(candidate_features_for_constraints, 2)
             for f1, f2 in combinations:
-                if f1.get_parent() != f2 and f2.get_parent() != f1:
-                    actions.append(AddRequiresConstraint(f1.name, f2.name))
-                    actions.append(AddRequiresConstraint(f2.name, f1.name))
-                    actions.append(AddExcludesConstraint(f1.name, f2.name))
+                if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
+                    requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
+                    requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
+                    excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
+                    excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
+                    if excludes_f1_f2 or excludes_f2_f1:
+                        pass
+                    elif requires_f1_f2 and not requires_f2_f1:
+                        actions.append(AddRequiresConstraint(f2.name, f1.name))
+                    elif requires_f2_f1:
+                        actions.append(AddRequiresConstraint(f1.name, f2.name))
+                    else:
+                        actions.append(AddRequiresConstraint(f1.name, f2.name))
+                        actions.append(AddRequiresConstraint(f2.name, f1.name))
+                        actions.append(AddExcludesConstraint(f1.name, f2.name))
 
         return actions
 
@@ -78,7 +90,8 @@ class FMState(State):
         return 0
 
     def __hash__(self) -> int:
-        return hash(self.feature_model)
+        prime = 31
+        return prime * hash(self.feature_model) + sum(prime * hash(a.get_name()) for a in self.get_actions())
 
     def __eq__(s1: 'FMState', s2: 'FMState') -> bool:
         return s1.feature_model == s2.feature_model
@@ -122,7 +135,7 @@ class AddOptionalFeature(Action):
         self.parent_name = parent_name
 
     def get_name(self) -> str:
-        return "Add optional: " + self.parent_name + "->" + self.feature_name
+        return "Add optional: " + self.parent_name + ":" + self.feature_name
 
     def execute(self, state: State) -> State:
         fm = copy.deepcopy(state.feature_model)
@@ -144,7 +157,7 @@ class AddMandatoryFeature(Action):
         self.parent_name = parent_name
 
     def get_name(self) -> str:
-        return "Add mandatory: " + self.parent_name + "->" + self.feature_name
+        return "Add mandatory: " + self.parent_name + ":" + self.feature_name
 
     def execute(self, state: State) -> State:
         fm = copy.deepcopy(state.feature_model)
@@ -167,7 +180,7 @@ class AddOrGroupRelation(Action):
         self.parent_name = parent_name
 
     def get_name(self) -> str:
-        return "Add or-group: " + self.parent_name + "-> (" + self.feature_name1 + "," + self.feature_name2 + ")"
+        return "Add or-group: " + self.parent_name + ":(" + self.feature_name1 + "," + self.feature_name2 + ")"
 
     def execute(self, state: State) -> State:
         fm = copy.deepcopy(state.feature_model)
@@ -193,7 +206,7 @@ class AddAlternativeGroupRelation(Action):
         self.parent_name = parent_name
 
     def get_name(self) -> str:
-        return "Add xor-group: " + self.parent_name + "-> (" + self.feature_name1 + "," + self.feature_name2 + ")"
+        return "Add xor-group: " + self.parent_name + ":(" + self.feature_name1 + "," + self.feature_name2 + ")"
 
     def execute(self, state: State) -> State:
         fm = copy.deepcopy(state.feature_model)
@@ -218,7 +231,7 @@ class AddFeatureToOrGroup(Action):
         self.parent_name = parent_name
 
     def get_name(self) -> str:
-        return "Add or-group child: " + self.parent_name + "->" + self.feature_name
+        return "Add or-group child: " + self.parent_name + ":" + self.feature_name
 
     def execute(self, state: State) -> State:
         fm = copy.deepcopy(state.feature_model)
@@ -241,7 +254,7 @@ class AddFeatureToAlternativeGroup(Action):
         self.parent_name = parent_name
 
     def get_name(self) -> str:
-        return "Add xor-group child: " + self.parent_name + "->" + self.feature_name
+        return "Add xor-group child: " + self.parent_name + ":" + self.feature_name
 
     def execute(self, state: State) -> State:
         fm = copy.deepcopy(state.feature_model)

@@ -1,13 +1,18 @@
-from montecarlo4fms.models import SearchSpace
-from montecarlo4fms.problems.reverse_engineering.models import FMState
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
+from montecarlo4fms.models import SearchSpace
+from montecarlo4fms.problems.reverse_engineering.models import FMState
+
+
+INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
+OUTPUT_PATH = "montecarlo4fms/problems/reverse_engineering/output_fms/"
+FM_NAME = "features4"
 
 def main():
     # Read the feature model
-    fide_parser = FeatureIDEParser("input_fms/pizzas_simple.xml")
+    fide_parser = FeatureIDEParser(INPUT_PATH + FM_NAME + ".xml")
     fm = fide_parser.transform()
 
     print(f"#Features: {len(fm.get_features())} -> {[str(f) for f in fm.get_features()]}")
@@ -37,8 +42,8 @@ def main():
     # print(ss.stats['nof_nodes'].values)
     # print(f"#Nodes: {sum(ss.stats['nof_nodes'].values)}")
 
-    format = "pdf"
-    path = "output_fms/" + fm.root.name
+    format = "svg"
+    path = OUTPUT_PATH + FM_NAME
     ss.save_graph(path=path, format=format, view=False)
 
 if __name__ == '__main__':

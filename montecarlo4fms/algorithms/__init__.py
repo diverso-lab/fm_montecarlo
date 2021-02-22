@@ -5,5 +5,6 @@ from .mc_anytime import MCAnytime
 from .mc_iterations import MCIterations
 from .mcts_anytime import MCTSAnytime
 from .mcts_iterations import MCTSIterations
+from .mcts_iterations_rndpolicy import MCTSIterationsRandomPolicy
 
-__all__ = ['MonteCarlo', 'MonteCarloBasic', 'MonteCarloTreeSearch', 'MCAnytime', 'MCIterations', 'MCTSAnytime', 'MCTSIterations']
+__all__ = ['MonteCarlo', 'MonteCarloBasic', 'MonteCarloTreeSearch', 'MCAnytime', 'MCIterations', 'MCTSAnytime', 'MCTSIterations', 'MCTSIterationsRandomPolicy']

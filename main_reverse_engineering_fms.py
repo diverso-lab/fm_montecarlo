@@ -5,12 +5,12 @@ from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser, UVL
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.problems.reverse_engineering.models import FMState
-from montecarlo4fms.algorithms import MCTSIterations, MCIterations
+from montecarlo4fms.algorithms import MCTSIterations, MCIterations, MCTSIterationsRandomPolicy
 
 
 INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
 OUTPUT_PATH = "montecarlo4fms/problems/reverse_engineering/output_fms/"
-FM_NAME = "pizzas_simple"
+FM_NAME = "pizzas"
 
 def main():
     print("Reverse engineering problem")
@@ -31,8 +31,8 @@ def main():
         nc += 1
     print(f"#Configurations: {len(configurations)}")
 
-    iterations = 100
-    montecarlo = MCTSIterations(iterations=iterations)
+    iterations = 1000
+    montecarlo = MCTSIterationsRandomPolicy(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
     initial_state = FMState(FeatureModel(None), configurations)

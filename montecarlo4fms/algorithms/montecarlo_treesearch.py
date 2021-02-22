@@ -52,7 +52,7 @@ class MonteCarloTreeSearch(MonteCarlo):
         Return the list of nodes visited.
         """
         path = [state]
-        while state in self.tree and self.tree[state]:  # while state is neither explored nor terminal
+        while state in self.tree and self.tree[state]:  # while state is neither explored nor terminal (if the node has children in the tree means that is not terminal)
             unexplored = self.tree[state] - self.tree.keys()
             if unexplored:  # the node is not fully expanded
                 s = unexplored.pop()

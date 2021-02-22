@@ -16,6 +16,8 @@ class FMState(State):
         self.feature_model = feature_model
         self.configurations = configurations
         self.missing_features = self._get_missing_features()
+        self.actions = []
+        self.actions = self.get_actions()
 
     def _get_missing_features(self) -> set:
         """Return the set of features in the configurations that are missing in the feature model."""
@@ -28,11 +30,16 @@ class FMState(State):
 
     def get_actions(self) -> List['Action']:
         """Return the list of valid actions for this state."""
+        if self.actions:
+            return self.actions
+
         if not self.feature_model:
-            return [CreateFeatureModel()]
+            self.actions = [CreateFeatureModel()]
+            return self.actions
 
         if not self.feature_model.root:
-            return [AddRootFeature(feature.name) for feature in self.missing_features]
+            self.actions = [AddRootFeature(feature.name) for feature in self.missing_features]
+            return self.actions
 
         group_features = [f for f in self.feature_model.get_features() if fm_utils.is_group(f)]
         non_group_features = [f for f in self.feature_model.get_features() if f not in group_features]
@@ -88,8 +95,8 @@ class FMState(State):
                     #     actions.append(AddRequiresConstraint(f1.name, f2.name))
                     #     actions.append(AddRequiresConstraint(f2.name, f1.name))
                     #     actions.append(AddExcludesConstraint(f1.name, f2.name))
-
-        return actions
+        self.actions = actions
+        return self.actions
 
     def is_terminal(self) -> bool:
         """A state is terminal if the feature model contains all features from all configurations.

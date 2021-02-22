@@ -2,7 +2,7 @@ import copy
 import itertools
 from typing import List, Set
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation, FMConfiguration
+from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation, Constraint, FMConfiguration
 from famapy.metamodels.fm_metamodel.utils import fm_utils
 
 from montecarlo4fms.models import State, Action
@@ -56,6 +56,16 @@ class FMState(State):
                     actions.append(AddFeatureToOrGroup(feature.name, candidate_parent.name))
                 elif fm_utils.is_alternative_group(candidate_parent):
                     actions.append(AddFeatureToAlternativeGroup(feature.name, candidate_parent.name))
+
+        candidate_features_for_constraints = list(self.feature_model.get_features())
+        candidate_features_for_constraints.remove(self.feature_model.root)
+        if len(candidate_features_for_constraints) > 1:
+            combinations = itertools.combinations(candidate_features_for_constraints, 2)
+            for f1, f2 in combinations:
+                if f1.get_parent() != f2 and f2.get_parent() != f1:
+                    actions.append(AddRequiresConstraint(f1.name, f2.name))
+                    actions.append(AddRequiresConstraint(f2.name, f1.name))
+                    actions.append(AddExcludesConstraint(f1.name, f2.name))
 
         return actions
 
@@ -243,4 +253,40 @@ class AddFeatureToAlternativeGroup(Action):
         fm.features.append(child)
         fm.relations.append(parent_relation)
         fm.features_by_name[child.name] = child
+        return FMState(fm, state.configurations)
+
+
+class AddRequiresConstraint(Action):
+
+    def __init__(self, feature_name1: str, feature_name2: str):
+        self.feature_name1 = feature_name1
+        self.feature_name2 = feature_name2
+
+    def get_name(self) -> str:
+        return "Add requires: " + self.feature_name1 + "->" + self.feature_name2
+
+    def execute(self, state: State) -> State:
+        fm = copy.deepcopy(state.feature_model)
+        feature1 = fm.get_feature_by_name(self.feature_name1)
+        feature2 = fm.get_feature_by_name(self.feature_name2)
+        ctc = Constraint(name=self.feature_name1 + "->" + self.feature_name2, origin=feature1, destination=feature2, ctc_type='requires')
+        fm.ctcs.append(ctc)
+        return FMState(fm, state.configurations)
+
+
+class AddExcludesConstraint(Action):
+
+    def __init__(self, feature_name1: str, feature_name2: str):
+        self.feature_name1 = feature_name1
+        self.feature_name2 = feature_name2
+
+    def get_name(self) -> str:
+        return "Add excludes: " + self.feature_name1 + "->" + self.feature_name2
+
+    def execute(self, state: State) -> State:
+        fm = copy.deepcopy(state.feature_model)
+        feature1 = fm.get_feature_by_name(self.feature_name1)
+        feature2 = fm.get_feature_by_name(self.feature_name2)
+        ctc = Constraint(name=self.feature_name1 + "->!" + self.feature_name2, origin=feature1, destination=feature2, ctc_type='excludes')
+        fm.ctcs.append(ctc)
         return FMState(fm, state.configurations)

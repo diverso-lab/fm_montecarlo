@@ -7,8 +7,9 @@ class Action(ABC):
     A representation of a valid action.
     """
 
+    @staticmethod
     @abstractmethod
-    def get_name(self) -> str:
+    def get_name() -> str:
         """Name of the action."""
         pass
 
@@ -16,6 +17,3 @@ class Action(ABC):
     def execute(self, state: 'State') -> 'State':
         """Return the state resulting of applying this action to the given state."""
         pass
-
-    def __str__(self) -> str:
-        return self.get_name()

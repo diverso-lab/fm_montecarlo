@@ -1,10 +1,10 @@
 from typing import List
 
-from montecarlo4fms.algorithms import MCTSIterations
+from montecarlo4fms.algorithms import MCTSAnytime
 from montecarlo4fms.models import State
 
 
-class MCTSIterationsRandomPolicy(MCTSIterations):
+class MCTSAnytimeRandomPolicy(MCTSAnytime):
     """
     This version overrides the selection and expansion functions to avoid expanding all successors of the current state.
     """

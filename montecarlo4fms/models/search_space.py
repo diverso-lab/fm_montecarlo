@@ -47,7 +47,7 @@ class SearchSpace:
 
         if parent:
             if action:
-                self.graph.edge(self.ids[parent], self.ids[state], label=action.get_name())
+                self.graph.edge(self.ids[parent], self.ids[state], label=str(action))
             else:
                 self.graph.edge(self.ids[parent], self.ids[state])
 

@@ -5,7 +5,7 @@ from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser, UVL
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.problems.reverse_engineering.models import FMState
-from montecarlo4fms.algorithms import MCTSIterations, MCIterations, MCTSIterationsRandomPolicy
+from montecarlo4fms.algorithms import MCTSIterations, MCIterations, MCTSIterationsRandomPolicy, MCTSAnytime, MCTSAnytimeRandomPolicy
 
 
 INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
@@ -33,6 +33,7 @@ def main():
 
     iterations = 1000
     montecarlo = MCTSIterationsRandomPolicy(iterations=iterations)
+    #montecarlo = MCTSAnytimeRandomPolicy(seconds=1)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
     initial_state = FMState(FeatureModel(None), configurations)

@@ -10,7 +10,7 @@ class MCTSAnytime(MonteCarloTreeSearch):
 
     def run(self, state: State) -> State:
         self.start = time.time()
-        return super().run()
+        return super().run(state)
 
     def stopping_condition(self) -> bool:
         """Return True if the given gime has been spent, False otherwise."""

@@ -1,9 +1,11 @@
 import copy
 import itertools
+from functools import reduce
 from typing import List, Set
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation, Constraint, FMConfiguration
 from famapy.metamodels.fm_metamodel.utils import fm_utils
+from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.models import State, Action
 
@@ -95,7 +97,24 @@ class FMState(State):
         return not self.missing_features
 
     def reward(self) -> float:
-        return 0
+        """
+        Two objective function as defined in Lopez-Herrejon2015 [JSS] - An assessment of search-based techniques for reverse engineering FMs.
+            1. Relaxed: Express the concern of capturing primarily the configurations provided.
+                Its value is the number of configurations (self.configurations) that are valid according to the feature model represented by this state.
+                We want to maximize this value.
+            2. Minimal Difference (MinDiff): Express the concern of obtaining a closer-fit to the configurations provided (other configurations are not relevant).
+                Its value is 'deficit' + 'surplus' where:
+                    'deficit' is the number of configurations (self.configurations) that are not contained in the configuration of the feature model.
+                    'surplus' is the number of configurations of the feature model that are not contained in the required configuration (self.configurations).
+                We want to minimize this value.
+        """
+        aafms_helper = AAFMsHelper(self.feature_model)
+        configurations_captured = aafms_helper.get_configurations()
+        relaxed_value = reduce(lambda count, c: count + (aafms_helper.is_valid_configuration(c)), self.configurations, 0)
+        deficit_value = reduce(lambda count, c: count + (c not in configurations_captured), self.configurations, 0)
+        surplus_value = reduce(lambda count, c: count + (c not in self.configurations), configurations_captured, 0)
+
+        return relaxed_value - (deficit_value + surplus_value)
 
     def __hash__(self) -> int:
         prime = 31

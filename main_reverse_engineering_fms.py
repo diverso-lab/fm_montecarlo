@@ -1,3 +1,5 @@
+from functools import reduce
+
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser, UVLWritter
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
@@ -8,7 +10,7 @@ from montecarlo4fms.algorithms import MCTSIterations, MCIterations
 
 INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
 OUTPUT_PATH = "montecarlo4fms/problems/reverse_engineering/output_fms/"
-FM_NAME = "pizzas"
+FM_NAME = "pizzas_simple"
 
 def main():
     print("Reverse engineering problem")
@@ -30,7 +32,7 @@ def main():
     print(f"#Configurations: {len(configurations)}")
 
     iterations = 100
-    montecarlo = MCIterations(iterations=iterations)
+    montecarlo = MCTSIterations(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
     initial_state = FMState(FeatureModel(None), configurations)
@@ -40,7 +42,8 @@ def main():
     while not state.is_terminal():
         print(f"State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
         new_state = montecarlo.run(state)
-        montecarlo.print_MC_values()
+        #montecarlo.print_MC_values()
+        montecarlo.print_MC_values(state)
         state = new_state
         n += 1
 
@@ -57,7 +60,12 @@ def main():
         nc += 1
     print(f"#Configurations: {len(new_configurations)}")
 
+    relaxed_value = reduce(lambda count, c: count + (aafms_helper.is_valid_configuration(c)), configurations, 0)
+    deficit_value = reduce(lambda count, c: count + (c not in new_configurations), configurations, 0)
+    surplus_value = reduce(lambda count, c: count + (c not in configurations), new_configurations, 0)
     print(f"Final State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
+    print(f"Relaxed objective function: {relaxed_value}")
+    print(f"Mininal difference objective function (deficit_value + surplus_value): {deficit_value} + {surplus_value} = {deficit_value+surplus_value}")
 
     path = OUTPUT_PATH + state.feature_model.root.name + "." + UVLWritter.get_destination_extension()
     uvl_writter = UVLWritter(path=path, source_model=state.feature_model)

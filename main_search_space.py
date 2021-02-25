@@ -10,7 +10,7 @@ from montecarlo4fms.problems.reverse_engineering.models import FMState
 
 INPUT_PATH = "montecarlo4fms/problems/reverse_engineering/input_fms/"
 OUTPUT_PATH = "montecarlo4fms/problems/reverse_engineering/output_fms/"
-FM_NAME = "features4"
+FM_NAME = "features5"
 
 
 def main():

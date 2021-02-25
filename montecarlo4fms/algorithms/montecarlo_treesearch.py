@@ -1,7 +1,7 @@
-import random
-import math
+from abc import abstractmethod
 from collections import defaultdict
 from typing import List
+
 from montecarlo4fms.algorithms import MonteCarlo
 from montecarlo4fms.models import State
 
@@ -9,13 +9,13 @@ from montecarlo4fms.models import State
 class MonteCarloTreeSearch(MonteCarlo):
     """
     Monte Carlo Tree Search (MCTS) strategy.
-    It iteratively builds a search tree until some predefined computational budget is reached.
-    It uses the UCT algorithm for the policy tree.
+    A search tree is built in an incremental and assymetric manner.
+    For each iteration of the algorithm, a tree policy is used to find the most urgent node of the current tree.
     It uses uniform random choices as the default policy for simulations.
     """
 
-    def __init__(self, exploration_weight: float = 0.5):
-        self.exploration_weight = exploration_weight
+    def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
+        super().__init__(stopping_condition, selection_criteria)
         self.Q = defaultdict(int)   # total reward of each state
         self.N = defaultdict(int)   # total visit count of each state
         self.tree = dict()          # the MC tree as a dict of state -> children
@@ -29,19 +29,12 @@ class MonteCarloTreeSearch(MonteCarlo):
         self.backpropagate(path, reward)
 
     def choose(self, state: State) -> State:
-        """Choose the best successor of node."""
-        #if state.is_terminal():
-        #    raise RuntimeError(f"Montecarlo choose method called on terminal state {state}")
-
         if state not in self.tree:
             return state.find_random_successor()
-        return max(self.tree[state], key=self.score)
+        return self.selection_criteria.best_child(state, self.tree[state], self.Q, self.N)
 
     def score(self, state: State) -> float:
-        """The Q-value (expected reward) of the state."""
-        if self.N[state] == 0:
-            return float("-inf")              # avoid unseen state
-        return self.Q[state] / self.N[state]  # average reward
+        return self.selection_criteria.score(state, self.Q, self.N)
 
     def select(self, state: State) -> List[State]:
         """
@@ -61,6 +54,11 @@ class MonteCarloTreeSearch(MonteCarlo):
             state = self.best_child(state)
             path.append(state)
         return path
+
+    @abstractmethod
+    def best_child(self, state: State) -> State:
+        """Select the best child of state in the search tree according to a policy tree."""
+        pass
 
     def expand(self, state: State):
         """
@@ -88,19 +86,6 @@ class MonteCarloTreeSearch(MonteCarlo):
         for state in reversed(path):
             self.N[state] += 1
             self.Q[state] += reward
-
-    def best_child(self, state: State) -> State:
-        """
-        Select the best child of state, balancing exploration and exploitation.
-        It uses the Upper confidence bounds for trees (UCT) policy.
-        """
-        log_N_vertex = math.log(self.N[state])
-
-        def uct(s: State) -> float:
-            """Upper confidence bounds for trees."""
-            return self.Q[s] / self.N[s] + self.exploration_weight * math.sqrt(log_N_vertex / self.N[s])
-
-        return max(self.tree[state], key=uct)
 
     def print_MC_values(self, state):
         print(f"MonteCarloTreeSearch values:")

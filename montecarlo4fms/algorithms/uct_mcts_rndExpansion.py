@@ -1,22 +1,15 @@
 from typing import List
 
-from montecarlo4fms.algorithms import MCTSAnytime
+from montecarlo4fms.algorithms import UCTAlgorithm
 from montecarlo4fms.models import State
 
 
-class MCTSAnytimeRandomPolicy(MCTSAnytime):
+class UCTRandomExpansion(UCTAlgorithm):
     """
-    This version overrides the selection and expansion functions to avoid expanding all successors of the current state.
+    It expands a random child node instead of all children of a node.
     """
 
     def select(self, state: State) -> List[State]:
-        """
-        Step 1: Selection.
-        Find an expandable/unexplored child node of `state`.
-        A node is expandable if it represents a nonterminal state and has unvisited.
-        The tree policy is applied recursively until a leaf node is reached.
-        Return the list of nodes visited.
-        """
         self.already_expanded = False
         path = [state]
         while state in self.tree and self.tree[state]:  # while state is neither explored nor terminal
@@ -37,10 +30,6 @@ class MCTSAnytimeRandomPolicy(MCTSAnytime):
         return path
 
     def expand(self, state: State):
-        """
-        Step 2: Expansion.
-        Update the tree with the children of 'state'.
-        """
         if not self.already_expanded:
             if not state.is_terminal():
                 if not state in self.tree:

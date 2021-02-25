@@ -28,11 +28,11 @@ class MonteCarlo(ABC):
         pass
 
     @abstractmethod
-    def choose(self, state: State) -> float:
+    def choose(self, state: State) -> State:
         """Choose the best successor of state."""
         pass
 
     @abstractmethod
-    def score(self, state: State) -> State:
+    def score(self, state: State) -> float:
         """The score of the state"""
         pass

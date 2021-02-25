@@ -13,7 +13,7 @@ class MonteCarloAlgorithms:
 
     @staticmethod
     def montecarlo_anytime_maxchild(seconds: int = 1) -> 'MonteCarloBasic':
-        stop_cond = AnytimeStoppingCondition(time=seconds)
+        stop_cond = AnytimeStoppingCondition(seconds=seconds)
         select_crit = MaxChild()
         return MonteCarloBasic(stopping_condition=stop_cond, selection_criteria=select_crit)
 
@@ -25,7 +25,7 @@ class MonteCarloAlgorithms:
 
     @staticmethod
     def uct_anytime_maxchild(seconds: int = 1, exploration_weight: float = 0.5) -> 'MonteCarloTreeSearch':
-        stop_cond = AnytimeStoppingCondition(time=seconds)
+        stop_cond = AnytimeStoppingCondition(seconds=seconds)
         select_crit = MaxChild()
         return UCTAlgorithm(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)
 
@@ -37,6 +37,6 @@ class MonteCarloAlgorithms:
 
     @staticmethod
     def uct_anytime_maxchild_random_expansion(seconds: int = 1, exploration_weight: float = 0.5) -> 'MonteCarloTreeSearch':
-        stop_cond = AnytimeStoppingCondition(time=seconds)
+        stop_cond = AnytimeStoppingCondition(seconds=seconds)
         select_crit = MaxChild()
         return UCTRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)

@@ -2,7 +2,7 @@ from famapy.core.models import Configuration
 
 class FMConfiguration(Configuration):
 
-    def __init__(self, elements: dict):
+    def __init__(self, elements: dict = {}):
         super().__init__(elements=elements)
 
     def __iter__(self):
@@ -13,3 +13,6 @@ class FMConfiguration(Configuration):
 
     def __eq__(config1: 'FMConfiguration', config2: 'FMConfiguration'):
         return config1.elements == config2.elements
+
+    def __str__(self) -> str:
+        return str(['+' + str(f) if self.elements[f] else '-' + str(f) for f in self.elements])

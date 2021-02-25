@@ -30,13 +30,13 @@ class MonteCarloAlgorithms:
         return UCTAlgorithm(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)
 
     @staticmethod
-    def uct_iterations_maxchild_rnd_expansion(iterations: int = 100, exploration_weight: float = 0.5) -> 'MonteCarloTreeSearch':
+    def uct_iterations_maxchild_random_expansion(iterations: int = 100, exploration_weight: float = 0.5) -> 'MonteCarloTreeSearch':
         stop_cond = IterationsStoppingCondition(iterations=iterations)
         select_crit = MaxChild()
         return UCTRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)
 
     @staticmethod
-    def uct_anytime_maxchild_rnd_expansion(seconds: int = 1, exploration_weight: float = 0.5) -> 'MonteCarloTreeSearch':
+    def uct_anytime_maxchild_random_expansion(seconds: int = 1, exploration_weight: float = 0.5) -> 'MonteCarloTreeSearch':
         stop_cond = AnytimeStoppingCondition(time=seconds)
         select_crit = MaxChild()
         return UCTRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)

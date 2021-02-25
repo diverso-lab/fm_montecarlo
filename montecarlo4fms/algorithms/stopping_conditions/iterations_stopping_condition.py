@@ -17,4 +17,4 @@ class IterationsStoppingCondition(StoppingCondition):
 
     def reached(self) -> bool:
         """Return True if the number of iterations is reached."""
-        return self._it >= self.iterations
+        return self._it > self.iterations

@@ -263,7 +263,6 @@ class FMState(State):
         self.configurations = configurations
         self.missing_features = self._get_missing_features()
         self.actions = []
-        self.actions = self.get_actions()
 
     def _get_missing_features(self) -> list:
         """Return the set of features in the configurations that are missing in the feature model."""

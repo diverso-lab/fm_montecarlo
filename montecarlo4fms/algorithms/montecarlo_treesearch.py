@@ -87,7 +87,7 @@ class MonteCarloTreeSearch(MonteCarlo):
             self.N[state] += 1
             self.Q[state] += reward
 
-    def print_MC_values(self, state):
+    def print_MC_values(self, state: State):
         print(f"MonteCarloTreeSearch values:")
         for s in self.tree[state]:
-            print(f"//MC values for state: {[str(f) for f in s.feature_model.get_features()]} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
+            print(f"//MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")

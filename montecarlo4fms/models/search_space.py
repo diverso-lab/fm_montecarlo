@@ -40,6 +40,7 @@ class SearchSpace:
             states = children
 
     def _draw_node(self, state: 'State', parent: 'State', action: 'Action'):
+        #print(f"action: {action} -> state: {[str(f) for f in state.configuration.elements]}")
         if state.is_terminal():
             self.graph.node(self.ids[state], '', shape='square')
         else:

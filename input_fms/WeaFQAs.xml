@@ -1,229 +1,299 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature_model name="FeatureIDE model">
-    <feature_tree>
-:r FQAs(FQAs)
-	:g [1,*]
-		: Security(Security)
-			:g [1,*]
-				: Encryption(Encryption)
-					:m EncryptionAlgorithms(EncryptionAlgorithms)
-						:g [1,1]
-							: Asymmetric(Asymmetric)
-								:g [1,1]
-									: RSA(RSA)
-									: DSA(DSA)
-									: ECDSA(ECDSA)
-							: Symmetric(Symmetric)
-								:g [1,1]
-									: AES(AES)
-									: DESede(DESede)
-									: Blowfish(Blowfish)
-									: DES(DES)
-					:o KeySize(KeySize)
-					:m EncryptionImplementations(EncryptionImplementations)
-						:g [1,1]
-							: JavaxCrypto(JavaxCrypto)
-							: BouncyCastle(BouncyCastle)
-					:m EncryptionOperations(EncryptionOperations)
-						:g [1,1]
-							: Encrypt(Encrypt)
-							: Decrypt(Decrypt)
-					:m Mode(Mode)
-						:g [1,1]
-							: CBC(CBC)
-							: ECB(ECB)
-							: CFB(CFB)
-							: CTR(CTR)
-							: CTS(CTS)
-					:m Padding(Padding)
-						:g [1,1]
-							: PKCS5(PKCS5)
-							: PKCS1(PKCS1)
-							: OAEP(OAEP)
-				: Authentication(Authentication)
-					:m AuthenticationImplementations(AuthenticationImplementations)
-						:g [1,1]
-							: JAAS(JAAS)
-							: SpringSecurity(SpringSecurity)
-					:m AuthenticationOperations(AuthenticationOperations)
-						:m Authenticate(Authenticate)
-					:m AuthenticationMechanism(AuthenticationMechanism)
-						:g [1,1]
-							: UserPassword(UserPassword)
-							: DigitalCertificate(DigitalCertificate)
-								:o PseudonymousCertificate(PseudonymousCertificate)
-							: Biometric(Biometric)
-							: SocialID(SocialID)
-							: Pin(Pin)
-							: MatrixCode(MatrixCode)
-					:o PasswordLength(PasswordLength)
-					:o PasswordType(PasswordType)
-						:g [1,1]
-							: Numeric(Numeric)
-							: Alphanumeric(Alphanumeric)
-							: SpecialChars(SpecialChars)
-					:o LimitedSession(LimitedSession)
-					:o AuthenticationLogging(AuthenticationLogging)
-					:o AnonymousUser(AnonymousUser)
-				: Hashing(Hashing)
-					:m HashingImplementations(HashingImplementations)
-						:g [1,1]
-							: JavaSecurityMessageDigest(JavaSecurityMessageDigest)
-							: Guava(Guava)
-					:m HashingOperations(HashingOperations)
-						:m Hash(Hash)
-					:m HashingAlgorithms(HashingAlgorithms)
-						:g [1,1]
-							: MD5(MD5)
-							: SHA1(SHA1)
-							: SHA256(SHA256)
-							: SHA512(SHA512)
-				: Confidentiality(Confidentiality)
-				: Privacy(Privacy)
-				: Integrity(Integrity)
-				: Non_Repudiation(Non_Repudiation)
-		: Usability(Usability)
-			:g [1,*]
-				: Logging(Logging)
-					:m LoggingOperations(LoggingOperations)
-						:m Log(Log)
-					:m LoggingImplementations(LoggingImplementations)
-						:g [1,1]
-							: Log4J(Log4J)
-							: LogBack(LogBack)
-							: JavaUtilLogging(JavaUtilLogging)
-							: SimpleImplementationSLF4J(SimpleImplementationSLF4J)
-					:m Handler(Handler)
-						:g [1,1]
-							: ConsoleLog(ConsoleLog)
-							: FileLog(FileLog)
-							: DatabaseLog(DatabaseLog)
-					:m Format(Format)
-						:g [1,1]
-							: TXT(TXT)
-							: XML(XML)
-							: HTML(HTML)
-							: JSON(JSON)
-					:m Level(Level)
-						:g [1,*]
-							: Trace(Trace)
-							: Debug(Debug)
-							: Info(Info)
-							: Warning(Warning)
-							: Error(Error)
-					:o CypheredMessages(CypheredMessages)
-					:o HistoryLog(HistoryLog)
-					:o ErrorLog(ErrorLog)
-						:o TraceFile(TraceFile)
-				: ContextualHelp(ContextualHelp)
-					:m ContextualHelpOperations(ContextualHelpOperations)
-						:m ShowHelp(ShowHelp)
-					:m ContextualHelpImplementations(ContextualHelpImplementations)
-						:m JavaWizardAPI(JavaWizardAPI)
-					:m HelpType(HelpType)
-						:g [1,*]
-							: Tutorial(Tutorial)
-							: Wizard(Wizard)
-					:m UserType(UserType)
-						:g [1,*]
-							: Beginner(Beginner)
-							: Intermediate(Intermediate)
-							: Advanced(Advanced)
-							: Expert(Expert)
-					:o AuthenticatedUser(AuthenticatedUser)
-				: ExecutionControl(ExecutionControl)
-					:m ExecutionControl_1(ExecutionControl_1)
-						:g [1,*]
-							: Undo(Undo)
-							: Redo(Redo)
-							: Cancel(Cancel)
-							: GoBack(GoBack)
-					:o Shortcuts(Shortcuts)
-				: Internationalization(Internationalization)
-					:m Locale(Locale)
-				: Feedback(Feedback)
-					:g [1,*]
-						: InteractionFeedback(InteractionFeedback)
-						: ProgressFeedback(ProgressFeedback)
-						: SystemStatusDisplay(SystemStatusDisplay)
-						: Alerts(Alerts)
-		: Persistence(Persistence)
-			:g [1,*]
-				: FileStorage(FileStorage)
-					:m FileStorageOperations(FileStorageOperations)
-						:g [1,1]
-							: CreateFile(CreateFile)
-							: ModifyFile(ModifyFile)
-							: DeleteFile(DeleteFile)
-					:m FileType(FileType)
-						:g [1,1]
-							: Binary(Binary)
-							: TXTFile(TXTFile)
-							: XMLFile(XMLFile)
-							: JSONFile(JSONFile)
-					:m FileStorageImplementations(FileStorageImplementations)
-						:m JavaIO(JavaIO)
-					:o TemporalFile(TemporalFile)
-				: DatabaseStorage(DatabaseStorage)
-					:m DatabaseStorageOperations(DatabaseStorageOperations)
-						:g [1,1]
-							: Store(Store)
-							: Query(Query)
-					:m DatabaseStorageImplementations(DatabaseStorageImplementations)
-						:g [1,1]
-							: MySQL(MySQL)
-							: MongoDB(MongoDB)
-							: OracleDB(OracleDB)
-					:m DatabaseType(DatabaseType)
-						:g [1,1]
-							: Relational(Relational)
-							: NoSQL(NoSQL)
-					:m DataType(DataType)
-						:g [1,*]
-							: Integers(Integers)
-							: Strings(Strings)
-							: Floats(Floats)
-							: Objects(Objects)
-					:o SecureDatabase(SecureDatabase)
-		: ContextAwareness(ContextAwareness)
-			:g [1,*]
-				: LocationAware(LocationAware)
-					:g [1,*]
-						: GPS(GPS)
-						: WiFiLocation(WiFiLocation)
-				: TimeAware(TimeAware)
-				: DeviceAware(DeviceAware)
-					:g [1,*]
-						: BatteryStatus(BatteryStatus)
-						: IRSensor(IRSensor)
-				: UserAware(UserAware)
-				: EnvironmentAware(EnvironmentAware)
-		: Performance(Performance)
-			:m Caching(Caching)
-				:m CachingOperations(CachingOperations)
-					:g [1,1]
-						: CacheStore(CacheStore)
-						: CacheQuery(CacheQuery)
-						: CacheUpdate(CacheUpdate)
-				:m CachingImplementations(CachingImplementations)
-					:g [1,1]
-						: JavaCachingSystem(JavaCachingSystem)
-						: Caffeine(Caffeine)
-				:m MaxSizeCache(MaxSizeCache)
-				:m CacheType(CacheType)
-					:g [1,1]
-						: LocalCache(LocalCache)
-						: RemoteCache(RemoteCache)
-				:o MaxLifeSeconds(MaxLifeSeconds)
-				:o EternalObjects(EternalObjects)
-</feature_tree>
-    <constraints>
-C1:TimeAware  or  ~BatteryStatus
-C2:Alerts  or  ~BatteryStatus
-C3:FileStorage  or  ~TraceFile
-C4:~SimpleImplementationSLF4J  or  ~XML
-C5:~AuthenticatedUser  or  Authentication
-C6:~ErrorLog  or  Error
-C7:~HistoryLog  or  Trace
-</constraints>
-</feature_model>
+<featureModel>
+	<struct>
+		<or mandatory="true" name="FQAs">
+			<or name="Security">
+				<and name="Encryption">
+					<alt mandatory="true" name="EncryptionAlgorithms">
+						<alt name="Asymmetric">
+							<feature name="RSA"/>
+							<feature name="DSA"/>
+							<feature name="ECDSA"/>
+						</alt>
+						<alt name="Symmetric">
+							<feature name="AES"/>
+							<feature name="DESede"/>
+							<feature name="Blowfish"/>
+							<feature name="DES"/>
+						</alt>
+					</alt>
+					<feature name="KeySize"/>
+					<alt mandatory="true" name="EncryptionImplementations">
+						<feature name="JavaxCrypto"/>
+						<feature name="BouncyCastle"/>
+					</alt>
+					<alt mandatory="true" name="EncryptionOperations">
+						<feature name="Encrypt"/>
+						<feature name="Decrypt"/>
+					</alt>
+					<alt mandatory="true" name="Mode">
+						<feature name="CBC"/>
+						<feature name="ECB"/>
+						<feature name="CFB"/>
+						<feature name="CTR"/>
+						<feature name="CTS"/>
+					</alt>
+					<alt mandatory="true" name="Padding">
+						<feature name="PKCS5"/>
+						<feature name="PKCS1"/>
+						<feature name="OAEP"/>
+					</alt>
+				</and>
+				<and name="Authentication">
+					<alt mandatory="true" name="AuthenticationImplementations">
+						<feature name="JAAS"/>
+						<feature name="SpringSecurity"/>
+					</alt>
+					<and mandatory="true" name="AuthenticationOperations">
+						<feature mandatory="true" name="Authenticate"/>
+					</and>
+					<alt mandatory="true" name="AuthenticationMechanism">
+						<feature name="UserPassword"/>
+						<and name="DigitalCertificate">
+							<feature name="PseudonymousCertificate"/>
+						</and>
+						<feature name="Biometric"/>
+						<feature name="SocialID"/>
+						<feature name="Pin"/>
+						<feature name="MatrixCode"/>
+					</alt>
+					<feature name="PasswordLength"/>
+					<alt name="PasswordType">
+						<feature name="Numeric"/>
+						<feature name="Alphanumeric"/>
+						<feature name="SpecialChars"/>
+					</alt>
+					<feature name="LimitedSession"/>
+					<feature name="AuthenticationLogging"/>
+					<feature name="AnonymousUser"/>
+				</and>
+				<and name="Hashing">
+					<alt mandatory="true" name="HashingImplementations">
+						<feature name="JavaSecurityMessageDigest"/>
+						<feature name="Guava"/>
+					</alt>
+					<and mandatory="true" name="HashingOperations">
+						<feature mandatory="true" name="Hash"/>
+					</and>
+					<alt mandatory="true" name="HashingAlgorithms">
+						<feature name="MD5"/>
+						<feature name="SHA1"/>
+						<feature name="SHA256"/>
+						<feature name="SHA512"/>
+					</alt>
+				</and>
+				<feature name="Confidentiality"/>
+				<feature name="Privacy"/>
+				<feature name="Integrity"/>
+				<feature name="Non_Repudiation"/>
+			</or>
+			<or name="Usability">
+				<and name="Logging">
+					<and mandatory="true" name="LoggingOperations">
+						<feature mandatory="true" name="Log"/>
+					</and>
+					<alt mandatory="true" name="LoggingImplementations">
+						<feature name="Log4J"/>
+						<feature name="LogBack"/>
+						<feature name="JavaUtilLogging"/>
+						<feature name="SimpleImplementationSLF4J"/>
+					</alt>
+					<alt mandatory="true" name="Handler">
+						<feature name="ConsoleLog"/>
+						<feature name="FileLog"/>
+						<feature name="DatabaseLog"/>
+					</alt>
+					<alt mandatory="true" name="Format">
+						<feature name="TXT"/>
+						<feature name="XML"/>
+						<feature name="HTML"/>
+						<feature name="JSON"/>
+					</alt>
+					<or mandatory="true" name="Level">
+						<feature name="Trace"/>
+						<feature name="Debug"/>
+						<feature name="Info"/>
+						<feature name="Warning"/>
+						<feature name="Error"/>
+					</or>
+					<feature name="CypheredMessages"/>
+					<feature name="HistoryLog"/>
+					<and name="ErrorLog">
+						<feature name="TraceFile"/>
+					</and>
+				</and>
+				<and name="ContextualHelp">
+					<and mandatory="true" name="ContextualHelpOperations">
+						<feature mandatory="true" name="ShowHelp"/>
+					</and>
+					<and mandatory="true" name="ContextualHelpImplementations">
+						<feature mandatory="true" name="JavaWizardAPI"/>
+					</and>
+					<or mandatory="true" name="HelpType">
+						<feature name="Tutorial"/>
+						<feature name="Wizard"/>
+					</or>
+					<or mandatory="true" name="UserType">
+						<feature name="Beginner"/>
+						<feature name="Intermediate"/>
+						<feature name="Advanced"/>
+						<feature name="Expert"/>
+					</or>
+					<feature name="AuthenticatedUser"/>
+				</and>
+				<and name="ExecutionControl">
+					<or mandatory="true" name="ExecutionControl_1">
+						<feature name="Undo"/>
+						<feature name="Redo"/>
+						<feature name="Cancel"/>
+						<feature name="GoBack"/>
+					</or>
+					<feature name="Shortcuts"/>
+				</and>
+				<and name="Internationalization">
+					<feature mandatory="true" name="Locale"/>
+				</and>
+				<or name="Feedback">
+					<feature name="InteractionFeedback"/>
+					<feature name="ProgressFeedback"/>
+					<feature name="SystemStatusDisplay"/>
+					<feature name="Alerts"/>
+				</or>
+			</or>
+			<or name="Persistence">
+				<and name="FileStorage">
+					<alt mandatory="true" name="FileStorageOperations">
+						<feature name="CreateFile"/>
+						<feature name="ModifyFile"/>
+						<feature name="DeleteFile"/>
+					</alt>
+					<alt mandatory="true" name="FileType">
+						<feature name="Binary"/>
+						<feature name="TXTFile"/>
+						<feature name="XMLFile"/>
+						<feature name="JSONFile"/>
+					</alt>
+					<and mandatory="true" name="FileStorageImplementations">
+						<feature mandatory="true" name="JavaIO"/>
+					</and>
+					<feature name="TemporalFile"/>
+				</and>
+				<and name="DatabaseStorage">
+					<alt mandatory="true" name="DatabaseStorageOperations">
+						<feature name="Store"/>
+						<feature name="Query"/>
+					</alt>
+					<alt mandatory="true" name="DatabaseStorageImplementations">
+						<feature name="MySQL"/>
+						<feature name="MongoDB"/>
+						<feature name="OracleDB"/>
+					</alt>
+					<alt mandatory="true" name="DatabaseType">
+						<feature name="Relational"/>
+						<feature name="NoSQL"/>
+					</alt>
+					<or mandatory="true" name="DataType">
+						<feature name="Integers"/>
+						<feature name="Strings"/>
+						<feature name="Floats"/>
+						<feature name="Objects"/>
+					</or>
+					<feature name="SecureDatabase"/>
+				</and>
+			</or>
+			<or name="ContextAwareness">
+				<or name="LocationAware">
+					<feature name="GPS"/>
+					<feature name="WiFiLocation"/>
+				</or>
+				<feature name="TimeAware"/>
+				<or name="DeviceAware">
+					<feature name="BatteryStatus"/>
+					<feature name="IRSensor"/>
+				</or>
+				<feature name="UserAware"/>
+				<feature name="EnvironmentAware"/>
+			</or>
+			<and name="Performance">
+				<and mandatory="true" name="Caching">
+					<alt mandatory="true" name="CachingOperations">
+						<feature name="CacheStore"/>
+						<feature name="CacheQuery"/>
+						<feature name="CacheUpdate"/>
+					</alt>
+					<alt mandatory="true" name="CachingImplementations">
+						<feature name="JavaCachingSystem"/>
+						<feature name="Caffeine"/>
+					</alt>
+					<feature mandatory="true" name="MaxSizeCache"/>
+					<alt mandatory="true" name="CacheType">
+						<feature name="LocalCache"/>
+						<feature name="RemoteCache"/>
+					</alt>
+					<feature name="MaxLifeSeconds"/>
+					<feature name="EternalObjects"/>
+				</and>
+			</and>
+		</or>
+	</struct>
+	<constraints>
+		<rule>
+			<disj>
+				<var>TimeAware</var>
+				<not>
+					<var>BatteryStatus</var>
+				</not>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<var>Alerts</var>
+				<not>
+					<var>BatteryStatus</var>
+				</not>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<var>FileStorage</var>
+				<not>
+					<var>TraceFile</var>
+				</not>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<not>
+					<var>SimpleImplementationSLF4J</var>
+				</not>
+				<not>
+					<var>XML</var>
+				</not>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<not>
+					<var>AuthenticatedUser</var>
+				</not>
+				<var>Authentication</var>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<not>
+					<var>ErrorLog</var>
+				</not>
+				<var>Error</var>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<not>
+					<var>HistoryLog</var>
+				</not>
+				<var>Trace</var>
+			</disj>
+		</rule>
+	</constraints>
+</featureModel>

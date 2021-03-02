@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<struct>
+		<and mandatory="true" name="TankWar">
+			<alt mandatory="true" name="Platform">
+				<feature name="PC"/>
+				<feature name="Handy"/>
+			</alt>
+			<or name="Tools">
+				<feature name="Beschleunigung"/>
+				<feature name="einfrieren"/>
+				<feature name="Bombe"/>
+				<feature name="Energie"/>
+				<feature name="Feuerkraft"/>
+				<feature name="Mars"/>
+			</or>
+			<feature name="explodieren"/>
+			<and mandatory="true" name="GUI">
+				<alt mandatory="true" name="Map">
+					<feature name="M_240"/>
+					<feature name="M_600"/>
+					<feature name="M_780"/>
+				</alt>
+				<and name="Image">
+					<feature name="fuer_PC"/>
+					<feature name="fuer_Handy"/>
+					<feature name="IMG_tool"/>
+				</and>
+			</and>
+			<alt name="Record">
+				<feature name="Re_fuer_PC"/>
+				<feature name="Re_fuer_Handy"/>
+			</alt>
+			<alt name="Soundeffekt">
+				<feature name="Sound_fuer_pc"/>
+				<feature name="Sound_fuer_Handy"/>
+			</alt>
+			<alt mandatory="true" name="Language">
+				<feature name="EN"/>
+				<feature name="DE"/>
+			</alt>
+			<or mandatory="true" name="Tanks">
+				<feature name="USA_M1Abrams"/>
+				<feature name="Germany_Leopard"/>
+				<feature name="China_Type99"/>
+			</or>
+			<alt mandatory="true" name="AI">
+				<feature name="Easy"/>
+				<feature name="Hard"/>
+			</alt>
+		</and>
+	</struct>
+</featureModel>

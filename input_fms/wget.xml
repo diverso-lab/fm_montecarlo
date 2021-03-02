@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature_model name="FeatureIDE model">
-    <feature_tree>
-:r wget(wget)
-	:m base(base)
-	:o output_file(output_file)
-	:o server_response(server_response)
-	:o no_clobber(no_clobber)
-	:o no_dns_cache(no_dns_cache)
-	:o verbosity(verbosity)
-		:g [1,1]
-			: no_verbose(no_verbose)
-			: verbose(verbose)
-			: quiet(quiet)
-	:o no_directories(no_directories)
-	:o no_host_directories(no_host_directories)
-	:o no_http_keep_alive(no_http_keep_alive)
-	:o no_cookies(no_cookies)
-	:o save_headers(save_headers)
-	:o convert_links(convert_links)
-	:o strict_comments(strict_comments)
-</feature_tree>
-    <constraints>
-</constraints>
-</feature_model>
+<featureModel>
+	<struct>
+		<and mandatory="true" name="wget">
+			<feature mandatory="true" name="base"/>
+			<feature name="output_file"/>
+			<feature name="server_response"/>
+			<feature name="no_clobber"/>
+			<feature name="no_dns_cache"/>
+			<alt name="verbosity">
+				<feature name="no_verbose"/>
+				<feature name="verbose"/>
+				<feature name="quiet"/>
+			</alt>
+			<feature name="no_directories"/>
+			<feature name="no_host_directories"/>
+			<feature name="no_http_keep_alive"/>
+			<feature name="no_cookies"/>
+			<feature name="save_headers"/>
+			<feature name="convert_links"/>
+			<feature name="strict_comments"/>
+		</and>
+	</struct>
+</featureModel>

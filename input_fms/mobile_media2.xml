@@ -1,60 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature_model name="FeatureIDE model">
-    <feature_tree>
-:r MobileMedia2(MobileMedia2)
-	:m MediaSelection(MediaSelection)
-		:g [1,*]
-			: Photo(Photo)
-			: Music(Music)
-				:m MusicPlayer(MusicPlayer)
-			: Video(Video)
-	:m MediaManagement(MediaManagement)
-		:o Favourites(Favourites)
-			:m SetFavourites(SetFavourites)
-			:m ViewFavourites(ViewFavourites)
-		:o CopyMedia(CopyMedia)
-		:o SMSTransfer(SMSTransfer)
-			:o ReceivePhoto(ReceivePhoto)
-			:o SendPhoto(SendPhoto)
-	:m ScreenSize(ScreenSize)
-		:g [1,1]
-			: Screen1(Screen1)
-			: Screen2(Screen2)
-			: Screen3(Screen3)
-	:m Speakerphone(Speakerphone)
-	:m Calendar(Calendar)
-	:m Radio(Radio)
-	:m CallManager(CallManager)
-	:o TVDigital(TVDigital)
-	:m OS(OS)
-		:g [1,1]
-			: Androide(Androide)
-			: WindowsMobile(WindowsMobile)
-			: Symbia(Symbia)
-			: iOS(iOS)
-	:o TouchScreen(TouchScreen)
-	:o Connectivity(Connectivity)
-		:g [1,*]
-			: Bluetooth(Bluetooth)
-			: WiFi(WiFi)
-				:g [1,*]
-					: Gmail(Gmail)
-					: GoogleMaps(GoogleMaps)
-					: Youtube(Youtube)
-	:o GPS(GPS)
-	:o ResolutionCamera(ResolutionCamera)
-		:g [1,1]
-			: Resolution3MP(Resolution3MP)
-			: Resolution8MP(Resolution8MP)
-	:m Language(Language)
-		:g [1,*]
-			: Portuguese(Portuguese)
-			: English(English)
-			: Spanish(Spanish)
-</feature_tree>
-    <constraints>
-C1:Video  or  ~ResolutionCamera
-C2:Photo  or  ~ResolutionCamera
-C3:~CopyMedia  or  SMSTransfer
-</constraints>
-</feature_model>
+<featureModel>
+	<struct>
+		<and mandatory="true" name="MobileMedia2">
+			<or mandatory="true" name="MediaSelection">
+				<feature name="Photo"/>
+				<and name="Music">
+					<feature mandatory="true" name="MusicPlayer"/>
+				</and>
+				<feature name="Video"/>
+			</or>
+			<and mandatory="true" name="MediaManagement">
+				<and name="Favourites">
+					<feature mandatory="true" name="SetFavourites"/>
+					<feature mandatory="true" name="ViewFavourites"/>
+				</and>
+				<feature name="CopyMedia"/>
+				<and name="SMSTransfer">
+					<feature name="ReceivePhoto"/>
+					<feature name="SendPhoto"/>
+				</and>
+			</and>
+			<alt mandatory="true" name="ScreenSize">
+				<feature name="Screen1"/>
+				<feature name="Screen2"/>
+				<feature name="Screen3"/>
+			</alt>
+			<feature mandatory="true" name="Speakerphone"/>
+			<feature mandatory="true" name="Calendar"/>
+			<feature mandatory="true" name="Radio"/>
+			<feature mandatory="true" name="CallManager"/>
+			<feature name="TVDigital"/>
+			<alt mandatory="true" name="OS">
+				<feature name="Androide"/>
+				<feature name="WindowsMobile"/>
+				<feature name="Symbia"/>
+				<feature name="iOS"/>
+			</alt>
+			<feature name="TouchScreen"/>
+			<or name="Connectivity">
+				<feature name="Bluetooth"/>
+				<or name="WiFi">
+					<feature name="Gmail"/>
+					<feature name="GoogleMaps"/>
+					<feature name="Youtube"/>
+				</or>
+			</or>
+			<feature name="GPS"/>
+			<alt name="ResolutionCamera">
+				<feature name="Resolution3MP"/>
+				<feature name="Resolution8MP"/>
+			</alt>
+			<or mandatory="true" name="Language">
+				<feature name="Portuguese"/>
+				<feature name="English"/>
+				<feature name="Spanish"/>
+			</or>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<disj>
+				<var>Video</var>
+				<not>
+					<var>ResolutionCamera</var>
+				</not>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<var>Photo</var>
+				<not>
+					<var>ResolutionCamera</var>
+				</not>
+			</disj>
+		</rule>
+		<rule>
+			<disj>
+				<not>
+					<var>CopyMedia</var>
+				</not>
+				<var>SMSTransfer</var>
+			</disj>
+		</rule>
+	</constraints>
+</featureModel>

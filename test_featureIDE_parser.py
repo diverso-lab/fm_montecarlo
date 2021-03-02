@@ -10,13 +10,20 @@ class TestFeatureIDEParser(unittest.TestCase):
     def setUp(self):
         self.parser = FeatureIDEParser
         self.ext = '.' + self.parser.get_source_extension()
-        self.input_folder = '../input_fms/'
-        self.models = {'wget':                [17, 0, 'wget', 2, 0, 1]          # fm_name -> nof_features, nof_constraints, root_name, core_features, or-groups, alternative-groups
-
-                      }
-                       # 'linux-2.6.33.3basic': [44079, 28821, 'root', 2238],
-                       # 'automotive2_1basic':  [14098,   833, 'N_379925076__F_91527E35945B', 1412],
-                       # 'pizzas':              [12, 1, 'Pizza', 4]}
+        self.input_folder = 'input_fms/'
+        self.models = {'wget':                [17, 0, 'wget', 2, 0, 1],           # fm_name -> nof_features, nof_constraints, root_name, core_features, or-groups, alternative-groups
+                       'tankwar':             [37, 0, 'TankWar', 7, 2, 6],
+                       'mobile_media2':       [43, 3, 'MobileMedia2', 10, 4, 3],
+                       'WeaFQAs':             [179, 7, 'FQAs', 1, 12, 23],
+                       'busybox-1.18.0':      [854, 58, 'root', 20, 0, 8], # 67 constraints by FeatureIDE
+                       # 'ea2468':              [1408, 1281, 'root', 4, 0, 0],
+                       # 'automotive2_1':       [14010, 624, 'N_379925076__F_91527E35945B', 1394, 0, 0],
+                       # 'linux-2.6.33.3':      [6467, 7650, 'root', 53, 0, 0],
+                       # 'uClinux-distribution':[1580, 247, 'root', 6, 0, 0],
+                       # 'embtoolkit':          [1179, 167, 'root', 78, 0, 0],
+                        'linux-2.6.33.3basic': [44079, 28821, 'root', 2238, 9434, 39],
+                        'automotive2_1basic':  [14098,   833, 'N_379925076__F_91527E35945B', 1412, 125, 1010],
+                        'pizzas':              [12, 1, 'Pizza', 4, 1, 2]}
 
     def test_nof_features(self):
         for fm_input in self.models:

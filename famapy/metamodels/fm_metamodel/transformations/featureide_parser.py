@@ -27,7 +27,7 @@ class FeatureIDEParser(TextToModel):
                 (features, relations) = self._read_features(root, root_feature)
                 features = [root_feature] + features
                 fm = FeatureModel(root_feature, [], features, relations)
-            if child.tag == "constraints":
+            elif child.tag == "constraints":
                 constraints = self._read_constraints(child, fm)
                 fm.ctcs.extend(constraints)
         return fm

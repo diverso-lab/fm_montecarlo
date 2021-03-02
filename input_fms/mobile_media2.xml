@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature_model name="FeatureIDE model">
+    <feature_tree>
+:r MobileMedia2(MobileMedia2)
+	:m MediaSelection(MediaSelection)
+		:g [1,*]
+			: Photo(Photo)
+			: Music(Music)
+				:m MusicPlayer(MusicPlayer)
+			: Video(Video)
+	:m MediaManagement(MediaManagement)
+		:o Favourites(Favourites)
+			:m SetFavourites(SetFavourites)
+			:m ViewFavourites(ViewFavourites)
+		:o CopyMedia(CopyMedia)
+		:o SMSTransfer(SMSTransfer)
+			:o ReceivePhoto(ReceivePhoto)
+			:o SendPhoto(SendPhoto)
+	:m ScreenSize(ScreenSize)
+		:g [1,1]
+			: Screen1(Screen1)
+			: Screen2(Screen2)
+			: Screen3(Screen3)
+	:m Speakerphone(Speakerphone)
+	:m Calendar(Calendar)
+	:m Radio(Radio)
+	:m CallManager(CallManager)
+	:o TVDigital(TVDigital)
+	:m OS(OS)
+		:g [1,1]
+			: Androide(Androide)
+			: WindowsMobile(WindowsMobile)
+			: Symbia(Symbia)
+			: iOS(iOS)
+	:o TouchScreen(TouchScreen)
+	:o Connectivity(Connectivity)
+		:g [1,*]
+			: Bluetooth(Bluetooth)
+			: WiFi(WiFi)
+				:g [1,*]
+					: Gmail(Gmail)
+					: GoogleMaps(GoogleMaps)
+					: Youtube(Youtube)
+	:o GPS(GPS)
+	:o ResolutionCamera(ResolutionCamera)
+		:g [1,1]
+			: Resolution3MP(Resolution3MP)
+			: Resolution8MP(Resolution8MP)
+	:m Language(Language)
+		:g [1,*]
+			: Portuguese(Portuguese)
+			: English(English)
+			: Spanish(Spanish)
+</feature_tree>
+    <constraints>
+C1:Video  or  ~ResolutionCamera
+C2:Photo  or  ~ResolutionCamera
+C3:~CopyMedia  or  SMSTransfer
+</constraints>
+</feature_model>

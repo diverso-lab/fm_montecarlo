@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<featureModel>
-	<struct>
-		<and abstract="true" mandatory="true" name="CPCOsModels">
-			<feature name="Base"/>
-		</and>
-	</struct>
-</featureModel>

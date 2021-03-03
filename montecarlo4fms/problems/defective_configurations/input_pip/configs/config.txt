@@ -1,0 +1,5 @@
+pipdeptree==2.0.0
+pybind11==2.6.2
+pycosat==0.6.3
+satyrn==0.3.18
+six==1.15.0

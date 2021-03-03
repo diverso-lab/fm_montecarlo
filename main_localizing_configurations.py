@@ -1,4 +1,5 @@
 import time
+import cProfile
 from functools import reduce
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
@@ -11,7 +12,7 @@ from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
 INPUT_PATH = "montecarlo4fms/problems/defective_configurations/input_fms/"
 OUTPUT_PATH = "montecarlo4fms/problems/defective_configurations/output_fms/"
-FM_NAME = "pizzas"
+FM_NAME = "aafms_framework"
 
 def main():
     print("Localizing defective configurations problem")
@@ -30,7 +31,7 @@ def main():
     # print(f"config: {valid} -> {[str(f) for f in config_test.elements]}")
 
 
-    iterations = 1000
+    iterations = 10
     montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
@@ -49,6 +50,6 @@ def main():
 
 if __name__ == '__main__':
     start = time.time()
-    main()
+    cProfile.run("main()")
     end = time.time()
     print(f"Time: {end-start} seconds")

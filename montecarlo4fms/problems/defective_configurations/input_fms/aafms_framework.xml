@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="AAFMPythonFramework">
+			<and mandatory="true" name="Packages">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="DepMng">
+					<and mandatory="true" name="pip">
+						<feature name="pipdeptree"/>
+					</and>
+					<feature mandatory="true" name="setuptools"/>
+					<feature name="wheel"/>
+					<feature name="pkg-resources"/>
+				</and>
+				<or name="APISolvers">
+					<feature name="python-sat"/>
+					<feature name="pycosat"/>
+					<feature name="pylgl"/>
+					<feature name="pyPicosat"/>
+					<feature name="pyglucose"/>
+					<feature name="pycryptosat"/>
+					<feature name="satyrn"/>
+					<feature name="satispy"/>
+					<feature name="umo"/>
+					<feature name="pydepqbf"/>
+				</or>
+				<or name="ParserTechnology">
+					<feature name="antlr4-python3-runtime"/>
+					<feature name="SimpleParse"/>
+					<and name="lark-parser">
+						<feature name="ebnf"/>
+					</and>
+				</or>
+				<or name="Utils">
+					<feature name="six"/>
+					<feature name="pybind11"/>
+				</or>
+			</and>
+			<and mandatory="true" name="CoreMetamodels">
+				<feature name="FeatureModels"/>
+				<feature name="CNFModels"/>
+				<feature name="DecisionModels"/>
+			</and>
+			<and name="AutomatedReasoning">
+				<or mandatory="true" name="Solvers">
+					<graphics key="collapsed" value="true"/>
+					<feature name="MiniSAT"/>
+					<feature name="PicoSAT"/>
+					<feature name="Glucose"/>
+					<feature name="CaDiCaL"/>
+					<feature name="Minicard"/>
+					<feature name="Maple"/>
+					<feature name="CryptoMiniSat"/>
+					<feature name="Lingeling"/>
+					<feature name="CBC"/>
+					<feature name="DepQBF"/>
+				</or>
+			</and>
+			<and name="Interoperability">
+				<or name="Languages">
+					<graphics key="collapsed" value="false"/>
+					<feature name="FeatureIDE"/>
+					<feature name="SPLOT"/>
+					<feature name="UVL"/>
+					<feature name="Clafer"/>
+				</or>
+				<or name="Format">
+					<feature name="XML"/>
+					<feature name="BNFbasedGrammar"/>
+				</or>
+			</and>
+			<alt mandatory="true" name="OperatingSystem">
+				<feature name="Linux"/>
+				<feature name="Win"/>
+			</alt>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>CBC</var>
+				<var>umo</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>DepQBF</var>
+				<var>pydepqbf</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>CryptoMiniSat</var>
+				<var>pycryptosat</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>python-sat</var>
+				<var>six</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>BNFbasedGrammar</var>
+				<var>ParserTechnology</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Linux</var>
+				<var>pkg-resources</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>CaDiCaL</var>
+				<var>python-sat</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Maple</var>
+				<var>python-sat</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Minicard</var>
+				<var>python-sat</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>satyrn</var>
+				<var>pybind11</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>pyglucose</var>
+				<var>pybind11</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>UVL</var>
+				<var>BNFbasedGrammar</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Clafer</var>
+				<var>BNFbasedGrammar</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>FeatureIDE</var>
+				<var>XML</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>SPLOT</var>
+				<var>XML</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Win</var>
+				<not>
+					<var>umo</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Win</var>
+				<not>
+					<var>pycosat</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>CNFModels</var>
+				<var>AutomatedReasoning</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>AutomatedReasoning</var>
+				<var>CNFModels</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>

@@ -36,40 +36,41 @@ class FeatureIDEParser(TextToModel):
         features = []
         relations = []
         for child in root_tree:
-            children = []
-            feature = Feature(child.attrib['name'], [])
-            r = Relation(parent=parent, children=[], card_min=0, card_max=0)
-            feature.add_relation(r)   # Relation for the parent.
-            features.append(feature)
-            relations.append(r)
-            if root_tree.tag == "and":
-                if "mandatory" in child.attrib: # Mandatory feature
-                    r = Relation(parent=parent, children=[feature], card_min=1, card_max=1)
-                    parent.add_relation(r)
-                    relations.append(r)
-                else:   # Optional feature
-                    r = Relation(parent=parent, children=[feature], card_min=0, card_max=1)
-                    parent.add_relation(r)
-                    relations.append(r)
+            if not child.tag == "graphics":
+                children = []
+                feature = Feature(child.attrib['name'], [])
+                r = Relation(parent=parent, children=[], card_min=0, card_max=0)
+                feature.add_relation(r)   # Relation for the parent.
+                features.append(feature)
+                relations.append(r)
+                if root_tree.tag == "and":
+                    if "mandatory" in child.attrib: # Mandatory feature
+                        r = Relation(parent=parent, children=[feature], card_min=1, card_max=1)
+                        parent.add_relation(r)
+                        relations.append(r)
+                    else:   # Optional feature
+                        r = Relation(parent=parent, children=[feature], card_min=0, card_max=1)
+                        parent.add_relation(r)
+                        relations.append(r)
 
-            if child.tag == "alt":
-                (children, children_relations) = self._read_features(child, feature)
-                r = Relation(parent=feature, children=children, card_min=1, card_max=1)
-                feature.add_relation(r)
-                features.extend(children)
-                relations.append(r)
-                relations.extend(children_relations)
-            elif child.tag == "or":
-                (children, children_relations) = self._read_features(child, feature)
-                r = Relation(parent=feature, children=children, card_min=1, card_max=len(children))
-                feature.add_relation(r)
-                features.extend(children)
-                relations.append(r)
-                relations.extend(children_relations)
-            elif child.tag == "and":
-                (children, children_relations) = self._read_features(child, feature)
-                features.extend(children)
-                relations.extend(children_relations)
+                if child.tag == "alt":
+                    (children, children_relations) = self._read_features(child, feature)
+                    r = Relation(parent=feature, children=children, card_min=1, card_max=1)
+                    feature.add_relation(r)
+                    features.extend(children)
+                    relations.append(r)
+                    relations.extend(children_relations)
+                elif child.tag == "or":
+                    (children, children_relations) = self._read_features(child, feature)
+                    r = Relation(parent=feature, children=children, card_min=1, card_max=len(children))
+                    feature.add_relation(r)
+                    features.extend(children)
+                    relations.append(r)
+                    relations.extend(children_relations)
+                elif child.tag == "and":
+                    (children, children_relations) = self._read_features(child, feature)
+                    features.extend(children)
+                    relations.extend(children_relations)
         return (features, relations)
 
     def _read_constraints(self, ctcs_root, fm: FeatureModel) -> List[Constraint]:

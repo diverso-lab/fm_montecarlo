@@ -35,7 +35,7 @@ def main():
     montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
-    initial_state = ConfigurationStateRelations(FMConfiguration(), fm)
+    initial_state = ConfigurationState(FMConfiguration(), fm)
 
     n = 0
     state = initial_state

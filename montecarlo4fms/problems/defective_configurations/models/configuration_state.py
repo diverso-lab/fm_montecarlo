@@ -10,6 +10,8 @@ from famapy.metamodels.fm_metamodel.utils import fm_utils
 
 from montecarlo4fms.models import State, Action
 
+PACKAGES_WITH_ERRORS_IN_LINUX = ['pyPicosat', 'ebnf']
+PACKAGES_WITH_ERRORS_IN_WIN = ['pylgl', 'satyrn', 'pydebqbf', 'SimpleParser']
 
 class ActivateFeature(Action):
     """
@@ -27,9 +29,10 @@ class ActivateFeature(Action):
         return "Act " + str(self.feature)
 
     def execute(self, state: 'State') -> 'State':
-        configuration = copy.deepcopy(state.configuration)
-        configuration.elements[self.feature] = True
-        return ConfigurationState(configuration, state.feature_model)
+        #configuration = copy.deepcopy(state.configuration)
+        elements = {f: state.configuration.elements[f] for f in state.configuration}
+        elements[self.feature] = True
+        return ConfigurationState(FMConfiguration(elements), state.feature_model)
 
 
 class ConfigurationState(State):
@@ -45,12 +48,14 @@ class ConfigurationState(State):
             self.aafms_helper = aafms_helper
         else:
             self.aafms_helper = AAFMsHelper(feature_model)
+        self.undecided_features = list(set(self.feature_model.get_features()) - set(self.configuration.elements.keys()))
         self.is_valid_configuration = self.aafms_helper.is_valid_configuration(self.configuration)
         self.errors = None
 
     def find_random_successor(self) -> 'State':
-        activatable_candidate_features = [f for f in self.feature_model.get_features() if f not in self.configuration.elements or not self.configuration.elements[f]]
-        feature = random.choice(activatable_candidate_features)
+        #activatable_candidate_features = [f for f in self.feature_model.get_features() if f not in self.configuration.elements or not self.configuration.elements[f]]
+        #feature = random.choice(activatable_candidate_features)
+        feature = random.choice(self.undecided_features)
         return ActivateFeature(feature).execute(self)
 
     def get_actions(self) -> list:
@@ -75,53 +80,15 @@ class ConfigurationState(State):
         if not self.is_valid_configuration:
             return -1
 
-        # Create environment to deploy the configurations.
-#        subprocess.call(["python", "-m", "venv", "config_env"])
-        #subprocess.call(["/bin/bash", "--rcfile", "activate_config_env.sh"])
-#        os.system('/bin/bash --rcfile activate_config_env.sh')
+        packages_with_errors = []
+        linux_feature = self.feature_model.get_feature_by_name("Linux")
+        win_feature = self.feature_model.get_feature_by_name("Win")
+        if linux_feature in self.configuration.elements:
+            packages_with_errors = [f for f in self.configuration.elements if f.name in PACKAGES_WITH_ERRORS_IN_LINUX]
+        elif win_feature in self.configuration.elements:
+            packages_with_errors = [f for f in self.configuration.elements if f.name in PACKAGES_WITH_ERRORS_IN_WIN]
 
-        # Read packages from 'requirements.txt'
-        with open("montecarlo4fms/problems/defective_configurations/input_pip/requirements.txt", 'r') as req_file:
-            packages = req_file.readlines()
-
-            # Filter packages by current configuration
-            packages_config = [p for p in packages if any(f.name in p for f in self.configuration.elements if self.configuration.elements[f])]
-
-        print(f"Packages: {packages}")
-        print(f"packages_config: {packages_config}")
-        print(f"configuration: {[str(f) for f in self.configuration.elements if self.configuration.elements[f]]}")
-        if self.configuration.elements:
-            raise Exception
-        # Write configuration requirements
-        CONFIG_FILE = "montecarlo4fms/problems/defective_configurations/input_pip/configs/config.txt"
-        with open(CONFIG_FILE, 'w+') as config_file:
-            config_file.writelines(packages_config)
-
-        # Deploy configuration requirements
-        ERRORS_FILE = "montecarlo4fms/problems/defective_configurations/input_pip/configs/errors.log"
-        open(ERRORS_FILE, 'w').close()
-        os.system('python -m pip install -r ' + CONFIG_FILE + ' &> ' + ERRORS_FILE)
-        #subprocess.call(["python", "-m", "pip", "install", "-r", "montecarlo4fms/problems/defective_configurations/input_pip/configs/config.txt", "&>", ERRORS_FILE])
-
-        for p in packages_config:
-            try:
-                os.system('python -m pip uninstall ' + p)
-                #subprocess.call(["python", "-m", "pip", "uninstall", p])
-            except:
-                print(f"Error removing package: {p}")
-
-        # Check errors
-        n_errors = 0
-        with open(ERRORS_FILE, 'r') as errors_file:
-            lines = errors_file.readlines()
-            n_errors = lines.count("ERROR: ")
-
-        # Come back to the current environment
-        #os.system('/bin/bash --rcfile activate_original_env.sh')
-
-        print(f"Errores: {n_errors}")
-        self.errors = n_errors
-        return self.errors
+        return len(packages_with_errors)
 
     def __hash__(self) -> int:
         return hash(self.configuration)

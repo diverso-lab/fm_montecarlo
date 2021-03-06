@@ -88,6 +88,14 @@ class MonteCarloTreeSearch(MonteCarlo):
             self.Q[state] += reward
 
     def print_MC_values(self, state: State):
+        print("----------MCTS stats----------")
         print(f"MonteCarloTreeSearch values:")
-        for s in self.tree[state]:
-            print(f"//MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
+        if state in self.tree:
+            for s in self.tree[state]:
+                print(f"//MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
+            print(f"\#Decisions: {len(self.tree[state])}")
+            print(f"Best decision: {self.choose(state)}")
+        else:
+            print(f"State not found in tree search: {state}")
+        print(f"Total nodes in the tree search: {len(self.tree)}")
+        print("------------------------------")

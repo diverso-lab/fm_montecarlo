@@ -5,12 +5,12 @@ from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.models import SearchSpace
-from montecarlo4fms.problems.defective_configurations.models import ConfigurationState
+from montecarlo4fms.problems.defective_configurations.models import ConfigurationState, ConfigurationStateRelations
 
 
 INPUT_PATH = "montecarlo4fms/problems/defective_configurations/input_fms/"
 OUTPUT_PATH = "montecarlo4fms/problems/defective_configurations/output_fms/"
-FM_NAME = "pizzas"
+FM_NAME = "aafms_framework"
 
 
 def main():
@@ -21,16 +21,16 @@ def main():
     print(f"#Features: {len(fm.get_features())} -> {[str(f) for f in fm.get_features()]}")
 
     # Get configurations
-    aafms_helper = AAFMsHelper(fm)
-    configurations = aafms_helper.get_configurations()
+    #aafms_helper = AAFMsHelper(fm)
+    #configurations = aafms_helper.get_configurations()
 
-    nc = 1
-    for c in configurations:
-        print(f"config {nc}: {[str(f) for f in c]}")
-        nc += 1
-    print(f"#Configurations: {len(configurations)}")
+    # nc = 1
+    # for c in configurations:
+    #     print(f"config {nc}: {[str(f) for f in c]}")
+    #     nc += 1
+    # print(f"#Configurations: {len(configurations)}")
 
-    initial_state = ConfigurationState(FMConfiguration(), fm)
+    initial_state = ConfigurationStateRelations(FMConfiguration(), fm)
     ss = SearchSpace(initial_state=initial_state, max_depth=20)
 
     nof_total_nodes = 0

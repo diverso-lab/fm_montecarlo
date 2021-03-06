@@ -10,7 +10,7 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="AAFMPythonFramework">
-			<and mandatory="true" name="Packages">
+			<and name="Packages">
 				<graphics key="collapsed" value="false"/>
 				<and mandatory="true" name="DepMng">
 					<and mandatory="true" name="pip">

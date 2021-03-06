@@ -11,7 +11,8 @@ class SearchSpace:
         self.ids = dict()
         self.stats = defaultdict(int)
         self.stats['nof_nodes'] = defaultdict(int)
-        self._built()
+        #self._built()
+        self._built_improve()
 
     def _built(self):
         depth = 0
@@ -36,6 +37,26 @@ class SearchSpace:
                         parents[child] = s
                         actions[child] = action
 
+            print(f"Depth {depth}: {self.stats['nof_nodes'][depth]} nodes / total: {nof_nodes}")
+            depth += 1
+            states = children
+
+    def _built_improve(self):
+        depth = 0
+        nof_nodes = 0
+        states = [self.initial_state]
+        while depth <= self.max_depth and states:
+            if not self.stats['nof_nodes'][depth]:
+                self.stats['nof_nodes'][depth] = len(states)
+
+            children = []
+            for s in states:
+                nof_nodes += 1
+
+                if not s.is_terminal():
+                    children.extend(s.find_successors())
+
+            print(f"Depth {depth}: {self.stats['nof_nodes'][depth]} nodes / total: {nof_nodes}")
             depth += 1
             states = children
 

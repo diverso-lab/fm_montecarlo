@@ -31,8 +31,8 @@ def main():
     # print(f"config: {valid} -> {[str(f) for f in config_test.elements]}")
 
 
-    iterations = 10
-    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
+    iterations = 100
+    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
     initial_state = ConfigurationStateRelations(FMConfiguration(), fm)
@@ -41,7 +41,10 @@ def main():
     state = initial_state
     while state.reward() <= 0 and state.get_actions():
         print(f"State {n}: {[str(f) for f in state.configuration.elements if state.configuration.elements[f]]} -> {state.reward()}")
+        time_start = time.time()
         new_state = montecarlo.run(state)
+        time_end = time.time()
+        print(f"Execution time for Run {n}: {time_end - time_start} seconds.")
         montecarlo.print_MC_values(state)
         state = new_state
         n += 1

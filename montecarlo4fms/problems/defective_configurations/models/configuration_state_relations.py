@@ -73,7 +73,6 @@ class ConfigurationStateRelations(State):
             return self.actions
 
         actions = []
-        features_selections = []
         undecided_mandatory_relations = self._get_undecided_mandatory_relations()
         if undecided_mandatory_relations:
             # Esta implementación toma la decisión de cada feature como una única configuración (permite analizar feature a feature)

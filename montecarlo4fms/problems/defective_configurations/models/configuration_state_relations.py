@@ -31,9 +31,9 @@ class ActivateFeature(Action):
         return "Act " + str(self.feature)
 
     def execute(self, state: 'State') -> 'State':
-        configuration = copy.deepcopy(state.configuration)
-        configuration.elements[self.feature] = True
-        return ConfigurationStateRelations(configuration, state.feature_model)
+        elements = {f: state.configuration.elements[f] for f in state.configuration}
+        elements[self.feature] = True
+        return ConfigurationStateRelations(FMConfiguration(elements), state.feature_model)
 
 
 class ConfigurationStateRelations(State):

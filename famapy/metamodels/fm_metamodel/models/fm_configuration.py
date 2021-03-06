@@ -8,8 +8,8 @@ class FMConfiguration(Configuration):
     def __iter__(self):
         return iter(self.elements)
 
-    def __hash__(self):
-        return hash(frozenset(self.elements.items()))
+    #def __hash__(self):
+    #    return hash(tuple(self.elements.items()))
 
     def __eq__(config1: 'FMConfiguration', config2: 'FMConfiguration'):
         return config1.elements == config2.elements

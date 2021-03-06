@@ -33,9 +33,8 @@ class Relation:
             res += _child.name + ' '
         return res
 
-    def __hash__(self) -> int:
-        prime = 31
-        return prime * hash(self.parent) + prime * (hash(frozenset(self.children))) + prime * hash(self.card_min) + prime * hash(self.card_max)
+    #def __hash__(self) -> int:
+    #    return hash((self.parent, tuple(self.children), self.card_min, self.card_max))
 
     def __eq__(r1: 'Relation', r2: 'Relation') -> bool:
         return r1.parent == r2.parent and r1.children == r2.children and r1.card_min == r2.card_min and r1.card_max == r2.card_max
@@ -72,9 +71,8 @@ class Constraint:
         self.destination = destination
         self.ctc_type = ctc_type
 
-    def __hash__(self) -> int:
-        prime = 31
-        return prime * hash(self.origin) + prime * hash(self.destination) + prime * hash(self.ctc_type)
+    #def __hash__(self) -> int:
+    #    return hash((self.origin, self.destination, self.ctc_type))
 
     def __eq__(c1: 'Constraint', c2: 'Constraint') -> bool:
         return c1.origin == c2.origin and c1.destination == c2.destination and c1.ctc_type == c2.ctc_type
@@ -142,9 +140,8 @@ class FeatureModel(VariabilityModel):
             res += ctc.origin.name +" "+ctc.ctc_type + " " + ctc.destination.name
         return(res)
 
-    def __hash__(self) -> int:
-        prime = 31
-        return prime * hash(frozenset(self.features)) + prime * hash(frozenset(self.ctcs)) + prime * hash(frozenset(self.relations))
+    # def __hash__(self) -> int:
+    #     return hash((self.features, self.ctcs, self.relations))
 
     def __eq__(fm1: 'FeatureModel', fm2: 'FeatureModel'):
-        return hash(fm1) == hash(fm2)
+        return fm1.root == fm2.root and fm1.features == fm2.features and fm1.relations == fm2.relations and fm1.ctcs == fm2.ctcs

@@ -32,7 +32,7 @@ def main():
 
 
     iterations = 100
-    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations)
+    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
     initial_state = ConfigurationStateRelations(FMConfiguration(), fm)

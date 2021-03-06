@@ -33,7 +33,7 @@ class ActivateFeature(Action):
     def execute(self, state: 'State') -> 'State':
         elements = {f: state.configuration.elements[f] for f in state.configuration}
         elements[self.feature] = True
-        return ConfigurationStateRelations(FMConfiguration(elements), state.feature_model)
+        return ConfigurationStateRelations(FMConfiguration(elements), state.feature_model, state.aafms_helper)
 
 
 class ConfigurationStateRelations(State):
@@ -153,7 +153,9 @@ class ConfigurationStateRelations(State):
         elif win_feature in self.configuration.elements:
             packages_with_errors = [f for f in self.configuration.elements if f.name in PACKAGES_WITH_ERRORS_IN_WIN]
 
-        return len(packages_with_errors)
+        n = len(self.feature_model.get_features()) - len(self.configuration.elements)
+
+        return n*len(packages_with_errors)
 
 #         # Create environment to deploy the configurations.
 # #        subprocess.call(["python", "-m", "venv", "config_env"])
@@ -211,7 +213,7 @@ class ConfigurationStateRelations(State):
 #         return self.errors
 
     def __hash__(self) -> int:
-        return hash(self.configuration)
+        return hash(tuple(self.configuration.elements.items()))
 
     def __eq__(s1: 'State', s2: 'State') -> bool:
         return s1.configuration == s2.configuration

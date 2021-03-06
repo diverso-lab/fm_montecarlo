@@ -35,11 +35,11 @@ def main():
     montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
 
-    initial_state = ConfigurationState(FMConfiguration(), fm)
+    initial_state = ConfigurationStateRelations(FMConfiguration(), fm)
 
     n = 0
     state = initial_state
-    while not state.is_terminal():
+    while state.reward() <= 0 and state.get_actions():
         print(f"State {n}: {[str(f) for f in state.configuration.elements if state.configuration.elements[f]]} -> {state.reward()}")
         new_state = montecarlo.run(state)
         montecarlo.print_MC_values(state)

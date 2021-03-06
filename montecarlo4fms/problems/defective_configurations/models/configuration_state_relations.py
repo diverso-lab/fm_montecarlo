@@ -147,8 +147,8 @@ class ConfigurationStateRelations(State):
             return -1
 
         packages_with_errors = []
-        linux_feature = fm.get_feature_by_name("Linux")
-        win_feature = fm.get_feature_by_name("Win")
+        linux_feature = self.feature_model.get_feature_by_name("Linux")
+        win_feature = self.feature_model.get_feature_by_name("Win")
         if linux_feature in self.configuration.elements:
             packages_with_errors = [f for f in self.configuration.elements if f.name in PACKAGES_WITH_ERRORS_IN_LINUX]
         elif win_feature in self.configuration.elements:

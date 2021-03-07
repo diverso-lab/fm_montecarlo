@@ -6,7 +6,7 @@ from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration,
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
-from montecarlo4fms.problems.defective_configurations.models import ConfigurationState, ConfigurationStateRelations
+from montecarlo4fms.problems.defective_configurations.models import ConfigurationStateCompletion
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
 RESULT_FILE = "output_results/p1_results.txt"
@@ -27,20 +27,26 @@ def algorithm(montecarlo, initial_state):
     return state, montecarlo
 
 def main():
-    print("Problem 1: Localizing defective configurations.")
+    print("Problem 1: Completion of partial configurations.")
     print("-----------------------------------------------")
 
     with open(RESULT_FILE, 'w+') as file:
-        file.write("Run, Algorithm, Iterations, Time, Features, Reward, Nodes, Configuration\n")
+        file.write("Run, Algorithm, Iterations, Time, Features in Config, Valid Config, Reward, Nodes, Configuration\n")
 
     fide_parser = FeatureIDEParser(INPUT_PATH + FM_NAME + ".xml")
     fm = fide_parser.transform()
+
+    required_features_names = ['Glucose']
+    required_features = [fm.get_feature_by_name(f) for f in required_features_names]
+
+    initial_state = ConfigurationStateCompletion(configuration=FMConfiguration(), feature_model=fm, aafms_helper=AAFMsHelper(fm), required_features=required_features)
+
+    #ss = SearchSpace(initial_state=initial_state, max_depth=20)
 
     runs = 3
     iterations = 100
     for r in range(1,runs+1):
         montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations)
-        initial_state = ConfigurationStateRelations(configuration=FMConfiguration(), feature_model=fm, aafms_helper=AAFMsHelper(fm))
 
         print(f"Run {r} for {type(montecarlo).__name__} with {iterations} iterations.")
         start = time.time()
@@ -49,7 +55,7 @@ def main():
         print(f"Done!")
 
         with open(RESULT_FILE, 'a+') as file:
-            file.write(f"{r}, {type(montecarlo).__name__}, {iterations}, {end-start}, {len(state.configuration.elements)}, {state.reward()}, {len(montecarlo.tree)}, {[str(f) for f in state.configuration.elements if state.configuration.elements[f]]}\n")
+            file.write(f"{r}, {type(montecarlo).__name__}, {iterations}, {end-start}, {len(state.configuration.elements)}, {state.is_valid_configuration}, {state.reward()}, {len(montecarlo.tree)}, {[str(f) for f in state.configuration.elements if state.configuration.elements[f]]}\n")
 
 if __name__ == '__main__':
     cProfile.run("main()")

@@ -11,6 +11,9 @@ class FMConfiguration(Configuration):
     #def __hash__(self):
     #    return hash(tuple(self.elements.items()))
 
+    def contains(self, feature: 'Feature') -> bool:
+        return feature in self.elements and self.elements[feature]
+
     def __eq__(config1: 'FMConfiguration', config2: 'FMConfiguration'):
         return config1.elements == config2.elements
 

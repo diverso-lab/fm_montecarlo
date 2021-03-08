@@ -130,11 +130,18 @@ class ConfigurationStateCompletion(State):
         return res
 
     def is_terminal(self) -> bool:
-        return self.contains_required_features or not self.get_actions()
+        return (self.contains_required_features and self.is_valid_configuration) or not self.get_actions()
 
     def reward(self) -> float:
+        if not self.contains_required_features:
+             return -1
+        if not self.is_valid_configuration:
+             return -1
         n = len(self.feature_model.get_features()) - len(self.configuration.elements)
-        return n if self.is_valid_configuration and self.contains_required_features else -n
+        return n
+
+        #n = len(self.feature_model.get_features()) - len(self.configuration.elements)
+        #return n if self.is_valid_configuration and self.contains_required_features else -1
 
     def __hash__(self) -> int:
         if not self.hash_value:

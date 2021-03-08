@@ -51,6 +51,7 @@ class ConfigurationStateRelations(State):
             self.aafms_helper = AAFMsHelper(feature_model)
         self.is_valid_configuration = self.aafms_helper.is_valid_configuration(self.configuration)
         self.errors = None
+        self.hash_value = None
 
     def find_random_successor(self) -> 'State':
         if not self.configuration.elements:
@@ -213,7 +214,9 @@ class ConfigurationStateRelations(State):
 #         return self.errors
 
     def __hash__(self) -> int:
-        return hash(tuple(self.configuration.elements.items()))
+        if not self.hash_value:
+            self.hash_value = hash(tuple(self.configuration.elements.items()))
+        return self.hash_value
 
     def __eq__(s1: 'State', s2: 'State') -> bool:
         return s1.configuration == s2.configuration

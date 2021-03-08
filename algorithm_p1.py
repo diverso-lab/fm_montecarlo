@@ -10,9 +10,8 @@ from montecarlo4fms.problems.defective_configurations.models import Configuratio
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
 RESULT_FILE = "output_results/p1_results.txt"
-INPUT_PATH = "montecarlo4fms/problems/defective_configurations/input_fms/"
-OUTPUT_PATH = "montecarlo4fms/problems/defective_configurations/output_fms/"
-FM_NAME = "aafms_framework"
+INPUT_PATH = "input_fms/"
+FM_NAME = "aafms_framework_simple_impl"
 
 def algorithm(montecarlo, initial_state):
 
@@ -39,7 +38,7 @@ def main():
     runs = 3
     iterations = 100
     for r in range(1,runs+1):
-        montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations)
+        montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
         initial_state = ConfigurationStateRelations(configuration=FMConfiguration(), feature_model=fm, aafms_helper=AAFMsHelper(fm))
 
         print(f"Run {r} for {type(montecarlo).__name__} with {iterations} iterations.")

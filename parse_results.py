@@ -34,8 +34,8 @@ def get_stats(data: dict) -> dict:
     stats = {}
     stats['Runs'] = len(data['Time'])
 
-    n_valid_configs = len([r for r in data if data['Valid Config']])
-    n_invalid_configs = len([r for r in data if not data['Valid Config']])
+    n_valid_configs = len([r for r in data if bool(data['Valid Config'])])
+    n_invalid_configs = len([r for r in data if not bool(data['Valid Config'])])
 
     stats['n_valid_configs'] = n_valid_configs
     stats['n_invalid_configs'] = n_invalid_configs

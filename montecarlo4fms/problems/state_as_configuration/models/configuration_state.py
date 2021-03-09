@@ -9,6 +9,7 @@ class ConfigurationState(State):
         self.configuration = configuration
         self.data = data
         self.applicable_actions = None
+        self.hash_value = None
 
     def find_successors(self) -> list:
         successors = []
@@ -45,7 +46,9 @@ class ConfigurationState(State):
         return self.configuration_transition_function(action.execute(self.configuration))
 
     def __hash__(self) -> int:
-        return hash(tuple(self.configuration.get_selected_elements()))
+        if not self.hash_value:
+            self.hash_value = hash(tuple(self.configuration.get_selected_elements()))
+        return self.hash_value
 
     def __eq__(s1: 'State', s2: 'State') -> bool:
         return s1.configuration == s2.configuration

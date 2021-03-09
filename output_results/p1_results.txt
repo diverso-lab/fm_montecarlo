@@ -1,1 +1,0 @@
-Run, Algorithm, Iterations, Time, Features in Config, Valid Config, Reward, Nodes, Configuration

@@ -8,7 +8,7 @@ from famapy.metamodels.fm_metamodel.utils import AAFMsHelper, FMGodelization
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
 from montecarlo4fms.problems.state_as_configuration.actions import ActionsList
-from montecarlo4fms.problems.state_as_configuration.models import ValidMinimumConfigurationState
+from montecarlo4fms.problems.state_as_configuration.models import DefectiveConfigurationState
 from montecarlo4fms.problems import ProblemData
 
 from experiments_config import INPUT_PATH, OUTPUT_RESULTS_FILE
@@ -25,16 +25,8 @@ def algorithm(montecarlo, initial_state):
     print("Done!")
     return montecarlo, state
 
-def select_parent_features(feature) -> list:
-    features = []
-    parent = feature.get_parent()
-    while parent:
-        features.append(parent)
-        parent = parent.get_parent()
-    return features
-
-def main(input_fm_name, run, iterations, exploration_weight, features):
-    print("Problem 4: Completion of partial configurations.")
+def main(input_fm_name, run, iterations, exploration_weight):
+    print("Problem 1 (simulated): Finding defective configurations.")
     print("-----------------------------------------------")
 
     print("Setting up the problem...")
@@ -57,16 +49,8 @@ def main(input_fm_name, run, iterations, exploration_weight, features):
     problem_data = ProblemData(fm, aafms, actions)
 
     print(f"Creating initial state (configuration)...")
-    print(f"|-> Parsing features...")
-    list_features = [fm.get_feature_by_name(f) for f in features]
-    print(f"|-> Auto-selecting parents of features...")
-    selections = list_features.copy()
-    for f in list_features:
-        selections.extend(select_parent_features(f))
-    selections.extend(list_features)
-
-    initial_config = FMConfiguration(elements={s: True for s in selections})
-    initial_state = ValidMinimumConfigurationState(configuration=initial_config, data=problem_data)
+    initial_config = FMConfiguration(elements=dict())
+    initial_state = DefectiveConfigurationState(configuration=initial_config, data=problem_data)
     print(f"Initial state: {initial_state}")
 
     print("Problem setted up.")
@@ -88,12 +72,11 @@ def main(input_fm_name, run, iterations, exploration_weight, features):
     print("Finished!")
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Problem 4: Completion of partial configurations.')
+    parser = argparse.ArgumentParser(description='Problem 1 (simulated): Finding defective configurations.')
     parser.add_argument('-r', '--run', dest='run', type=int, required=True, help='Number of the run.')
     parser.add_argument('-it', '--iterations', dest='iterations', type=int, required=True, help='Number of iterations for MCTS.')
     parser.add_argument('-ew', '--exploration_weight', dest='exploration_weight', type=float, required=True, help='Exploration weight constant for UCT MCTS.')
     parser.add_argument('-fm', '--feature_model',  dest='feature_model', type=str, required=True, help='Input feature model name located in folder "input_fms/" in FeatureIDE format (.xml).')
-    parser.add_argument('-f', '--features',  dest='features', type=str, required=True, nargs='+', help='List of features in the partial configuration.')
     args = parser.parse_args()
 
-    main(input_fm_name=args.feature_model, run=args.run, iterations=args.iterations, exploration_weight=args.exploration_weight, features=args.features)
+    main(input_fm_name=args.feature_model, run=args.run, iterations=args.iterations, exploration_weight=args.exploration_weight)

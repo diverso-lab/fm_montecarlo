@@ -45,20 +45,20 @@ class FMGodelization:
     def godelization(self, config: 'Configuration') -> int:
         """Get the unique identifier number (decimal) of the configuration associated to the feature model."""
         n_features = len(self._fm_codes)
-        res = dict.fromkeys(range(n_features), '0')
         #res = [0] * n_features
-        #n = n_features - 1  # for efficiency
-        for f in config.elements:
-            res[self._fm_codes[f]] = '1'   # Create the binary number in reversed order. First feature at the left.
+        n = n_features - 1  # for efficiency
+        #for f in config.elements:
+        #    res[n - self._fm_codes[f]] = int(config.elements[f])   # Create the binary number in reversed order. First feature at the left.
+        res = {n-self._fm_codes[f] : str(int(config.elements[f])) for f in config.elements.keys()}
         return int(''.join(res.values()), 2)
 
     def degodelization(self, config_number: int) -> 'FMConfiguration':
         """Get the configuration from its godel number (decimal)."""
-        res = []
+        res = {f: False for f in self._fm_codes.keys()}
         bin_config = bin(config_number)[::-1]   # Reverse order. First feature at the left.
         for i in range(len(bin_config)):
             if bin_config[i] == '1':
-                res.append(self._fm_codes_i[i])
+                res[self._fm_codes_i[i]] = True
         return FMConfiguration(res)
 
     def _get_feature_model_codes(self, feature_model: 'FeatureModel') -> Dict['Feature', int]:

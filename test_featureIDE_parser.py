@@ -65,4 +65,9 @@ class TestFeatureIDEParser(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=3)
+    #unittest.main(verbosity=3)
+
+    parser = FeatureIDEParser('input_fms/wget.xml')
+    fm = parser.transform()
+    for f in fm.get_features():
+        print(f"{str(f)} : {str(f.get_parent())}")

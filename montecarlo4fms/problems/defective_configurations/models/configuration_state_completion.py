@@ -24,7 +24,7 @@ class ActivateFeature(Action):
         return "Act " + str(self.feature)
 
     def execute(self, state: 'State') -> 'State':
-        elements = {f: state.configuration.elements[f] for f in state.configuration}
+        elements = {f: state.configuration.elements[f] for f in state.configuration.elements}
         elements[self.feature] = True
         return ConfigurationStateCompletion(FMConfiguration(elements), state.feature_model, state.aafms_helper, state.required_features)
 

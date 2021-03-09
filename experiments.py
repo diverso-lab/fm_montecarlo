@@ -12,10 +12,10 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 
 INPUT_FM = "aafms_framework_simple_impl"
 REQUIRED_FEATURES_NAMES = ['Glucose']
-RUNS = 3
-ITERATIONS = [1, 5, 10, 25, 50, 100]
+RUNS = 2
+ITERATIONS = [100] #, 5, 10, 25, 50, 100]
 EXPLORATION_WEIGHT = 0.5
-MONTECARLO_ALGORITHM = MonteCarloAlgorithms.uct_iterations_maxchild
+MONTECARLO_ALGORITHM = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion
 
 
 def main():
@@ -28,11 +28,22 @@ def main():
         output_files.append(output_fm)
         algorithm_p3.main(input_fm=input_fm, output_results_file=output_fm, required_features_names=REQUIRED_FEATURES_NAMES, montecarlo_algorithm=MONTECARLO_ALGORITHM, runs=RUNS, iterations=i, exploration_weight=EXPLORATION_WEIGHT)
 
-    parse_results(output_files, OUTPUT_SUMMARY_FILE)
+    #parse_results(output_files, OUTPUT_SUMMARY_FILE)
 
 if __name__ == '__main__':
+    import tracemalloc
+    tracemalloc.start()
+
     main()
 
+    snapshot = tracemalloc.take_snapshot()
+    top_stats = snapshot.statistics('lineno')
+    #
+    print("[ Top 10 ]")
+    for stat in top_stats[:10]:
+        print(stat)
+
+    #######################################################
     #parser = argparse.ArgumentParser(description='MonteCarlo experiments.')
     #parser.add_argument('-r', '--runs', dest='runs', type=int, required=True, help='Number of runs.')
     #parser.add_argument('-it', '--iterations', dest='iterations', type=int, required=True, help='Number of iterations for MCTS.')

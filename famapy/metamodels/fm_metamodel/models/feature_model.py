@@ -33,17 +33,15 @@ class Relation:
             res += _child.name + ' '
         return res
 
-    #def __hash__(self) -> int:
-    #    return hash((self.parent, tuple(self.children), self.card_min, self.card_max))
-
     def __eq__(r1: 'Relation', r2: 'Relation') -> bool:
         return r1.parent == r2.parent and r1.children == r2.children and r1.card_min == r2.card_min and r1.card_max == r2.card_max
 
 class Feature:
 
-    def __init__(self, name: str, relations: Sequence['Relation'] = []):
+    def __init__(self, name: str, relations: Sequence['Relation'] = [], parent: 'Feature' = None):
         self.name = name
         self.relations = relations
+        self.parent = parent
 
     def add_relation(self, relation: 'Relation'):
         self.relations.append(relation)
@@ -52,7 +50,7 @@ class Feature:
         return self.relations
 
     def get_parent(self):
-        return next((r.parent for r in self.relations if not r.children), None)
+        return self.parent
 
     def __str__(self):
         return self.name
@@ -70,9 +68,6 @@ class Constraint:
         self.origin = origin
         self.destination = destination
         self.ctc_type = ctc_type
-
-    #def __hash__(self) -> int:
-    #    return hash((self.origin, self.destination, self.ctc_type))
 
     def __eq__(c1: 'Constraint', c2: 'Constraint') -> bool:
         return c1.origin == c2.origin and c1.destination == c2.destination and c1.ctc_type == c2.ctc_type

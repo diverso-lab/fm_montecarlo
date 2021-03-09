@@ -143,7 +143,7 @@ class ConfigurationState(Configuration, State):
 
     def __hash__(self):
         "Use of the unique Godel number."
-        return self.fm_helper.fm_godelization.godelization(self)
+        #return self.fm_helper.fm_godelization.godelization(self)
 
     def __eq__(config1: 'ConfigurationState', config2: 'ConfigurationState'):
         "Compare the Godel numbers."

@@ -11,20 +11,25 @@ class State(ABC):
 
     def find_successors(self) -> list:
         """All possible successors of this state."""
-        return [a.execute(self) for a in self.get_actions()]
+        return [self.transition_function(a) for a in self.get_actions()]
 
     def find_random_successor(self) -> 'State':
         """Random successor of this state (redefine it for more efficient simulation)."""
-        return random.choice(self.get_actions()).execute(self)
+        return random.choice(self.find_successors())
+
+    @abstractmethod
+    def state_transition_function(self, action: 'Action') -> 'State':
+        """Return the state resulting of applying the given action to the current state."""
+        pass
 
     @abstractmethod
     def get_actions(self) -> list:
-        """Valid actions that can be performed from this state."""
+        """Valid applicable actions that can be performed from this state."""
         pass
 
     @abstractmethod
     def is_terminal(self) -> bool:
-        """Returns True if the state has no successor."""
+        """Returns True if the state represents a terminal node (or it has no successors)."""
         pass
 
     @abstractmethod

@@ -1,21 +1,28 @@
+import copy
 from famapy.core.models import Configuration
+
 
 class FMConfiguration(Configuration):
 
-    def __init__(self, elements: dict = {}):
-        super().__init__(elements=elements)
+    def __init__(self, elements: dict):
+        super().__init__(elements)
+        self._selected_elements = {e for e in self.elements.keys() if self.elements[e]}
 
-    def __iter__(self):
-        return iter(self.elements)
+    def add_element(self, e):
+        self.elements[e] = True
+        self._selected_elements.add(e)
 
-    #def __hash__(self):
-    #    return hash(tuple(self.elements.items()))
+    def get_selected_elements(self) -> set:
+        return self._selected_elements
 
     def contains(self, feature: 'Feature') -> bool:
-        return feature in self.elements and self.elements[feature]
+        return feature in self._selected_elements
 
-    def __eq__(config1: 'FMConfiguration', config2: 'FMConfiguration'):
-        return config1.elements == config2.elements
+    def clone(self) -> 'FMConfiguration':
+        return FMConfiguration(copy.copy(self.elements))
+
+    def __eq__(config1: 'FMConfiguration', config2: 'FMConfiguration') -> bool:
+        return config1._selected_elements == config2._selected_elements
 
     def __str__(self) -> str:
-        return str(['+' + str(f) if self.elements[f] else '-' + str(f) for f in self.elements])
+        return str([str(e) for e in self._selected_elements])

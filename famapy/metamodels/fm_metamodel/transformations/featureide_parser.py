@@ -22,8 +22,8 @@ class FeatureIDEParser(TextToModel):
         for child in root:
             if child.tag == "struct":
                 root = child[0]
-                root_feature = Feature(root.attrib['name'], [])
-                root_feature.add_relation(Relation(parent=None, children=[], card_min=0, card_max=0))   # Relation for the parent.
+                root_feature = Feature(name=root.attrib['name'], relations=[], parent=None)
+                #root_feature.add_relation(Relation(parent=None, children=[], card_min=0, card_max=0))   # Relation for the parent.
                 (features, relations) = self._read_features(root, root_feature)
                 features = [root_feature] + features
                 fm = FeatureModel(root_feature, [], features, relations)
@@ -37,12 +37,12 @@ class FeatureIDEParser(TextToModel):
         relations = []
         for child in root_tree:
             if not child.tag == "graphics":
-                children = []
-                feature = Feature(child.attrib['name'], [])
-                r = Relation(parent=parent, children=[], card_min=0, card_max=0)
-                feature.add_relation(r)   # Relation for the parent.
+                #children = []
+                feature = Feature(name=child.attrib['name'], relations=[], parent=parent)
+                #r = Relation(parent=parent, children=[], card_min=0, card_max=0)
+                #feature.add_relation(r)   # Relation for the parent.
                 features.append(feature)
-                relations.append(r)
+                #relations.append(r)
                 if root_tree.tag == "and":
                     if "mandatory" in child.attrib: # Mandatory feature
                         r = Relation(parent=parent, children=[feature], card_min=1, card_max=1)

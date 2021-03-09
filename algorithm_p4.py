@@ -23,7 +23,7 @@ def algorithm(montecarlo, initial_state):
         state = montecarlo.run(state)
         n += 1
     print("Done!")
-    return montecarlo, state
+    return montecarlo, state, n
 
 def select_parent_features(feature) -> list:
     features = []
@@ -77,13 +77,13 @@ def main(input_fm_name, run, iterations, exploration_weight, features):
 
     print("Running algorithm...")
     start = time.time()
-    montecarlo, state = algorithm(montecarlo, initial_state)
+    montecarlo, state, n = algorithm(montecarlo, initial_state)
     end = time.time()
     print(f"Result state: {state}")
 
     print(f"Writing results to file {OUTPUT_RESULTS_FILE}...")
     with open(OUTPUT_RESULTS_FILE, 'a+') as file:
-        file.write(f"{run}, {type(montecarlo).__name__}, {iterations}, {end-start}, {len(state.configuration.elements)}, {state.is_valid_configuration}, {state.reward()}, {len(montecarlo.tree)}, {str([str(f) for f in state.configuration.get_selected_elements()])}\n")
+        file.write(f"{run}, {type(montecarlo).__name__}, {iterations}, {exploration_weight}, {end-start}, {len(state.configuration.elements)}, {state.is_valid_configuration}, {state.reward()}, {len(montecarlo.tree)}, {iterations*n}, {str([str(f) for f in state.configuration.get_selected_elements()])}\n")
 
     print("Finished!")
 

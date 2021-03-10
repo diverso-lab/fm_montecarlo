@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RUNS=1
+RUNS=30
 
 for run in `seq $RUNS`
 do

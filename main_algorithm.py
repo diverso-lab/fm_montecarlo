@@ -3,8 +3,9 @@ import cProfile
 import os.path
 
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
+from montecarlo4fms.algorithms import RandomStrategy
+from montecarlo4fms.algorithms.stopping_conditions import IterationsStoppingCondition
 from montecarlo4fms.problems import Problem1s
-
 
 # CONSTANTS
 INPUT_PATH = "input_fms/"
@@ -14,10 +15,13 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 
 # PARAMETERS
 input_fm_name = "aafms_framework_simple_impl"
-iterations = 1
+iterations = 100
 exploration_weight = 0.5
 initial_config = []
-montecarlo_algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
+#montecarlo_algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
+montecarlo_algorithm = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations, exploration_weight=exploration_weight)
+#montecarlo_algorithm = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=iterations)
+#montecarlo_algorithm = RandomStrategy(IterationsStoppingCondition(iterations=iterations))
 input_fm = INPUT_PATH + input_fm_name + ".xml"
 
 
@@ -40,6 +44,7 @@ def write_stats(run, stats):
          with open(OUTPUT_RESULTS_FILE, 'a+') as file:
              file.write(head)
 
+    #stats['Algorithm'] = "UCT MTCS [AlgSC=valid&errors]"
     values = [f'"{stats[h]}"' if type(stats[h]) == str else str(stats[h]) for h in headers]
     values = str(run) + ',' + ','.join(values) + '\n'
     with open(OUTPUT_RESULTS_FILE, 'a+') as file:

@@ -99,3 +99,6 @@ class MonteCarloTreeSearch(MonteCarlo):
             print(f"State not found in tree search: {state}")
         print(f"Total nodes in the tree search: {len(self.tree)}")
         print("------------------------------")
+
+    def __str__(self) -> str:
+        return f"MonteCarlo Tree Search (sc:{str(self.stopping_condition)})"

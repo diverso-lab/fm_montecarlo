@@ -53,3 +53,6 @@ class MonteCarloBasic(MonteCarlo):
     def print_MC_values(self, state: State):
         for s in self.Q.keys():
             print(f"//MC values for state: {[str(f) for f in s.feature_model.get_features()]} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
+
+    def __str__(self) -> str:
+        return f"MonteCarlo basic (sc:{str(self.stopping_condition)})"

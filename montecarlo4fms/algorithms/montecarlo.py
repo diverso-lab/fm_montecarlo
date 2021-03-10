@@ -41,3 +41,6 @@ class MonteCarlo(ABC):
     def score(self, state: State) -> float:
         """The score of the state"""
         pass
+
+    def __str__(self) -> str:
+        return f"MonteCarlo (sc:{str(self.stopping_condition)})"

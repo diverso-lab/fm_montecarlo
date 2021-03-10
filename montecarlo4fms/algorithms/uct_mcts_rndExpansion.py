@@ -38,3 +38,6 @@ class UCTRandomExpansion(UCTAlgorithm):
                     child = state.find_random_successor()
                     if not child in self.tree[state]:
                         self.tree[state] += [child]
+
+    def __str__(self) -> str:
+        return f"UCT MCTS Rnd Exp (sc:{str(self.stopping_condition)}, ew={self.exploration_weight})"

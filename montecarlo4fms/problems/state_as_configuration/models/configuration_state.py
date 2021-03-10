@@ -21,7 +21,7 @@ class ConfigurationState(State):
         return successors
 
     def find_random_successor(self) -> 'State':
-        action = random.choice(self.applicable_actions)
+        action = random.choice(self.get_actions())
         config = action.execute(self.configuration)
         return self.configuration_transition_function(config)
 

@@ -6,6 +6,7 @@ from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 from montecarlo4fms.problems import Problem, ProblemData
 from montecarlo4fms.problems.state_as_configuration.actions import ActionsList
+from montecarlo4fms.algorithms import MonteCarloTreeSearch
 
 
 class ConfigurationProblem(Problem):
@@ -57,7 +58,7 @@ class ConfigurationProblem(Problem):
         state = self.get_initial_state()
         print(f"step: ", end='', flush=True)
         start_time = time.time()
-        while not state.is_terminal(): #state.reward() <= 0 and state.get_actions():
+        while not state.is_terminal(): # and state.reward() <= 0 and state.get_actions(): #not state.is_terminal():
             print(f"{n},", end='', flush=True)
             state = self.get_montecarlo_algorithm().run(state)
             n += 1
@@ -84,9 +85,14 @@ class ConfigurationProblem(Problem):
         self.stats['ValidConfiguration'] = self.get_result_state().is_valid_configuration
         self.stats['Reward'] = self.get_result_state().reward()
         self.stats['#Features'] = len(self.get_result_state().configuration.get_selected_elements())
-        self.stats['#TotalNodes'] = sum(len(nodes) for nodes in self.get_montecarlo_algorithm().tree.values()) + 1 # the initial node
-        self.stats['#NodesExplored'] = len(self.get_montecarlo_algorithm().tree.keys())
         self.stats['#TotalIterationsExecuted'] = self.get_montecarlo_algorithm().get_iterations_executed()
         self.stats['Configuration'] = str([str(f) for f in self.get_result_state().configuration.get_selected_elements()])
+        if isinstance(self.get_montecarlo_algorithm(), MonteCarloTreeSearch):
+            self.stats['#TotalNodes'] = sum(len(nodes) for nodes in self.get_montecarlo_algorithm().tree.values()) + 1 # the initial node
+            self.stats['#NodesExplored'] = len(self.get_montecarlo_algorithm().tree.keys())
+        else:
+            self.stats['#TotalNodes'] = 0
+            self.stats['#NodesExplored'] = 0
+
 
         return self.stats

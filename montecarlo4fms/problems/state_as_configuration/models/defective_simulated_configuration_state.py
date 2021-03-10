@@ -8,7 +8,7 @@ class DefectiveSimulatedConfigurationState(ConfigurationState):
     def __init__(self, configuration: 'FMConfiguration', data: 'ProblemData'):
         super().__init__(configuration, data)
         self.is_valid_configuration = self.data.aafms.is_valid_configuration(self.configuration)
-        self.errors = self.count_errors()
+        self.errors = None
 
     def configuration_transition_function(self, config: 'FMConfiguration') -> 'State':
         return DefectiveSimulatedConfigurationState(config, self.data)
@@ -18,6 +18,10 @@ class DefectiveSimulatedConfigurationState(ConfigurationState):
 
     def reward(self) -> float:
         if not self.is_valid_configuration:
+            return -1
+        if not self.errors:
+            self.errors = self.count_errors()
+        if self.errors <= 0:
             return -1
 
         n = len(self.data.fm.get_features()) - len(self.configuration.get_selected_elements())

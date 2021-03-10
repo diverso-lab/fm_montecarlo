@@ -9,6 +9,9 @@ class AnytimeStoppingCondition(StoppingCondition):
         self.seconds = seconds
         self._start = 0
 
+    def get_value(self):
+        return self.seconds
+
     def initialize(self):
         """Initialize the value of the iterations."""
         self._start = time.time()
@@ -20,3 +23,6 @@ class AnytimeStoppingCondition(StoppingCondition):
     def reached(self) -> bool:
         """Return True if the number of iterations is reached."""
         return (time.time() - self._start) >= self.seconds
+
+    def __str__(self) -> str:
+        return f"time={self.get_value()}s"

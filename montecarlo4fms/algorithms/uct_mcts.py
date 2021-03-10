@@ -25,3 +25,6 @@ class UCTAlgorithm(MonteCarloTreeSearch):
             return self.Q[s] / self.N[s] + self.exploration_weight * math.sqrt(log_N_vertex / self.N[s])
 
         return max(self.tree[state], key=uct)
+
+    def __str__(self) -> str:
+        return f"UCT MCTS (sc:{str(self.stopping_condition)}, ew={self.exploration_weight})"

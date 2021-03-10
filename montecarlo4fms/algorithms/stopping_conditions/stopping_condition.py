@@ -10,6 +10,11 @@ class StoppingCondition(ABC):
     """
 
     @abstractmethod
+    def get_value(self):
+        """Return the stopping condition value."""
+        pass
+
+    @abstractmethod
     def initialize(self):
         """Initialize the value of the stopping condition."""
         pass
@@ -21,5 +26,5 @@ class StoppingCondition(ABC):
 
     @abstractmethod
     def reached(self) -> bool:
-        """Returns True if the stopping condition is reached, False otherwise."""
+        """Return True if the stopping condition is reached, False otherwise."""
         pass

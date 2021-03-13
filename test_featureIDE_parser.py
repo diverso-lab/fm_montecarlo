@@ -1,8 +1,7 @@
 import unittest
 
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
-
-from famapy.metamodels.fm_metamodel.utils import fm_utils
+from famapy.metamodels.fm_metamodel.utils import fm_utils, AAFMsHelper
 
 
 class TestFeatureIDEParser(unittest.TestCase):
@@ -63,11 +62,20 @@ class TestFeatureIDEParser(unittest.TestCase):
                 alternative_groups = [f for f in fm.get_features() if fm_utils.is_alternative_group(f)]
                 self.assertEqual(len(alternative_groups), self.models[fm_input][5])
 
+    def test_core_features(self):
+        for fm_input in self.models:
+            parser = self.parser(self.input_folder + fm_input + self.ext)
+            fm = parser.transform()
+            aafms = AAFMsHelper(fm)
+            with self.subTest(fm=fm_input):
+                core_features = aafms.get_core_features()
+                self.assertEqual(len(core_features), self.models[fm_input][3])
+
 
 if __name__ == "__main__":
-    #unittest.main(verbosity=3)
+    unittest.main(verbosity=3)
 
-    parser = FeatureIDEParser('input_fms/wget.xml')
-    fm = parser.transform()
-    for f in fm.get_features():
-        print(f"{str(f)} : {str(f.get_parent())}")
+    # parser = FeatureIDEParser('input_fms/wget.xml')
+    # fm = parser.transform()
+    # for f in fm.get_features():
+    #     print(f"{str(f)} : {str(f.get_parent())}")

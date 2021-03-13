@@ -12,46 +12,24 @@ class AAFMsHelper:
         self.feature_model = feature_model
         transform = FmToPysat(feature_model)
         self.cnf_model = transform.transform()
-        self.formula = [clause for clause in self.cnf_model.cnf] # caching the clauses of the feature model
+        self.variables = {value: key for (key, value) in self.cnf_model.features.items()}
+        self.solver = Glucose3()
+        self.solver.append_formula(self.cnf_model.cnf)
 
     def is_valid_configuration(self, config: 'Configuration') -> bool:
         if not self.feature_model or not self.feature_model.root:
             return not config
 
-        g = Glucose3()
-        g.append_formula(self.formula)
-        config_names = [feature.name for feature in config.elements if config.elements[feature]]
-        formula = [[clause[0]] if clause[1] in config_names else [-clause[0]] for clause in self.cnf_model.features.items()]
-        g.append_formula(formula)
-        valid = g.solve()
-        g.delete()
-        return valid
+        variables = [value if self.feature_model.get_feature_by_name(feature_name) in config.get_selected_elements() else -value for (feature_name, value) in self.variables.items()]
+        return self.solver.solve(assumptions=variables)
 
     def is_valid_partial_configuration(self, config: 'Configuration') -> bool:
-        g = Glucose3()
-        g.append_formula(self.formula)
-        config_selected_names = [feature.name for feature in config.elements if config.elements[feature]]
-        config_unselected_names = [feature.name for feature in config.elements if not config.elements[feature]]
-        assumptions = [self.cnf_model.variables[name] for name in config_selected_names]
-        assumptions.extend(-1*[self.cnf_model.variables[name] for name in config_unselected_names])
-        valid = g.solve(assumptions=assumptions)
-        g.delete()
-        return valid
-
-    # def is_valid_partial_selection(self, selected_features: Set['Feature'], unselected_features: Set['Feature']) -> bool:
-    #     g = Glucose3()
-    #     g.append_formula(self.formula)
-    #     config_selected_names = [feature.name for feature in selected_features]
-    #     config_unselected_names = [feature.name for feature in unselected_features]
-    #     assumptions = [self.cnf_model.variables[name] for name in config_selected_names]
-    #     assumptions.extend([-1*self.cnf_model.variables[name] for name in config_unselected_names])
-    #     return g.solve(assumptions=assumptions)
+        variables = [self.variables[feature.name] if selected else -self.variables[feature.name] for (feature, selected) in config.elements.items()]
+        return self.solver.solve(assumptions=variables)
 
     def get_configurations(self) -> List['FMConfiguration']:
-        g = Glucose3()
-        g.append_formula(self.formula)
         configurations = []
-        for solutions in g.enum_models():
+        for solutions in self.solver.enum_models():
             elements = dict()
             for variable in solutions:
                 if variable > 0:  # This feature should appear in the product
@@ -59,7 +37,6 @@ class AAFMsHelper:
                     elements[feature] = True
             config = FMConfiguration(elements=elements)
             configurations.append(config)
-        g.delete()
         return configurations
 
     def get_core_features(self) -> Set['Feature']:

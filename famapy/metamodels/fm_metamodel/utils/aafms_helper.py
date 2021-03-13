@@ -20,11 +20,12 @@ class AAFMsHelper:
 
         g = Glucose3()
         g.append_formula(self.formula)
-        config_names = [feature.name for feature in config.elements if config.elements[feature]]
-        formula = [[clause[0]] if clause[1] in config_names else [-clause[0]] for clause in self.cnf_model.features.items()]
+        config_names = (feature.name for feature in config.elements if config.elements[feature])
+        formula = ([clause[0]] if clause[1] in config_names else [-clause[0]] for clause in self.cnf_model.features.items())
         g.append_formula(formula)
-
-        return g.solve()
+        valid = g.solve()
+        g.delete()
+        return valid
 
     def is_valid_partial_configuration(self, config: 'Configuration') -> bool:
         g = Glucose3()
@@ -33,7 +34,9 @@ class AAFMsHelper:
         config_unselected_names = [feature.name for feature in config.elements if not config.elements[feature]]
         assumptions = [self.cnf_model.variables[name] for name in config_selected_names]
         assumptions.extend(-1*[self.cnf_model.variables[name] for name in config_unselected_names])
-        return g.solve(assumptions=assumptions)
+        valid = g.solve(assumptions=assumptions)
+        g.delete()
+        return valid
 
     # def is_valid_partial_selection(self, selected_features: Set['Feature'], unselected_features: Set['Feature']) -> bool:
     #     g = Glucose3()
@@ -56,6 +59,7 @@ class AAFMsHelper:
                     elements[feature] = True
             config = FMConfiguration(elements=elements)
             configurations.append(config)
+        g.delete()
         return configurations
 
     def get_core_features(self) -> Set['Feature']:

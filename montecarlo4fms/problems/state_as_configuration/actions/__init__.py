@@ -5,5 +5,6 @@ from .select_optional_feature import SelectOptionalFeature
 from .select_alternative_feature import SelectAlternativeFeature
 from .select_or_feature import SelectOrFeature
 from .actions_list import ActionsList
+from .select_random_feature import SelectRandomFeature
 
-__all__ = ['SelectFeature', 'SelectMandatoryFeature', 'SelectOptionalFeature', 'SelectAlternativeFeature', 'SelectOrFeature', 'SelectRootFeature', 'ActionsList']
+__all__ = ['SelectFeature', 'SelectMandatoryFeature', 'SelectOptionalFeature', 'SelectAlternativeFeature', 'SelectOrFeature', 'SelectRootFeature', 'ActionsList',  'SelectRandomFeature']

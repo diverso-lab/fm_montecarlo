@@ -3,5 +3,6 @@ from .valid_configuration_state import ValidConfigurationState
 from .valid_minimum_configuration_state import ValidMinimumConfigurationState
 from .defective_configuration_state import DefectiveConfigurationState
 from .defective_simulated_configuration_state import DefectiveSimulatedConfigurationState
+from .random_configuration_state import RandomConfigurationState
 
-__all__ = ['ConfigurationState', 'ValidConfigurationState', 'ValidMinimumConfigurationState', 'DefectiveConfigurationState', 'DefectiveSimulatedConfigurationState']
+__all__ = ['ConfigurationState', 'ValidConfigurationState', 'ValidMinimumConfigurationState', 'DefectiveConfigurationState', 'DefectiveSimulatedConfigurationState', 'RandomConfigurationState']

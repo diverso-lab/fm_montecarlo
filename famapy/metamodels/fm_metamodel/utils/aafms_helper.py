@@ -20,8 +20,8 @@ class AAFMsHelper:
 
         g = Glucose3()
         g.append_formula(self.formula)
-        config_names = (feature.name for feature in config.elements if config.elements[feature])
-        formula = ([clause[0]] if clause[1] in config_names else [-clause[0]] for clause in self.cnf_model.features.items())
+        config_names = [feature.name for feature in config.elements if config.elements[feature]]
+        formula = [[clause[0]] if clause[1] in config_names else [-clause[0]] for clause in self.cnf_model.features.items()]
         g.append_formula(formula)
         valid = g.solve()
         g.delete()

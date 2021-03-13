@@ -53,7 +53,7 @@ class SearchSpace:
             for s in states:
                 nof_nodes += 1
 
-                if not s.is_terminal():
+                if s.get_actions():
                     children.extend(s.find_successors())
 
             print(f"Depth {depth}: {self.stats['nof_nodes'][depth]} nodes / total: {nof_nodes}")

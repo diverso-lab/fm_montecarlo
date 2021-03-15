@@ -116,8 +116,9 @@ def plot_features_probabilities(fig, algorithms, data):
 def main(filepath):
     data = read_file(filepath)
 
-    algorithms = {'UCT MCTS (10 simulations)': 'blue',
-                  'Random Strategy (1000 simulations)': 'red'}
+    algorithms = {'UCT MCTS': 'blue',
+                  'Random Strategy (1000 simulations)': 'red',
+                  'Random Strategy': 'green'}
                 #  'UCT MCTS Rnd Exp': 'green',
                 #  'MonteCarlo basic': 'black',
                 #  'Random Strategy': 'orange'}

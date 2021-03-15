@@ -6,7 +6,7 @@ from montecarlo4fms.problems.state_as_configuration.actions import SelectRootFea
 class ActionsList():
 
     def __init__(self, feature_model: 'FeatureModel'):
-        self._actions = self._build_actions_random(feature_model)
+        self._actions = self._build_actions(feature_model)
 
     def get_actions(self) -> Dict['Feature', 'Action']:
         return self._actions

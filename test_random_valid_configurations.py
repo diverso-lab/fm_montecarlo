@@ -17,17 +17,6 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 # PARAMETERS
 input_fm_name = "aafms_framework_simple_impl"
 
-
-def is_valid(config, cnf_model):
-    g = Glucose3()
-    for clause in cnf_model.cnf:
-        g.add_clause(clause)
-    config_names = (feature.name for feature in config.get_selected_elements())
-    formula = ([clause[0]] if clause[1] in config_names else [-clause[0]] for clause in cnf_model.features.items())
-    for f in formula:
-        g.add_clause(f)
-    return g.solve()
-
 def main():
     input_fm = INPUT_PATH + input_fm_name + ".xml"
     fide_parser = FeatureIDEParser(input_fm)

@@ -1,10 +1,10 @@
 import random
 from abc import abstractmethod
 from typing import List
-from montecarlo4fms.models import Action
+from montecarlo4fms.problems.state_as_configuration.actions import SelectFeature
 
 
-class SelectRandomFeature(Action):
+class SelectRandomFeature(SelectFeature):
 
     def __init__(self, feature_model: 'FeatureModel'):
         self.fm = feature_model

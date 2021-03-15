@@ -3,7 +3,7 @@ from typing import List
 
 from famapy.metamodels.fm_metamodel.models import FMConfiguration
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
-from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
+from famapy.metamodels.fm_metamodel.utils import AAFMsHelper, fm_utils
 from montecarlo4fms.problems import Problem, ProblemData
 from montecarlo4fms.problems.state_as_configuration.actions import ActionsList
 from montecarlo4fms.algorithms import MonteCarloTreeSearch
@@ -26,7 +26,7 @@ class ConfigurationProblem(Problem):
 
         print(f"Transforming to CNF model...")
         aafms = AAFMsHelper(fm)
-        print(f"CNF model with {len(aafms.formula)} clauses.")
+        #print(f"CNF model with {len(aafms.formula)} clauses.")
 
         print(f"Creating set of actions...")
         actions = ActionsList(fm)
@@ -58,7 +58,7 @@ class ConfigurationProblem(Problem):
         state = self.get_initial_state()
         print(f"step: ", end='', flush=True)
         start_time = time.time()
-        while not state.is_terminal(): # and state.reward() <= 0 and state.get_actions(): #not state.is_terminal():
+        while not state.is_terminal(): #state.reward() <= 0 and state.get_actions():
             print(f"{n},", end='', flush=True)
             state = self.get_montecarlo_algorithm().run(state)
             n += 1

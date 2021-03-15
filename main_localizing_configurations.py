@@ -6,53 +6,80 @@ from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration,
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
-from montecarlo4fms.problems.defective_configurations.models import ConfigurationState, ConfigurationStateRelations
+from montecarlo4fms.problems.state_as_configuration.models import DefectiveSimulatedConfigurationState
+from montecarlo4fms.problems.state_as_configuration.actions import ActionsList
+from montecarlo4fms.problems import ProblemData
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
 
-INPUT_PATH = "montecarlo4fms/problems/defective_configurations/input_fms/"
-OUTPUT_PATH = "montecarlo4fms/problems/defective_configurations/output_fms/"
-FM_NAME = "aafms_framework"
+# CONSTANTS
+INPUT_PATH = "input_fms/"
+OUTPUT_RESULTS_PATH = "output_results/"
+OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
+OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
+
+# PARAMETERS
+input_fm_name = "aafms_framework_simple_impl"
+iterations = 100
+exploration_weight = 0.5
+#initial_config_features = []
+initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
+
 
 def main():
-    print("Localizing defective configurations problem")
+    print("Problem 1 (simulated): Finding defective configurations.")
+    print("-----------------------------------------------")
 
-    # Read the feature model
-    fide_parser = FeatureIDEParser(INPUT_PATH + FM_NAME + ".xml")
+    print("Setting up the problem...")
+
+    input_fm = INPUT_PATH + input_fm_name + ".xml"
+
+    print(f"Loading feature model: {input_fm_name} ...")
+    fide_parser = FeatureIDEParser(input_fm)
     fm = fide_parser.transform()
+    print(f"Feature model loaded with {len(fm.get_features())} features, {len(fm.get_constraints())} constraints, {len(fm.get_relations())} relations.")
 
-    print(f"#Features: {len(fm.get_features())} -> {[str(f) for f in fm.get_features()]}")
+    print(f"Transforming to CNF model...")
+    aafms = AAFMsHelper(fm)
 
-    aafms_helper = AAFMsHelper(fm)
-    core_features = aafms_helper.get_core_features()
-    print(f"#core-features: {len(core_features)} -> {[str(f) for f in core_features]}")
-    # config_test = FMConfiguration({fm.get_feature_by_name('Pizza'): True})
-    # valid = aafms_helper.is_valid_configuration(config_test)
-    # print(f"config: {valid} -> {[str(f) for f in config_test.elements]}")
+    print(f"Creating set of actions...")
+    actions = ActionsList(fm)
+    print(f"{actions.get_nof_actions()} actions.")
 
+    problem_data = ProblemData(fm, aafms, actions)
 
-    iterations = 100
-    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations)
-    print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
+    print(f"Creating initial state (configuration)...")
+    initial_config = FMConfiguration(elements={fm.get_feature_by_name(f) : True for f in initial_config_features})
+    initial_state = DefectiveSimulatedConfigurationState(configuration=initial_config, data=problem_data)
+    print(f"Initial state: {initial_state}")
 
-    initial_state = ConfigurationStateRelations(FMConfiguration(), fm)
+    print("Problem setted up.")
+
+    print(f"Configuring MonteCarlo algorithm...")
+    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
+    print(f"{type(montecarlo).__name__} with {iterations} iterations, and {exploration_weight} exploration weight.")
+
+    print("Running algorithm...")
 
     n = 0
     state = initial_state
     while state.reward() <= 0 and state.get_actions():
-        print(f"State {n}: {[str(f) for f in state.configuration.elements if state.configuration.elements[f]]} -> {state.reward()}")
+        print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
         time_start = time.time()
         new_state = montecarlo.run(state)
         time_end = time.time()
-        print(f"Execution time for Run {n}: {time_end - time_start} seconds.")
+        print(f"Execution time for Step {n}: {time_end - time_start} seconds.")
         montecarlo.print_MC_values(state)
+
         state = new_state
         n += 1
 
-    print(f"Final State {n}: {[str(f) for f in state.configuration.elements if state.configuration.elements[f]]} -> {state.reward()}")
+    print(f"Final state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
+
+    print("Finished!")
 
 if __name__ == '__main__':
     start = time.time()
     cProfile.run("main()")
     end = time.time()
-    print(f"Time: {end-start} seconds")
+    print(f"Total Time: {end-start} seconds")

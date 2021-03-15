@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="GPL">
+			<and mandatory="true" name="Driver">
+				<feature mandatory="true" name="Benchmark"/>
+			</and>
+			<and mandatory="true" name="GraphType">
+				<feature name="Directed"/>
+				<feature name="Undirected"/>
+			</and>
+			<feature name="Weight"/>
+			<and name="Search">
+				<feature name="DFS"/>
+				<feature name="BFS"/>
+			</and>
+			<or mandatory="true" name="Algorithms">
+				<feature name="Num"/>
+				<feature name="CC"/>
+				<feature name="Prim"/>
+				<feature name="SCC"/>
+				<feature name="Kruskal"/>
+				<feature name="Cycle"/>
+				<feature name="Shortest"/>
+			</or>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>Num</var>
+				<var>Search</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>CC</var>
+				<var>Undirected</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>CC</var>
+				<var>Search</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>SCC</var>
+				<var>Directed</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Prim</var>
+				<var>Undirected</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>SCC</var>
+				<var>DFS</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Cycle</var>
+				<var>DFS</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Kruskal</var>
+				<var>Undirected</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Kruskal</var>
+				<var>Weight</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Prim</var>
+				<var>Weight</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Kruskal</var>
+				<not>
+					<var>Prim</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Shortest</var>
+				<var>Directed</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Shortest</var>
+				<var>Weight</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>

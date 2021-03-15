@@ -17,6 +17,10 @@ class MonteCarlo(ABC):
 
     def run(self, state: State) -> State:
         """Run the Monte Carlo algorithm. Return the best performing state."""
+        successors = state.find_successors()
+        if len(successors) == 1:
+            return successors[0]
+
         self.stopping_condition.initialize()
         while not self.stopping_condition.reached():
             self.do_rollout(state)

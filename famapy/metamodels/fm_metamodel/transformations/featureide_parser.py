@@ -24,7 +24,7 @@ class FeatureIDEParser(TextToModel):
                 root = child[0]
                 root_feature = Feature(name=root.attrib['name'], relations=[], parent=None)
                 #root_feature.add_relation(Relation(parent=None, children=[], card_min=0, card_max=0))   # Relation for the parent.
-                (features, relations) = self._read_features(root, root_feature)
+                (features, children, relations) = self._read_features(root, root_feature)
                 features = [root_feature] + features
                 fm = FeatureModel(root_feature, [], features, relations)
             elif child.tag == "constraints":
@@ -34,6 +34,7 @@ class FeatureIDEParser(TextToModel):
 
     def _read_features(self, root_tree, parent: Feature) -> (List[Feature], List[Relation]):
         features = []
+        children = []
         relations = []
         for child in root_tree:
             if not child.tag == "graphics":
@@ -42,6 +43,7 @@ class FeatureIDEParser(TextToModel):
                 #r = Relation(parent=parent, children=[], card_min=0, card_max=0)
                 #feature.add_relation(r)   # Relation for the parent.
                 features.append(feature)
+                children.append(feature)
                 #relations.append(r)
                 if root_tree.tag == "and":
                     if "mandatory" in child.attrib: # Mandatory feature
@@ -54,24 +56,24 @@ class FeatureIDEParser(TextToModel):
                         relations.append(r)
 
                 if child.tag == "alt":
-                    (children, children_relations) = self._read_features(child, feature)
-                    r = Relation(parent=feature, children=children, card_min=1, card_max=1)
+                    (alt_children, direct_children, children_relations) = self._read_features(child, feature)
+                    r = Relation(parent=feature, children=direct_children, card_min=1, card_max=1)
                     feature.add_relation(r)
-                    features.extend(children)
+                    features.extend(alt_children)
                     relations.append(r)
                     relations.extend(children_relations)
                 elif child.tag == "or":
-                    (children, children_relations) = self._read_features(child, feature)
-                    r = Relation(parent=feature, children=children, card_min=1, card_max=len(children))
+                    (or_children, direct_children, children_relations) = self._read_features(child, feature)
+                    r = Relation(parent=feature, children=direct_children, card_min=1, card_max=len(direct_children))
                     feature.add_relation(r)
-                    features.extend(children)
+                    features.extend(or_children)
                     relations.append(r)
                     relations.extend(children_relations)
                 elif child.tag == "and":
-                    (children, children_relations) = self._read_features(child, feature)
+                    (children, direct_children, children_relations) = self._read_features(child, feature)
                     features.extend(children)
                     relations.extend(children_relations)
-        return (features, relations)
+        return (features, children, relations)
 
     def _read_constraints(self, ctcs_root, fm: FeatureModel) -> List[Constraint]:
         n = 1

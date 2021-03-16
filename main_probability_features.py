@@ -14,12 +14,13 @@ OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
 OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 
 # PARAMETERS
-input_fm_name = "aafms_framework_simple_impl"
+#input_fm_name = "aafms_framework_simple_impl"
+input_fm_name = "pizzas"
 RUNS = 1000
 ITERATIONS = 100
 exploration_weight = 0.5
 initial_config = []
-MAX_FEATURES = 63
+MAX_FEATURES = 12
 #montecarlo_algorithm = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations, exploration_weight=exploration_weight)
 #montecarlo_algorithm = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=iterations)
 #montecarlo_algorithm = RandomStrategy(IterationsStoppingCondition(iterations=iterations))

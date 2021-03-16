@@ -13,23 +13,26 @@ class AAFMsHelper:
         transform = FmToPysat(feature_model)
         self.cnf_model = transform.transform()
         self.variables = {value: key for (key, value) in self.cnf_model.features.items()}
+        print(f"Variables: {self.variables}")
         self.solver = Glucose3()
         self.solver.append_formula(self.cnf_model.cnf)
+        print(f"CNF: {[c for c in self.cnf_model.cnf]}")
+        print(f"CNF features: {[c for c in self.cnf_model.features.items()]}")
 
     def is_valid_configuration(self, config: 'Configuration') -> bool:
-        if not self.feature_model or not self.feature_model.root:
-            return not config
-
-        variables = [value if self.feature_model.get_feature_by_name(feature_name) in config.get_selected_elements() else -value for (feature_name, value) in self.variables.items()]
+        variables = [value if config.contains(self.feature_model.get_feature_by_name(feature_name)) else -value for (value, feature_name) in self.cnf_model.features.items()]
         return self.solver.solve(assumptions=variables)
 
     def is_valid_partial_configuration(self, config: 'Configuration') -> bool:
-        variables = [self.variables[feature.name] if selected else -self.variables[feature.name] for (feature, selected) in config.elements.items()]
+        #variables = [self.variables[feature.name] if selected else -self.variables[feature.name] for (feature, selected) in config.elements.items()]
+        variables = [self.variables[feature.name] if selected else -self.variables[feature.name] for (feature, selected) in config.elements.items() ]
         return self.solver.solve(assumptions=variables)
 
     def get_configurations(self) -> List['FMConfiguration']:
+        solver = Glucose3()
+        solver.append_formula(self.cnf_model.cnf)
         configurations = []
-        for solutions in self.solver.enum_models():
+        for solutions in solver.enum_models():
             elements = dict()
             for variable in solutions:
                 if variable > 0:  # This feature should appear in the product
@@ -37,6 +40,7 @@ class AAFMsHelper:
                     elements[feature] = True
             config = FMConfiguration(elements=elements)
             configurations.append(config)
+        solver.delete()
         return configurations
 
     def get_core_features(self) -> Set['Feature']:

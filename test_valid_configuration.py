@@ -16,8 +16,6 @@ def main():
     print(f"cnf_model: {aafms.cnf_model}")
     print(f"cnf_model.features: {aafms.cnf_model.features}")
 
-
-
     elements = {fm.get_feature_by_name('A'): True,
               fm.get_feature_by_name('B'): True,
               fm.get_feature_by_name('C'): True}

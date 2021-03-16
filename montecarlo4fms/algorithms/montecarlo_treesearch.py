@@ -94,7 +94,8 @@ class MonteCarloTreeSearch(MonteCarlo):
             for s in self.tree[state]:
                 print(f"//MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
             print(f"\#Decisions: {len(self.tree[state])}")
-            print(f"Best decision: {self.choose(state)}")
+            #if len(self.tree[state]) > 0:
+                #print(f"Best decision: {self.choose(state)}")
         else:
             print(f"State not found in tree search: {state}")
         print(f"Total nodes in the tree search: {len(self.tree)}")

@@ -25,4 +25,7 @@ class FMConfiguration(Configuration):
         return config1._selected_elements == config2._selected_elements
 
     def __str__(self) -> str:
-        return str([str(e) for e in self._selected_elements])
+        return str([str(e) for e in self.elements.keys() if self.elements[e]])
+
+    def __hash__(self) -> int:
+        return hash(tuple(self.elements.items()))

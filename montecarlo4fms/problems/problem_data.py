@@ -5,3 +5,4 @@ class ProblemData:
         self.fm = feature_model
         self.aafms = aafms
         self.actions = actions
+        self.open_decision = {} # Dict of feature -> relations

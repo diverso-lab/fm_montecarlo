@@ -70,8 +70,8 @@ class FeatureIDEParser(TextToModel):
                     relations.append(r)
                     relations.extend(children_relations)
                 elif child.tag == "and":
-                    (children, direct_children, children_relations) = self._read_features(child, feature)
-                    features.extend(children)
+                    (and_children, direct_children, children_relations) = self._read_features(child, feature)
+                    features.extend(and_children)
                     relations.extend(children_relations)
         return (features, children, relations)
 

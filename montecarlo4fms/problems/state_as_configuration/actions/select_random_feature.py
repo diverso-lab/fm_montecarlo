@@ -16,12 +16,6 @@ class SelectRandomFeature(SelectFeature):
     def __str__(self) -> str:
         return self.get_name()
 
-    def get_config_with_feature(self, config: 'FMConfiguration', feature: 'Feature') -> 'FMConfiguration':
-        """Return a new configuration with the given feature added."""
-        new_config = config.clone()
-        new_config.add_element(feature)
-        return new_config
-
     def execute(self, config: 'FMConfiguration') -> 'FMConfiguration':
         possible_features = [f for f in self.fm.get_features() if f not in config.get_selected_elements()]
         feature = random.choice(possible_features)

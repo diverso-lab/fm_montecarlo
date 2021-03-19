@@ -1,0 +1,40 @@
+Strategy, FM, #Features, #Configs, #ValidConfigs, #ValidDistinctConfigs, #Simulations, #Evaluations, Probability
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 0, 1, 0, 0, 1, 0, 0.0
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 1, 13, 0, 0, 1, 0, 0.0
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 2, 78, 0, 0, 1, 0, 0.0
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 3, 286, 2, 2, 1, 0, 0.6993006993006993
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 4, 715, 0, 0, 1, 0, 0.0
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 5, 1287, 11, 11, 1, 0, 0.8547008547008548
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 6, 1716, 11, 11, 1, 0, 0.641025641025641
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 7, 1716, 14, 14, 1, 0, 0.8158508158508158
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 8, 1287, 11, 11, 1, 0, 0.8547008547008548
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 9, 715, 6, 6, 1, 0, 0.8391608391608392
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 10, 286, 1, 1, 1, 0, 0.34965034965034963
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 11, 78, 0, 0, 1, 0, 0.0
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 12, 13, 0, 0, 1, 0, 0.0
+Real distribution, model_simple_paper_excerpt_simpleCTCs, 13, 1, 0, 0, 1, 0, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 0, 1, 0, 0, 1000, 1000, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 1, 13, 0, 0, 1000, 1000, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 2, 78, 0, 0, 1000, 1000, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 3, 286, 6, 2, 1000, 1000, 0.6
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 4, 715, 0, 0, 1000, 1000, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 5, 1287, 6, 5, 1000, 1000, 0.6
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 6, 1716, 3, 3, 1000, 1000, 0.3
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 7, 1716, 8, 6, 1000, 1000, 0.8
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 8, 1287, 11, 6, 1000, 1000, 1.0999999999999999
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 9, 715, 9, 5, 1000, 1000, 0.8999999999999999
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 10, 286, 2, 1, 1000, 1000, 0.2
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 11, 78, 0, 0, 1000, 1000, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 12, 13, 0, 0, 1000, 1000, 0.0
+Random (1000), model_simple_paper_excerpt_simpleCTCs, 13, 1, 0, 0, 1000, 1000, 0.0
+UCT MCTS (sc:iters=100, ew=0.5)(0), model_simple_paper_excerpt_simpleCTCs, 0, 1, 0, 0, 100, 0, 0.0
+UCT MCTS (sc:iters=100, ew=0.5)(10000), model_simple_paper_excerpt_simpleCTCs, 1, 13, 0, 0, 100, 10000, 0.0
+UCT MCTS (sc:iters=100, ew=0.5)(20000), model_simple_paper_excerpt_simpleCTCs, 2, 78, 0, 0, 100, 20000, 0.0
+UCT MCTS (sc:iters=100, ew=0.5)(30000), model_simple_paper_excerpt_simpleCTCs, 3, 286, 100, 2, 100, 30000, 100.0
+UCT MCTS (sc:iters=100, ew=0.5)(40000), model_simple_paper_excerpt_simpleCTCs, 4, 715, 0, 0, 100, 40000, 0.0
+UCT MCTS (sc:iters=100, ew=0.5)(50000), model_simple_paper_excerpt_simpleCTCs, 5, 1287, 100, 11, 100, 50000, 100.0
+UCT MCTS (sc:iters=100, ew=0.5)(60000), model_simple_paper_excerpt_simpleCTCs, 6, 1716, 100, 11, 100, 60000, 100.0
+UCT MCTS (sc:iters=100, ew=0.5)(70000), model_simple_paper_excerpt_simpleCTCs, 7, 1716, 100, 13, 100, 70000, 100.0
+UCT MCTS (sc:iters=100, ew=0.5)(80000), model_simple_paper_excerpt_simpleCTCs, 8, 1287, 99, 11, 100, 80000, 99.0
+UCT MCTS (sc:iters=100, ew=0.5)(90000), model_simple_paper_excerpt_simpleCTCs, 9, 715, 97, 6, 100, 90000, 97.0
+UCT MCTS (sc:iters=100, ew=0.5)(100000), model_simple_paper_excerpt_simpleCTCs, 10, 286, 100, 1, 100, 100000, 100.0

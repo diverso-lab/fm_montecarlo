@@ -39,7 +39,10 @@ class FeatureIDEParser(TextToModel):
         for child in root_tree:
             if not child.tag == "graphics":
                 #children = []
-                feature = Feature(name=child.attrib['name'], relations=[], parent=parent)
+                is_abstract = False
+                if "abstract" in child.attrib and child.attrib['abstract']:
+                    is_abstract = True
+                feature = Feature(name=child.attrib['name'], relations=[], parent=parent, is_abstract=is_abstract)
                 #r = Relation(parent=parent, children=[], card_min=0, card_max=0)
                 #feature.add_relation(r)   # Relation for the parent.
                 features.append(feature)
@@ -79,7 +82,10 @@ class FeatureIDEParser(TextToModel):
         n = 1
         constraints = []
         for ctc in ctcs_root:
-            rule = ctc[0]
+            index = 0
+            if ctc[index].tag == "graphics":
+                index += 1
+            rule = ctc[index]
             left = rule[0]
             right = rule[1]
             if rule.tag == "imp":

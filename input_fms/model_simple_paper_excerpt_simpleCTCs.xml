@@ -6,74 +6,38 @@
 		<graphics key="layout" value="horizontal"/>
 		<graphics key="showcollapsedconstraints" value="true"/>
 		<graphics key="legendhidden" value="false"/>
-		<graphics key="layoutalgorithm" value="0"/>
+		<graphics key="layoutalgorithm" value="1"/>
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="AAFMFramework">
-			<graphics key="position" value="668,40"/>
 			<or name="Packages">
-				<graphics key="position" value="520,90"/>
 				<graphics key="collapsed" value="false"/>
-				<feature name="python-sat">
-					<graphics key="position" value="429,140"/>
-				</feature>
-				<feature name="pycosat">
-					<graphics key="position" value="495,140"/>
-				</feature>
-				<feature name="pyPicosat">
-					<graphics key="position" value="549,140"/>
-				</feature>
-				<feature name="pyglucose">
-					<graphics key="position" value="612,140"/>
-				</feature>
+				<feature name="python-sat"/>
+				<feature name="pycosat"/>
+				<feature name="pyPicosat"/>
+				<feature name="pyglucose"/>
 			</or>
 			<or name="Solvers">
-				<graphics key="position" value="737,90"/>
 				<graphics key="collapsed" value="false"/>
-				<feature name="MiniSAT">
-					<graphics key="position" value="677,140"/>
-				</feature>
-				<or name="PicoSAT">
-					<graphics key="position" value="734,140"/>
-					<feature abstract="true" name="PicoSAT-pycosat">
-						<graphics key="position" value="664,180"/>
-					</feature>
-					<feature abstract="true" name="PicoSAT-pyPicosat">
-						<graphics key="position" value="767,181"/>
-					</feature>
-				</or>
-				<or name="Glucose">
-					<graphics key="position" value="793,140"/>
-					<feature abstract="true" name="Glucose-python-sat">
-						<graphics key="position" value="810,178"/>
-					</feature>
-					<feature abstract="true" name="Glucose-pyglucose">
-						<graphics key="position" value="922,174"/>
-					</feature>
-				</or>
+				<feature name="MiniSAT"/>
+				<feature name="PicoSAT"/>
+				<feature name="Glucose"/>
 			</or>
 			<alt mandatory="true" name="System">
-				<graphics key="position" value="862,90"/>
 				<graphics key="collapsed" value="false"/>
-				<feature name="Linux">
-					<graphics key="position" value="849,140"/>
-				</feature>
-				<feature name="Win">
-					<graphics key="position" value="891,140"/>
-				</feature>
+				<feature name="Linux"/>
+				<feature name="Win"/>
 			</alt>
 		</and>
 	</struct>
 	<constraints>
 		<rule>
-			<graphics key="position" value="654,240"/>
 			<imp>
 				<var>MiniSAT</var>
 				<var>python-sat</var>
 			</imp>
 		</rule>
 		<rule>
-			<graphics key="position" value="663,265"/>
 			<imp>
 				<var>Win</var>
 				<not>
@@ -82,31 +46,35 @@
 			</imp>
 		</rule>
 		<rule>
-			<graphics key="position" value="639,290"/>
 			<imp>
-				<var>PicoSAT-pycosat</var>
-				<var>pycosat</var>
+				<var>PicoSAT</var>
+				<not>
+					<var>python-sat</var>
+				</not>
 			</imp>
 		</rule>
 		<rule>
-			<graphics key="position" value="630,315"/>
 			<imp>
-				<var>PicoSAT-pyPicosat</var>
-				<var>pyPicosat</var>
+				<var>PicoSAT</var>
+				<not>
+					<var>pyglucose</var>
+				</not>
 			</imp>
 		</rule>
 		<rule>
-			<graphics key="position" value="630,340"/>
 			<imp>
-				<var>Glucose-pyglucose</var>
-				<var>pyglucose</var>
+				<var>Glucose</var>
+				<not>
+					<var>pycosat</var>
+				</not>
 			</imp>
 		</rule>
 		<rule>
-			<graphics key="position" value="629,365"/>
 			<imp>
-				<var>Glucose-python-sat</var>
-				<var>python-sat</var>
+				<var>Glucose</var>
+				<not>
+					<var>pyPicosat</var>
+				</not>
 			</imp>
 		</rule>
 	</constraints>

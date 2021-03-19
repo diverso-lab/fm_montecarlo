@@ -8,20 +8,20 @@ class ConfigurationState(State):
     def __init__(self, configuration: 'FMConfiguration', data: 'ProblemData'):
         self.configuration = configuration
         self.data = data
-        self.hash_value = None
-        self.successors = []
-        self.applicable_actions = []
+        self._hash_value = None
+        self._successors = []
+        self._applicable_actions = []
 
     def find_successors(self) -> list:
-        if not self.successors:
+        if not self._successors:
             successors = []
             for a in self.get_actions():
                 configurations = a.executions(self.configuration)
                 for c in configurations:
                     new_state = self.configuration_transition_function(c)
                     successors.append(new_state)
-            self.successors = successors
-        return self.successors
+            self._successors = successors
+        return self._successors
 
     def find_random_successor(self) -> 'State':
         action = random.choice(self.get_actions())
@@ -34,7 +34,7 @@ class ConfigurationState(State):
         pass
 
     def get_actions(self) -> list:
-        if not self.applicable_actions:
+        if not self._applicable_actions:
             applicable_actions = []
             if not self.configuration.get_selected_elements():
                 applicable_actions.extend(self.data.actions.get_actions()[None])
@@ -42,7 +42,7 @@ class ConfigurationState(State):
             for feature in self.configuration.get_selected_elements():
                 applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Mandatory'] if a.is_applicable(self.configuration)])
                 applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Optional'] if a.is_applicable(self.configuration)])
-            self.applicable_actions = applicable_actions
+            self._applicable_actions = applicable_actions
         # for feature in self.configuration.get_selected_elements():
         #     applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Mandatory'] if a.is_applicable(self.configuration)])
         #
@@ -50,18 +50,18 @@ class ConfigurationState(State):
         #     for feature in self.configuration.get_selected_elements():
         #         applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Optional'] if a.is_applicable(self.configuration)])
 
-        return self.applicable_actions
+        return self._applicable_actions
 
     def state_transition_function(self, action: 'Action') -> 'State':
         return self.configuration_transition_function(action.execute(self.configuration))
 
     def __hash__(self) -> int:
-        if not self.hash_value:
-            self.hash_value = hash(tuple(self.configuration.get_selected_elements()))
-        return self.hash_value
+        if not self._hash_value:
+            self._hash_value = hash(self.configuration)
+        return self._hash_value
 
-    def __eq__(s1: 'State', s2: 'State') -> bool:
-        return s1.configuration == s2.configuration
+    def __eq__(self, other: 'State') -> bool:
+        return self.configuration == other.configuration
 
     def __str__(self) -> str:
         return str(self.configuration)

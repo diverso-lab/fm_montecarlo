@@ -33,15 +33,16 @@ class Relation:
             res += _child.name + ' '
         return res
 
-    def __eq__(r1: 'Relation', r2: 'Relation') -> bool:
-        return r1.parent == r2.parent and r1.children == r2.children and r1.card_min == r2.card_min and r1.card_max == r2.card_max
+    def __eq__(self, other: 'Relation') -> bool:
+        return self.parent == other.parent and self.children == other.children and self.card_min == other.card_min and self.card_max == other.card_max
 
 class Feature:
 
-    def __init__(self, name: str, relations: Sequence['Relation'] = [], parent: 'Feature' = None):
+    def __init__(self, name: str, relations: Sequence['Relation'] = [], parent: 'Feature' = None, is_abstract: bool = False):
         self.name = name
         self.relations = relations
         self.parent = parent
+        self.is_abstract = is_abstract
 
     def add_relation(self, relation: 'Relation'):
         self.relations.append(relation)
@@ -53,13 +54,13 @@ class Feature:
         return self.parent
 
     def __str__(self):
-        return self.name
+        return self.name if not self.is_abstract else self.name + " (abstract)"
 
     def __hash__(self) -> int:
         return hash(self.name)
 
-    def __eq__(f1: 'Feature', f2: 'Feature') -> bool:
-        return f1.name == f2.name
+    def __eq__(self, other: 'Feature') -> bool:
+        return self.name == other.name
 
 class Constraint:
     #This is heavily limited. Currently this will only support requires and excludes
@@ -69,8 +70,8 @@ class Constraint:
         self.destination = destination
         self.ctc_type = ctc_type
 
-    def __eq__(c1: 'Constraint', c2: 'Constraint') -> bool:
-        return c1.origin == c2.origin and c1.destination == c2.destination and c1.ctc_type == c2.ctc_type
+    def __eq__(self, other: 'Constraint') -> bool:
+        return self.origin == other.origin and self.destination == other.destination and self.ctc_type == other.ctc_type
 
 class FeatureModel(VariabilityModel):
 
@@ -138,5 +139,5 @@ class FeatureModel(VariabilityModel):
     # def __hash__(self) -> int:
     #     return hash((self.features, self.ctcs, self.relations))
 
-    def __eq__(fm1: 'FeatureModel', fm2: 'FeatureModel'):
-        return fm1.root == fm2.root and fm1.features == fm2.features and fm1.relations == fm2.relations and fm1.ctcs == fm2.ctcs
+    def __eq__(self, other: 'FeatureModel'):
+        return self.root == other.root and self.features == other.features and self.relations == other.relations and self.ctcs == other.ctcs

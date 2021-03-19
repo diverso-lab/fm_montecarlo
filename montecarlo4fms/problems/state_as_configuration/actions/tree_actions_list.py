@@ -1,19 +1,16 @@
 from typing import Dict
-from abc import abstractmethod
 
-from montecarlo4fms.problems.state_as_configuration.actions import SelectRootFeature, SelectMandatoryFeature, SelectOptionalFeature, SelectAlternativeFeature, SelectOrFeature, SelectRandomFeature
+from montecarlo4fms.problems.state_as_configuration.actions import SelectRootFeature, SelectMandatoryFeature, SelectOptionalFeature, SelectAlternativeFeature, SelectOrFeature
+from montecarlo4fms.problems.state_as_configuration.actions import ActionsList
 
-
-class ActionsList():
-
-    @abstractmethod
+class TreeActionsList(ActionsList):
+    """List of actions following the tree hierarchy structure of the feature model."""
+    
     def __init__(self, feature_model: 'FeatureModel'):
         self._actions = self._build_actions(feature_model)
 
-    @abstractmethod
     def get_actions(self) -> Dict['Feature', 'Action']:
         return self._actions
-
 
     def _build_actions(self, fm: 'FeatureModel') -> Dict['Feature', 'Action']:
         actions_dict = dict()
@@ -37,20 +34,3 @@ class ActionsList():
             actions_dict[feature] = new_dict
 
         return actions_dict
-
-    def _build_actions_random(self, fm: 'FeatureModel') -> Dict['Feature', 'Action']:
-        actions_dict = dict()
-
-        for feature in fm.get_features():
-            if feature == fm.root:
-                actions_dict[None] = [SelectRandomFeature(fm)]
-
-            actions_for_optional_relations = [SelectRandomFeature(fm)]
-
-            new_dict = {'Mandatory': [], 'Optional': actions_for_optional_relations}
-            actions_dict[feature] = new_dict
-
-        return actions_dict
-
-    def get_nof_actions(self) -> int:
-        return sum(len(a) for a in self.get_actions().values())

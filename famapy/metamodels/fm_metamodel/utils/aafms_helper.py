@@ -13,11 +13,11 @@ class AAFMsHelper:
         transform = FmToPysat(feature_model)
         self.cnf_model = transform.transform()
         self.variables = {value: key for (key, value) in self.cnf_model.features.items()}
-        print(f"Variables: {self.variables}")
+        #print(f"Variables: {self.variables}")
         self.solver = Glucose3()
         self.solver.append_formula(self.cnf_model.cnf)
-        print(f"CNF: {[c for c in self.cnf_model.cnf]}")
-        print(f"CNF features: {[c for c in self.cnf_model.features.items()]}")
+        #print(f"CNF: {[c for c in self.cnf_model.cnf]}")
+        #print(f"CNF features: {[c for c in self.cnf_model.features.items()]}")
 
     def is_valid_configuration(self, config: 'Configuration') -> bool:
         variables = [value if config.contains(self.feature_model.get_feature_by_name(feature_name)) else -value for (value, feature_name) in self.cnf_model.features.items()]
@@ -42,6 +42,22 @@ class AAFMsHelper:
             configurations.append(config)
         solver.delete()
         return configurations
+
+    def get_products(self) -> List['FMConfiguration']:
+        solver = Glucose3()
+        solver.append_formula(self.cnf_model.cnf)
+        configurations = []
+        for solutions in solver.enum_models():
+            elements = dict()
+            for variable in solutions:
+                if variable > 0:  # This feature should appear in the product
+                    feature = self.feature_model.get_feature_by_name(self.cnf_model.features.get(variable))
+                    if not feature.is_abstract:
+                        elements[feature] = True
+            config = FMConfiguration(elements=elements)
+            configurations.append(config)
+        solver.delete()
+        return list(set(configurations))
 
     def get_core_features(self) -> Set['Feature']:
         if not self.feature_model.root:  # void feature model

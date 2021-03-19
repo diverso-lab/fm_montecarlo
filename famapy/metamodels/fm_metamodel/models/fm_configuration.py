@@ -6,26 +6,24 @@ class FMConfiguration(Configuration):
 
     def __init__(self, elements: dict):
         super().__init__(elements)
-        self._selected_elements = {e for e in self.elements.keys() if self.elements[e]}
 
     def add_element(self, e):
         self.elements[e] = True
-        self._selected_elements.add(e)
 
     def get_selected_elements(self) -> set:
-        return self._selected_elements
+        return {e for e in self.elements.keys() if self.elements[e]}
 
     def contains(self, feature: 'Feature') -> bool:
-        return feature in self._selected_elements
+        return feature in self.elements and self.elements[feature]
 
     def clone(self) -> 'FMConfiguration':
         return FMConfiguration(copy.copy(self.elements))
 
-    def __eq__(config1: 'FMConfiguration', config2: 'FMConfiguration') -> bool:
-        return config1._selected_elements == config2._selected_elements
+    def __eq__(self, other: 'FMConfiguration') -> bool:
+        return self.elements == other.elements
 
     def __str__(self) -> str:
         return str([str(e) for e in self.elements.keys() if self.elements[e]])
 
     def __hash__(self) -> int:
-        return hash(tuple(self.elements.items()))
+        return hash(frozenset(self.elements.items()))

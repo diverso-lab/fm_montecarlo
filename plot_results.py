@@ -102,12 +102,13 @@ def plot_features_probabilities(fig, algorithms, data):
         fig.set_ylabel("%")
 
         try:
+            raise Exception
 #            raise Exception
             # Smooth the line (suaviza la recta)
-            model=make_interp_spline(x_group, y_group)
-            xs=np.linspace(min(x_group), max(x_group), 500)
-            ys=model(xs)
-            fig.plot(xs, ys, label=a, color=algorithms[a])
+            # model=make_interp_spline(x_group, y_group)
+            # xs=np.linspace(min(x_group), max(x_group), 500)
+            # ys=model(xs)
+            # fig.plot(xs, ys, label=a, color=algorithms[a])
         except:
             fig.plot(x_group, y_group, label=a, color=algorithms[a])
 

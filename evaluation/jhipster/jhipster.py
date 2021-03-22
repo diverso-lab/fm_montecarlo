@@ -1,13 +1,13 @@
 import csv 
 
 
-JHIPSTER_CONFIGS_FILE = "jhipster3.6.1-testresults.csv"
-FM_FILE = "input_fms/fm-3.6.1refined.xml"
-CNF_FILE = "input_fms/fm-3.6.1refined-cnf.txt"
+JHIPSTER_CONFIGS_FILE = "evaluation/jhipster/jhipster3.6.1-testresults.csv"
+FM_FILE = "evaluation/jhipster/fm-3.6.1refined.xml"
+CNF_FILE = "evaluation/jhipster/fm-3.6.1refined-cnf.txt"
 
 
 # Mapping of feature names in the FM to filters to apply to the configurations according the values in the .csv.
-JHISPTER_FILTERS = {'Docker':                       lambda c: c['Docker'] == 'TRUE',
+JHIPSTER_FILTERS = {'Docker':                       lambda c: c['Docker'] == 'TRUE',
                     'MicroserviceApplication':      lambda c: c['applicationType'] == 'microservice',
                     'Monolithic':                   lambda c: c['applicationType'] == 'monolith',
                     'MicroserviceGateway':          lambda c: c['applicationType'] == 'gateway',
@@ -43,8 +43,8 @@ def filter_configuration(configuration: 'FMConfiguration', jhipster_configuratio
     """Filter the jHipster configurations according to the given configuration and return the dictionary representing the jHipster configuration."""
     configs = list(jhipster_configurations) 
     for feature in configuration.get_selected_features():
-        if feature.name in JHISPTER_FILTERS:
-            configs = filter(JHISPTER_FILTERS[feature.name], configs)
+        if feature.name in JHIPSTER_FILTERS:
+            configs = filter(JHIPSTER_FILTERS[feature.name], configs)
     print(f"#Filtered configs: {len(configs)}")
 
 

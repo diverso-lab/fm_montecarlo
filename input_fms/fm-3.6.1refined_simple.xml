@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		    <properties/>
+	    <struct>
+	        <and abstract="true" mandatory="true" name="JHipster">
+	            <alt abstract="true" mandatory="true" name="Generator">
+	                <alt abstract="true" mandatory="true" name="Server">
+	                    <feature mandatory="true" name="MicroserviceApplication"/>
+                    <feature mandatory="true" name="UaaServer"/>
+                </alt>
+                <alt abstract="true" mandatory="true" name="Application">
+                    <feature mandatory="true" name="MicroserviceGateway"/>
+                    <feature mandatory="true" name="Monolithic"/>
+                </alt>
+            </alt>
+            <alt abstract="true" mandatory="true" name="Authentication">
+                <feature mandatory="true" name="HTTPSession"/>
+                <feature mandatory="true" name="OAuth2"/>
+                <feature mandatory="true" name="Uaa"/>
+                <feature mandatory="true" name="JWT"/>
+            </alt>
+            <feature name="SocialLogin"/>
+            <and abstract="true" name="Database">
+                <and abstract="true" name="SQL">
+                    <alt abstract="true" name="Hibernate2ndLvlCache">
+                        <feature mandatory="true" name="HazelCast"/>
+                        <feature mandatory="true" name="EhCache"/>
+                    </alt>
+                    <alt abstract="true" mandatory="true" name="Development">
+                        <alt abstract="true" mandatory="true" name="H2">
+                            <feature mandatory="true" name="DiskBased"/>
+                            <feature mandatory="true" name="InMemory"/>
+                        </alt>
+                        <feature mandatory="true" name="PostgreeSQLDev"/>
+                        <feature mandatory="true" name="MariaDBDev"/>
+                        <feature mandatory="true" name="MySql"/>
+                    </alt>
+                    <alt abstract="true" mandatory="true" name="Production">
+                        <feature mandatory="true" name="MySQL"/>
+                        <feature mandatory="true" name="MariaDB"/>
+                        <feature mandatory="true" name="PostgreSQL"/>
+                    </alt>
+                    <feature name="ElasticSearch"/>
+                </and>
+                <feature name="Cassandra"/>
+                <feature name="MongoDB"/>
+            </and>
+            <feature name="SpringWebSockets"/>
+            <feature name="Libsass"/>
+            <feature name="ClusteredSession"/>
+            <alt abstract="true" mandatory="true" name="BackEnd">
+                <feature mandatory="true" name="Gradle"/>
+                <feature mandatory="true" name="Maven"/>
+            </alt>
+            <feature name="InternationalizationSupport"/>
+            <feature name="Docker"/>
+            <and abstract="true" mandatory="true" name="TestingFrameworks">
+                <feature name="Protractor"/>
+                <feature mandatory="true" name="Gatling"/>
+                <feature mandatory="true" name="Cucumber"/>
+            </and>
+            <and abstract="true" mandatory="true" name="Subtree">
+                <or abstract="true" mandatory="true" name="OR0_0">
+                    <feature abstract="true" mandatory="true" name="OAuth2_1_1"/>
+                    <feature abstract="true" mandatory="true" name="SocialLogin_2_1"/>
+                    <feature abstract="true" mandatory="true" name="MicroserviceApplication_3_1"/>
+                    <feature abstract="true" mandatory="true" name="SQL_4_1"/>
+                    <feature abstract="true" mandatory="true" name="MongoDB_5_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR5_0">
+                    <feature abstract="true" mandatory="true" name="SocialLogin_6_1"/>
+                    <feature abstract="true" mandatory="true" name="HTTPSession_7_1"/>
+                    <feature abstract="true" mandatory="true" name="JWT_8_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR8_0">
+                    <feature abstract="true" mandatory="true" name="SocialLogin_9_1"/>
+                    <feature abstract="true" mandatory="true" name="SQL_10_1"/>
+                    <feature abstract="true" mandatory="true" name="MongoDB_11_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR11_0">
+                    <feature abstract="true" mandatory="true" name="OAuth2_12_1"/>
+                    <feature abstract="true" mandatory="true" name="SocialLogin_13_1"/>
+                    <feature abstract="true" mandatory="true" name="MicroserviceApplication_14_1"/>
+                    <feature abstract="true" mandatory="true" name="SQL_15_1"/>
+                    <feature abstract="true" mandatory="true" name="MongoDB_16_1"/>
+                    <feature abstract="true" mandatory="true" name="Cassandra_17_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR17_0">
+                    <feature abstract="true" mandatory="true" name="Server_18_1"/>
+                    <feature abstract="true" mandatory="true" name="Protractor_19_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR19_0">
+                    <feature abstract="true" mandatory="true" name="MySQL_20_1"/>
+                    <feature abstract="true" mandatory="true" name="H2_21_1"/>
+                    <feature abstract="true" mandatory="true" name="MySql_22_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR22_0">
+                    <and abstract="true" mandatory="true" name="AND23_1">
+                        <feature abstract="true" mandatory="true" name="NOT_MicroserviceApplication_23_2"/>
+                        <feature abstract="true" mandatory="true" name="NOT_MicroserviceGateway_23_2"/>
+                    </and>
+                    <or abstract="true" mandatory="true" name="OR24_1">
+                        <feature abstract="true" mandatory="true" name="JWT_24_2"/>
+                        <feature abstract="true" mandatory="true" name="Uaa_24_2"/>
+                    </or>
+                </or>
+                <or abstract="true" mandatory="true" name="OR24_0">
+                    <feature abstract="true" mandatory="true" name="Monolithic_25_1"/>
+                    <feature abstract="true" mandatory="true" name="JWT_26_1"/>
+                    <feature abstract="true" mandatory="true" name="HTTPSession_27_1"/>
+                    <feature abstract="true" mandatory="true" name="OAuth2_28_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR28_0">
+                    <feature abstract="true" mandatory="true" name="MariaDB_29_1"/>
+                    <feature abstract="true" mandatory="true" name="H2_30_1"/>
+                    <feature abstract="true" mandatory="true" name="MariaDBDev_31_1"/>
+                </or>
+                <or abstract="true" mandatory="true" name="OR31_0">
+                    <feature abstract="true" mandatory="true" name="PostgreSQL_32_1"/>
+                    <feature abstract="true" mandatory="true" name="H2_33_1"/>
+                    <feature abstract="true" mandatory="true" name="PostgreeSQLDev_34_1"/>
+                </or>
+            </and>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <disj>
+                <not>
+                    <var>UaaServer</var>
+                </not>
+                <var>Uaa</var>
+            </disj>
+        </rule>
+        <rule>
+            <disj>
+                <not>
+                    <var>Server</var>
+                </not>
+                <not>
+                    <var>Protractor</var>
+                </not>
+            </disj>
+        </rule>
+        <rule>
+            <disj>
+                <not>
+                    <var>SpringWebSockets</var>
+                </not>
+                <var>Application</var>
+            </disj>
+        </rule>
+        <rule>
+            <disj>
+                <not>
+                    <var>ClusteredSession</var>
+                </not>
+                <var>Application</var>
+            </disj>
+        </rule>
+        <rule>
+            <disj>
+                <not>
+                    <var>Libsass</var>
+                </not>
+                <var>Application</var>
+            </disj>
+        </rule>
+        <rule>
+            <disj>
+                <not>
+                    <var>SocialLogin</var>
+                </not>
+                <var>Monolithic</var>
+            </disj>
+        </rule>
+        <rule>
+            <imp>
+                <var>OAuth2_1_1</var>
+                <not>
+                    <var>OAuth2</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SocialLogin_2_1</var>
+                <var>SocialLogin</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MicroserviceApplication_3_1</var>
+                <var>MicroserviceApplication</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SQL_4_1</var>
+                <var>SQL</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MongoDB_5_1</var>
+                <var>MongoDB</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SocialLogin_6_1</var>
+                <not>
+                    <var>SocialLogin</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>HTTPSession_7_1</var>
+                <var>HTTPSession</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>JWT_8_1</var>
+                <var>JWT</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SocialLogin_9_1</var>
+                <not>
+                    <var>SocialLogin</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SQL_10_1</var>
+                <var>SQL</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MongoDB_11_1</var>
+                <var>MongoDB</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>OAuth2_12_1</var>
+                <var>OAuth2</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SocialLogin_13_1</var>
+                <var>SocialLogin</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MicroserviceApplication_14_1</var>
+                <var>MicroserviceApplication</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>SQL_15_1</var>
+                <var>SQL</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MongoDB_16_1</var>
+                <var>MongoDB</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>Cassandra_17_1</var>
+                <var>Cassandra</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>Server_18_1</var>
+                <var>Server</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>Protractor_19_1</var>
+                <var>Protractor</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MySQL_20_1</var>
+                <not>
+                    <var>MySQL</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>H2_21_1</var>
+                <var>H2</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MySql_22_1</var>
+                <var>MySql</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>NOT_MicroserviceApplication_23_2</var>
+                <not>
+                    <var>MicroserviceApplication</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>NOT_MicroserviceGateway_23_2</var>
+                <not>
+                    <var>MicroserviceGateway</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>JWT_24_2</var>
+                <var>JWT</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>Uaa_24_2</var>
+                <var>Uaa</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>Monolithic_25_1</var>
+                <not>
+                    <var>Monolithic</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>JWT_26_1</var>
+                <var>JWT</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>HTTPSession_27_1</var>
+                <var>HTTPSession</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>OAuth2_28_1</var>
+                <var>OAuth2</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MariaDB_29_1</var>
+                <not>
+                    <var>MariaDB</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>H2_30_1</var>
+                <var>H2</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>MariaDBDev_31_1</var>
+                <var>MariaDBDev</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>PostgreSQL_32_1</var>
+                <not>
+                    <var>PostgreSQL</var>
+                </not>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>H2_33_1</var>
+                <var>H2</var>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>PostgreeSQLDev_34_1</var>
+                <var>PostgreeSQLDev</var>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>

@@ -10,8 +10,9 @@ class FeatureIDEParser(TextToModel):
     def get_source_extension() -> str:
         return 'xml'
 
-    def __init__(self, path: str):
+    def __init__(self, path: str, no_read_constraints: bool = False):
         self._path = path
+        self._no_read_constraints = no_read_constraints
 
     def transform(self) -> FeatureModel:
         return self._read_feature_model(self._path)
@@ -28,8 +29,9 @@ class FeatureIDEParser(TextToModel):
                 features = [root_feature] + features
                 fm = FeatureModel(root_feature, [], features, relations)
             elif child.tag == "constraints":
-                constraints = self._read_constraints(child, fm)
-                fm.ctcs.extend(constraints)
+                if not self._no_read_constraints:
+                    constraints = self._read_constraints(child, fm)
+                    fm.ctcs.extend(constraints)
         return fm
 
     def _read_features(self, root_tree, parent: Feature) -> (List[Feature], List[Relation]):

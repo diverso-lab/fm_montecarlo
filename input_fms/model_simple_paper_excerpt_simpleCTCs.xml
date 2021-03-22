@@ -17,7 +17,7 @@
 				<feature name="pyPicosat"/>
 				<feature name="pyglucose"/>
 			</or>
-			<or name="Solvers">
+			<or mandatory="true" name="Solvers">
 				<graphics key="collapsed" value="false"/>
 				<feature name="MiniSAT"/>
 				<feature name="PicoSAT"/>

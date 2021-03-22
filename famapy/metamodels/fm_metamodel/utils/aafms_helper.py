@@ -8,10 +8,14 @@ from famapy.metamodels.pysat_metamodel.transformations import FmToPysat
 
 class AAFMsHelper:
 
-    def __init__(self, feature_model: 'FeatureModel'):
+    def __init__(self, feature_model: 'FeatureModel', cnf_model: 'PySATModel' = None):
         self.feature_model = feature_model
-        transform = FmToPysat(feature_model)
-        self.cnf_model = transform.transform()
+        if cnf_model:
+            self.cnf_model = cnf_model
+        else:
+            transform = FmToPysat(feature_model)
+            self.cnf_model = transform.transform()
+            
         self.variables = {value: key for (key, value) in self.cnf_model.features.items()}
         #print(f"Variables: {self.variables}")
         self.solver = Glucose3()

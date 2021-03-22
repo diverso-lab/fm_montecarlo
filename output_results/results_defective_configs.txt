@@ -1,0 +1,286 @@
+(env) josemi@josemi-linux-us:~/Workspaces/famapy-ws/fm_montecarlo$ python main_localizing_configurations.py
+Problem 1 (simulated): Finding defective configurations.
+-----------------------------------------------
+Setting up the problem...
+Loading feature model: model_simple_paper_excerpt_simpleCTCs ...
+Feature model loaded with 13 features, 6 constraints, 6 relations.
+Transforming to CNF model...
+Creating set of actions...
+27 actions.
+Creating initial state (configuration)...
+Initial state: []
+Problem setted up.
+Configuring MonteCarlo algorithm...
+UCTAlgorithm with 100 iterations, and 0.5 exploration weight.
+Running algorithm...
+Input state 0: [] -> valid=False, R=-1
+Execution time for Step 0: 3.838539123535156e-05 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+State not found in tree search: []
+Total nodes in the tree search: 0
+------------------------------
+Input state 1: ['AAFMFramework'] -> valid=False, R=-1
+Execution time for Step 1: 0.05698657035827637 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers'] -> -48/64 = -0.75
+//MC values for state: ['AAFMFramework', 'System'] -> -34/36 = -0.9444444444444444
+\#Decisions: 2
+Total nodes in the tree search: 99
+------------------------------
+Input state 2: ['AAFMFramework', 'Solvers'] -> valid=False, R=-1
+Execution time for Step 2: 1.430511474609375e-06 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers', 'System'] -> -47/63 = -0.746031746031746
+\#Decisions: 1
+Total nodes in the tree search: 99
+------------------------------
+Input state 3: ['AAFMFramework', 'Solvers', 'System'] -> valid=False, R=-1
+Execution time for Step 3: 0.05812406539916992 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux'] -> -147/169 = -0.8698224852071006
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Win'] -> -27/27 = -1.0
+\#Decisions: 2
+Total nodes in the tree search: 168
+------------------------------
+Input state 4: ['AAFMFramework', 'Solvers', 'System', 'Linux'] -> valid=False, R=-1
+Execution time for Step 4: 0.044301509857177734 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages'] -> -154/176 = -0.875
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'MiniSAT'] -> -31/31 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'PicoSAT'] -> -31/31 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Glucose'] -> -31/31 = -1.0
+\#Decisions: 4
+Total nodes in the tree search: 169
+------------------------------
+Input state 5: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages'] -> valid=False, R=-1
+Execution time for Step 5: 0.04067230224609375 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'MiniSAT'] -> -27/27 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'PicoSAT'] -> -27/27 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'Glucose'] -> -27/27 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'python-sat'] -> -41/43 = -0.9534883720930233
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pycosat'] -> -27/27 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat'] -> -121/139 = -0.8705035971223022
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyglucose'] -> -27/27 = -1.0
+\#Decisions: 7
+Total nodes in the tree search: 169
+------------------------------
+Input state 6: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat'] -> valid=False, R=-1
+Execution time for Step 6: 0.03473091125488281 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT'] -> -88/100 = -0.88
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'PicoSAT'] -> -49/53 = -0.9245283018867925
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'Glucose'] -> -25/25 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'python-sat'] -> -38/40 = -0.95
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'pycosat'] -> -25/25 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'pyglucose'] -> -25/25 = -1.0
+\#Decisions: 6
+Total nodes in the tree search: 169
+------------------------------
+Input state 7: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT'] -> valid=False, R=-1
+Execution time for Step 7: 0.02977299690246582 seconds.
+----------MCTS stats----------
+MonteCarloTreeSearch values:
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT', 'PicoSAT'] -> -31/31 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT', 'Glucose'] -> -30/30 = -1.0
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT', 'python-sat'] -> -83/91 = -0.9120879120879121
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT', 'pycosat'] -> -46/48 = -0.9583333333333334
+//MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT', 'pyglucose'] -> -30/30 = -1.0
+\#Decisions: 5
+Total nodes in the tree search: 169
+------------------------------
+Final state 8: ['AAFMFramework', 'Solvers', 'System', 'Linux', 'Packages', 'pyPicosat', 'MiniSAT', 'python-sat'] -> valid=True, R=1
+Finished!
+         1272935 function calls (1267842 primitive calls) in 0.266 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.266    0.266 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 ElementTree.py:1192(parse)
+        1    0.000    0.000    0.000    0.000 ElementTree.py:551(__init__)
+        1    0.000    0.000    0.000    0.000 ElementTree.py:557(getroot)
+        1    0.000    0.000    0.000    0.000 ElementTree.py:571(parse)
+     1103    0.001    0.000    0.001    0.000 _utils.py:47(check)
+        1    0.000    0.000    0.000    0.000 aafms_helper.py:11(__init__)
+        1    0.000    0.000    0.000    0.000 aafms_helper.py:15(<dictcomp>)
+     1103    0.001    0.000    0.022    0.000 aafms_helper.py:22(is_valid_configuration)
+     1103    0.005    0.000    0.015    0.000 aafms_helper.py:23(<listcomp>)
+        1    0.000    0.000    0.000    0.000 actions_list.py:55(get_nof_actions)
+       15    0.000    0.000    0.000    0.000 actions_list.py:56(<genexpr>)
+     1103    0.000    0.000    0.000    0.000 configuration.py:6(__init__)
+      177    0.001    0.000    0.025    0.000 configuration_state.py:15(find_successors)
+      500    0.001    0.000    0.017    0.000 configuration_state.py:26(find_random_successor)
+     1739    0.018    0.000    0.066    0.000 configuration_state.py:36(get_actions)
+    11437    0.002    0.000    0.008    0.000 configuration_state.py:48(<listcomp>)
+    11412    0.002    0.000    0.011    0.000 configuration_state.py:52(<listcomp>)
+   671833    0.051    0.000    0.053    0.000 configuration_state.py:59(__hash__)
+    35034    0.006    0.000    0.013    0.000 configuration_state.py:64(__eq__)
+       38    0.000    0.000    0.000    0.000 configuration_state.py:67(__str__)
+     1103    0.001    0.000    0.001    0.000 configuration_state.py:8(__init__)
+     1102    0.001    0.000    0.001    0.000 copy.py:66(copy)
+     1102    0.001    0.000    0.024    0.000 defective_simulated_configuration_state.py:13(configuration_transition_function)
+     1106    0.001    0.000    0.059    0.000 defective_simulated_configuration_state.py:16(is_terminal)
+      624    0.000    0.000    0.001    0.000 defective_simulated_configuration_state.py:19(reward)
+       45    0.000    0.000    0.001    0.000 defective_simulated_configuration_state.py:30(count_errors)
+       31    0.000    0.000    0.000    0.000 defective_simulated_configuration_state.py:35(<listcomp>)
+       14    0.000    0.000    0.000    0.000 defective_simulated_configuration_state.py:37(<listcomp>)
+     1103    0.001    0.000    0.023    0.000 defective_simulated_configuration_state.py:8(__init__)
+        3    0.000    0.000    0.000    0.000 feature_model.py:108(get_features)
+        2    0.000    0.000    0.000    0.000 feature_model.py:121(get_constraints)
+    14441    0.002    0.000    0.002    0.000 feature_model.py:124(get_feature_by_name)
+       14    0.000    0.000    0.000    0.000 feature_model.py:18(is_mandatory)
+       11    0.000    0.000    0.000    0.000 feature_model.py:21(is_optional)
+       11    0.000    0.000    0.000    0.000 feature_model.py:24(is_or)
+        8    0.000    0.000    0.000    0.000 feature_model.py:27(is_alternative)
+       13    0.000    0.000    0.000    0.000 feature_model.py:41(__init__)
+        6    0.000    0.000    0.000    0.000 feature_model.py:47(add_relation)
+       57    0.000    0.000    0.000    0.000 feature_model.py:50(get_relations)
+      195    0.000    0.000    0.000    0.000 feature_model.py:56(__str__)
+   147402    0.017    0.000    0.025    0.000 feature_model.py:59(__hash__)
+       13    0.000    0.000    0.000    0.000 feature_model.py:62(__eq__)
+        6    0.000    0.000    0.000    0.000 feature_model.py:67(__init__)
+        1    0.000    0.000    0.000    0.000 feature_model.py:82(__init__)
+        6    0.000    0.000    0.000    0.000 feature_model.py:9(__init__)
+        1    0.000    0.000    0.000    0.000 feature_model.py:91(<dictcomp>)
+        2    0.000    0.000    0.000    0.000 feature_model.py:93(get_relations)
+        1    0.000    0.000    0.000    0.000 featureide_parser.py:13(__init__)
+        1    0.000    0.000    0.000    0.000 featureide_parser.py:16(transform)
+        1    0.000    0.000    0.000    0.000 featureide_parser.py:19(_read_feature_model)
+      4/1    0.000    0.000    0.000    0.000 featureide_parser.py:35(_read_features)
+        1    0.000    0.000    0.000    0.000 featureide_parser.py:81(_read_constraints)
+     1102    0.000    0.000    0.001    0.000 fm_configuration.py:10(add_element)
+     3360    0.002    0.000    0.022    0.000 fm_configuration.py:13(get_selected_elements)
+     3360    0.009    0.000    0.021    0.000 fm_configuration.py:14(<setcomp>)
+    27624    0.008    0.000    0.016    0.000 fm_configuration.py:16(contains)
+     1102    0.001    0.000    0.003    0.000 fm_configuration.py:19(clone)
+    35034    0.006    0.000    0.006    0.000 fm_configuration.py:22(__eq__)
+       38    0.000    0.000    0.000    0.000 fm_configuration.py:25(__str__)
+       38    0.000    0.000    0.000    0.000 fm_configuration.py:26(<listcomp>)
+      535    0.001    0.000    0.002    0.000 fm_configuration.py:28(__hash__)
+     1103    0.001    0.000    0.001    0.000 fm_configuration.py:7(__init__)
+        1    0.000    0.000    0.000    0.000 fm_to_pysat.py:17(__init__)
+       13    0.000    0.000    0.000    0.000 fm_to_pysat.py:23(add_feature)
+        1    0.000    0.000    0.000    0.000 fm_to_pysat.py:29(add_root)
+        6    0.000    0.000    0.000    0.000 fm_to_pysat.py:32(add_relation)
+        6    0.000    0.000    0.000    0.000 fm_to_pysat.py:90(add_constraint)
+        1    0.000    0.000    0.000    0.000 fm_to_pysat.py:99(transform)
+        1    0.000    0.000    0.000    0.000 formula.py:409(__init__)
+       25    0.000    0.000    0.000    0.000 formula.py:818(append)
+       25    0.000    0.000    0.000    0.000 formula.py:836(<listcomp>)
+       26    0.000    0.000    0.000    0.000 formula.py:862(__iter__)
+        7    0.000    0.000    0.000    0.000 iterations_stopping_condition.py:13(initialize)
+      606    0.000    0.000    0.000    0.000 iterations_stopping_condition.py:17(update)
+      612    0.000    0.000    0.000    0.000 iterations_stopping_condition.py:21(reached)
+        1    0.000    0.000    0.000    0.000 iterations_stopping_condition.py:6(__init__)
+        1    0.000    0.000    0.266    0.266 main_localizing_configurations.py:30(main)
+        1    0.000    0.000    0.000    0.000 main_localizing_configurations.py:53(<dictcomp>)
+        6    0.000    0.000    0.000    0.000 max_child.py:15(best_child)
+       26    0.000    0.000    0.000    0.000 max_child.py:16(<lambda>)
+       53    0.000    0.000    0.000    0.000 max_child.py:9(score)
+        1    0.000    0.000    0.000    0.000 montecarlo.py:12(__init__)
+        8    0.001    0.000    0.265    0.033 montecarlo.py:18(run)
+        1    0.000    0.000    0.000    0.000 montecarlo_algorithms.py:20(uct_iterations_maxchild)
+        1    0.000    0.000    0.000    0.000 montecarlo_treesearch.py:17(__init__)
+      606    0.001    0.000    0.263    0.000 montecarlo_treesearch.py:23(do_rollout)
+        6    0.000    0.000    0.000    0.000 montecarlo_treesearch.py:31(choose)
+       27    0.000    0.000    0.000    0.000 montecarlo_treesearch.py:36(score)
+      606    0.069    0.000    0.152    0.000 montecarlo_treesearch.py:39(select)
+      606    0.000    0.000    0.025    0.000 montecarlo_treesearch.py:63(expand)
+      606    0.001    0.000    0.077    0.000 montecarlo_treesearch.py:71(simulate)
+      606    0.004    0.000    0.008    0.000 montecarlo_treesearch.py:81(backpropagate)
+        8    0.000    0.000    0.000    0.000 montecarlo_treesearch.py:90(print_MC_values)
+        1    0.000    0.000    0.000    0.000 problem_data.py:4(__init__)
+        1    0.000    0.000    0.000    0.000 pysat_model.py:12(__init__)
+     1000    0.001    0.000    0.001    0.000 random.py:250(_randbelow_with_getrandbits)
+     1000    0.000    0.000    0.001    0.000 random.py:285(choice)
+        2    0.000    0.000    0.000    0.000 select_alternative_feature.py:10(<genexpr>)
+        4    0.000    0.000    0.000    0.000 select_alternative_feature.py:16(execute)
+        2    0.000    0.000    0.000    0.000 select_alternative_feature.py:21(executions)
+     1086    0.001    0.000    0.003    0.000 select_alternative_feature.py:28(is_applicable)
+     2301    0.001    0.000    0.001    0.000 select_alternative_feature.py:29(<genexpr>)
+        1    0.000    0.000    0.000    0.000 select_alternative_feature.py:8(__init__)
+     1102    0.001    0.000    0.004    0.000 select_feature.py:18(get_config_with_feature)
+        6    0.000    0.000    0.000    0.000 select_feature.py:8(__init__)
+        1    0.000    0.000    0.000    0.000 select_mandatory_feature.py:10(<listcomp>)
+        6    0.000    0.000    0.000    0.000 select_mandatory_feature.py:16(execute)
+        6    0.000    0.000    0.000    0.000 select_mandatory_feature.py:17(<listcomp>)
+        5    0.000    0.000    0.000    0.000 select_mandatory_feature.py:22(executions)
+     1088    0.000    0.000    0.003    0.000 select_mandatory_feature.py:30(is_applicable)
+     3259    0.001    0.000    0.002    0.000 select_mandatory_feature.py:31(<genexpr>)
+        1    0.000    0.000    0.000    0.000 select_mandatory_feature.py:8(__init__)
+        1    0.000    0.000    0.000    0.000 select_optional_feature.py:10(<listcomp>)
+       10    0.000    0.000    0.000    0.000 select_optional_feature.py:16(execute)
+       10    0.000    0.000    0.000    0.000 select_optional_feature.py:17(<listcomp>)
+       16    0.000    0.000    0.000    0.000 select_optional_feature.py:22(executions)
+     1078    0.000    0.000    0.002    0.000 select_optional_feature.py:30(is_applicable)
+     2156    0.000    0.000    0.001    0.000 select_optional_feature.py:31(<genexpr>)
+        1    0.000    0.000    0.000    0.000 select_optional_feature.py:8(__init__)
+        4    0.000    0.000    0.000    0.000 select_or_feature.py:10(<genexpr>)
+      480    0.001    0.000    0.004    0.000 select_or_feature.py:16(execute)
+      480    0.000    0.000    0.001    0.000 select_or_feature.py:17(<listcomp>)
+      284    0.000    0.000    0.003    0.000 select_or_feature.py:22(executions)
+     2129    0.001    0.000    0.007    0.000 select_or_feature.py:30(is_applicable)
+     8179    0.001    0.000    0.005    0.000 select_or_feature.py:31(<genexpr>)
+        2    0.000    0.000    0.000    0.000 select_or_feature.py:8(__init__)
+        1    0.000    0.000    0.000    0.000 select_root_feature.py:17(executions)
+        1    0.000    0.000    0.000    0.000 select_root_feature.py:7(__init__)
+        1    0.000    0.000    0.000    0.000 solvers.py:1321(__init__)
+        1    0.000    0.000    0.000    0.000 solvers.py:1348(new)
+     1103    0.001    0.000    0.005    0.000 solvers.py:1389(solve)
+       25    0.000    0.000    0.000    0.000 solvers.py:1577(add_clause)
+        1    0.000    0.000    0.000    0.000 solvers.py:1598(append_formula)
+     1103    0.000    0.000    0.001    0.000 threading.py:1306(current_thread)
+     1103    0.000    0.000    0.000    0.000 threading.py:1395(main_thread)
+    22851    0.002    0.000    0.002    0.000 tree_actions_list.py:12(get_actions)
+        1    0.000    0.000    0.000    0.000 tree_actions_list.py:15(_build_actions)
+       18    0.000    0.000    0.000    0.000 tree_actions_list.py:24(<genexpr>)
+       17    0.000    0.000    0.000    0.000 tree_actions_list.py:26(<genexpr>)
+       19    0.000    0.000    0.000    0.000 tree_actions_list.py:28(<genexpr>)
+       19    0.000    0.000    0.000    0.000 tree_actions_list.py:30(<genexpr>)
+        1    0.000    0.000    0.000    0.000 tree_actions_list.py:9(__init__)
+        1    0.000    0.000    0.000    0.000 uct_mcts.py:15(__init__)
+     3765    0.004    0.000    0.031    0.000 uct_mcts.py:19(best_child)
+    13469    0.012    0.000    0.021    0.000 uct_mcts.py:23(uct)
+     1103    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+       55    0.000    0.000    0.000    0.000 {built-in method builtins.abs}
+     1086    0.000    0.000    0.001    0.000 {built-in method builtins.all}
+     4347    0.002    0.000    0.010    0.000 {built-in method builtins.any}
+        1    0.000    0.000    0.266    0.266 {built-in method builtins.exec}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+148472/143382    0.009    0.000    0.010    0.000 {built-in method builtins.hash}
+     1123    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+     3796    0.004    0.000    0.025    0.000 {built-in method builtins.max}
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.next}
+       99    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.sum}
+        1    0.000    0.000    0.000    0.000 {built-in method io.open}
+     3765    0.001    0.000    0.001    0.000 {built-in method math.log}
+    13469    0.001    0.000    0.001    0.000 {built-in method math.sqrt}
+       25    0.000    0.000    0.000    0.000 {built-in method pysolvers.glucose3_add_cl}
+        1    0.000    0.000    0.000    0.000 {built-in method pysolvers.glucose3_new}
+     1103    0.003    0.000    0.003    0.000 {built-in method pysolvers.glucose3_solve}
+       16    0.000    0.000    0.000    0.000 {built-in method time.time}
+        1    0.000    0.000    0.000    0.000 {method '_parse_whole' of 'xml.etree.ElementTree.XMLParser' objects}
+     5217    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+     1000    0.000    0.000    0.000    0.000 {method 'bit_length' of 'int' objects}
+        1    0.000    0.000    0.000    0.000 {method 'close' of '_io.BufferedReader' objects}
+     1102    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    22857    0.001    0.000    0.001    0.000 {method 'extend' of 'list' objects}
+     1157    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+     1946    0.000    0.000    0.000    0.000 {method 'getrandbits' of '_random.Random' objects}
+     1639    0.001    0.000    0.001    0.000 {method 'items' of 'dict' objects}
+     7344    0.001    0.000    0.001    0.000 {method 'keys' of 'dict' objects}
+      168    0.000    0.000    0.000    0.000 {method 'pop' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+
+
+Total Time: 0.26884007453918457 seconds

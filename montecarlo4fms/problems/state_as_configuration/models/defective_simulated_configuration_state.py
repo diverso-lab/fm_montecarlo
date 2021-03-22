@@ -24,8 +24,8 @@ class DefectiveSimulatedConfigurationState(ConfigurationState):
         if self.errors <= 0:
             return -1
 
-        n = len(self.data.fm.get_features()) - len(self.configuration.get_selected_elements())
-        return n * self.errors
+        #n = len(self.data.fm.get_features()) - len(self.configuration.get_selected_elements())
+        return self.errors
 
     def count_errors(self) -> int:
         packages_with_errors = []

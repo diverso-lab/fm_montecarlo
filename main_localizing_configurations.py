@@ -7,7 +7,7 @@ from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.problems.state_as_configuration.models import DefectiveSimulatedConfigurationState
-from montecarlo4fms.problems.state_as_configuration.actions import ActionsList
+from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList
 from montecarlo4fms.problems import ProblemData
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
@@ -19,11 +19,12 @@ OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
 OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 
 # PARAMETERS
-input_fm_name = "aafms_framework_simple_impl"
-iterations = 100
+#input_fm_name = "aafms_framework_simple_impl"
+input_fm_name = "model_simple_paper_excerpt_simpleCTCs"
+iterations = 10
 exploration_weight = 0.5
-#initial_config_features = []
-initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
+initial_config_features = []
+#initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
 
 
 def main():
@@ -43,7 +44,7 @@ def main():
     aafms = AAFMsHelper(fm)
 
     print(f"Creating set of actions...")
-    actions = ActionsList(fm)
+    actions = TreeActionsList(fm)
     print(f"{actions.get_nof_actions()} actions.")
 
     problem_data = ProblemData(fm, aafms, actions)

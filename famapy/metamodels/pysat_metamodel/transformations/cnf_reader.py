@@ -21,7 +21,7 @@ class CNFReader(TextToModel):
         self.cnf = self.destination_model.cnf
 
     def transform(self) -> PySATModel:
-        self._read_clauses(self.path)
+        self._read_clauses(self._path)
         return self.destination_model
 
     def _add_feature(self, feature_name):
@@ -49,4 +49,4 @@ class CNFReader(TextToModel):
                         else:
                             cnf_clause.append(-1*self.destination_model.variables[feature])
                         logic_not = False
-                self.cnf.add_constraint(cnf_clause)
+                self.destination_model.add_constraint(cnf_clause)

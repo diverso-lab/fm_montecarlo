@@ -39,17 +39,18 @@ class ConfigurationState(State):
             if not self.configuration.get_selected_elements():
                 applicable_actions.extend(self.data.actions.get_actions()[None])
 
+            # for feature in self.configuration.get_selected_elements():
+            #     applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Mandatory'] if a.is_applicable(self.configuration)])
+            #     applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Optional'] if a.is_applicable(self.configuration)])
+            # self._applicable_actions = applicable_actions
+        
             for feature in self.configuration.get_selected_elements():
                 applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Mandatory'] if a.is_applicable(self.configuration)])
-                applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Optional'] if a.is_applicable(self.configuration)])
+            
+            if not applicable_actions:
+                for feature in self.configuration.get_selected_elements():
+                    applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Optional'] if a.is_applicable(self.configuration)])
             self._applicable_actions = applicable_actions
-        # for feature in self.configuration.get_selected_elements():
-        #     applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Mandatory'] if a.is_applicable(self.configuration)])
-        #
-        # if not applicable_actions:
-        #     for feature in self.configuration.get_selected_elements():
-        #         applicable_actions.extend([a for a in self.data.actions.get_actions()[feature]['Optional'] if a.is_applicable(self.configuration)])
-
         return self._applicable_actions
 
     def state_transition_function(self, action: 'Action') -> 'State':

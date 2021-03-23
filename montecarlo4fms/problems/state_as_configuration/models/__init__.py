@@ -6,5 +6,9 @@ from .defective_deployed_configuration_state import DefectiveDeployedConfigurati
 from .defective_simulated_configuration_state import DefectiveSimulatedConfigurationState
 from .random_configuration_state import RandomConfigurationState
 from .nfeatures_configuration_state import NFeaturesConfigurationState
+from .failure_configuration_state import FailureConfigurationState
 
-__all__ = ['ConfigurationState', 'ValidConfigurationState', 'ValidMinimumConfigurationState', 'DefectiveDeployedConfigurationState', 'DefectiveSimulatedConfigurationState', 'RandomConfigurationState', 'NFeaturesConfigurationState', 'ConfigurationStateDecision']
+__all__ = ['ConfigurationState', 'ValidConfigurationState', 'ValidMinimumConfigurationState', 
+           'DefectiveDeployedConfigurationState', 'DefectiveSimulatedConfigurationState', 
+           'RandomConfigurationState', 'NFeaturesConfigurationState', 'ConfigurationStateDecision',
+           'FailureConfigurationState']

@@ -20,17 +20,17 @@ JHIPSTER_FILTERS = {'Docker':                       ('Docker', 'TRUE', 'FALSE'),
                     'EhCache':                      ('hibernateCache', 'ehcache', 'no'),
                     'ClusteredSession':             ('clusteredHttpSession', 'hazelcast', 'no'),
                     'SpringWebSockets':             ('websocket', 'spring-websocket', 'no'),
-                    'SQL':                          ('databaseType', 'sql', '-'),
-                    'Cassandra':                    ('databaseType', 'cassandra', '-'),
-                    'MongoDB':                      ('databaseType', 'mongodb', '-'),
+                    'SQL':                          ('databaseType', 'sql', 'no'),
+                    'Cassandra':                    ('databaseType', 'cassandra', 'no'),
+                    'MongoDB':                      ('databaseType', 'mongodb', 'no'),
                     'DiskBased':                    ('devDatabaseType', 'DiskBased', '-'),
                     'InMemory':                     ('devDatabaseType', 'InMemory', '-'),
                     'PostgreSQLDev':                ('devDatabaseType', 'postgresql', '-'),
                     'MariaDBDev':                   ('devDatabaseType', 'mariadb', '-'),
-                    'MySql':                        ('devDatabaseType', 'mysql', '-'),
-                    'MySQL':                        ('prodDatabaseType', 'mysql', '-'),
+                    'MySql':                        ('devDatabaseType', 'mysql', ''),
+                    'MySQL':                        ('prodDatabaseType', 'mysql', 'mysql'),
                     'MariaDB':                      ('prodDatabaseType', 'mariadb', '-'),
-                    'PostgreSQL':                  ('prodDatabaseType', 'postgresql', '-'),
+                    'PostgreSQL':                   ('prodDatabaseType', 'postgresql', '-'),
                     'Gradle':                       ('buildTool', 'gradle', '-'),
                     'Maven':                        ('buildTool', 'maven', '-'),
                     'ElasticSearch':                ('searchEngine', 'elasticsearch', 'no'),
@@ -48,25 +48,29 @@ def filter_configuration(configuration: 'FMConfiguration', jhipster_configuratio
     #print(f"#Total configs: {len(configs)}")        
     
     # Filter the selected features in the given configuration
-    selected_feature_names = [f.name for f in configuration.get_selected_elements() if not f.is_abstract]
+    selected_feature_names = [f.name for f in configuration.get_selected_elements()]
     for feature_name in selected_feature_names:
         if feature_name in JHIPSTER_FILTERS:
             configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] == JHIPSTER_FILTERS[feature_name][1], configs))
-        print(f"#Filter {feature_name}: {len(list(configs))}")
+        #print(f"#Filter {feature_name}: {len(list(configs))}")
     
     optional_features_not_selected = [f_name for f_name in JHIPSTER_FILTERS.keys() if JHIPSTER_FILTERS[f_name][2] != '-' and f_name not in selected_feature_names]
     for feature_name in optional_features_not_selected:
-        #configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] == JHIPSTER_FILTERS[feature_name][2] or c[JHIPSTER_FILTERS[feature_name][0]] != JHIPSTER_FILTERS[feature_name][1], configs))
-        configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] != JHIPSTER_FILTERS[feature_name][1], configs))
-        print(f"#Filter inverse {feature_name}: {len(list(configs))}")
+        configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] == JHIPSTER_FILTERS[feature_name][2] or c[JHIPSTER_FILTERS[feature_name][0]] != JHIPSTER_FILTERS[feature_name][1], configs))
+        #configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] != JHIPSTER_FILTERS[feature_name][1], configs))
+        #print(f"#Filter inverse {feature_name}: {len(list(configs))}")
 
     #configs = list(configs)
     if len(configs) == 1:
         return configs[0]
     elif len(configs) == 0:
+        print(f"Configuration: {str(configuration)}")
         return None 
     else:
-        print(f"configs: {configs}")
+        print(f"#Filtered configs: {len(configs)}")
+        print(f"Configuration: {str(configuration)}")
+        print(f"Filtered configs: {configs[0]}")
+        print(f"Filtered configs: {configs[1]}")
         raise Exception("Error filtering jHipsters configurations.")
 
 

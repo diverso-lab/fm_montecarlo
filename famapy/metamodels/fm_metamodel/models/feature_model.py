@@ -54,7 +54,7 @@ class Feature:
         return self.parent
 
     def __str__(self):
-        return self.name if not self.is_abstract else self.name + " (abstract)"
+        return self.name # if not self.is_abstract else self.name + " (abstract)"
 
     def __hash__(self) -> int:
         return hash(self.name)

@@ -27,7 +27,7 @@
 				<feature name="JWT"/>
 			</alt>
 			<feature name="SocialLogin"/>
-			<and abstract="true" name="Database">
+			<alt abstract="true" name="Database">
 				<and abstract="true" name="SQL">
 					<alt abstract="true" name="Hibernate2ndLvlCache">
 						<feature name="HazelCast"/>
@@ -38,7 +38,7 @@
 							<feature name="DiskBased"/>
 							<feature name="InMemory"/>
 						</alt>
-						<feature name="PostgreeSQLDev"/>
+						<feature name="PostgreSQLDev"/>
 						<feature name="MariaDBDev"/>
 						<feature name="MySql"/>
 					</alt>
@@ -51,7 +51,7 @@
 				</and>
 				<feature name="Cassandra"/>
 				<feature name="MongoDB"/>
-			</and>
+			</alt>
 			<feature name="SpringWebSockets"/>
 			<feature name="Libsass"/>
 			<feature name="ClusteredSession"/>
@@ -199,7 +199,7 @@
 				<var>PostgreSQL</var>
 				<disj>
 					<var>H2</var>
-					<var>PostgreeSQLDev</var>
+					<var>PostgreSQLDev</var>
 				</disj>
 			</imp>
 		</rule>

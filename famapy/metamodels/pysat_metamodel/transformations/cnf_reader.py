@@ -33,20 +33,21 @@ class CNFReader(TextToModel):
     def _read_clauses(self, filepath: str):
         with open(filepath) as file:
             cnf_line = file.readline()
-            clauses = list(map(lambda c: c[1:len(c)-1], cnf_line.split(' and ')))
+            clauses = list(map(lambda c: c[1:len(c)-1], cnf_line.split(' and ')))  # Remove initial and final parenthesis
+            clauses[len(clauses)-1] = clauses[len(clauses)-1][:-1]  # Remove final parenthesis of last clause (because of '\n')
             for c in clauses:
                 tokens = c.split(' ')
                 tokens = list(filter(lambda t: t != 'or', tokens))
                 logic_not = False
                 cnf_clause = []
-                for feature in enumerate(tokens):
+                for feature in tokens:
                     if feature == 'not':
                         logic_not = True
                     else:
                         self._add_feature(feature)
                         if logic_not:
-                            cnf_clause.append(self.destination_model.variables[feature])
-                        else:
                             cnf_clause.append(-1*self.destination_model.variables[feature])
+                        else:
+                            cnf_clause.append(self.destination_model.variables[feature])
                         logic_not = False
                 self.destination_model.add_constraint(cnf_clause)

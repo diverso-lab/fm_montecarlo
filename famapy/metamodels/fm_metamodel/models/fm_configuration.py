@@ -4,7 +4,7 @@ from famapy.core.models import Configuration
 
 class FMConfiguration(Configuration):
 
-    def __init__(self, elements: dict):
+    def __init__(self, elements: dict = {}):
         super().__init__(elements)
 
     def add_element(self, e):

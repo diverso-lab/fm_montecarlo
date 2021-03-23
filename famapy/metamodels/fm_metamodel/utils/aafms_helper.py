@@ -16,7 +16,7 @@ class AAFMsHelper:
             transform = FmToPysat(feature_model)
             self.cnf_model = transform.transform()
             
-        self.variables = {value: key for (key, value) in self.cnf_model.features.items()}
+        #self.variables = {value: key for (key, value) in self.cnf_model.features.items()}
         #print(f"Variables: {self.variables}")
         self.solver = Glucose3()
         self.solver.append_formula(self.cnf_model.cnf)
@@ -28,8 +28,7 @@ class AAFMsHelper:
         return self.solver.solve(assumptions=variables)
 
     def is_valid_partial_configuration(self, config: 'Configuration') -> bool:
-        #variables = [self.variables[feature.name] if selected else -self.variables[feature.name] for (feature, selected) in config.elements.items()]
-        variables = [self.variables[feature.name] if selected else -self.variables[feature.name] for (feature, selected) in config.elements.items() ]
+        variables = [self.cnf_model.variables[feature.name] if selected else -self.cnf_model.variables[feature.name] for (feature, selected) in config.elements.items() ]
         return self.solver.solve(assumptions=variables)
 
     def get_configurations(self) -> List['FMConfiguration']:
@@ -40,7 +39,7 @@ class AAFMsHelper:
             elements = dict()
             for variable in solutions:
                 if variable > 0:  # This feature should appear in the product
-                    feature = self.feature_model.get_feature_by_name(self.cnf_model.features.get(variable))
+                    feature = self.feature_model.get_feature_by_name(self.cnf_model.features[variable])
                     elements[feature] = True
             config = FMConfiguration(elements=elements)
             configurations.append(config)

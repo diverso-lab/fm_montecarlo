@@ -13,7 +13,7 @@ class MonteCarlo(ABC):
     def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
         self.stopping_condition = stopping_condition
         self.selection_criteria = selection_criteria
-        self.its = 0
+        self.initialize()
 
     def run(self, state: State) -> State:
         """Run the Monte Carlo algorithm. Return the best performing state."""
@@ -30,6 +30,10 @@ class MonteCarlo(ABC):
 
     def get_iterations_executed(self) -> int:
         return self.its
+
+    def initialize(self):
+        """Initialize the algorithm's parameters."""
+        self.its = 0
 
     @abstractmethod
     def do_rollout(self, state: State):

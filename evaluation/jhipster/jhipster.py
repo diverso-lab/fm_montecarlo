@@ -1,7 +1,10 @@
 import csv 
-
+import ast
+from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
+from famapy.metamodels.fm_metamodel.models import FMConfiguration
 
 JHIPSTER_CONFIGS_FILE = "evaluation/jhipster/jhipster3.6.1-testresults.csv"
+JHIPSTER_CONFIGS_FAILURES_FILE = "evaluation/jhipster/jhipster3.6.1-configs-failures.csv"
 FM_FILE = "evaluation/jhipster/fm-3.6.1refined.xml"
 CNF_FILE = "evaluation/jhipster/fm-3.6.1refined-cnf.txt"
 
@@ -52,13 +55,13 @@ def filter_configuration(configuration: 'FMConfiguration', jhipster_configuratio
     for feature_name in selected_feature_names:
         if feature_name in JHIPSTER_FILTERS:
             configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] == JHIPSTER_FILTERS[feature_name][1], configs))
-        #print(f"#Filter {feature_name}: {len(list(configs))}")
+            #print(f"#Filter {feature_name}: {len(configs)}")
     
     optional_features_not_selected = [f_name for f_name in JHIPSTER_FILTERS.keys() if JHIPSTER_FILTERS[f_name][2] != '-' and f_name not in selected_feature_names]
     for feature_name in optional_features_not_selected:
         configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] == JHIPSTER_FILTERS[feature_name][2] or c[JHIPSTER_FILTERS[feature_name][0]] != JHIPSTER_FILTERS[feature_name][1], configs))
         #configs = list(filter(lambda c: c[JHIPSTER_FILTERS[feature_name][0]] != JHIPSTER_FILTERS[feature_name][1], configs))
-        #print(f"#Filter inverse {feature_name}: {len(list(configs))}")
+        #print(f"#Filter inverse {feature_name}: {len(configs)}")
 
     #configs = list(configs)
     if len(configs) == 1:
@@ -83,11 +86,28 @@ def contains_failures(jhipster_configuration: dict) -> bool:
 
 
 
-def read_jHipster_configurations(filepath) -> list:
-    """Read the jHipster configuration from the .csv file."""
+def read_jHipster_configurations() -> list:
+    """Read the jHipster configuration from the original .csv file."""
     configs = []
-    with open(filepath) as csvfile:
+    with open(JHIPSTER_CONFIGS_FILE) as csvfile:
         reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
             configs.append(row)
+    return configs
+
+def read_jHipster_feature_model_configurations() -> dict:
+    """Read the configurations of the jHipster feature model from the .csv file."""
+        # Read the feature model without constraints
+    fide_parser = FeatureIDEParser(FM_FILE, no_read_constraints=True)
+    fm = fide_parser.transform()
+    configs = {}
+    with open(JHIPSTER_CONFIGS_FAILURES_FILE) as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=',', quotechar='"', skipinitialspace=True)
+        for row in reader:
+            features = ast.literal_eval(row['Config'])
+            config_features = {fm.get_feature_by_name(f): True for f in features}
+            configuration = FMConfiguration(elements=config_features)
+            failure = ast.literal_eval(row['Failure'])
+            configs[configuration] = failure
+            
     return configs

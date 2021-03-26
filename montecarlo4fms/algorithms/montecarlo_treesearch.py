@@ -16,6 +16,10 @@ class MonteCarloTreeSearch(MonteCarlo):
 
     def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
         super().__init__(stopping_condition, selection_criteria)
+        self.initialize()
+
+    def initialize(self):
+        super().initialize()
         self.Q = defaultdict(int)   # total reward of each state
         self.N = defaultdict(int)   # total visit count of each state
         self.tree = dict()          # the MC tree as a dict of state -> children

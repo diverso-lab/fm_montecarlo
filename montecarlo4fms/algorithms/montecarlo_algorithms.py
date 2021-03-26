@@ -1,4 +1,4 @@
-from montecarlo4fms.algorithms import MonteCarloBasic, UCTAlgorithm, UCTRandomExpansion
+from montecarlo4fms.algorithms import MonteCarloBasic, UCTAlgorithm, UCTRandomExpansion, GreedyMCTS, GreedyMCTSRandomExpansion
 from montecarlo4fms.algorithms.stopping_conditions import IterationsStoppingCondition, AnytimeStoppingCondition
 from montecarlo4fms.algorithms.selection_criterias import MaxChild
 
@@ -40,3 +40,15 @@ class MonteCarloAlgorithms:
         stop_cond = AnytimeStoppingCondition(seconds=seconds)
         select_crit = MaxChild()
         return UCTRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)
+
+    @staticmethod
+    def greedy_iterations_maxchild_random_expansion(iterations: int = 100) -> 'MonteCarloTreeSearch':
+        stop_cond = IterationsStoppingCondition(iterations=iterations)
+        select_crit = MaxChild()
+        return GreedyMCTSRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit)
+
+    @staticmethod
+    def greedy_iterations_maxchild(iterations: int = 100) -> 'MonteCarloTreeSearch':
+        stop_cond = IterationsStoppingCondition(iterations=iterations)
+        select_crit = MaxChild()
+        return GreedyMCTS(stopping_condition=stop_cond, selection_criteria=select_crit)

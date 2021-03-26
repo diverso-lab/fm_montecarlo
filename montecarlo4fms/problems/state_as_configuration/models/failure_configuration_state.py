@@ -1,5 +1,7 @@
 from montecarlo4fms.problems.state_as_configuration.models import ConfigurationState
+#from montecarlo4fms.problems.state_as_configuration.actions import SelectRandomFeature
 from evaluation.jhipster import jhipster
+
 
 class FailureConfigurationState(ConfigurationState):
 
@@ -20,6 +22,16 @@ class FailureConfigurationState(ConfigurationState):
         if self.configuration in self.data.sample:
             return -1
         if self.failures is None:
-            jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)
-            self.failures = jhipster.contains_failures(jhipster_config)
+            #jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)
+            #self.failures = jhipster.contains_failures(jhipster_config)
+            self.failures = self.data.jhipster_configurations[self.configuration]
+
         return 1 if self.failures else -1
+
+    # def get_actions(self) -> list:
+    #     select_random_feature_action = SelectRandomFeature(self.data.fm)
+    #     if not select_random_feature_action.is_applicable(self.configuration):
+    #         self.applicable_actions = []
+    #     else:
+    #         self.applicable_actions = [select_random_feature_action]
+    #     return self.applicable_actions

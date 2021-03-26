@@ -13,4 +13,4 @@ class RandomStrategy:
         return 0
 
     def __str__(self) -> str:
-        return f"Random Strategy"
+        return "Random Strategy"

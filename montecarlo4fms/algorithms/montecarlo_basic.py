@@ -14,9 +14,10 @@ class MonteCarloBasic(MonteCarlo):
 
     def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
         super().__init__(stopping_condition, selection_criteria)
-        self._initialize()
+        self.initialize()
 
-    def _initialize(self):
+    def initialize(self):
+        super().initialize()
         self.Q = defaultdict(int)   # total reward of each state
         self.N = defaultdict(int)   # total visit count of each state
 
@@ -25,7 +26,7 @@ class MonteCarloBasic(MonteCarlo):
         It performs simulations until some predefined computational budget is reached.
         Return the best performing state.
         """
-        self._initialize()
+        self.initialize()
         return super().run(state)
 
     def do_rollout(self, state: State):

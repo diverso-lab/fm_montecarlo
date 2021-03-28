@@ -18,14 +18,18 @@ class ConfigurationState(State):
             for a in self.get_actions():
                 configurations = a.executions(self.configuration)
                 for c in configurations:
-                    new_state = self.configuration_transition_function(c)
-                    successors.append(new_state)
+                    if self.data.aafms.is_valid_partial_configuration(c):
+                        new_state = self.configuration_transition_function(c)
+                        successors.append(new_state)
             self._successors = successors
         return self._successors
 
     def find_random_successor(self) -> 'State':
         action = random.choice(self.get_actions())
         config = action.execute(self.configuration)
+        while not self.data.aafms.is_valid_partial_configuration(config):
+            action = random.choice(self.get_actions())
+            config = action.execute(self.configuration)
         return self.configuration_transition_function(config)
 
     @abstractmethod

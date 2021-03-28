@@ -73,6 +73,9 @@ def get_sample_configurations(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', j
             state = algorithm.run(state)
         sample[i] = state
 
+    print(f"Final configuration ({len(state.configuration.elements)} features): {str(state)} -> {state.reward()}")
+    algorithm.print_MC_search_tree()
+    algorithm.print_heat_map(fm)
     return sample, algorithm
 
 
@@ -216,29 +219,31 @@ if __name__ == "__main__":
     LIST_SAMPLES = [x for x in range(0, 2750, 250)]
 
     # UCT MCTS
-    # for it in LIST_ITERATIONS:
-    #     main(samples_list=LIST_SAMPLES,
-    #          montecarlo_algorithm=MonteCarloAlgorithms.uct_iterations_maxchild(iterations=it, exploration_weight=EXPLORATION_WEIGHT))    
+    for it in [100]:
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=it, exploration_weight=EXPLORATION_WEIGHT)
+        main(samples_list=[1], montecarlo_algorithm=algorithm)    
+
+
 
     # flat MonteCarlo
-    for it in LIST_ITERATIONS:
-        main(samples_list=LIST_SAMPLES,
-             montecarlo_algorithm=MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=it))
+    # for it in LIST_ITERATIONS:
+    #     main(samples_list=LIST_SAMPLES,
+    #          montecarlo_algorithm=MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=it))
 
-    # UCT MCTS Rnd Exp
-    for it in LIST_ITERATIONS:
-        main(samples_list=LIST_SAMPLES,
-             montecarlo_algorithm=MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=it, exploration_weight=EXPLORATION_WEIGHT))    
+    # # UCT MCTS Rnd Exp
+    # for it in LIST_ITERATIONS:
+    #     main(samples_list=LIST_SAMPLES,
+    #          montecarlo_algorithm=MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=it, exploration_weight=EXPLORATION_WEIGHT))    
 
-    # Greedy MCTS
-    for it in LIST_ITERATIONS:
-        main(samples_list=LIST_SAMPLES,
-             montecarlo_algorithm=MonteCarloAlgorithms.greedy_iterations_maxchild(iterations=it)) 
+    # # Greedy MCTS
+    # for it in LIST_ITERATIONS:
+    #     main(samples_list=LIST_SAMPLES,
+    #          montecarlo_algorithm=MonteCarloAlgorithms.greedy_iterations_maxchild(iterations=it)) 
 
-    # Greedy MCTS Rnd Exp
-    for it in LIST_ITERATIONS:
-        main(samples_list=LIST_SAMPLES,
-             montecarlo_algorithm=MonteCarloAlgorithms.greedy_iterations_maxchild_random_expansion(iterations=it))  
+    # # Greedy MCTS Rnd Exp
+    # for it in LIST_ITERATIONS:
+    #     main(samples_list=LIST_SAMPLES,
+    #          montecarlo_algorithm=MonteCarloAlgorithms.greedy_iterations_maxchild_random_expansion(iterations=it))  
 
 
     #create_jhipster_configurations_failures_file()

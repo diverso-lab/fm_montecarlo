@@ -105,5 +105,34 @@ class MonteCarloTreeSearch(MonteCarlo):
         print(f"Total nodes in the tree search: {len(self.tree)}")
         print("------------------------------")
 
+    def print_MC_search_tree(self):
+        with open("MCTS-treesearch.txt", 'w+') as file:
+            file.write("----------MCTS search tree stats----------\n")
+            file.write(f"MonteCarloTreeSearch values:\n")
+            for state in self.tree:
+                file.write(f"+MC values for state: {str(state)} -> {self.Q[state]}/{self.N[state]} = {self.score(state)}\n")
+                file.write(f" |-children: {len(self.tree[state])}\n")
+                for s in self.tree[state]:
+                    file.write(f" |--MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}\n")
+            file.write(f"#Total nodes in the tree search: {len(self.tree)}\n")
+            file.write("------------------------------\n")
+    
+    def print_heat_map(self, feature_model):
+        feature_rewards = defaultdict(int)
+        feature_visits = defaultdict(int)
+        
+        for state in self.tree:
+            for child in self.tree[state]:
+                feature_set = list(child.configuration.get_selected_elements() - state.configuration.get_selected_elements())
+                if feature_set:
+                    feature = feature_set[0]
+                    feature_rewards[feature] += self.Q[child]
+                    feature_visits[feature] += self.N[child]
+        
+        with open("MCTS-heatmap.txt", 'w+') as file:
+            file.write("Feature, Visits, Acc. Reward, Q-value\n")
+            for f in feature_model.get_features():
+                file.write(f"{f.name}, {feature_visits[f]}, {feature_rewards[f]}, {feature_rewards[f]/feature_visits[f] if feature_visits[f] > 0 else 0.0}\n")
+
     def __str__(self) -> str:
         return f"MonteCarlo Tree Search (sc:{str(self.stopping_condition)})"

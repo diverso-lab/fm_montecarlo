@@ -1,0 +1,1444 @@
+----------MCTS search tree stats----------
+MonteCarloTreeSearch values:
++MC values for state: [] -> 79/101 = 0.7821782178217822
+ |-children: 1
+ |--MC values for state: ['AAFMFramework'] -> 179/201 = 0.8905472636815921
++MC values for state: ['AAFMFramework'] -> 179/201 = 0.8905472636815921
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages'] -> 275/287 = 0.9581881533101045
+ |--MC values for state: ['AAFMFramework', 'Solvers'] -> 5/13 = 0.38461538461538464
++MC values for state: ['AAFMFramework', 'Solvers'] -> 5/13 = 0.38461538461538464
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Packages'] -> 0/2 = 0.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT'] -> 1/3 = 0.3333333333333333
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT'] -> 2/4 = 0.5
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose'] -> 2/4 = 0.5
++MC values for state: ['AAFMFramework', 'System'] -> -1/1 = -1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'System', 'Packages'] -> 1/3 = 0.3333333333333333
+ |--MC values for state: ['AAFMFramework', 'System', 'Solvers'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'System', 'Win'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages'] -> 275/287 = 0.9581881533101045
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat'] -> 4/8 = 0.5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat'] -> 0/2 = 0.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat'] -> 371/371 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyglucose'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System'] -> 1/3 = 0.3333333333333333
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers'] -> 0/2 = 0.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat'] -> 4/8 = 0.5
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat'] -> 2/2 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat'] -> 176/176 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose'] -> 0/2 = 0.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers'] -> 1/1 = 1.0
++MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT'] -> 1/3 = 0.3333333333333333
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'Packages'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'Glucose'] -> 1/1 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat'] -> 371/371 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'python-sat'] -> 176/176 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers'] -> 74/74 = 1.0
++MC values for state: ['AAFMFramework', 'Solvers', 'System'] -> -1/1 = -1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Packages'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Win'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System', 'MiniSAT'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System', 'PicoSAT'] -> 0/2 = 0.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'System', 'Glucose'] -> -1/1 = -1.0
++MC values for state: ['AAFMFramework', 'Packages', 'Solvers'] -> 0/2 = 0.0
+ |-children: 8
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'python-sat'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'pyPicosat'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'System'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'Glucose'] -> 1/1 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pycosat'] -> 0/2 = 0.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'python-sat'] -> 2/2 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'pyPicosat'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'Solvers'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'pyglucose'] -> -1/1 = -1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyglucose', 'python-sat'] -> 0/2 = 0.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyglucose', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyglucose', 'pyPicosat'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyglucose', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyglucose', 'Solvers'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'System'] -> 1/3 = 0.3333333333333333
+ |-children: 7
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'python-sat'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'pycosat'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'pyPicosat'] -> 74/74 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Win'] -> -1/1 = -1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose'] -> 0/2 = 0.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'pyPicosat'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'Solvers'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System'] -> -1/1 = -1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System', 'python-sat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System', 'pyPicosat'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System', 'Solvers'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pycosat', 'System', 'Win'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose'] -> 74/74 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'python-sat'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'pycosat'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers'] -> 26/26 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers'] -> 1/1 = 1.0
+ |-children: 9
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'python-sat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'pyPicosat'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'Win'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'PicoSAT'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Solvers', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT'] -> -1/1 = -1.0
+ |-children: 7
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'python-sat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'pyPicosat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'Solvers', 'PicoSAT', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'Glucose'] -> 2/4 = 0.5
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'MiniSAT'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'PicoSAT'] -> 1/1 = 1.0
++MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT'] -> 2/4 = 0.5
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System'] -> 0/2 = 0.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'Packages'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'Glucose'] -> 1/1 = 1.0
++MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 1/1 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'PicoSAT', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'PicoSAT', 'Packages'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'Glucose'] -> 1/1 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'Glucose', 'Packages'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'MiniSAT'] -> 1/1 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'MiniSAT', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'MiniSAT', 'Packages'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System'] -> -1/1 = -1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System', 'Packages'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System', 'Win'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System', 'PicoSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'MiniSAT', 'System', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System'] -> 0/2 = 0.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Win'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages'] -> 1/1 = 1.0
+ |-children: 7
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'PicoSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'python-sat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'pyPicosat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'Packages', 'pyglucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages'] -> -1/1 = -1.0
+ |-children: 8
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'python-sat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'pyPicosat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'Win'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'PicoSAT', 'System', 'Packages', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat'] -> 176/176 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat'] -> 154/154 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'System'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers'] -> 52/52 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat'] -> 74/74 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'python-sat'] -> 154/154 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers'] -> 26/26 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'System', 'Win'] -> -1/1 = -1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Win', 'python-sat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Win', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Win', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'System', 'Win', 'Solvers'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System'] -> -1/1 = -1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System', 'Packages'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System', 'Win'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Solvers', 'Glucose', 'System', 'PicoSAT'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers'] -> 1/1 = 1.0
+ |-children: 7
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'pycosat'] -> 1/1 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'pyPicosat'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'PicoSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'Solvers', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System'] -> 74/74 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'pycosat'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'pyglucose'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Solvers'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux'] -> 26/26 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat'] -> 2/2 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'pyPicosat'] -> 154/154 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers'] -> 1/1 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers'] -> 74/74 = 1.0
+ |-children: 7
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'python-sat'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'pycosat'] -> 26/26 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'pyglucose'] -> 26/26 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System'] -> 27/27 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose'] -> 24/24 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System'] -> -1/1 = -1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System', 'pyPicosat'] -> 52/52 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System', 'pyglucose'] -> -1/1 = -1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System', 'Solvers'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'System', 'Win'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose'] -> 52/52 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'pycosat'] -> 160/160 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers'] -> 24/24 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers'] -> 26/26 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat'] -> 58/58 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'pyglucose'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'System'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'MiniSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'Glucose'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers'] -> 26/26 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'pycosat'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'System'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat'] -> 52/52 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat'] -> 58/58 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pyglucose'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Linux'] -> 24/24 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose'] -> 24/24 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'python-sat'] -> 20/20 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'System'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'PicoSAT'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers'] -> 52/52 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'pycosat'] -> 58/58 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'pyglucose'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'System'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT'] -> 20/20 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT'] -> 20/20 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose'] -> 20/20 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose'] -> 27/27 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat'] -> 160/160 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System'] -> 27/27 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'pycosat'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux'] -> 26/26 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'pycosat'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'pyglucose'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers'] -> 12/12 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System'] -> 27/27 = 1.0
+ |-children: 7
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'pycosat'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'pyglucose'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Linux'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'PicoSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat'] -> 154/154 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose'] -> 160/160 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'System'] -> 58/58 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'Solvers'] -> 58/58 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System'] -> 27/27 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'python-sat'] -> 58/58 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'pyglucose'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System'] -> 24/24 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'pycosat'] -> 184/184 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Solvers'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat'] -> 58/58 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'pyglucose'] -> 184/184 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers'] -> 32/32 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux'] -> 31/31 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT'] -> 24/24 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'python-sat'] -> 20/20 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'pycosat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'pyglucose'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose'] -> 160/160 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System'] -> 184/184 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers'] -> 83/83 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers'] -> 13/13 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'python-sat'] -> 83/83 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose'] -> 7/7 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers'] -> 13/13 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'python-sat'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'pycosat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Linux'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose'] -> 7/7 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux'] -> 13/13 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'python-sat'] -> 31/31 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'pyglucose'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT'] -> 24/24 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'python-sat'] -> 20/20 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pyglucose'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'System'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose'] -> 10/10 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT'] -> 20/20 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'pycosat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'pyglucose'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'System'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose'] -> 12/12 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat'] -> 58/58 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'pyglucose'] -> 83/83 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'System'] -> 32/32 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'MiniSAT'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose'] -> 11/11 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'python-sat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose'] -> 10/10 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'python-sat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System'] -> 184/184 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers'] -> 200/200 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux'] -> 99/99 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System'] -> 14/14 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'python-sat'] -> 184/184 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers'] -> 24/24 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'pycosat'] -> 83/83 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'System'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose'] -> 12/12 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers'] -> 12/12 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'python-sat'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'pycosat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'pyglucose'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers'] -> 24/24 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pycosat'] -> 32/32 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'Linux'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'Glucose'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers'] -> 14/14 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'python-sat'] -> 32/32 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Linux'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose'] -> 7/7 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux'] -> 13/13 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'python-sat'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'pycosat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT'] -> 11/11 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose', 'System'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose', 'MiniSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose', 'PicoSAT'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT'] -> 20/20 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pyglucose'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'System'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'System'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'System'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose'] -> 7/7 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat'] -> 24/24 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'pycosat'] -> 31/31 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'pyglucose'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'System'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux'] -> 31/31 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'pyglucose'] -> 99/99 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers'] -> 9/9 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'python-sat'] -> 200/200 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux'] -> 14/14 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'pycosat'] -> 99/99 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 11/11 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose'] -> 15/15 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'pycosat'] -> 200/200 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Linux'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'MiniSAT'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System'] -> 11/11 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose'] -> 20/20 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat'] -> 23/23 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'pyglucose'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'PicoSAT'] -> 12/12 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose'] -> 6/6 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'python-sat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'MiniSAT'] -> 4/4 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'python-sat'] -> 23/23 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'System'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'PicoSAT'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose'] -> 23/23 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose'] -> 34/34 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'System'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'MiniSAT'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'PicoSAT'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose'] -> 7/7 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'python-sat'] -> 34/34 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 12/12 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'pycosat'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'System'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers'] -> 14/14 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'pycosat'] -> 23/23 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'pyglucose'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'python-sat'] -> 12/12 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers'] -> 83/83 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'System'] -> 200/200 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose'] -> 34/34 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux'] -> 8/8 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'python-sat'] -> 99/99 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 8/8 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'python-sat'] -> 11/11 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers'] -> 32/32 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'pyglucose'] -> 200/200 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Linux'] -> 23/23 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'PicoSAT'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose'] -> 12/12 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 12/12 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers'] -> 8/8 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'python-sat'] -> 23/23 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose'] -> 7/7 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'PicoSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'Glucose'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System'] -> 11/11 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'Linux'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'MiniSAT'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT'] -> 24/24 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'pyglucose'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'MiniSAT'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'Glucose'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT'] -> 7/7 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers'] -> 200/200 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Linux'] -> 201/201 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose'] -> 80/80 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers'] -> 23/23 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'pyglucose'] -> 201/201 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'MiniSAT'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'Glucose'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT'] -> 12/12 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'pycosat'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'pyglucose'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 7/7 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'python-sat'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'python-sat'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose'] -> 12/12 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'pycosat'] -> 34/34 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT'] -> 6/6 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT', 'pycosat'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT', 'MiniSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 35/35 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose'] -> 30/30 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'python-sat'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose'] -> 9/9 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'pycosat'] -> 80/80 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'MiniSAT'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'python-sat'] -> 201/201 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose'] -> 6/6 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'System'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT'] -> 18/18 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'pyglucose'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Glucose'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'python-sat'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 11/11 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'pycosat'] -> 201/201 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT'] -> 6/6 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT', 'Linux'] -> 4/4 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'Glucose', 'PicoSAT', 'MiniSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'pycosat'] -> 16/16 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'System'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat'] -> 24/24 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'System'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose'] -> 7/7 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'python-sat'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'PicoSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers'] -> 1/1 = 1.0
+ |-children: 6
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers', 'pyPicosat'] -> 58/58 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers', 'pyglucose'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers', 'System'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers', 'PicoSAT'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pycosat', 'Solvers', 'Glucose'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System'] -> -1/1 = -1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System', 'pycosat'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System', 'pyPicosat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System', 'Solvers'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System', 'Linux'] -> 0/0 = -inf
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyglucose', 'System', 'Win'] -> 0/0 = -inf
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 6/6 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'Glucose'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT'] -> 11/11 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT', 'System'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose'] -> 29/29 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'System'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'PicoSAT'] -> 16/16 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'Glucose'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'Glucose', 'python-sat'] -> 29/29 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'Glucose', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'pyglucose', 'Glucose', 'PicoSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT'] -> 12/12 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'pycosat'] -> 35/35 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT'] -> 12/12 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose'] -> 6/6 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'python-sat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux'] -> 4/4 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System'] -> 17/17 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'pyglucose'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'Linux'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'MiniSAT'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'Glucose'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'python-sat'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT'] -> 7/7 = 1.0
+ |-children: 5
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'pycosat'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'python-sat'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux'] -> 99/99 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 201/201 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'PicoSAT'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'PicoSAT', 'pyglucose'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'PicoSAT', 'System'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'PicoSAT', 'MiniSAT'] -> 16/16 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System'] -> 9/9 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'pycosat'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose'] -> 8/8 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'MiniSAT'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'python-sat'] -> 80/80 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'MiniSAT'] -> 10/10 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'MiniSAT', 'pycosat'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'MiniSAT', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'MiniSAT', 'Glucose'] -> 10/10 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'python-sat'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose'] -> 17/17 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'pyglucose'] -> 80/80 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'Linux'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'MiniSAT'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'PicoSAT'] -> 17/17 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'pyglucose'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'Glucose'] -> 16/16 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose'] -> 8/8 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'pyglucose'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'Linux'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT'] -> 9/9 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'MiniSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'python-sat'] -> 16/16 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'pyglucose'] -> 4/4 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'System'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT'] -> 35/35 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'System'] -> 81/81 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose'] -> 29/29 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose', 'python-sat'] -> 30/30 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose', 'System'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose', 'Glucose'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'pycosat'] -> 29/29 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'System'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'PicoSAT'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'PicoSAT', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Linux', 'PicoSAT', 'Glucose'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose'] -> 29/29 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System'] -> 72/72 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'PicoSAT'] -> 38/38 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'pycosat'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 30/30 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'System'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 38/38 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers'] -> 201/201 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose'] -> 106/106 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'python-sat'] -> 18/18 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System'] -> 81/81 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Glucose'] -> 73/73 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Glucose'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'Glucose'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'Glucose', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'Glucose', 'pycosat'] -> 4/4 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pyglucose', 'Glucose', 'System'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat'] -> 6/6 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat', 'MiniSAT'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'System'] -> 4/4 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'System', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'System', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'System', 'pyglucose'] -> 4/4 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'System', 'Linux'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose'] -> 80/80 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'Linux'] -> 106/106 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT'] -> 72/72 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'PicoSAT'] -> 73/73 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 6/6 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'python-sat'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'pycosat'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 15/15 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'pyglucose'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'Glucose'] -> 24/24 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose'] -> 34/34 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'System'] -> 80/80 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'MiniSAT'] -> 29/29 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT'] -> 30/30 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux'] -> 18/18 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux', 'pyglucose'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux', 'PicoSAT'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux', 'Glucose'] -> 25/25 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'python-sat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'pyglucose'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'PicoSAT'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'python-sat'] -> 10/10 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'Linux'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'PicoSAT'] -> 16/16 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'PicoSAT', 'pyglucose'] -> 38/38 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'PicoSAT', 'System'] -> 25/25 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System'] -> 18/18 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System', 'pyglucose'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System', 'Linux'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System', 'Glucose'] -> 25/25 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT'] -> 30/30 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT', 'System'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT', 'MiniSAT'] -> 38/38 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'System'] -> 10/10 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'System', 'pycosat'] -> 72/72 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'System', 'Linux'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'MiniSAT', 'Glucose', 'System', 'PicoSAT'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT'] -> 4/4 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'Solvers', 'Glucose', 'PicoSAT', 'MiniSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT', 'MiniSAT', 'pycosat'] -> 38/38 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'Glucose', 'PicoSAT', 'MiniSAT', 'System'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT'] -> 81/81 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Linux'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose'] -> 72/72 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux'] -> 6/6 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'python-sat'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'Glucose'] -> 7/7 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Linux'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 73/73 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Linux'] -> 171/171 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 136/136 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'Linux'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'Linux', 'pycosat'] -> 106/106 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'Linux', 'MiniSAT'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'pyglucose', 'Glucose', 'Linux', 'PicoSAT'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Linux'] -> 9/9 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Linux', 'pycosat'] -> 17/17 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Linux', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'Linux', 'Glucose'] -> 9/9 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'python-sat'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'pyglucose'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'python-sat'] -> 72/72 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'Linux'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux'] -> 4/4 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'python-sat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'pycosat'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'pyglucose'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'PicoSAT'] -> 4/4 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux'] -> 6/6 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux', 'python-sat'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux', 'pyglucose'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT'] -> 107/107 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 171/171 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 170/170 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'Glucose'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'Glucose', 'pyglucose'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'Glucose', 'Linux'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'PicoSAT', 'System', 'Glucose', 'MiniSAT'] -> 25/25 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 38/38 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'System'] -> 136/136 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT', 'pycosat'] -> 107/107 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT', 'MiniSAT'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT', 'Glucose'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux'] -> 5/5 = 1.0
+ |-children: 4
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'python-sat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'pycosat'] -> 6/6 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT'] -> 5/5 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'Glucose'] -> 5/5 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 15/15 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'pycosat'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 39/39 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux'] -> 6/6 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux', 'python-sat'] -> 106/106 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux', 'MiniSAT'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux', 'PicoSAT'] -> 7/7 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose'] -> 8/8 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'python-sat'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'MiniSAT'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'MiniSAT', 'pyglucose'] -> 72/72 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'MiniSAT', 'Linux'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT'] -> 25/25 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'PicoSAT'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'PicoSAT', 'python-sat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'PicoSAT', 'pyglucose'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'Glucose', 'Linux', 'PicoSAT', 'MiniSAT'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux', 'pycosat'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux', 'pyglucose'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux', 'Glucose'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'Glucose'] -> 24/24 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'Glucose', 'pyglucose'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 61/61 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'MiniSAT'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'MiniSAT', 'python-sat'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'MiniSAT', 'pycosat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'Linux'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'Linux', 'pycosat'] -> 24/24 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'Linux', 'pyglucose'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'Glucose', 'System', 'PicoSAT', 'Linux', 'MiniSAT'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose', 'Glucose'] -> 4/4 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose', 'Glucose', 'python-sat'] -> 38/38 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'PicoSAT', 'pyglucose', 'Glucose', 'System'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System'] -> 72/72 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System', 'Linux'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System', 'PicoSAT'] -> 136/136 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System', 'Linux'] -> 170/170 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System', 'Linux', 'PicoSAT'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Linux'] -> 13/13 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Linux', 'pycosat'] -> 171/171 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Linux', 'Glucose'] -> 39/39 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose'] -> 8/8 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'pycosat'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'pyglucose'] -> 15/15 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT', 'System'] -> 73/73 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT', 'System', 'Linux'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'Solvers', 'python-sat', 'Glucose', 'pyglucose', 'PicoSAT', 'System', 'MiniSAT'] -> 136/136 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat'] -> 17/17 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat', 'pyglucose'] -> 106/106 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat', 'PicoSAT'] -> 24/24 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 6/6 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'python-sat'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Linux'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'python-sat'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 9/9 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux', 'PicoSAT'] -> 25/25 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux', 'PicoSAT', 'pyglucose'] -> 171/171 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Solvers', 'MiniSAT', 'Linux', 'PicoSAT', 'Glucose'] -> 61/61 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'PicoSAT'] -> 4/4 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'PicoSAT', 'python-sat'] -> 13/13 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'PicoSAT', 'pycosat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'System', 'MiniSAT', 'Glucose', 'Linux', 'PicoSAT', 'pyglucose'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux'] -> 107/107 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux', 'MiniSAT'] -> 171/171 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux', 'Glucose'] -> 170/170 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'System'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'System', 'python-sat'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'System', 'Linux'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'Glucose', 'System', 'MiniSAT'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT'] -> 4/4 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT', 'python-sat'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT', 'pycosat'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'MiniSAT', 'PicoSAT', 'Linux'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose'] -> 14/14 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose', 'pycosat'] -> 136/136 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose', 'Linux'] -> 39/39 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'pycosat'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'pyglucose'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'Linux'] -> 13/13 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'Linux'] -> 106/106 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'Linux', 'MiniSAT'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'Glucose', 'Linux', 'PicoSAT'] -> 170/170 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT'] -> 9/9 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT', 'python-sat'] -> 171/171 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT', 'Glucose'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Glucose'] -> 9/9 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Glucose', 'pycosat'] -> 73/73 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Glucose', 'Linux'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Glucose', 'MiniSAT'] -> 14/14 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux', 'Glucose'] -> 170/170 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'Linux', 'Glucose', 'MiniSAT'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'Linux'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'Linux', 'python-sat'] -> 14/14 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'Linux', 'pycosat'] -> 7/7 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Glucose', 'Linux', 'MiniSAT'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT'] -> 171/171 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT'] -> 5/5 = 1.0
+ |-children: 3
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'python-sat'] -> 25/25 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'pyglucose'] -> 8/8 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'System', 'Solvers', 'MiniSAT', 'Glucose', 'PicoSAT', 'Linux'] -> 8/8 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'pycosat', 'Glucose', 'pyglucose', 'System', 'Linux', 'PicoSAT'] -> 763/763 = 1.0
+ |-children: 0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT', 'Glucose'] -> 14/14 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT', 'Glucose', 'pycosat'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 39/39 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT'] -> 25/25 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT', 'pyglucose'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'Linux', 'python-sat', 'Solvers', 'Glucose', 'pycosat', 'MiniSAT', 'PicoSAT'] -> 61/61 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System', 'Glucose'] -> 25/25 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System', 'Glucose', 'pyglucose'] -> 136/136 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'Solvers', 'MiniSAT', 'PicoSAT', 'pycosat', 'System', 'Glucose', 'Linux'] -> 61/61 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux', 'PicoSAT'] -> 7/7 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux', 'PicoSAT', 'python-sat'] -> 170/170 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'Glucose', 'System', 'Linux', 'PicoSAT', 'MiniSAT'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux', 'Glucose'] -> 13/13 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux', 'Glucose', 'pycosat'] -> 61/61 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'Solvers', 'PicoSAT', 'MiniSAT', 'Linux', 'Glucose', 'pyglucose'] -> 39/39 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'System'] -> 136/136 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pycosat', 'pyglucose', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'System', 'Linux'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 8/8 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'python-sat'] -> 136/136 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'Linux'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT'] -> 61/61 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'System', 'python-sat', 'pycosat', 'Linux', 'Solvers', 'PicoSAT', 'Glucose', 'MiniSAT', 'pyglucose'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT', 'Glucose'] -> 23/23 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pycosat', 'pyglucose', 'System', 'Solvers', 'PicoSAT', 'Linux', 'MiniSAT', 'Glucose', 'python-sat'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose'] -> 8/8 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'python-sat'] -> 39/39 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'pyglucose', 'System', 'Linux', 'Solvers', 'MiniSAT', 'PicoSAT', 'Glucose', 'pycosat'] -> 23/23 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose', 'Linux'] -> 39/39 = 1.0
+ |-children: 1
+ |--MC values for state: ['AAFMFramework', 'Packages', 'python-sat', 'pyPicosat', 'pyglucose', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'Glucose', 'Linux', 'pycosat'] -> 763/763 = 1.0
++MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux', 'Glucose'] -> 8/8 = 1.0
+ |-children: 2
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux', 'Glucose', 'python-sat'] -> 61/61 = 1.0
+ |--MC values for state: ['AAFMFramework', 'Packages', 'pyPicosat', 'Solvers', 'PicoSAT', 'System', 'MiniSAT', 'pycosat', 'Linux', 'Glucose', 'pyglucose'] -> 23/23 = 1.0
+#Total nodes in the tree search: 248
+------------------------------

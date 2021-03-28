@@ -34,7 +34,8 @@ class CNFReader(TextToModel):
         with open(filepath) as file:
             cnf_line = file.readline()
             clauses = list(map(lambda c: c[1:len(c)-1], cnf_line.split(' and ')))  # Remove initial and final parenthesis
-            clauses[len(clauses)-1] = clauses[len(clauses)-1][:-1]  # Remove final parenthesis of last clause (because of '\n')
+            if clauses[len(clauses)-1] == ')':
+                clauses[len(clauses)-1] = clauses[len(clauses)-1][:-1]  # Remove final parenthesis of last clause (because of '\n')
             for c in clauses:
                 tokens = c.split(' ')
                 tokens = list(filter(lambda t: t != 'or', tokens))

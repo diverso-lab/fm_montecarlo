@@ -4,6 +4,7 @@ from functools import reduce
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
+from famapy.metamodels.pysat_metamodel.transformations import CNFReader
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.problems.state_as_configuration.models import DefectiveSimulatedConfigurationState
@@ -13,15 +14,16 @@ from montecarlo4fms.algorithms import MonteCarloAlgorithms
 
 
 # CONSTANTS
-INPUT_PATH = "input_fms/"
+INPUT_PATH = "evaluation/aafmsPythonFramework/"
 OUTPUT_RESULTS_PATH = "output_results/"
 OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
 OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 
 # PARAMETERS
 #input_fm_name = "aafms_framework_simple_impl"
-input_fm_name = "model_simple_paper_excerpt_simpleCTCs"
-iterations = 10
+input_fm_name = "model_simple_paper_excerpt"
+input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
+iterations = 100
 exploration_weight = 0.5
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
@@ -36,21 +38,29 @@ def main():
     input_fm = INPUT_PATH + input_fm_name + ".xml"
 
     print(f"Loading feature model: {input_fm_name} ...")
-    fide_parser = FeatureIDEParser(input_fm)
+    fide_parser = FeatureIDEParser(input_fm, no_read_constraints=True)
     fm = fide_parser.transform()
     print(f"Feature model loaded with {len(fm.get_features())} features, {len(fm.get_constraints())} constraints, {len(fm.get_relations())} relations.")
 
-    print(f"Transforming to CNF model...")
-    aafms = AAFMsHelper(fm)
+     # Read the feature model as CNF model with complex constraints
+    cnf_reader = CNFReader(INPUT_PATH + input_fm_cnf_name + ".txt")
+    cnf_model = cnf_reader.transform()
+    
+    # AAFMs
+    aafms_helper = AAFMsHelper(fm, cnf_model)
 
     print(f"Creating set of actions...")
     actions = TreeActionsList(fm)
     print(f"{actions.get_nof_actions()} actions.")
 
-    problem_data = ProblemData(fm, aafms, actions)
+    problem_data = ProblemData(fm, aafms_helper, actions)
 
     print(f"Creating initial state (configuration)...")
-    initial_config = FMConfiguration(elements={fm.get_feature_by_name(f) : True for f in initial_config_features})
+    if initial_config_features:
+        initial_config = FMConfiguration(elements={fm.get_feature_by_name(f) : True for f in initial_config_features})
+    else:
+        initial_config = FMConfiguration()
+
     initial_state = DefectiveSimulatedConfigurationState(configuration=initial_config, data=problem_data)
     print(f"Initial state: {initial_state}")
 
@@ -64,23 +74,24 @@ def main():
 
     n = 0
     state = initial_state
-    while state.reward() <= 0 and state.get_actions():
-        print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
-        time_start = time.time()
-        new_state = montecarlo.run(state)
-        time_end = time.time()
-        print(f"Execution time for Step {n}: {time_end - time_start} seconds.")
-        montecarlo.print_MC_values(state)
-
-        state = new_state
+    while not state.is_terminal(): # state.reward() <= 0 and state.get_actions():
+        #print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
+        #time_start = time.time()
+        state = montecarlo.run(state)
+        #time_end = time.time()
+        #print(f"Execution time for Step {n}: {time_end - time_start} seconds.")
+        #montecarlo.print_MC_values(state)
         n += 1
 
     print(f"Final state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
 
+    montecarlo.print_heat_map(fm)
+    montecarlo.print_MC_search_tree()
     print("Finished!")
 
 if __name__ == '__main__':
     start = time.time()
-    cProfile.run("main()")
+    #cProfile.run("main()")
+    main()
     end = time.time()
     print(f"Total Time: {end-start} seconds")

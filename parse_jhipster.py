@@ -1,13 +1,14 @@
 import time
 import os
 import random
+import cProfile
 from famapy.metamodels.pysat_metamodel.transformations import CNFReader
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
-from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList #RandomActionsList
+from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList, RandomActionsList
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 from famapy.metamodels.fm_metamodel.models import FMConfiguration
-from montecarlo4fms.problems.state_as_configuration.models import ValidMinimumConfigurationState, ValidConfigurationState, FailureConfigurationState
+from montecarlo4fms.problems.state_as_configuration.models import ValidMinimumConfigurationState, ValidConfigurationState, FailureConfigurationState, FailureCS
 from montecarlo4fms.problems import ProblemData
 from montecarlo4fms.algorithms import RandomStrategy
 from montecarlo4fms.algorithms.stopping_conditions import IterationsStoppingCondition
@@ -36,7 +37,7 @@ OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "defective_comparison.csv"
 #     return state.configuration
 
 def get_random_sample(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', jhipster_configurations: dict, sample_size: int) -> set:
-    actions = TreeActionsList(fm)
+    actions = TreeActionsList(fm, aafms_helper)
     problem_data = ProblemData(fm, aafms_helper, actions)
     problem_data.jhipster_configurations = jhipster_configurations
 
@@ -52,26 +53,29 @@ def get_random_sample(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', jhipster_
 
 
 def get_sample_configurations(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', jhipster_configurations: dict, sample_size: int, algorithm: 'MonteCarlo') -> set:
-    actions = TreeActionsList(fm)
+    actions = TreeActionsList(fm, aafms_helper)
     problem_data = ProblemData(fm, aafms_helper, actions)
 
     problem_data.jhipster_configurations = jhipster_configurations
-    sample = {}
-    
+    sample = set()
+    results = set()
     print(f"Sample: ", end='', flush=True)    
+    
     for i in range(sample_size):
         print(f"{i}, ", end='', flush=True)    
         problem_data.sample = sample
-        state = FailureConfigurationState(FMConfiguration(elements={}), data=problem_data)
+        state = FailureCS(FMConfiguration(elements={}), data=problem_data)
         algorithm.initialize() # Initialize the algorithm as it is a new 'game match'.
 
         #mcts = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=mcts_iterations, exploration_weight=mcts_exploration_weight)
         #mcts = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=mcts_iterations, exploration_weight=mcts_exploration_weight)
         #mcts = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=mcts_iterations)
         #mcts = RandomStrategy(IterationsStoppingCondition(iterations=mcts_iterations))
-        while not state.is_terminal():
+        while state.reward() <= 0 and state.find_successors(): #not state.is_terminal():
             state = algorithm.run(state)
-        sample[i] = state
+        if state.reward() > 0:
+            sample.add(state)
+        results.add(state)
 
     print(f"Final configuration ({len(state.configuration.elements)} features): {str(state)} -> Valid?={state.is_valid_configuration}, R={state.reward()}")
     
@@ -80,7 +84,7 @@ def get_sample_configurations(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', j
     print(f"#Rewards calls {algorithm.nof_reward_function_calls}")
     algorithm.print_MC_search_tree()
     algorithm.print_heat_map(fm)
-    return sample, algorithm
+    return results, algorithm
 
 
 def main(samples_list: list, montecarlo_algorithm: 'MonteCarlo'):
@@ -110,10 +114,10 @@ def main(samples_list: list, montecarlo_algorithm: 'MonteCarlo'):
         #sample, algorithm = get_random_sample(fm, aafms_helper, jhipster_configurations, sample_size)
         execution_time = time.time() - start
 
-        assert(len(sample) == sample_size)
+        #assert(len(sample) == sample_size)
 
-        valid_configs = [s.configuration for s in sample.values() if s.is_valid_configuration]
-        defective_configs = [s.configuration for s in sample.values() if s.reward() == 1]
+        valid_configs = [s.configuration for s in sample if s.is_valid_configuration]
+        defective_configs = [s.configuration for s in sample if s.reward() == 1]
         with open(OUTPUT_RESULTS_FILE, 'a+') as file:
             file.write(f'"{str(algorithm)}", {sample_size}, {len(valid_configs)}, {len(defective_configs)}, {algorithm.terminal_nodes_visits}, {len(algorithm.states_evaluated)}, {execution_time}, \n')
         
@@ -223,9 +227,9 @@ if __name__ == "__main__":
     LIST_SAMPLES = [x for x in range(0, 2750, 250)]
 
     # UCT MCTS
-    for it in [1]:
+    for it in [2]:
         algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=it, exploration_weight=EXPLORATION_WEIGHT)
-        main(samples_list=[1], montecarlo_algorithm=algorithm)    
+        cProfile.run("main(samples_list=[42], montecarlo_algorithm=algorithm)")    
 
 
 

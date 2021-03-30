@@ -11,7 +11,8 @@ class FMConfiguration(Configuration):
         self.elements[e] = True
 
     def get_selected_elements(self) -> set:
-        return {e for e in self.elements.keys() if self.elements[e]}
+        #return {e for e in self.elements.keys() if self.elements[e]}
+        return set(self.elements.keys())
 
     def contains(self, feature: 'Feature') -> bool:
         return feature in self.elements and self.elements[feature]

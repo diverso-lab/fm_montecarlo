@@ -7,8 +7,9 @@ from .defective_simulated_configuration_state import DefectiveSimulatedConfigura
 from .random_configuration_state import RandomConfigurationState
 from .nfeatures_configuration_state import NFeaturesConfigurationState
 from .failure_configuration_state import FailureConfigurationState
+from .failure_cs import FailureCS
 
 __all__ = ['ConfigurationState', 'ValidConfigurationState', 'ValidMinimumConfigurationState', 
            'DefectiveDeployedConfigurationState', 'DefectiveSimulatedConfigurationState', 
            'RandomConfigurationState', 'NFeaturesConfigurationState', 'ConfigurationStateDecision',
-           'FailureConfigurationState']
+           'FailureConfigurationState', 'FailureCS']

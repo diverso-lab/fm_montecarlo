@@ -83,13 +83,17 @@ class MonteCarloTreeSearch(MonteCarlo):
         """
         while not state.is_terminal():
             state = state.find_random_successor()
-        if state in self.states_evaluated:
-            z = self.states_evaluated[state]
-        else:
-            z = state.reward()
-            self.states_evaluated[state] = z 
-            self.nof_reward_function_calls += 1
+        z = state.reward()
+        self.states_evaluated[state] = z
+        self.nof_reward_function_calls += 1
         self.terminal_nodes_visits += 1
+        # if state in self.states_evaluated:
+        #     z = self.states_evaluated[state]
+        # else:
+        #     z = state.reward()
+        #     self.states_evaluated[state] = z 
+        #     self.nof_reward_function_calls += 1
+        # self.terminal_nodes_visits += 1
         return z
 
     def backpropagate(self, path, reward):

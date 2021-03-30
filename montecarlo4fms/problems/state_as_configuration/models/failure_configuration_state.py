@@ -9,6 +9,7 @@ class FailureConfigurationState(ConfigurationState):
         super().__init__(configuration, data)
         self.is_valid_configuration = self.data.aafms.is_valid_configuration(self.configuration)
         self.failures = None
+        self.evaluated = False
 
     def configuration_transition_function(self, config: 'FMConfiguration') -> 'State':
         return FailureConfigurationState(config, self.data)
@@ -25,6 +26,7 @@ class FailureConfigurationState(ConfigurationState):
             #jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)
             #self.failures = jhipster.contains_failures(jhipster_config)
             self.failures = self.data.jhipster_configurations[self.configuration]
+            self.evaluated = True
 
         return 1 if self.failures else -1
 

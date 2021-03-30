@@ -17,6 +17,9 @@ class MonteCarloTreeSearch(MonteCarlo):
     def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
         super().__init__(stopping_condition, selection_criteria)
         self.initialize()
+        self.states_evaluated = dict()         # terminal state -> reward value
+        self.terminal_nodes_visits = 0
+        self.nof_reward_function_calls = 0
 
     def initialize(self):
         super().initialize()
@@ -80,7 +83,14 @@ class MonteCarloTreeSearch(MonteCarlo):
         """
         while not state.is_terminal():
             state = state.find_random_successor()
-        return state.reward()
+        if state in self.states_evaluated:
+            z = self.states_evaluated[state]
+        else:
+            z = state.reward()
+            self.states_evaluated[state] = z 
+            self.nof_reward_function_calls += 1
+        self.terminal_nodes_visits += 1
+        return z
 
     def backpropagate(self, path, reward):
         """
@@ -97,7 +107,7 @@ class MonteCarloTreeSearch(MonteCarlo):
         if state in self.tree:
             for s in self.tree[state]:
                 print(f"//MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
-            print(f"\#Decisions: {len(self.tree[state])}")
+            print(f"#Decisions: {len(self.tree[state])}")
             #if len(self.tree[state]) > 0:
                 #print(f"Best decision: {self.choose(state)}")
         else:
@@ -106,12 +116,12 @@ class MonteCarloTreeSearch(MonteCarlo):
         print("------------------------------")
 
     def print_MC_search_tree(self):
-        with open("MCTS-treesearch.txt", 'w+') as file:
+        with open("MCTS-treesearch.txt", 'a+') as file:
             file.write("----------MCTS search tree stats----------\n")
-            file.write(f"MonteCarloTreeSearch values:\n")
             for state in self.tree:
                 file.write(f"+MC values for state: {str(state)} -> {self.Q[state]}/{self.N[state]} = {self.score(state)}\n")
                 file.write(f" |-children: {len(self.tree[state])}\n")
+                file.write(f" |-Nodes in the tree search: {len(self.tree)}\n")
                 for s in self.tree[state]:
                     file.write(f" |--MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}\n")
             file.write(f"#Total nodes in the tree search: {len(self.tree)}\n")
@@ -124,7 +134,7 @@ class MonteCarloTreeSearch(MonteCarlo):
         for state in self.tree:
             for child in self.tree[state]:
                 feature_set = list(child.configuration.get_selected_elements() - state.configuration.get_selected_elements())
-                if feature_set:
+                if len(feature_set) == 1:
                     feature = feature_set[0]
                     feature_rewards[feature] += self.Q[child]
                     feature_visits[feature] += self.N[child]

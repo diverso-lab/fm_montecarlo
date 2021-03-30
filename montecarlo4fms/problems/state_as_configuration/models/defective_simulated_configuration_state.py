@@ -9,6 +9,7 @@ class DefectiveSimulatedConfigurationState(ConfigurationState):
         super().__init__(configuration, data)
         self.is_valid_configuration = self.data.aafms.is_valid_configuration(self.configuration)
         self.errors = None
+        self.evaluated = False
 
     def configuration_transition_function(self, config: 'FMConfiguration') -> 'State':
         return DefectiveSimulatedConfigurationState(config, self.data)
@@ -21,6 +22,7 @@ class DefectiveSimulatedConfigurationState(ConfigurationState):
             return -1
         if not self.errors:
             self.errors = self.count_errors()
+            self.evaluated = True
         if self.errors <= 0:
             return -1
 

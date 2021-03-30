@@ -73,7 +73,11 @@ def get_sample_configurations(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', j
             state = algorithm.run(state)
         sample[i] = state
 
-    print(f"Final configuration ({len(state.configuration.elements)} features): {str(state)} -> {state.reward()}")
+    print(f"Final configuration ({len(state.configuration.elements)} features): {str(state)} -> Valid?={state.is_valid_configuration}, R={state.reward()}")
+    
+    print(f"#Terminal states Visits {algorithm.terminal_nodes_visits}")
+    print(f"#Terminal states Evaluations {len(algorithm.states_evaluated)}")
+    print(f"#Rewards calls {algorithm.nof_reward_function_calls}")
     algorithm.print_MC_search_tree()
     algorithm.print_heat_map(fm)
     return sample, algorithm
@@ -97,7 +101,7 @@ def main(samples_list: list, montecarlo_algorithm: 'MonteCarlo'):
 
     if not os.path.isfile(OUTPUT_RESULTS_FILE):
         with open(OUTPUT_RESULTS_FILE, 'a+') as file:
-            file.write("Method, Sample size, Valid configs, Defective configs, Time (s)\n")
+            file.write("Method, Sample size, Valid configs, Defective configs, Visit configs, Evaluated configs, Time (s)\n")
 
     # Get sample of configurations
     for sample_size in samples_list:    
@@ -111,7 +115,7 @@ def main(samples_list: list, montecarlo_algorithm: 'MonteCarlo'):
         valid_configs = [s.configuration for s in sample.values() if s.is_valid_configuration]
         defective_configs = [s.configuration for s in sample.values() if s.reward() == 1]
         with open(OUTPUT_RESULTS_FILE, 'a+') as file:
-            file.write(f'"{str(algorithm)}", {sample_size}, {len(valid_configs)}, {len(defective_configs)}, {execution_time}, \n')
+            file.write(f'"{str(algorithm)}", {sample_size}, {len(valid_configs)}, {len(defective_configs)}, {algorithm.terminal_nodes_visits}, {len(algorithm.states_evaluated)}, {execution_time}, \n')
         
         # for s in sample:
         #     config = sample[s].configuration
@@ -219,7 +223,7 @@ if __name__ == "__main__":
     LIST_SAMPLES = [x for x in range(0, 2750, 250)]
 
     # UCT MCTS
-    for it in [100]:
+    for it in [1]:
         algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=it, exploration_weight=EXPLORATION_WEIGHT)
         main(samples_list=[1], montecarlo_algorithm=algorithm)    
 

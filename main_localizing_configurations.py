@@ -23,7 +23,7 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 #input_fm_name = "aafms_framework_simple_impl"
 input_fm_name = "model_simple_paper_excerpt"
 input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
-iterations = 100
+iterations = 1000
 exploration_weight = 0.5
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
@@ -48,6 +48,8 @@ def main():
     
     # AAFMs
     aafms_helper = AAFMsHelper(fm, cnf_model)
+    all_configurations = aafms_helper.get_configurations()
+    print(f"#AllConfigs: {len(all_configurations)}")
 
     print(f"Creating set of actions...")
     actions = TreeActionsList(fm)
@@ -81,12 +83,18 @@ def main():
         #time_end = time.time()
         #print(f"Execution time for Step {n}: {time_end - time_start} seconds.")
         #montecarlo.print_MC_values(state)
+        montecarlo.print_MC_search_tree()
         n += 1
 
     print(f"Final state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
 
+    print(f"#Terminal states Visits {montecarlo.terminal_nodes_visits}")
+    print(f"#Terminal states Evaluations {len(montecarlo.states_evaluated)}")
+    print(f"#Rewards calls {montecarlo.nof_reward_function_calls}")
+    
+
     montecarlo.print_heat_map(fm)
-    montecarlo.print_MC_search_tree()
+    #montecarlo.print_MC_search_tree()
     print("Finished!")
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@ from typing import Set
 from collections import defaultdict
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.interpolate import make_interp_spline
+from scipy.interpolate import make_interp_spline, BSpline
 from famapy.metamodels.pysat_metamodel.transformations import CNFReader
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
@@ -50,14 +50,14 @@ def get_random_sample(fm: 'FeatureModel', aafms_helper: 'AAFMsHelper', jhipster_
     problem_data.jhipster_configurations = jhipster_configurations
 
     alg = RandomStrategy(IterationsStoppingCondition(iterations=0))
-    sample = set()
+    sample = defaultdict(bool)
     configs_sample = random.sample(list(jhipster_configurations.keys()), sample_size)
     for i, rnd_config in enumerate(configs_sample):
         print(f"{i}, ", end='', flush=True)   
-        problem_data.sample = set()
+        problem_data.sample = defaultdict(bool)
         #rnd_config = random.choice(list(jhipster_configurations.keys()))
         #sample[i] = FailureConfigurationState(rnd_config, data=problem_data)
-        sample.add(FailureCS(rnd_config, data=problem_data))
+        sample[FailureCS(rnd_config, data=problem_data)] = True
     alg.terminal_nodes_visits = len(sample)
     alg.states_evaluated = sample
     return sample, alg
@@ -234,9 +234,9 @@ def plot_efficiency(fig, method: str, data: list):   # data is a list of dict
 
     # # Smooth the line (suaviza la recta)
     # model=make_interp_spline(x_group, y_group)
-    # xs=np.linspace(min(x_group), max(x_group), 500)
+    # xs=np.linspace(min(x_group), max(x_group), 300)
     # ys=model(xs)
-    # fig.plot(xs, ys, label=data[0]['#Strategy'] + "(" + str(data[0]['#Simulations']) + ")")
+    # fig.plot(xs, ys, label=method)
         
     fig.plot(x_values, y_values, label=method)
     fig.legend(loc="best")
@@ -338,13 +338,13 @@ def create_jhipster_configurations_failures_file():
 if __name__ == "__main__":
     # main(samples_list=[x for x in range(0, 2750, 250)], 
     #      montecarlo_algorithm=MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=1))
-    LIST_ITERATIONS = [1, 10]
+    LIST_ITERATIONS = [1]
     EXPLORATION_WEIGHT = 0.5
     LIST_SAMPLES = [x for x in range(0, 2750, 250)]
 
     # UCT MCTS
-    for it in LIST_ITERATIONS:
-        cProfile.run("main(samples_list=[1, 8, 12, 41, 126, 374], iterations=it, exploration_weight=EXPLORATION_WEIGHT)")    
+    # for it in LIST_ITERATIONS:
+    #     cProfile.run("main(samples_list=[2340], iterations=it, exploration_weight=EXPLORATION_WEIGHT)")    
 
     results = read_file(OUTPUT_RESULTS_FILE)
     plot_results(results)

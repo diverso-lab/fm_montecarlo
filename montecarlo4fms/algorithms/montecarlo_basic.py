@@ -15,6 +15,9 @@ class MonteCarloBasic(MonteCarlo):
     def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
         super().__init__(stopping_condition, selection_criteria)
         self.initialize()
+        self.states_evaluated = dict()         # terminal state -> reward value
+        self.terminal_nodes_visits = 0
+        self.nof_reward_function_calls = 0
 
     def initialize(self):
         super().initialize()
@@ -49,7 +52,11 @@ class MonteCarloBasic(MonteCarlo):
         """
         while not state.is_terminal():
             state = state.find_random_successor()
-        return state.reward()
+        z = state.reward()
+        self.states_evaluated[state] = z
+        self.nof_reward_function_calls += 1
+        self.terminal_nodes_visits += 1
+        return z
 
     def print_MC_values(self, state: State):
         for s in self.Q.keys():

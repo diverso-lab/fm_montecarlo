@@ -17,14 +17,14 @@ class FailureCS(ConfigurationState):
         return FailureCS(config, self.data)
 
     def is_terminal(self) -> bool:
-        #return (self.is_valid_configuration and self not in self.data.sample) or not self.find_successors()
-        return self.is_valid_configuration or not self.get_actions()
+        #return (self.is_valid_configuration and self.data.sample[self]) or not self.find_successors()
+        return self.is_valid_configuration or not self.find_successors()
 
     def reward(self) -> float:
         if self.z is None:
             if not self.is_valid_configuration:
                 z = -1
-            elif self in self.data.sample:
+            elif self.data.sample[self]:
                 z = -1
             else:
                 #jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)
@@ -64,8 +64,12 @@ class FailureCS(ConfigurationState):
             return self.configuration_transition_function(new_config)
         else:
             for feature in features:
-                for relation in feature.get_relations():
-                    for child in relation.children:
+                relations = [r for r in feature.get_relations()]
+                random.shuffle(relations)
+                for relation in relations:
+                    children = [c for c in relation.children]
+                    random.shuffle(children)
+                    for child in children:
                         if not self.configuration.contains(child):
                             new_config = self.configuration.clone()
                             new_config.add_element(child)

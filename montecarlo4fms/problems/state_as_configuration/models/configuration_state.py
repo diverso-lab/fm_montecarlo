@@ -25,12 +25,16 @@ class ConfigurationState(State):
         return self._successors
 
     def find_random_successor(self) -> 'State':
-        action = random.choice(self.get_actions())
-        config = action.execute(self.configuration)
-        while not self.data.aafms.is_valid_partial_configuration(config):
-            action = random.choice(self.get_actions())
-            config = action.execute(self.configuration)
-        return self.configuration_transition_function(config)
+        lof_actions = self.get_actions()
+        random.shuffle(lof_actions)
+        for a in lof_actions:
+                configurations = a.executions(self.configuration)
+                random.shuffle(configurations)
+                for c in configurations:
+                    if self.data.aafms.is_valid_partial_configuration(c):
+                        new_state = self.configuration_transition_function(c)
+                        return new_state
+        return None
 
     @abstractmethod
     def configuration_transition_function(self, config: 'FMConfiguration') -> 'State':

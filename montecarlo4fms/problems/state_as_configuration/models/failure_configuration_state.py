@@ -10,25 +10,28 @@ class FailureConfigurationState(ConfigurationState):
         self.is_valid_configuration = self.data.aafms.is_valid_configuration(self.configuration)
         self.failures = None
         self.evaluated = False
+        self.z = None
 
     def configuration_transition_function(self, config: 'FMConfiguration') -> 'State':
         return FailureConfigurationState(config, self.data)
 
     def is_terminal(self) -> bool:
-        return (self.is_valid_configuration and self.configuration not in self.data.sample) or not self.get_actions()
+        #return (self.is_valid_configuration and self.configuration not in self.data.sample) or not self.get_actions()
+        return self.is_valid_configuration or not self.find_successors()
 
     def reward(self) -> float:
-        if not self.is_valid_configuration:
-            return -1
-        if self.configuration in self.data.sample:
-            return -1
-        if self.failures is None:
-            #jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)
-            #self.failures = jhipster.contains_failures(jhipster_config)
-            self.failures = self.data.jhipster_configurations[self.configuration]
-            self.evaluated = True
-
-        return 1 if self.failures else -1
+        if self.z is None:
+            if not self.is_valid_configuration:
+                z = -1
+            elif self.data.sample[self]:
+                z = -1
+            else:
+                #jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)
+                #self.failures = jhipster.contains_failures(jhipster_config)
+                z = 1 if self.data.jhipster_configurations[self.configuration] else -1
+                self.evaluated = True
+            self.z = z
+        return self.z
 
     # def get_actions(self) -> list:
     #     select_random_feature_action = SelectRandomFeature(self.data.fm)

@@ -21,9 +21,11 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 
 # PARAMETERS
 #input_fm_name = "aafms_framework_simple_impl"
-input_fm_name = "model_simple_paper_excerpt"
-input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
-iterations = 1000
+# input_fm_name = "model_simple_paper_excerpt"
+# input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
+input_fm_name = "model_paper"
+input_fm_cnf_name = "model_paper-cnf"
+iterations = 10
 exploration_weight = 0.5
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
@@ -48,8 +50,8 @@ def main():
     
     # AAFMs
     aafms_helper = AAFMsHelper(fm, cnf_model)
-    all_configurations = aafms_helper.get_configurations()
-    print(f"#AllConfigs: {len(all_configurations)}")
+    #all_configurations = aafms_helper.get_configurations()
+    #print(f"#AllConfigs: {len(all_configurations)}")
 
     print(f"Creating set of actions...")
     actions = TreeActionsList(fm)

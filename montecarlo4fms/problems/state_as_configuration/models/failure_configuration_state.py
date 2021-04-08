@@ -23,7 +23,7 @@ class FailureConfigurationState(ConfigurationState):
         if self.z is None:
             if not self.is_valid_configuration:
                 z = -1
-            elif self.data.sample[self]:
+            elif self in self.data.sample:
                 z = -1
             else:
                 #jhipster_config = jhipster.filter_configuration(self.configuration, self.data.jhipster_configurations)

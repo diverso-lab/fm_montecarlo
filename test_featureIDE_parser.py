@@ -5,6 +5,7 @@ from famapy.metamodels.fm_metamodel.utils import fm_utils, AAFMsHelper
 
 
 class TestFeatureIDEParser(unittest.TestCase):
+    NO_READ_CONSTRAINTS = True
 
     def setUp(self):
         self.parser = FeatureIDEParser
@@ -19,28 +20,28 @@ class TestFeatureIDEParser(unittest.TestCase):
                        # 'automotive2_1':       [14010, 624, 'N_379925076__F_91527E35945B', 1394, 0, 0],
                        # 'linux-2.6.33.3':      [6467, 7650, 'root', 53, 0, 0],
                        # 'uClinux-distribution':[1580, 247, 'root', 6, 0, 0],
-                       # 'embtoolkit':          [1179, 167, 'root', 78, 0, 0],
+                        'embtoolkit':          [1179, 167, 'root', 78, 0, 70],
                         'linux-2.6.33.3basic': [44079, 28821, 'root', 2238, 9434, 39],
                         'automotive2_1basic':  [14098,   833, 'N_379925076__F_91527E35945B', 1412, 125, 1010],
                         'pizzas':              [12, 1, 'Pizza', 4, 1, 2]}
 
     def test_nof_features(self):
         for fm_input in self.models:
-            parser = self.parser(self.input_folder + fm_input + self.ext)
+            parser = self.parser(self.input_folder + fm_input + self.ext, TestFeatureIDEParser.NO_READ_CONSTRAINTS)
             fm = parser.transform()
             with self.subTest(fm=fm_input):
                 self.assertEqual(len(fm.get_features()), self.models[fm_input][0])
 
     def test_nof_constraints(self):
         for fm_input in self.models:
-            parser = self.parser(self.input_folder + fm_input + self.ext)
+            parser = self.parser(self.input_folder + fm_input + self.ext, TestFeatureIDEParser.NO_READ_CONSTRAINTS)
             fm = parser.transform()
             with self.subTest(fm=fm_input):
                 self.assertEqual(len(fm.get_constraints()), self.models[fm_input][1])
 
     def test_root(self):
         for fm_input in self.models:
-            parser = self.parser(self.input_folder + fm_input + self.ext)
+            parser = self.parser(self.input_folder + fm_input + self.ext, TestFeatureIDEParser.NO_READ_CONSTRAINTS)
             fm = parser.transform()
             with self.subTest(fm=fm_input):
                 self.assertEqual(fm.root.name, self.models[fm_input][2])
@@ -48,7 +49,7 @@ class TestFeatureIDEParser(unittest.TestCase):
 
     def test_or_groups(self):
         for fm_input in self.models:
-            parser = self.parser(self.input_folder + fm_input + self.ext)
+            parser = self.parser(self.input_folder + fm_input + self.ext, TestFeatureIDEParser.NO_READ_CONSTRAINTS)
             fm = parser.transform()
             with self.subTest(fm=fm_input):
                 or_groups = [f for f in fm.get_features() if fm_utils.is_or_group(f)]
@@ -56,7 +57,7 @@ class TestFeatureIDEParser(unittest.TestCase):
 
     def test_alternative_groups(self):
         for fm_input in self.models:
-            parser = self.parser(self.input_folder + fm_input + self.ext)
+            parser = self.parser(self.input_folder + fm_input + self.ext, TestFeatureIDEParser.NO_READ_CONSTRAINTS)
             fm = parser.transform()
             with self.subTest(fm=fm_input):
                 alternative_groups = [f for f in fm.get_features() if fm_utils.is_alternative_group(f)]
@@ -64,7 +65,7 @@ class TestFeatureIDEParser(unittest.TestCase):
 
     def test_core_features(self):
         for fm_input in self.models:
-            parser = self.parser(self.input_folder + fm_input + self.ext)
+            parser = self.parser(self.input_folder + fm_input + self.ext, TestFeatureIDEParser.NO_READ_CONSTRAINTS)
             fm = parser.transform()
             aafms = AAFMsHelper(fm)
             with self.subTest(fm=fm_input):

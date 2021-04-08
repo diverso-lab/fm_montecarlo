@@ -16,12 +16,9 @@ def read_file(filepath: 'str') -> list:
 
 
 def assign_color(value: float) -> str:
-    if value == 0.0:
-        return 'WHITE'
-    else:
-        for v, c in reversed(COLORS.items()):
-            if value >= v:
-                return c
+    for v, c in reversed(COLORS.items()):
+        if value >= v:
+            return c
     
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+from functools import total_ordering
 from ast import AST
 from typing import Sequence
 
@@ -36,6 +37,7 @@ class Relation:
     def __eq__(self, other: 'Relation') -> bool:
         return self.parent == other.parent and self.children == other.children and self.card_min == other.card_min and self.card_max == other.card_max
 
+@total_ordering
 class Feature:
 
     def __init__(self, name: str, relations: Sequence['Relation'] = [], parent: 'Feature' = None, is_abstract: bool = False):
@@ -61,6 +63,9 @@ class Feature:
 
     def __eq__(self, other: 'Feature') -> bool:
         return self.name == other.name
+
+    def __lt__(self, other):
+        return self.name < other.name
 
 class Constraint:
     #This is heavily limited. Currently this will only support requires and excludes

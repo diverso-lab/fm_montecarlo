@@ -56,7 +56,10 @@ class Heatmap():
                 feature_stats[Heatmap.VISITS_STR] = feature_visits[feature]
                 feature_stats[Heatmap.REWARD_STR] = round(feature_rewards[feature], Heatmap.ROUND_DECIMALS)
                 feature_stats[Heatmap.QVALUE_STR] = round(feature_qvalues[feature], Heatmap.ROUND_DECIMALS)
-                normalized_value = round((feature_qvalues[feature]-min_value) / n, Heatmap.ROUND_DECIMALS)
+                if n > 0:
+                    normalized_value = round((feature_qvalues[feature]-min_value) / n, Heatmap.ROUND_DECIMALS)
+                else:
+                    normalized_value = feature_qvalues[feature]
                 feature_stats[Heatmap.NORMALIZED_STR] = normalized_value
                 feature_stats[Heatmap.COLOR_STR] = self._assign_color(normalized_value)
             else:
@@ -77,7 +80,7 @@ class Heatmap():
         with open(filepath, 'w+') as file:
             header = ", ".join(Heatmap.HEADER)
             file.write(f"{header}\n")
-            for feature in self.knowledge:
+            for feature in sorted(self.knowledge.keys()):
                 line_data = [feature.name]
                 for field in Heatmap.HEADER[1:]:
                     line_data.append(str(self.knowledge[feature][field]))

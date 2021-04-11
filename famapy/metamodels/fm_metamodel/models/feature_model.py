@@ -34,6 +34,9 @@ class Relation:
             res += _child.name + ' '
         return res
 
+    def __hash__(self) -> int:
+        return hash((self.parent, tuple(self.children), self.card_min, self.card_max))
+
     def __eq__(self, other: 'Relation') -> bool:
         return self.parent == other.parent and self.children == other.children and self.card_min == other.card_min and self.card_max == other.card_max
 
@@ -74,6 +77,9 @@ class Constraint:
         self.origin = origin
         self.destination = destination
         self.ctc_type = ctc_type
+
+    def __hash__(self) -> int:
+        return hash((self.origin, self.destination, self.ctc_type))
 
     def __eq__(self, other: 'Constraint') -> bool:
         return self.origin == other.origin and self.destination == other.destination and self.ctc_type == other.ctc_type
@@ -130,6 +136,15 @@ class FeatureModel(VariabilityModel):
         if not feature_name in self.features_by_name:
             raise Exception(f"Not feature with name: {feature_name}")
         return self.features_by_name[feature_name]
+
+    def __hash__(self) -> int:
+        return hash((self.root, tuple(self.features), tuple(self.relations), tuple(self.ctcs)))
+
+    def __eq__(self, other: 'FeatureModel') -> bool:
+        return (self.root == other.root
+               and self.features == other.features
+               and self.relations == other.relations
+               and self.ctcs == other.ctcs)
 
     def __str__(self) -> str:
         if not self.root:

@@ -11,7 +11,7 @@ class State(ABC):
 
     def find_successors(self) -> list:
         """All possible successors of this state."""
-        return [self.transition_function(a) for a in self.get_actions()]
+        return [self.state_transition_function(a) for a in self.get_actions()]
 
     def find_random_successor(self) -> 'State':
         """Random successor of this state (redefine it for more efficient simulation)."""

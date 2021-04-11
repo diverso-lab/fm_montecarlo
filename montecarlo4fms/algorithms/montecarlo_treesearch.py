@@ -120,7 +120,7 @@ class MonteCarloTreeSearch(MonteCarlo):
         print("------------------------------")
 
     def print_MC_search_tree(self):
-        with open("MCTS-treesearch.txt", 'a+') as file:
+        with open("MCTS-treesearch.txt", 'w+') as file:
             file.write("----------MCTS search tree stats----------\n")
             for state in self.tree:
                 file.write(f"+MC values for state: {str(state)} -> {self.Q[state]}/{self.N[state]} = {self.score(state)}\n")

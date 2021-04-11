@@ -11,7 +11,14 @@ from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 from montecarlo4fms.models import State, Action
 
 
-class CreateFeatureModel(Action):
+class FMStateAction(Action):
+    def is_applicable(self, state: 'FMState') -> bool:
+        return True 
+
+    def executions(self, state: 'FMState') -> list['FMState']:
+        pass
+
+class CreateFeatureModel(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -24,7 +31,7 @@ class CreateFeatureModel(Action):
         return FMState(FeatureModel(None), state.configurations)
 
 
-class AddRootFeature(Action):
+class AddRootFeature(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -47,7 +54,7 @@ class AddRootFeature(Action):
         return FMState(fm, state.configurations)
 
 
-class AddOptionalFeature(Action):
+class AddOptionalFeature(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -73,7 +80,7 @@ class AddOptionalFeature(Action):
         return FMState(fm, state.configurations)
 
 
-class AddMandatoryFeature(Action):
+class AddMandatoryFeature(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -99,7 +106,7 @@ class AddMandatoryFeature(Action):
         return FMState(fm, state.configurations)
 
 
-class AddOrGroupRelation(Action):
+class AddOrGroupRelation(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -129,7 +136,7 @@ class AddOrGroupRelation(Action):
         return FMState(fm, state.configurations)
 
 
-class AddAlternativeGroupRelation(Action):
+class AddAlternativeGroupRelation(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -159,7 +166,7 @@ class AddAlternativeGroupRelation(Action):
         return FMState(fm, state.configurations)
 
 
-class AddFeatureToOrGroup(Action):
+class AddFeatureToOrGroup(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -186,7 +193,7 @@ class AddFeatureToOrGroup(Action):
         return FMState(fm, state.configurations)
 
 
-class AddFeatureToAlternativeGroup(Action):
+class AddFeatureToAlternativeGroup(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -212,7 +219,7 @@ class AddFeatureToAlternativeGroup(Action):
         return FMState(fm, state.configurations)
 
 
-class AddRequiresConstraint(Action):
+class AddRequiresConstraint(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -234,7 +241,7 @@ class AddRequiresConstraint(Action):
         return FMState(fm, state.configurations)
 
 
-class AddExcludesConstraint(Action):
+class AddExcludesConstraint(FMStateAction):
 
     @staticmethod
     def get_name() -> str:
@@ -306,21 +313,22 @@ class FMState(State):
         if len(candidate_features_for_constraints) > 1:
             combinations = itertools.combinations(candidate_features_for_constraints, 2)
             for f1, f2 in combinations:
-                if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
-                    requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
-                    requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
-                    excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
-                    excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
-                    if excludes_f1_f2 or excludes_f2_f1:
-                        pass
-                    elif not requires_f1_f2 and not requires_f2_f1:
-                        possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
-                        possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
-                        possible_ctcs.append(AddExcludesConstraint(f1.name, f2.name))
-                    elif not requires_f1_f2:
-                        possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
-                    elif not requires_f2_f1:
-                        possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
+                if f1.get_parent() and f2.get_parent():
+                    if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
+                        requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
+                        requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
+                        excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
+                        excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
+                        if excludes_f1_f2 or excludes_f2_f1:
+                            pass
+                        elif not requires_f1_f2 and not requires_f2_f1:
+                            possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
+                            possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
+                            possible_ctcs.append(AddExcludesConstraint(f1.name, f2.name))
+                        elif not requires_f1_f2:
+                            possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
+                        elif not requires_f2_f1:
+                            possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
         if possible_ctcs:
             possible_actions.extend([AddRequiresConstraint, AddExcludesConstraint])
 
@@ -338,6 +346,8 @@ class FMState(State):
         if random_action.get_name() == AddRequiresConstraint.get_name() or random_action.get_name() == AddExcludesConstraint.get_name():
             return random.choice(possible_ctcs).execute(self)
 
+    def state_transition_function(self, action: 'Action') -> 'State':
+       return action.execute(self)
 
     def get_actions(self) -> List['Action']:
         """Return the list of valid actions for this state."""
@@ -383,21 +393,22 @@ class FMState(State):
         if len(candidate_features_for_constraints) > 1:
             combinations = itertools.combinations(candidate_features_for_constraints, 2)
             for f1, f2 in combinations:
-                if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
-                    requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
-                    requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
-                    excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
-                    excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
-                    if excludes_f1_f2 or excludes_f2_f1:
-                        pass
-                    elif not requires_f1_f2 and not requires_f2_f1:
-                        actions.append(AddRequiresConstraint(f1.name, f2.name))
-                        actions.append(AddRequiresConstraint(f2.name, f1.name))
-                        actions.append(AddExcludesConstraint(f1.name, f2.name))
-                    elif not requires_f1_f2:
-                        actions.append(AddRequiresConstraint(f1.name, f2.name))
-                    elif not requires_f2_f1:
-                        actions.append(AddRequiresConstraint(f2.name, f1.name))
+                if f1.get_parent() and f2.get_parent():
+                    if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
+                        requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
+                        requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
+                        excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
+                        excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
+                        if excludes_f1_f2 or excludes_f2_f1:
+                            pass
+                        elif not requires_f1_f2 and not requires_f2_f1:
+                            actions.append(AddRequiresConstraint(f1.name, f2.name))
+                            actions.append(AddRequiresConstraint(f2.name, f1.name))
+                            actions.append(AddExcludesConstraint(f1.name, f2.name))
+                        elif not requires_f1_f2:
+                            actions.append(AddRequiresConstraint(f1.name, f2.name))
+                        elif not requires_f2_f1:
+                            actions.append(AddRequiresConstraint(f2.name, f1.name))
         self.actions = actions
         return self.actions
 
@@ -427,11 +438,12 @@ class FMState(State):
         return relaxed_value - (deficit_value + surplus_value)
 
     def __hash__(self) -> int:
-        prime = 31
-        return prime * hash(self.feature_model) + sum(prime * hash(a.get_name()) for a in self.get_actions())
+        #prime = 31
+        #return prime * hash(self.feature_model) + sum(prime * hash(a.get_name()) for a in self.get_actions())
+        return hash(self.feature_model)
 
-    def __eq__(s1: 'FMState', s2: 'FMState') -> bool:
-        return hash(s1) == hash(s2)
+    def __eq__(self, other: 'FMState') -> bool:
+        return self.feature_model == other.feature_model
 
     def __str__(self) -> str:
         return str(self.feature_model)

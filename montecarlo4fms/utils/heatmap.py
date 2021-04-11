@@ -46,20 +46,21 @@ class Heatmap():
     
     def _built_knowledge(self, feature_rewards: dict[Feature, float], feature_visits: dict[Feature, int], feature_qvalues: dict[Feature, float]) -> dict[Feature, dict]: 
         # To normalize values in range 0..1
-        min_value = min(feature_qvalues.values())
-        max_value = max(feature_qvalues.values())
+        values = [feature_qvalues[f] for f in feature_qvalues if feature_visits[f] > 0]
+        min_value = min(values)
+        max_value = max(values)
         n = max_value - min_value
         # Feature construction knowledge
         for feature in self.feature_model.get_features():
             feature_stats = {}
-            if feature in feature_qvalues:
+            if feature in feature_qvalues and feature_visits[feature] > 0:
                 feature_stats[Heatmap.VISITS_STR] = feature_visits[feature]
                 feature_stats[Heatmap.REWARD_STR] = round(feature_rewards[feature], Heatmap.ROUND_DECIMALS)
                 feature_stats[Heatmap.QVALUE_STR] = round(feature_qvalues[feature], Heatmap.ROUND_DECIMALS)
                 if n > 0:
                     normalized_value = round((feature_qvalues[feature]-min_value) / n, Heatmap.ROUND_DECIMALS)
                 else:
-                    normalized_value = feature_qvalues[feature]
+                    normalized_value = feature_qvalues[feature] / feature_qvalues[feature]
                 feature_stats[Heatmap.NORMALIZED_STR] = normalized_value
                 feature_stats[Heatmap.COLOR_STR] = self._assign_color(normalized_value)
             else:

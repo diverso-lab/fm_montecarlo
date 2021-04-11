@@ -22,13 +22,12 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 HEATMAP_FILEPATH = "heatmap_loc_def_configs.csv"
 
 # PARAMETERS
-#input_fm_name = "aafms_framework_simple_impl"
-input_fm_name = "model_simple_paper_excerpt"
-input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
-# input_fm_name = "model_paper"
-# input_fm_cnf_name = "model_paper-cnf"
+#input_fm_name = "model_simple_paper_excerpt"
+#input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
+input_fm_name = "model_paper"
+input_fm_cnf_name = "model_paper-cnf"
 iterations = 10
-exploration_weight = 0.5
+exploration_weight = 1
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
 
@@ -80,7 +79,7 @@ def main():
 
     n = 0
     state = initial_state
-    while not state.is_terminal(): # state.reward() <= 0 and state.get_actions():
+    while state.reward() <= 0 and state.get_actions(): #not state.is_terminal(): # 
         #print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
         #time_start = time.time()
         state = montecarlo.run(state)

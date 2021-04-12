@@ -120,7 +120,7 @@ class MonteCarloTreeSearch(MonteCarlo):
         print("------------------------------")
 
     def print_MC_search_tree(self):
-        with open("MCTS-treesearch.txt", 'a+') as file:
+        with open("MCTS-treesearch.txt", 'w+') as file:
             file.write("----------MCTS search tree stats----------\n")
             for state in self.tree:
                 file.write(f"+MC values for state: {str(state)} -> {self.Q[state]}/{self.N[state]} = {self.score(state)}\n")
@@ -143,6 +143,16 @@ class MonteCarloTreeSearch(MonteCarlo):
                     feature_rewards[feature] += self.Q[child]
                     feature_visits[feature] += self.N[child]
         
+        # Normalize values to range 0..1
+        values = [round(float(feature_rewards[f])/float(feature_visits[f]), 2) if feature_visits[f] > 0 else 0.0 for f in feature_rewards]
+        min_value = min(values)
+        max_value = max(values)
+        normalized_values = {}
+        heatmap = {}
+        for feature, v in data.items():
+            normalized_values[feature] = (v-min_value)/(max_value-min_value)
+            heatmap[feature] = assign_color(normalized_values[feature])
+            
         with open("MCTS-heatmap.txt", 'w+') as file:
             file.write("Feature, Visits, Acc. Reward, Q-value\n")
             for f in feature_model.get_features():

@@ -1,0 +1,24 @@
+namespace pyPicosat
+
+features
+	pyPicosat {abstract}
+		alternative
+			MiniSAT {abstract}
+				mandatory
+					Solvers {abstract}
+						mandatory
+							python-sat {abstract}
+								mandatory
+									System {abstract}
+				or
+					Win {abstract}
+					Packages {abstract}
+			pyglucose {abstract}
+				optional
+					pycosat {abstract}
+				alternative
+					PicoSAT {abstract}
+						mandatory
+							AAFMFramework {abstract}
+					Glucose {abstract}
+					Linux {abstract}

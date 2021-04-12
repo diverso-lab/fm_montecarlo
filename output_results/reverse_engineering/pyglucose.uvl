@@ -1,0 +1,21 @@
+namespace pyglucose
+
+features
+	pyglucose {abstract}
+		or
+			AAFMFramework {abstract}
+				or
+					Linux {abstract}
+					python-sat {abstract}
+					Win {abstract}
+			Packages {abstract}
+				or
+					System {abstract}
+						or
+							pyPicosat {abstract}
+							Solvers {abstract}
+								or
+									MiniSAT {abstract}
+									PicoSAT {abstract}
+							pycosat {abstract}
+					Glucose {abstract}

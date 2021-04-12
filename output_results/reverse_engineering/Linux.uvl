@@ -1,0 +1,23 @@
+namespace Linux
+
+features
+	Linux {abstract}
+		alternative
+			pyglucose {abstract}
+				alternative
+					pyPicosat {abstract}
+						alternative
+							Packages {abstract}
+								mandatory
+									System {abstract}
+										or
+											AAFMFramework {abstract}
+												optional
+													pycosat {abstract}
+											Solvers {abstract}
+												or
+													PicoSAT {abstract}
+													Glucose {abstract}
+							python-sat {abstract}
+					Win {abstract}
+			MiniSAT {abstract}

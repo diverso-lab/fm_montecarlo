@@ -1,3 +1,4 @@
+import time
 from functools import reduce
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
@@ -15,8 +16,8 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 OUTPUT_PATH = OUTPUT_RESULTS_PATH + "reverse_engineering/"
 input_fm_name = "model_simple_paper_excerpt"
 input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
-iterations = 1000
-exploration_weight = 0.5
+iterations = 1500
+exploration_weight = 0
 
 
 def main():
@@ -45,7 +46,7 @@ def main():
         nc += 1
     print(f"#Configurations: {len(configurations)}")
 
-    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
+    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations, exploration_weight=exploration_weight)
     #montecarlo = MCTSIterationsRandomPolicy(iterations=iterations)
     #montecarlo = MCTSAnytimeRandomPolicy(seconds=1)
     print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
@@ -54,6 +55,7 @@ def main():
 
     n = 0
     state = initial_state
+    start = time.time()
     while not state.is_terminal():
         print(f"{n}, ", end='', flush=True)    
         #print(f"State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
@@ -62,6 +64,7 @@ def main():
         state = new_state
         n += 1
 
+    execution_time = time.time() - start
     print(f"Final State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
 
     aafms_helper = AAFMsHelper(state.feature_model)
@@ -87,6 +90,9 @@ def main():
     uvl_model = uvl_writter.transform()
 
     print(f"UVL model saved in: {path}")
+    print(f"Execution time: {execution_time}")
+    montecarlo.print_MC_search_tree()
+
 
     #
     # while not state.is_terminal():

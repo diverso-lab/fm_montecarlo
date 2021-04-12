@@ -22,19 +22,20 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 HEATMAP_FILEPATH = "heatmap_min_valid_configs.csv"
 
 # PARAMETERS
+N_RUNS = 30
 #input_fm_name = "aafms_framework_simple_impl"
-input_fm_name = "model_simple_paper_excerpt"
-input_fm_cnf_name = "model_simple_paper_excerpt_deadF-cnf"
-#input_fm_name = "model_paper"
-#input_fm_cnf_name = "model_paper-cnf"
+#input_fm_name = "model_simple_paper_excerpt"
+#input_fm_cnf_name = "model_simple_paper_excerpt_deadF-cnf"
+input_fm_name = "model_paper"
+input_fm_cnf_name = "model_paper-cnf"
 iterations = 100
-exploration_weight = 0.5
+exploration_weight = 0
 #initial_config_features = ['AAFMFramework', 'Solvers', 'Glucose']
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
 
 
-def main():
+def main(run: int):
     print("Problem 2: Minimum valid configurations.")
     print("-----------------------------------------------")
 
@@ -75,12 +76,14 @@ def main():
 
     print(f"Configuring MonteCarlo algorithm...")
     montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
-    print(f"{type(montecarlo).__name__} with {iterations} iterations, and {exploration_weight} exploration weight.")
+    #montecarlo = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=iterations)
+    print(f'"{montecarlo}" with {iterations} iterations, and {exploration_weight} exploration weight.')
 
     print("Running algorithm...")
 
     n = 0
     state = initial_state
+    start = time.time()
     while not state.is_terminal(): # state.reward() <= 0 and state.get_actions():
         #print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
         #time_start = time.time()
@@ -88,25 +91,39 @@ def main():
         #time_end = time.time()
         #print(f"Execution time for Step {n}: {time_end - time_start} seconds.")
         #montecarlo.print_MC_values(state)
-        montecarlo.print_MC_search_tree()
+        #montecarlo.print_MC_search_tree()
         n += 1
+    end = time.time()
 
     print(f"Final state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
 
     print(f"#Terminal states Visits {montecarlo.terminal_nodes_visits}")
     print(f"#Terminal states Evaluations {len(montecarlo.states_evaluated)}")
     print(f"#Rewards calls {montecarlo.nof_reward_function_calls}")
-    
-    heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N)
-    heatmap.extract_feature_knowledge()
-    heatmap.serialize(HEATMAP_FILEPATH)
+    print(f"Total Time: {end-start} seconds")    
+
+   # heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N)
+   # heatmap.extract_feature_knowledge()
+   # heatmap.serialize(HEATMAP_FILEPATH)
     #montecarlo.print_heat_map(fm)
-    montecarlo.print_MC_search_tree()
+   # montecarlo.print_MC_search_tree()
+
+    print(f"Writing results to file {OUTPUT_RESULTS_FILE}...")
+    
+    #montecarlo.tree = {}
+
+    with open(OUTPUT_RESULTS_FILE, 'a+') as file:
+        file.write(f'{run}, "{str(montecarlo)}", {iterations}, {exploration_weight}, {end-start}, {len(state.configuration.get_selected_elements())}, {state.is_valid_configuration}, {state.reward()}, {len(montecarlo.tree)}, {iterations*n}, "{str([str(f) for f in state.configuration.get_selected_elements()])}"\n')
+
     print("Finished!")
 
+
 if __name__ == '__main__':
-    start = time.time()
     #cProfile.run("main()")
-    main()
-    end = time.time()
-    print(f"Total Time: {end-start} seconds")
+    # with open(OUTPUT_RESULTS_FILE, 'w+') as file:
+    #     file.write("Run, Algorithm, StoppingCondition, Exploration Weight, ExecutionTime, #Features, Valid Config, Reward, Nodes, Simulations, Configuration\n")
+
+    for run in range(N_RUNS):
+        main(run=run)
+    
+    

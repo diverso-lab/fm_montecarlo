@@ -119,17 +119,17 @@ def main(filepath):
 
     algorithms = {'UCT MCTS': 'blue',
                   'Random Strategy (1000 simulations)': 'red',
-                  'Random Strategy': 'green'}
+                  'Random Strategy': 'green',
                 #  'UCT MCTS Rnd Exp': 'green',
-                #  'MonteCarlo basic': 'black',
+                  'MonteCarlo basic': 'black'}
                 #  'Random Strategy': 'orange'}
 
     fig, axs = plt.subplots(2,2)
-    # plot_rewards(axs[0,0], algorithms, data)
-    # plot_features(axs[0,1], algorithms, data)
-    # plot_nodes_evaluated(axs[1,0], algorithms, data)
-    # plot_times(axs[1,1], algorithms, data)
-    plot_features_probabilities(axs[0,0], algorithms, data)
+    plot_rewards(axs[0,0], algorithms, data)
+    plot_features(axs[0,1], algorithms, data)
+   # plot_nodes_evaluated(axs[1,0], algorithms, data)
+    plot_times(axs[1,1], algorithms, data)
+    #plot_features_probabilities(axs[0,0], algorithms, data)
 
     fig.tight_layout()
     plt.show()

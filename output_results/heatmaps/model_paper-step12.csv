@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+APISolvers, 44, 67, 1.52, 1.0, RED
+CNFModel, 26, 37, 1.42, 0.93, RED
+DepMng, 2, 0, 0.0, 0.0, BLUE
+Interoperability, 23, 32, 1.39, 0.91, RED
+Linux, 47, 70, 1.49, 0.98, RED
+Operations, 11, 12, 1.09, 0.72, ORANGE
+ParserTechnology, 15, 19, 1.27, 0.83, RED
+Utils, 5, 4, 0.8, 0.53, YELLOW
+Win, 2, 0, 0.0, 0.0, BLUE

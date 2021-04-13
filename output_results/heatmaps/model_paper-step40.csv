@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+ParserTechnology, 39, 78, 2.0, 1.0, RED
+pip, 39, 78, 2.0, 1.0, RED
+pkg-resources, 39, 78, 2.0, 1.0, RED
+setuptools, 39, 78, 2.0, 1.0, RED
+wheel, 39, 78, 2.0, 1.0, RED

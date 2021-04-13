@@ -1,0 +1,9 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 16, 20, 1.25, 0.68, ORANGE
+DecisionModel, 30, 42, 1.4, 0.9, RED
+Interoperability, 8, 7, 0.88, 0.11, BLUE
+Linux, 5, 4, 0.8, 0.0, BLUE
+Operations, 16, 20, 1.25, 0.68, ORANGE
+Packages, 16, 20, 1.25, 0.68, ORANGE
+Solvers, 43, 63, 1.47, 1.0, RED
+Win, 13, 14, 1.08, 0.42, YELLOW

@@ -20,6 +20,7 @@ class MonteCarloTreeSearch(MonteCarlo):
         self.states_evaluated = dict()         # terminal state -> reward value
         self.terminal_nodes_visits = 0
         self.nof_reward_function_calls = 0
+        self.n_evaluations = 0
 
     def initialize(self):
         super().initialize()
@@ -84,6 +85,8 @@ class MonteCarloTreeSearch(MonteCarlo):
         while not state.is_terminal():
             state = state.find_random_successor()
         z = state.reward()
+        if state not in self.states_evaluated:
+            self.n_evaluations += 1
         self.states_evaluated[state] = z
         self.nof_reward_function_calls += 1
         self.terminal_nodes_visits += 1
@@ -108,6 +111,7 @@ class MonteCarloTreeSearch(MonteCarlo):
     def print_MC_values(self, state: State):
         print("----------MCTS stats----------")
         print(f"MonteCarloTreeSearch values:")
+        print(f"State: {str(state)}")
         if state in self.tree:
             for s in self.tree[state]:
                 print(f"//MC values for state: {str(s)} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")

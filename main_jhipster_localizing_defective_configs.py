@@ -23,7 +23,7 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 HEATMAP_FILEPATH = "heatmap_loc_def_configs.csv"
 
 # PARAMETERS
-iterations = 500
+iterations = 1000
 exploration_weight = 0.5
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']

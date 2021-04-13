@@ -1,0 +1,20 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AllProducts, 6, 12, 2.0, 1.0, RED
+CNFModel, 5, 10, 2.0, 1.0, RED
+CoreFeatures, 6, 12, 2.0, 1.0, RED
+DeadFeatures, 6, 12, 2.0, 1.0, RED
+DepMng, 5, 10, 2.0, 1.0, RED
+ErrorDetection, 6, 12, 2.0, 1.0, RED
+ErrorDiagnosis, 6, 12, 2.0, 1.0, RED
+FeatureIDE, 6, 12, 2.0, 1.0, RED
+ParserTechnology, 5, 10, 2.0, 1.0, RED
+SPLOT, 6, 12, 2.0, 1.0, RED
+UVL, 6, 12, 2.0, 1.0, RED
+ValidProduct, 6, 12, 2.0, 1.0, RED
+pybind11, 6, 12, 2.0, 1.0, RED
+pycosat, 6, 12, 2.0, 1.0, RED
+pycryptosat, 6, 12, 2.0, 1.0, RED
+pyglucose, 6, 12, 2.0, 1.0, RED
+python-sat, 6, 12, 2.0, 1.0, RED
+satispy, 6, 12, 2.0, 1.0, RED
+six, 6, 12, 2.0, 1.0, RED

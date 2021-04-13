@@ -1,0 +1,19 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 6, 10, 1.67, 0.83, RED
+DepMng, 12, 23, 1.92, 0.96, RED
+FeatureIDE, 5, 8, 1.6, 0.8, RED
+Linux, 2, 1, 0.5, 0.25, GREEN
+Operations, 2, 2, 1.0, 0.5, YELLOW
+ParserTechnology, 5, 8, 1.6, 0.8, RED
+SPLOT, 11, 21, 1.91, 0.95, RED
+UVL, 11, 20, 1.82, 0.91, RED
+Win, 15, 30, 2.0, 1.0, RED
+pyPicosat, 6, 9, 1.5, 0.75, ORANGE
+pybind11, 5, 7, 1.4, 0.7, ORANGE
+pycosat, 2, 0, 0.0, 0.0, BLUE
+pycryptosat, 6, 10, 1.67, 0.83, RED
+pyglucose, 6, 9, 1.5, 0.75, ORANGE
+python-sat, 7, 10, 1.43, 0.71, ORANGE
+satispy, 5, 8, 1.6, 0.8, RED
+six, 5, 7, 1.4, 0.7, ORANGE
+umo, 8, 12, 1.5, 0.75, ORANGE

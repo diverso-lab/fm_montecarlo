@@ -2,7 +2,6 @@ import csv
 from collections import defaultdict
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature
-from montecarlo4fms.models import State
 
 
 class Heatmap():
@@ -23,24 +22,24 @@ class Heatmap():
 
     HEADER = [FEATURE_STR, VISITS_STR, REWARD_STR, QVALUE_STR, NORMALIZED_STR, COLOR_STR]
 
-    def __init__(self, feature_model: FeatureModel, mcts_tree_search: dict, mcts_q_values: dict, mcts_visits_count: dict, state: State):
+    def __init__(self, feature_model: FeatureModel, mcts_tree_search: dict, mcts_q_values: dict, mcts_visits_count: dict):
         self.feature_model = feature_model 
         self.mcts_tree_search = mcts_tree_search
         self.mcts_q_values = mcts_q_values
         self.mcts_visits_count = mcts_visits_count
-        self.state = state
         self.knowledge = {}
 
     def extract_feature_knowledge(self) -> dict[Feature, dict]:
         """Extract the statistics for each feature."""
         feature_rewards = defaultdict(int)
         feature_visits = defaultdict(int)
-        for state in self.mcts_tree_search[self.state]:
-            feature_set = list(state.configuration.get_selected_elements() - self.state.configuration.get_selected_elements())
-            if len(feature_set) == 1:
-                feature = feature_set[0]
-                feature_rewards[feature] = self.mcts_q_values[state]
-                feature_visits[feature] += self.mcts_visits_count[state]
+        for state in self.mcts_tree_search:
+            for child in self.mcts_tree_search[state]:
+                feature_set = list(child.configuration.get_selected_elements() - state.configuration.get_selected_elements())
+                if len(feature_set) == 1:
+                    feature = feature_set[0]
+                    feature_rewards[feature] += self.mcts_q_values[child]
+                    feature_visits[feature] += self.mcts_visits_count[child]
         feature_qvalues = {f: float(feature_rewards[f])/float(feature_visits[f]) if feature_visits[f] > 0 else 0 for f in feature_rewards}
 
         return self._built_knowledge(feature_rewards, feature_visits, feature_qvalues)
@@ -52,9 +51,9 @@ class Heatmap():
         max_value = max(values)
         n = max_value - min_value
         # Feature construction knowledge
-        for feature in feature_qvalues:
+        for feature in self.feature_model.get_features():
             feature_stats = {}
-            if feature_visits[feature] > 0:
+            if feature in feature_qvalues and feature_visits[feature] > 0:
                 feature_stats[Heatmap.VISITS_STR] = feature_visits[feature]
                 feature_stats[Heatmap.REWARD_STR] = round(feature_rewards[feature], Heatmap.ROUND_DECIMALS)
                 feature_stats[Heatmap.QVALUE_STR] = round(feature_qvalues[feature], Heatmap.ROUND_DECIMALS)

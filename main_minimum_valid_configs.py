@@ -12,6 +12,7 @@ from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsLi
 from montecarlo4fms.problems import ProblemData
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 from montecarlo4fms.utils import Heatmap
+from montecarlo4fms.utils import MCTSStats
 
 
 # CONSTANTS

@@ -1,0 +1,14 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 9, 18, 2.0, 1.0, RED
+DepMng, 9, 18, 2.0, 1.0, RED
+FeatureIDE, 9, 18, 2.0, 1.0, RED
+ParserTechnology, 9, 18, 2.0, 1.0, RED
+SPLOT, 9, 18, 2.0, 1.0, RED
+UVL, 9, 18, 2.0, 1.0, RED
+pybind11, 9, 18, 2.0, 1.0, RED
+pycosat, 9, 18, 2.0, 1.0, RED
+pycryptosat, 9, 18, 2.0, 1.0, RED
+pyglucose, 9, 18, 2.0, 1.0, RED
+python-sat, 10, 20, 2.0, 1.0, RED
+satispy, 9, 18, 2.0, 1.0, RED
+six, 9, 18, 2.0, 1.0, RED

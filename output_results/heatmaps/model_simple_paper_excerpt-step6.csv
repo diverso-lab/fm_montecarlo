@@ -1,0 +1,4 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Linux, 65, 65, 1.0, 1.0, RED
+Solvers, 64, 64, 1.0, 1.0, RED
+pyglucose, 64, 64, 1.0, 1.0, RED

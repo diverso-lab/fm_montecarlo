@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 32, 41, 1.28, 0.89, RED
+Interoperability, 19, 23, 1.21, 0.84, RED
+Linux, 19, 23, 1.21, 0.84, RED
+Operations, 2, 0, 0.0, 0.0, BLUE
+Packages, 43, 59, 1.37, 0.95, RED
+PicoSAT, 32, 46, 1.44, 1.0, RED
+Win, 7, 5, 0.71, 0.5, YELLOW

@@ -1,0 +1,19 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 3, 3, 1.0, 0.55, YELLOW
+DepMng, 5, 7, 1.4, 0.77, ORANGE
+Interoperability, 8, 12, 1.5, 0.83, RED
+Linux, 4, 5, 1.25, 0.69, ORANGE
+Operations, 11, 18, 1.64, 0.9, RED
+ParserTechnology, 8, 11, 1.38, 0.76, ORANGE
+Win, 4, 5, 1.25, 0.69, ORANGE
+pyPicosat, 7, 11, 1.57, 0.87, RED
+pybind11, 4, 3, 0.75, 0.41, YELLOW
+pycosat, 2, 0, 0.0, 0.0, BLUE
+pycryptosat, 3, 3, 1.0, 0.55, YELLOW
+pyglucose, 3, 3, 1.0, 0.55, YELLOW
+pylgl, 16, 29, 1.81, 1.0, RED
+python-sat, 4, 5, 1.25, 0.69, ORANGE
+satispy, 10, 16, 1.6, 0.88, RED
+satyrn, 2, 0, 0.0, 0.0, BLUE
+six, 15, 27, 1.8, 0.99, RED
+umo, 9, 14, 1.56, 0.86, RED

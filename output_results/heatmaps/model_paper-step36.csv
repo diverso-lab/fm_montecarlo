@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 27, 54, 2.0, 1.0, RED
+DepMng, 27, 54, 2.0, 1.0, RED
+ParserTechnology, 27, 54, 2.0, 1.0, RED
+pybind11, 27, 54, 2.0, 1.0, RED
+six, 27, 54, 2.0, 1.0, RED

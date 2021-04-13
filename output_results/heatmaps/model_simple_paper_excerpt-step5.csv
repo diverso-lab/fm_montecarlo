@@ -1,0 +1,4 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Solvers, 57, 57, 1.0, 1.0, RED
+System, 57, 57, 1.0, 1.0, RED
+pyglucose, 57, 57, 1.0, 1.0, RED

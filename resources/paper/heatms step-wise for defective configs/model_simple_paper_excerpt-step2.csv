@@ -1,0 +1,14 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AAFMFramework, 0, 0, 0, 0, WHITE
+Glucose, 0, 0, 0, 0, WHITE
+Linux, 0, 0, 0, 0, WHITE
+MiniSAT, 0, 0, 0, 0, WHITE
+Packages, 0, 0, 0, 0, WHITE
+PicoSAT, 0, 0, 0, 0, WHITE
+Solvers, 10, 0, 0.0, 0.5, YELLOW
+System, 4, -2, -0.5, 0.25, GREEN
+Win, 0, 0, 0, 0, WHITE
+pyPicosat, 2939, 2939, 1.0, 1.0, RED
+pycosat, 4, -2, -0.5, 0.25, GREEN
+pyglucose, 2, -2, -1.0, 0.0, BLUE
+python-sat, 19, 7, 0.37, 0.68, ORANGE

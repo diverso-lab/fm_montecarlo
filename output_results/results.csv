@@ -12999,3 +12999,15 @@ Run,#Features,#NodesExplored,#TotalIterationsExecuted,#TotalNodes,Algorithm,Algo
 998,12,0,0,0,"Random Strategy",12,"['AAFMFramework', 'PicoSAT', 'pyglucose', 'Glucose', 'Win', 'Solvers', 'pycosat', 'MiniSAT', 'python-sat', 'Packages', 'System', 'pyPicosat']",0.00034809112548828125,-1,1,False
 999,12,0,0,0,"Random Strategy",12,"['Linux', 'AAFMFramework', 'PicoSAT', 'pyglucose', 'Glucose', 'Solvers', 'pycosat', 'MiniSAT', 'python-sat', 'Packages', 'System', 'pyPicosat']",0.00034618377685546875,-1,1,False
 1000,12,0,0,0,"Random Strategy",12,"['Linux', 'AAFMFramework', 'PicoSAT', 'pyglucose', 'Glucose', 'Solvers', 'pycosat', 'MiniSAT', 'python-sat', 'Packages', 'System', 'pyPicosat']",0.0003440380096435547,-1,1,False
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 1.2496604919433594, 4, True, 49, 404, 400, "['AAFMFramework', 'Win', 'System', 'Metamodels']"
+1, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 1.4088282585144043, 4, True, 49, 404, 400, "['AAFMFramework', 'Win', 'System', 'Metamodels']"
+2, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 1.4212684631347656, 4, True, 49, 404, 400, "['AAFMFramework', 'Linux', 'System', 'Metamodels']"
+3, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 2.206545114517212, 8, True, 45, 808, 800, "['AAFMFramework', 'Metamodels', 'setuptools', 'Packages', 'System', 'Win', 'pip', 'DepMng']"
+4, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 1.3570075035095215, 4, True, 49, 404, 400, "['AAFMFramework', 'Win', 'System', 'Metamodels']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 2.053973436355591, 7, True, 46, 707, 700, "['System', 'Metamodels', 'AAFMFramework', 'SPLOT', 'Win', 'Interoperability', 'FeatureIDE']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.06781864166259766, 3, True, 10, 154, 300, "['Win', 'System', 'AAFMFramework']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.11674857139587402, 5, True, 8, 198, 500, "['Linux', 'AAFMFramework', 'System', 'pyglucose', 'Packages']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.0708460807800293, 3, True, 10, 189, 300, "['Win', 'System', 'AAFMFramework']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.07028508186340332, 3, True, 10, 182, 300, "['System', 'Linux', 'AAFMFramework']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.12267160415649414, 5, True, 8, 226, 500, "['Packages', 'System', 'python-sat', 'AAFMFramework', 'Linux']"
+0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.07183504104614258, 3, True, 10, 196, 300, "['System', 'Linux', 'AAFMFramework']"

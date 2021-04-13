@@ -11,7 +11,7 @@ from montecarlo4fms.problems.state_as_configuration.models import ValidMinimumCo
 from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList
 from montecarlo4fms.problems import ProblemData
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
-from montecarlo4fms.utils import Heatmap
+from montecarlo4fms.utils import Heatmap, HeatmapFull
 from montecarlo4fms.utils import MCTSStats
 
 
@@ -23,17 +23,19 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 HEATMAP_FILEPATH = "heatmap_min_valid_configs.csv"
 
 # PARAMETERS
-N_RUNS = 30
+N_RUNS = 1
 #input_fm_name = "aafms_framework_simple_impl"
-#input_fm_name = "model_simple_paper_excerpt"
-#input_fm_cnf_name = "model_simple_paper_excerpt_deadF-cnf"
-input_fm_name = "model_paper"
-input_fm_cnf_name = "model_paper-cnf"
+input_fm_name = "model_simple_paper_excerpt"
+input_fm_cnf_name = "model_simple_paper_excerpt_deadF-cnf"
+#input_fm_name = "model_paper"
+#input_fm_cnf_name = "model_paper-cnf"
 iterations = 100
 exploration_weight = 0
 #initial_config_features = ['AAFMFramework', 'Solvers', 'Glucose']
 initial_config_features = []
 #initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
+HEATMAP_PATH = OUTPUT_RESULTS_PATH + "heatmaps/"
+STATS_PATH = OUTPUT_RESULTS_PATH + "stats/"
 
 
 def main(run: int):
@@ -83,16 +85,24 @@ def main(run: int):
     print("Running algorithm...")
 
     n = 0
+    mcts_stats = MCTSStats()
     state = initial_state
     start = time.time()
     while not state.is_terminal(): # state.reward() <= 0 and state.get_actions():
         #print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
-        #time_start = time.time()
-        state = montecarlo.run(state)
-        #time_end = time.time()
-        #print(f"Execution time for Step {n}: {time_end - time_start} seconds.")
-        #montecarlo.print_MC_values(state)
-        #montecarlo.print_MC_search_tree()
+        time_start = time.time()
+        new_state = montecarlo.run(state)
+        time_end = time.time()
+
+        # heat map
+        heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N, state)
+        heatmap.extract_feature_knowledge()
+        heatmap.serialize(HEATMAP_PATH + input_fm_name + "-step" + str(n) + ".csv")
+        # stats
+        mcts_stats.add_step(n, montecarlo.tree, state, new_state, iterations, montecarlo.n_evaluations, time_end-time_start)
+        montecarlo.n_evaluations = 0
+
+        state = new_state
         n += 1
     end = time.time()
 
@@ -103,9 +113,9 @@ def main(run: int):
     print(f"#Rewards calls {montecarlo.nof_reward_function_calls}")
     print(f"Total Time: {end-start} seconds")    
 
-   # heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N)
-   # heatmap.extract_feature_knowledge()
-   # heatmap.serialize(HEATMAP_FILEPATH)
+    heatmap = HeatmapFull(fm, montecarlo.tree, montecarlo.Q, montecarlo.N)
+    heatmap.extract_feature_knowledge()
+    heatmap.serialize(HEATMAP_FILEPATH)
     #montecarlo.print_heat_map(fm)
    # montecarlo.print_MC_search_tree()
 

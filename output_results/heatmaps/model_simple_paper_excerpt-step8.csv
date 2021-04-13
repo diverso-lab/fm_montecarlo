@@ -1,5 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Glucose, 53, 53, 1.0, 1.0, RED
-pycosat, 52, 52, 1.0, 1.0, RED
-pyglucose, 52, 52, 1.0, 1.0, RED
-python-sat, 53, 53, 1.0, 1.0, RED

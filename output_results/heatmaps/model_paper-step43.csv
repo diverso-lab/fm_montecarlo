@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-SimpleParse, 28, 56, 2.0, 1.0, RED
-antlr4-python3-runtime, 28, 56, 2.0, 1.0, RED
-lark-parser, 28, 56, 2.0, 1.0, RED
-pkg-resources, 28, 56, 2.0, 1.0, RED
-setuptools, 28, 56, 2.0, 1.0, RED
-wheel, 28, 56, 2.0, 1.0, RED

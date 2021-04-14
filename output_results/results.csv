@@ -13011,3 +13011,5 @@ Run,#Features,#NodesExplored,#TotalIterationsExecuted,#TotalNodes,Algorithm,Algo
 0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.07028508186340332, 3, True, 10, 182, 300, "['System', 'Linux', 'AAFMFramework']"
 0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.12267160415649414, 5, True, 8, 226, 500, "['Packages', 'System', 'python-sat', 'AAFMFramework', 'Linux']"
 0, "UCT MCTS (sc:iters=100, ew=0)", 100, 0, 0.07183504104614258, 3, True, 10, 196, 300, "['System', 'Linux', 'AAFMFramework']"
+0, "UCT MCTS (sc:iters=100, ew=0.5)", 100, 0.5, 1.3803393840789795, 4, True, 49, 404, 400, "['Linux', 'System', 'AAFMFramework', 'Metamodels']"
+0, "UCT MCTS (sc:iters=100, ew=0.5)", 100, 0.5, 2.299334764480591, 8, True, 45, 808, 800, "['AAFMFramework', 'System', 'Packages', 'Metamodels', 'Win', 'pip', 'DepMng', 'setuptools']"

@@ -1,0 +1,3 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 27, 23, 0.85, 1.0, RED
+ElasticSearch, 1, -1, -1.0, 0.0, BLUE

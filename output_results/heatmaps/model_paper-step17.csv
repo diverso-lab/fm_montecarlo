@@ -1,0 +1,19 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 1, 20, 20.0, 0.67, ORANGE
+CNFModel, 1, 16, 16.0, 0.5, YELLOW
+DecisionModel, 1, 11, 11.0, 0.29, GREEN
+FeatureIDE, 1, 11, 11.0, 0.29, GREEN
+FeatureModel, 1, 17, 17.0, 0.54, YELLOW
+SPLOT, 1, 16, 16.0, 0.5, YELLOW
+SimpleParse, 78, 2141, 27.45, 0.98, RED
+antlr4-python3-runtime, 61, 1669, 27.36, 0.97, RED
+lark-parser, 118, 3301, 27.97, 1.0, RED
+pkg-resources, 2, 46, 23.0, 0.79, ORANGE
+pybind11, 2, 46, 23.0, 0.79, ORANGE
+pycosat, 1, 25, 25.0, 0.88, RED
+pydepqbf, 1, 7, 7.0, 0.13, BLUE
+pyglucose, 1, 14, 14.0, 0.42, YELLOW
+pylgl, 1, 4, 4.0, 0.0, BLUE
+satispy, 7, 184, 26.29, 0.93, RED
+satyrn, 2, 46, 23.0, 0.79, ORANGE
+wheel, 1, 15, 15.0, 0.46, YELLOW

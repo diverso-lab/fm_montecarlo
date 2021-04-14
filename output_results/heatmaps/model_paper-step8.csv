@@ -1,0 +1,21 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 3, 35, 11.67, 0.74, ORANGE
+CNFModel, 1, 11, 11.0, 0.65, ORANGE
+DecisionModel, 14, 183, 13.07, 0.92, RED
+DepMng, 278, 3808, 13.7, 1.0, RED
+FeatureIDE, 12, 150, 12.5, 0.84, RED
+FeatureModel, 3, 31, 10.33, 0.56, YELLOW
+ParserTechnology, 1, 12, 12.0, 0.78, ORANGE
+SPLOT, 2, 24, 12.0, 0.78, ORANGE
+System, 2, 20, 10.0, 0.52, YELLOW
+pyPicosat, 1, 12, 12.0, 0.78, ORANGE
+pybind11, 3, 38, 12.67, 0.87, RED
+pycosat, 1, 10, 10.0, 0.52, YELLOW
+pycryptosat, 1, 12, 12.0, 0.78, ORANGE
+pydepqbf, 15, 199, 13.27, 0.94, RED
+pyglucose, 1, 9, 9.0, 0.39, GREEN
+pylgl, 4, 52, 13.0, 0.91, RED
+satispy, 2, 24, 12.0, 0.78, ORANGE
+satyrn, 1, 6, 6.0, 0.0, BLUE
+six, 2, 22, 11.0, 0.65, ORANGE
+umo, 2, 25, 12.5, 0.84, RED

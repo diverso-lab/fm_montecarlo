@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+APISolvers, 260, 3071, 11.81, 1.0, RED
+AutomatedReasoning, 1, 5, 5.0, 0.13, BLUE
+DepMng, 19, 199, 10.47, 0.83, RED
+FeatureIDE, 9, 94, 10.44, 0.82, RED
+Metamodels, 1, 4, 4.0, 0.0, BLUE
+ParserTechnology, 1, 7, 7.0, 0.38, GREEN
+SPLOT, 2, 20, 10.0, 0.77, ORANGE
+System, 12, 125, 10.42, 0.82, RED
+Utils, 1, 5, 5.0, 0.13, BLUE

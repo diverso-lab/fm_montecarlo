@@ -18,6 +18,8 @@ class MonteCarloBasic(MonteCarlo):
         self.states_evaluated = dict()         # terminal state -> reward value
         self.terminal_nodes_visits = 0
         self.nof_reward_function_calls = 0
+        self.n_evaluations = 0                  # for stats
+        self.n_positive_evaluations = 0          # positive rewards # for stats
 
     def initialize(self):
         super().initialize()
@@ -53,7 +55,11 @@ class MonteCarloBasic(MonteCarlo):
         while not state.is_terminal():
             state = state.find_random_successor()
         z = state.reward()
-        self.states_evaluated[state] = z
+        if state not in self.states_evaluated:
+            self.states_evaluated[state] = z
+            self.n_evaluations += 1
+            if z > 0:
+                self.n_positive_evaluations += 1
         self.nof_reward_function_calls += 1
         self.terminal_nodes_visits += 1
         return z

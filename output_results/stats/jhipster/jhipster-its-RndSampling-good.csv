@@ -1,0 +1,12 @@
+Method, Iterations, Decisions, Simulations, Evaluations, Positive Evaluations, Tree Size, Time (s)
+"Random Sampling", 1, 1, 1, 50, 19, 0, 0.000997304916381836
+"Random Sampling", 10, 1, 10, 79, 34, 0, 0.0
+"Random Sampling", 20, 1, 20, 54, 19, 0, 0.000997304916381836
+"Random Sampling", 30, 1, 30, 72, 25, 0, 0.0
+"Random Sampling", 40, 1, 40, 368, 137, 0, 0.0009975433349609375
+"Random Sampling", 50, 1, 50, 118, 35, 0, 0.0
+"Random Sampling", 60, 1, 60, 554, 199, 0, 0.000997304916381836
+"Random Sampling", 70, 1, 70, 275, 83, 0, 0.0
+"Random Sampling", 80, 1, 80, 99, 28, 0, 0.0
+"Random Sampling", 90, 1, 90, 122, 51, 0, 0.000997304916381836
+"Random Sampling", 100, 1, 100, 441, 153, 0, 0.0009970664978027344

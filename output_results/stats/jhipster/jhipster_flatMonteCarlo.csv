@@ -1,0 +1,6 @@
+Method, Iterations, Decisions, Simulations, Evaluations, "Positive Evaluations", "% Positive Evaluations", "Tree Size", "Time (s)"
+"flat Monte Carlo", 1, 27, 1, 32, 14, 0.4375, 0, 0.14898180961608887
+"flat Monte Carlo", 250, 20, 250, 515, 244, 0.47378640776699027, 0, 14.374352216720581
+"flat Monte Carlo", 500, 19, 500, 746, 437, 0.5857908847184986, 0, 24.584336757659912
+"flat Monte Carlo", 750, 19, 750, 908, 450, 0.4955947136563877, 0, 37.577346086502075
+"flat Monte Carlo", 1000, 20, 1000, 1079, 453, 0.4198331788693234, 0, 63.1263370513916

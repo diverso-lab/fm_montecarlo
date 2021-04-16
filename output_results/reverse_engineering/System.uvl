@@ -3,18 +3,20 @@ namespace System
 features
 	System {abstract}
 		or
-			AAFMFramework {abstract}
+			Solvers {abstract}
 				or
-					Solvers {abstract}
-						or
-							PicoSAT {abstract}
-							Glucose {abstract}
-							MiniSAT {abstract}
+					pyglucose {abstract}
 					Packages {abstract}
 						or
-							Linux {abstract}
-							pyglucose {abstract}
-							pyPicosat {abstract}
-							Win {abstract}
-					python-sat {abstract}
-			pycosat {abstract}
+							Glucose {abstract}
+								optional
+									pyPicosat {abstract}
+							python-sat {abstract}
+								alternative
+									Linux {abstract}
+									Win {abstract}
+			AAFMFramework {abstract}
+				or
+					pycosat {abstract}
+					PicoSAT {abstract}
+					MiniSAT {abstract}

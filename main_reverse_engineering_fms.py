@@ -1,4 +1,5 @@
 import time
+import sys
 from functools import reduce
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
@@ -8,6 +9,7 @@ from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 
 from montecarlo4fms.problems.reverse_engineering.models import FMState
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
+from montecarlo4fms.utils import MCTSStatsRE
 
 INPUT_PATH = "evaluation/aafmsPythonFramework/"
 OUTPUT_RESULTS_PATH = "output_results/"
@@ -16,8 +18,9 @@ OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
 OUTPUT_PATH = OUTPUT_RESULTS_PATH + "reverse_engineering/"
 input_fm_name = "model_simple_paper_excerpt"
 input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
-iterations = 1500
-exploration_weight = 0
+iterations = 1000
+exploration_weight = 0.5
+HEATMAP_FILEPATH = "heatmap_reverse_engineering.csv"
 
 
 def main():
@@ -56,11 +59,19 @@ def main():
     n = 0
     state = initial_state
     start = time.time()
+    mcts_stats_re = MCTSStatsRE("reverse_engineering_log.txt")
     while not state.is_terminal():
         print(f"{n}, ", end='', flush=True)    
         #print(f"State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
+        start_time = time.time()
         new_state = montecarlo.run(state)
-        #montecarlo.print_MC_values(state)
+        end_time = time.time()
+        # heat map
+        # heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N, state)
+        # heatmap.extract_feature_knowledge()
+        # heatmap.serialize(HEATMAP_PATH + input_fm_name + "-step" + str(n) + ".csv")
+        mcts_stats_re.add_step(n, montecarlo.tree, montecarlo.Q, montecarlo.N, state, new_state, iterations, end_time - start_time)
+        montecarlo.print_MC_values(state)
         state = new_state
         n += 1
 
@@ -138,4 +149,6 @@ def main():
 
 
 if __name__ == '__main__':
+    #sys.stdout = open("reverse_engineering_results.txt", "w")
     main()
+    #sys.stdout.close()

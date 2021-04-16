@@ -306,31 +306,31 @@ class FMState(State):
         if alternative_group_features:
             possible_actions.append(AddFeatureToAlternativeGroup)
 
-        # candidate_features_for_constraints = list(self.feature_model.get_features())
-        # candidate_features_for_constraints.remove(self.feature_model.root)      # avoid constraint for root feature
-        # ctcs = self.feature_model.ctcs
-        # possible_ctcs = []
-        # if len(candidate_features_for_constraints) > 1:
-        #     combinations = itertools.combinations(candidate_features_for_constraints, 2)
-        #     for f1, f2 in combinations:
-        #         if f1.get_parent() and f2.get_parent():
-        #             if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
-        #                 requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
-        #                 requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
-        #                 excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
-        #                 excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
-        #                 if excludes_f1_f2 or excludes_f2_f1:
-        #                     pass
-        #                 elif not requires_f1_f2 and not requires_f2_f1:
-        #                     possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
-        #                     possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
-        #                     possible_ctcs.append(AddExcludesConstraint(f1.name, f2.name))
-        #                 elif not requires_f1_f2:
-        #                     possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
-        #                 elif not requires_f2_f1:
-        #                     possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
-        # if possible_ctcs:
-        #     possible_actions.extend([AddRequiresConstraint, AddExcludesConstraint])
+        candidate_features_for_constraints = list(self.feature_model.get_features())
+        candidate_features_for_constraints.remove(self.feature_model.root)      # avoid constraint for root feature
+        ctcs = self.feature_model.ctcs
+        possible_ctcs = []
+        if len(candidate_features_for_constraints) > 1:
+            combinations = itertools.combinations(candidate_features_for_constraints, 2)
+            for f1, f2 in combinations:
+                if f1.get_parent() and f2.get_parent():
+                    if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
+                        requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
+                        requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
+                        excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
+                        excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
+                        if excludes_f1_f2 or excludes_f2_f1:
+                            pass
+                        elif not requires_f1_f2 and not requires_f2_f1:
+                            possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
+                            possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
+                            possible_ctcs.append(AddExcludesConstraint(f1.name, f2.name))
+                        elif not requires_f1_f2:
+                            possible_ctcs.append(AddRequiresConstraint(f1.name, f2.name))
+                        elif not requires_f2_f1:
+                            possible_ctcs.append(AddRequiresConstraint(f2.name, f1.name))
+        if possible_ctcs:
+            possible_actions.extend([AddRequiresConstraint, AddExcludesConstraint])
 
         # Choose a random action
         random_action = random.choice(possible_actions)
@@ -343,8 +343,8 @@ class FMState(State):
             return random_action(random.choice(self.missing_features).name, random.choice(or_group_features).name).execute(self)
         if random_action.get_name() == AddFeatureToAlternativeGroup.get_name():
             return random_action(random.choice(self.missing_features).name, random.choice(alternative_group_features).name).execute(self)
-        # if random_action.get_name() == AddRequiresConstraint.get_name() or random_action.get_name() == AddExcludesConstraint.get_name():
-        #     return random.choice(possible_ctcs).execute(self)
+        if random_action.get_name() == AddRequiresConstraint.get_name() or random_action.get_name() == AddExcludesConstraint.get_name():
+            return random.choice(possible_ctcs).execute(self)
 
     def state_transition_function(self, action: 'Action') -> 'State':
        return action.execute(self)
@@ -387,28 +387,28 @@ class FMState(State):
                 elif fm_utils.is_alternative_group(candidate_parent):
                     actions.append(AddFeatureToAlternativeGroup(feature.name, candidate_parent.name))
 
-        # candidate_features_for_constraints = list(self.feature_model.get_features())
-        # candidate_features_for_constraints.remove(self.feature_model.root)      # avoid constraint for root feature
-        # ctcs = self.feature_model.ctcs
-        # if len(candidate_features_for_constraints) > 1:
-        #     combinations = itertools.combinations(candidate_features_for_constraints, 2)
-        #     for f1, f2 in combinations:
-        #         if f1.get_parent() and f2.get_parent():
-        #             if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
-        #                 requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
-        #                 requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
-        #                 excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
-        #                 excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
-        #                 if excludes_f1_f2 or excludes_f2_f1:
-        #                     pass
-        #                 elif not requires_f1_f2 and not requires_f2_f1:
-        #                     actions.append(AddRequiresConstraint(f1.name, f2.name))
-        #                     actions.append(AddRequiresConstraint(f2.name, f1.name))
-        #                     actions.append(AddExcludesConstraint(f1.name, f2.name))
-        #                 elif not requires_f1_f2:
-        #                     actions.append(AddRequiresConstraint(f1.name, f2.name))
-        #                 elif not requires_f2_f1:
-        #                     actions.append(AddRequiresConstraint(f2.name, f1.name))
+        candidate_features_for_constraints = list(self.feature_model.get_features())
+        candidate_features_for_constraints.remove(self.feature_model.root)      # avoid constraint for root feature
+        ctcs = self.feature_model.ctcs
+        if len(candidate_features_for_constraints) > 1:
+            combinations = itertools.combinations(candidate_features_for_constraints, 2)
+            for f1, f2 in combinations:
+                if f1.get_parent() and f2.get_parent():
+                    if f1.get_parent() != f2 and f2.get_parent() != f1:         # avoid constraints between parent-child
+                        requires_f1_f2 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f1 and c.destination == f2), None)
+                        requires_f2_f1 = next((c for c in ctcs if c.ctc_type == 'requires' and c.origin == f2 and c.destination == f1), None)
+                        excludes_f1_f2 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f1 and c.destination == f2), None)
+                        excludes_f2_f1 = next((c for c in ctcs if c.ctc_type == 'excludes' and c.origin == f2 and c.destination == f1), None)
+                        if excludes_f1_f2 or excludes_f2_f1:
+                            pass
+                        elif not requires_f1_f2 and not requires_f2_f1:
+                            actions.append(AddRequiresConstraint(f1.name, f2.name))
+                            actions.append(AddRequiresConstraint(f2.name, f1.name))
+                            actions.append(AddExcludesConstraint(f1.name, f2.name))
+                        elif not requires_f1_f2:
+                            actions.append(AddRequiresConstraint(f1.name, f2.name))
+                        elif not requires_f2_f1:
+                            actions.append(AddRequiresConstraint(f2.name, f1.name))
         self.actions = actions
         return self.actions
 
@@ -430,10 +430,10 @@ class FMState(State):
                 We want to minimize this value.
         """
         aafms_helper = AAFMsHelper(self.feature_model)
-        configurations_captured = aafms_helper.get_configurations()
+        #configurations_captured = aafms_helper.get_configurations()
         relaxed_value = reduce(lambda count, c: count + (aafms_helper.is_valid_configuration(c)), self.configurations, 0)
-        deficit_value = reduce(lambda count, c: count + (c not in configurations_captured), self.configurations, 0)
-        surplus_value = reduce(lambda count, c: count + (c not in self.configurations), configurations_captured, 0)
+        #deficit_value = reduce(lambda count, c: count + (c not in configurations_captured), self.configurations, 0)
+        #surplus_value = reduce(lambda count, c: count + (c not in self.configurations), configurations_captured, 0)
 
         return relaxed_value #- (deficit_value + surplus_value)
 

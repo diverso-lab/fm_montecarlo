@@ -1,62 +1,52 @@
+import sys
+import os
 import time
-import cProfile
+import argparse
 from functools import reduce
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.pysat_metamodel.transformations import CNFReader
-from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
+from famapy.metamodels.fm_metamodel.utils import AAFMsHelper, fm_utils
 
 from montecarlo4fms.problems.state_as_configuration.models import ValidConfigurationState, ValidMinimumConfigurationState
 from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList
 from montecarlo4fms.problems import ProblemData
-from montecarlo4fms.algorithms import MonteCarloAlgorithms
+from montecarlo4fms.algorithms import MonteCarloAlgorithms, MonteCarloTreeSearch
 from montecarlo4fms.utils import Heatmap
 from montecarlo4fms.utils import Heatmap, HeatmapFull
-from montecarlo4fms.utils import MCTSStats
+from montecarlo4fms.utils import MCTSStats, MCTSStatsIts
+
 
 # CONSTANTS
 INPUT_PATH = "evaluation/aafmsPythonFramework/"
 OUTPUT_RESULTS_PATH = "output_results/"
-OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
-OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
-HEATMAP_FILEPATH = "heatmap_complet_pconfigs.csv"
-
-# PARAMETERS
-#input_fm_name = "aafms_framework_simple_impl"
-input_fm_name = "model_simple_paper_excerpt"
-input_fm_cnf_name = "model_simple_paper_excerpt_deadF-cnf"
-# input_fm_name = "model_paper"
-# input_fm_cnf_name = "model_paper-cnf"
-iterations = 100
-exploration_weight = 0.5
-initial_config_features = ['AAFMFramework', 'Solvers', 'Glucose']
-#initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
 HEATMAP_PATH = OUTPUT_RESULTS_PATH + "heatmaps/"
 STATS_PATH = OUTPUT_RESULTS_PATH + "stats/"
 
 
-def main():
-    print("Problem 3: Completion of partial configurations.")
-    print("-----------------------------------------------")
+def main(algorithm, simulations: int, input_fm: str, input_cnf_model: str=None, initial_config_features: list[str]=[], minimum: bool=False):
+    print("Problem: Completion of partial configurations.")
+    print("----------------------------------------------")
+
+    base = os.path.basename(input_fm)
+    input_fm_name = os.path.splitext(base)[0]
 
     print("Setting up the problem...")
-
-    input_fm = INPUT_PATH + input_fm_name + ".xml"
-
-    print(f"Loading feature model: {input_fm_name} ...")
-    fide_parser = FeatureIDEParser(input_fm, no_read_constraints=True)
+    print(f"Loading feature model: {input_fm} ...")
+    fide_parser = FeatureIDEParser(input_fm, no_read_constraints=(input_cnf_model is not None))
     fm = fide_parser.transform()
     print(f"Feature model loaded with {len(fm.get_features())} features, {len(fm.get_constraints())} constraints, {len(fm.get_relations())} relations.")
 
-     # Read the feature model as CNF model with complex constraints
-    cnf_reader = CNFReader(INPUT_PATH + input_fm_cnf_name + ".txt")
-    cnf_model = cnf_reader.transform()
+    if input_cnf_model is not None:
+        # Read the feature model as CNF model with complex constraints
+        cnf_reader = CNFReader(input_cnf_model)
+        cnf_model = cnf_reader.transform()
+    else:
+        cnf_model = None
     
     # AAFMs
     aafms_helper = AAFMsHelper(fm, cnf_model)
-    #all_configurations = aafms_helper.get_configurations()
-    #print(f"#AllConfigs: {len(all_configurations)}")
 
     print(f"Creating set of actions...")
     actions = TreeActionsList(fm)
@@ -66,57 +56,107 @@ def main():
 
     print(f"Creating initial state (configuration)...")
     if initial_config_features:
-        initial_config = FMConfiguration(elements={fm.get_feature_by_name(f) : True for f in initial_config_features})
+        elements = {}
+        for feature in [fm.get_feature_by_name(f) for f in initial_config_features]:
+            elements[feature] = True
+            for p in fm_utils.select_parent_features(feature):
+                elements[p] = True
+        initial_config = FMConfiguration(elements=elements)
     else:
         initial_config = FMConfiguration()
 
-    initial_state = ValidMinimumConfigurationState(configuration=initial_config, data=problem_data)
-    print(f"Initial state: {initial_state}")
+    if minimum:
+        initial_state = ValidMinimumConfigurationState(configuration=initial_config, data=problem_data)
+    else:
+        initial_state = ValidConfigurationState(configuration=initial_config, data=problem_data)
 
+    print(f"Initial state: {initial_state}")
     print("Problem setted up.")
 
-    print(f"Configuring MonteCarlo algorithm...")
-    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
-    print(f"{type(montecarlo).__name__} with {iterations} iterations, and {exploration_weight} exploration weight.")
+    print(f"Running algorithm {str(algorithm)}...")
 
-    print("Running algorithm...")
+    # Stats
+    mcts_stats = MCTSStats()
+    mcts_stats_its = MCTSStatsIts()
 
     n = 0
-    mcts_stats = MCTSStats()
+    total_evaluations = 0
     state = initial_state
-    while not state.is_terminal(): # state.reward() <= 0 and state.get_actions():
-        #print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
+    total_time_start = time.time()
+    while not state.is_terminal():
+        print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
         time_start = time.time()
-        new_state = montecarlo.run(state)
+        new_state = algorithm.run(state)
         time_end = time.time()
 
-        # heat map
-        heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N, state)
-        heatmap.extract_feature_knowledge()
-        heatmap.serialize(HEATMAP_PATH + input_fm_name + "-step" + str(n) + ".csv")
-        # stats
-        mcts_stats.add_step(n, montecarlo.tree, state, new_state, iterations, montecarlo.n_evaluations, time_end-time_start)
-        montecarlo.n_evaluations = 0
+        if isinstance(algorithm, MonteCarloTreeSearch):  
+            # Heat map (only for MCTS)
+            heatmap = Heatmap(fm, algorithm.tree, algorithm.Q, algorithm.N, state)
+            heatmap.extract_feature_knowledge()
+            heatmap.serialize(HEATMAP_PATH + input_fm_name + "-step" + str(n) + ".csv")
+        else:
+            algorithm.tree = {} 
+
+        # Stats
+        mcts_stats.add_step(n, algorithm.tree, state, new_state, simulations, algorithm.n_evaluations, algorithm.n_positive_evaluations, time_end-time_start)
+        total_evaluations += algorithm.n_evaluations
+        algorithm.n_evaluations = 0
 
         state = new_state
         n += 1
-
+        
+    total_time_end = time.time()
+    print("Algorithm finished.")
     print(f"Final state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
 
-    print(f"#Terminal states Visits {montecarlo.terminal_nodes_visits}")
-    print(f"#Terminal states Evaluations {len(montecarlo.states_evaluated)}")
-    print(f"#Rewards calls {montecarlo.nof_reward_function_calls}")
-    
-    heatmap = HeatmapFull(fm, montecarlo.tree, montecarlo.Q, montecarlo.N)
-    heatmap.extract_feature_knowledge()
-    heatmap.serialize(HEATMAP_FILEPATH)
-    #montecarlo.print_heat_map(fm)
-    montecarlo.print_MC_search_tree()
-    print("Finished!")
+    # Stats
+    print("Serializing results...")
+    mcts_stats.serialize(STATS_PATH + input_fm_name + '-steps.csv')
+    mcts_stats_its.add_step(str(algorithm), n, algorithm.tree, simulations, total_evaluations, algorithm.n_positive_evaluations, total_time_end-total_time_start)
+    mcts_stats_its.serialize(STATS_PATH + input_fm_name + '-summary.csv')
+
+    # Heat for the whole process (not sure about its utility)
+    if isinstance(algorithm, MonteCarloTreeSearch):  
+        heatmap = HeatmapFull(fm, algorithm.tree, algorithm.Q, algorithm.N)
+        heatmap.extract_feature_knowledge()
+        heatmap.serialize(HEATMAP_PATH + input_fm_name + "-full.csv")
+
+    print("Done!")
 
 if __name__ == '__main__':
-    start = time.time()
-    #cProfile.run("main()")
-    main()
-    end = time.time()
-    print(f"Total Time: {end-start} seconds")
+    parser = argparse.ArgumentParser(description='Problem: Completion of partial configurations.')
+    parser.add_argument('-fm', '--featuremodel', dest='featuremodel', type=str, required=True, help='Input feature model in FeatureIDE format.')
+    parser.add_argument('-cnf', '--featuremodel_cnf', dest='featuremodel_cnf', type=str, required=False, help='Input feature model in CNF with FeatureIDE (textual) format (required for complex constraints).')
+    parser.add_argument('-it', '--iterations', dest='iterations', type=int, required=False, default=100, help='Number of iterations for MCTS (default 100).')
+    parser.add_argument('-ew', '--exploration_weight', dest='exploration_weight', type=float, required=False, default=0.5, help='Exploration weight constant for UCT Algorithm (default 0.5).')
+    parser.add_argument('-m', '--method', dest='method', type=str, required=False, default="MCTS", help='Monte Carlo algorithm to be used ("MCTS" for the UCT Algorithm (default), "Greedy" for GreedyMCTS, "flat" for basic Monte Carlo).')
+    parser.add_argument('-min', '--minimum', dest='minimum', action='store_true', required=False, help='Minimize number of features in configurations.')
+    parser.add_argument('-f', '--features', dest='features', type=str, nargs='*', required=False, help='Initial feature selections (initial configuration).')
+    args = parser.parse_args()
+
+    if args.exploration_weight < 0 or args.exploration_weight > 1:
+        print(f"ERROR: the exploration weight constant must be in range [0,1].")
+        parser.print_help()
+        sys.exit()
+
+    if args.iterations <= 0:
+        print(f"ERROR: the number of iterations/simulations must be positive.")
+        parser.print_help()
+        sys.exit()
+
+    if args.method not in ['MCTS', 'Greedy', 'flat']:
+        print(f"ERROR: Algorithm not recognized.")
+        parser.print_help()
+        sys.exit()
+
+    if args.method == 'MCTS':
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=args.exploration_weight)
+    elif args.method == 'Greedy':
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=0)
+    elif args.method == 'flat':
+        algorithm = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=args.iterations)
+
+    if args.features is None:
+        features = []
+
+    main(algorithm, args.iterations, args.featuremodel, args.featuremodel_cnf, args.features, args.minimum)

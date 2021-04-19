@@ -10,7 +10,7 @@ class AAFMsHelper:
 
     def __init__(self, feature_model: 'FeatureModel', cnf_model: 'PySATModel' = None):
         self.feature_model = feature_model
-        if cnf_model:
+        if cnf_model is not None:
             self.cnf_model = cnf_model
         else:
             transform = FmToPysat(feature_model)

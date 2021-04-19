@@ -88,26 +88,3 @@ class Heatmap():
                     line_data.append(str(self.knowledge[feature][field]))
                 line = ", ".join(line_data)
                 file.write(f"{line}\n")
-
-# if __name__ == "__main__":
-#     # Read Monte Carlo Q-Values
-#     data = read_file("MCTS-heatmap.txt")
-    
-#     # Normalize values to range 0..1
-#     values = list(data.values())
-#     min_value = min(values)
-#     max_value = max(values)
-#     normalized_values = {}
-#     heatmap = {}
-#     for feature, v in data.items():
-#         normalized_values[feature] = (v-min_value)/(max_value-min_value)
-#         heatmap[feature] = assign_color(normalized_values[feature])
-
-#     print(normalized_values)
-#     print(heatmap)
-
-#     with open("MCTS-heatmap-colors.txt", 'w+') as file:
-#         file.write("Feature, Normalized value, Color\n")
-#         for f, v, c in zip(heatmap.keys(), normalized_values.values(), heatmap.values()):
-#             file.write(f"{f}, {v}, {c}\n")
-    

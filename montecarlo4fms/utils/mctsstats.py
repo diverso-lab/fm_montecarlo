@@ -23,7 +23,11 @@ class MCTSStats():
     def add_step(self, step: int, mcts_tree_search: dict, state: State, result_state: State, simulations: int, evaluations: int, positive_evaluations: int, time: float):
         self.stats[step] = {}
         self.stats[step][MCTSStats.STEP_STR] = step
-        self.stats[step][MCTSStats.DECISIONS_STR] = len(mcts_tree_search[state])
+        if state in mcts_tree_search:
+            decisions = len(mcts_tree_search[state]) 
+        else:
+            decisions = 0
+        self.stats[step][MCTSStats.DECISIONS_STR] = decisions
         self.stats[step][MCTSStats.SIMULATIONS_STR] = simulations
         self.stats[step][MCTSStats.EVALUATIONS_STR] = evaluations
         self.stats[step][MCTSStats.POSITIVE_EVALUATIONS_STR] = positive_evaluations

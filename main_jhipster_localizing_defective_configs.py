@@ -81,7 +81,7 @@ def main(algorithm, simulations: int):
             heatmap.extract_feature_knowledge()
             heatmap.serialize(HEATMAP_PATH + jhipster.FM_FILENAME + "-step" + str(n) + ".csv")
         else:
-            algorithm.tree = None 
+            algorithm.tree = {} 
 
         # Stats
         mcts_stats.add_step(n, algorithm.tree, state, new_state, simulations, algorithm.n_evaluations, algorithm.n_positive_evaluations, time_end-time_start)

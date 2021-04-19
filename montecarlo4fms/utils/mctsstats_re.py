@@ -41,8 +41,10 @@ class MCTSStatsRE():
                 for s in sorted_states:
                     if n > 0:
                         normalized_value = round((q_values[s]-min_value) / n, MCTSStatsRE.ROUND_DECIMALS)
-                    else:
+                    elif q_values[s] != 0:
                         normalized_value = q_values[s] / q_values[s]
+                    else:
+                        normalized_value = 0
                     file.write(f"//MC values for state: {str(s)} -> {mcts_q_values[s]}/{mcts_visits[s]} = {q_values[s]} -> normalized: {normalized_value}\n")
             else:
                 file.write(f"#Decisions: {0}\n")
@@ -50,4 +52,4 @@ class MCTSStatsRE():
             file.write(f"Total nodes in the tree search: {len(mcts_tree_search)}\n")
             file.write(f"Simulations: {simulations}\n")
             file.write(f"Execution time: {time}\n")
-            file.write(f"==================================================================================================================================")
+            file.write(f"==================================================================================================================================\n")

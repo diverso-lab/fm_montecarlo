@@ -1,5 +1,6 @@
 import sys
 import time
+import os
 import argparse
 from functools import reduce
 
@@ -29,6 +30,15 @@ def main(algorithm, simulations: int, input_fm_name: str, input_fm_cnf_name: str
     print("----------------------------------------------------------------------------------------------------")
 
     print("Setting up the problem...")
+
+    print("Creating output folders...")
+    if not os.path.exists(OUTPUT_RESULTS_PATH):
+        os.makedirs(OUTPUT_RESULTS_PATH)
+    if not os.path.exists(HEATMAP_PATH):
+        os.makedirs(HEATMAP_PATH)
+    if not os.path.exists(STATS_PATH):
+        os.makedirs(STATS_PATH)
+
     input_fm = INPUT_PATH + input_fm_name + ".xml"
 
     print(f"Loading feature model: {input_fm_name} ...")

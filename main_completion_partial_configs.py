@@ -19,7 +19,6 @@ from montecarlo4fms.utils import MCTSStats, MCTSStatsIts
 
 
 # CONSTANTS
-INPUT_PATH = "evaluation/aafmsPythonFramework/"
 OUTPUT_RESULTS_PATH = "output_results/"
 HEATMAP_PATH = OUTPUT_RESULTS_PATH + "heatmaps/"
 STATS_PATH = OUTPUT_RESULTS_PATH + "stats/"
@@ -29,10 +28,19 @@ def main(algorithm, simulations: int, input_fm: str, input_cnf_model: str=None, 
     print("Problem: Completion of partial configurations.")
     print("----------------------------------------------")
 
+    print("Setting up the problem...")
+    
+    print("Creating output folders...")
+    if not os.path.exists(OUTPUT_RESULTS_PATH):
+        os.makedirs(OUTPUT_RESULTS_PATH)
+    if not os.path.exists(HEATMAP_PATH):
+        os.makedirs(HEATMAP_PATH)
+    if not os.path.exists(STATS_PATH):
+        os.makedirs(STATS_PATH)
+
     base = os.path.basename(input_fm)
     input_fm_name = os.path.splitext(base)[0]
 
-    print("Setting up the problem...")
     print(f"Loading feature model: {input_fm} ...")
     fide_parser = FeatureIDEParser(input_fm, no_read_constraints=(input_cnf_model is not None))
     fm = fide_parser.transform()

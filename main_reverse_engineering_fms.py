@@ -1,5 +1,7 @@
 import time
+import os
 import sys
+import argparse
 from functools import reduce
 
 from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
@@ -11,144 +13,131 @@ from montecarlo4fms.problems.reverse_engineering.models import FMState
 from montecarlo4fms.algorithms import MonteCarloAlgorithms
 from montecarlo4fms.utils import MCTSStatsRE
 
-INPUT_PATH = "evaluation/aafmsPythonFramework/"
+
+# CONSTANTS
 OUTPUT_RESULTS_PATH = "output_results/"
-OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
-OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
-OUTPUT_PATH = OUTPUT_RESULTS_PATH + "reverse_engineering/"
-input_fm_name = "model_simple_paper_excerpt"
-input_fm_cnf_name = "model_simple_paper_excerpt-cnf"
-iterations = 1000
-exploration_weight = 0.5
-HEATMAP_FILEPATH = "heatmap_reverse_engineering.csv"
+HEATMAP_PATH = OUTPUT_RESULTS_PATH + "heatmaps/"
+STATS_PATH = OUTPUT_RESULTS_PATH + "stats/"
+GENERATED_FMS_PATH = OUTPUT_RESULTS_PATH + "generated_fms/"
 
 
-def main():
-    print("Reverse engineering problem")
+def main(algorithm, simulations: int, input_fm: str, input_cnf_model: str=None):
+    print("Problem: Reverse engineering of feature models.")
+    print("-----------------------------------------------")
+
+    base = os.path.basename(input_fm)
+    input_fm_name = os.path.splitext(base)[0]
 
     print("Setting up the problem...")
 
-    input_fm = INPUT_PATH + input_fm_name + ".xml"
+    print("Creating output folders...")
+    if not os.path.exists(HEATMAP_PATH):
+        os.makedirs(HEATMAP_PATH)
+    if not os.path.exists(STATS_PATH):
+        os.makedirs(STATS_PATH)
+    if not os.path.exists(GENERATED_FMS_PATH):
+        os.makedirs(GENERATED_FMS_PATH)
 
     print(f"Loading feature model: {input_fm_name} ...")
-    fide_parser = FeatureIDEParser(input_fm, no_read_constraints=True)
+    fide_parser = FeatureIDEParser(input_fm, no_read_constraints=(input_cnf_model is not None))
     fm = fide_parser.transform()
     print(f"Feature model loaded with {len(fm.get_features())} features, {len(fm.get_constraints())} constraints, {len(fm.get_relations())} relations.")
 
-    # Read the feature model as CNF model with complex constraints
-    cnf_reader = CNFReader(INPUT_PATH + input_fm_cnf_name + ".txt")
-    cnf_model = cnf_reader.transform()
+    if input_cnf_model is not None:
+        # Read the feature model as CNF model with complex constraints
+        cnf_reader = CNFReader(input_cnf_model)
+        cnf_model = cnf_reader.transform()
+    else:
+        cnf_model = None
     
     # Get configurations
+    print("Generating configurations of the feature model...")
     aafms_helper = AAFMsHelper(fm, cnf_model)
     configurations = aafms_helper.get_configurations()
-
-    nc = 1
-    for c in configurations:
-        print(f"config {nc}: {[str(f) for f in c.get_selected_elements()]}")
-        nc += 1
     print(f"#Configurations: {len(configurations)}")
 
-    montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild_random_expansion(iterations=iterations, exploration_weight=exploration_weight)
-    #montecarlo = MCTSIterationsRandomPolicy(iterations=iterations)
-    #montecarlo = MCTSAnytimeRandomPolicy(seconds=1)
-    print(f"Running {type(montecarlo).__name__} with {iterations} iterations.")
-
+    print(f"Creating initial state (empty feature model)...")
     initial_state = FMState(FeatureModel(None), configurations)
+
+    print("Problem setted up.")
+
+    print(f"Running algorithm {str(algorithm)}...")
+    
+    # Stats
+    mcts_stats_re = MCTSStatsRE(STATS_PATH + input_fm_name + "-ReverseEngineering.log")
 
     n = 0
     state = initial_state
-    start = time.time()
-    mcts_stats_re = MCTSStatsRE("reverse_engineering_log.txt")
+    total_time_start = time.time()
     while not state.is_terminal():
-        print(f"{n}, ", end='', flush=True)    
-        #print(f"State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
+        print(f"State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
         start_time = time.time()
-        new_state = montecarlo.run(state)
+        new_state = algorithm.run(state)
         end_time = time.time()
-        # heat map
-        # heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N, state)
-        # heatmap.extract_feature_knowledge()
-        # heatmap.serialize(HEATMAP_PATH + input_fm_name + "-step" + str(n) + ".csv")
-        mcts_stats_re.add_step(n, montecarlo.tree, montecarlo.Q, montecarlo.N, state, new_state, iterations, end_time - start_time)
-        montecarlo.print_MC_values(state)
+        
+        mcts_stats_re.add_step(n, algorithm.tree, algorithm.Q, algorithm.N, state, new_state, simulations, end_time-start_time)
         state = new_state
         n += 1
 
-    execution_time = time.time() - start
+    total_time_end = time.time()
+    print("Algorithm finished.")
     print(f"Final State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
 
+    # Get configurations
+    path = GENERATED_FMS_PATH + state.feature_model.root.name + "." + UVLWritter.get_destination_extension()
+    print(f"Serializing generated feature model in UVL format in {path}")
+    uvl_writter = UVLWritter(path=path, source_model=state.feature_model)
+    uvl_writter.transform()
+
+    # Get configurations
+    print("Generating configurations of the extracted feature model...")
     aafms_helper = AAFMsHelper(state.feature_model)
     new_configurations = aafms_helper.get_configurations()
-
+    
+    print("Results:")
     print(f"#Features: {len(state.feature_model.get_features())} -> {[str(f) for f in state.feature_model.get_features()]}")
-
-    nc = 1
-    for c in new_configurations:
-        print(f"config {nc}: {[str(f) for f in c.get_selected_elements()]}")
-        nc += 1
     print(f"#Configurations: {len(new_configurations)}")
 
     relaxed_value = reduce(lambda count, c: count + (aafms_helper.is_valid_configuration(c)), configurations, 0)
     deficit_value = reduce(lambda count, c: count + (c not in new_configurations), configurations, 0)
     surplus_value = reduce(lambda count, c: count + (c not in configurations), new_configurations, 0)
-    print(f"Final State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
-    print(f"Relaxed objective function: {relaxed_value}")
-    print(f"Mininal difference objective function (deficit_value + surplus_value): {deficit_value} + {surplus_value} = {deficit_value+surplus_value}")
-
-    path = OUTPUT_PATH + state.feature_model.root.name + "." + UVLWritter.get_destination_extension()
-    uvl_writter = UVLWritter(path=path, source_model=state.feature_model)
-    uvl_model = uvl_writter.transform()
-
-    print(f"UVL model saved in: {path}")
-    print(f"Execution time: {execution_time}")
-    montecarlo.print_MC_search_tree()
-
-
-    #
-    # while not state.is_terminal():
-    #     n += 1
-    #     print(f"State {n}: {[str(f) for f in state.feature_model.get_features()]} -> {state.reward()}")
-    #     ns = 1
-    #     # for s in state.find_successors():
-    #     #     print(f"Suc {ns}: {[str(f) for f in s.feature_model.get_features()]} -> {s.reward()}")
-    #     #     ns += 1
-    #
-    #
-    #     #aafms_helper = AAFMsHelper(state.feature_model)
-    #     #print(aafms_helper.is_valid_configuration(configurations[0]))
-    #     state = mcts.run(state)
-
-    #print(f"Final state: {state}")
-
-
-    # path = "output_fms/" + state.feature_model.root.name + "." + UVLWritter.get_destination_extension()
-    # print(path)
-    # uvl_writter = UVLWritter(path=path, source_model=state.feature_model)
-    # uvl_model = uvl_writter.transform()
-    #
-    # aafms_helper = AAFMsHelper(state.feature_model)
-    # new_configurations = aafms_helper.get_configurations()
-    # print(f"Contained all configurations?: {all(c in new_configurations for c in configurations)}")
-
-
-    #
-    #
-    # actions = initial_state.get_actions()
-    #
-    # print([str(a) for a in actions])
-    #
-    # successors = initial_state.find_successors()
-    # print(successors)
-    #
-    # ss2 = successors[0].find_successors()
-    # print(len(ss2))
-    #
-    # ss3 = ss2[0].find_successors()
-    # print(len(ss3))
+    print(f"Input configurations captured (Relaxed objective function): {relaxed_value}")
+    print(f"Deficit of configurations: {deficit_value}")
+    print(f"Irrelevant configurations: {surplus_value}")
+    print(f"Mininal difference (MinDiff) objective function (deficit_value + surplus_value): {deficit_value} + {surplus_value} = {deficit_value+surplus_value}")
+    print(f"Final objective function (Relaxed - MinDiff): {relaxed_value - (deficit_value+surplus_value)}")
+    print(f"Execution time: {total_time_end-total_time_start}")
 
 
 if __name__ == '__main__':
-    #sys.stdout = open("reverse_engineering_results.txt", "w")
-    main()
-    #sys.stdout.close()
+    parser = argparse.ArgumentParser(description='Problem: Reverse engineering of feature models.')
+    parser.add_argument('-fm', '--featuremodel', dest='featuremodel', type=str, required=True, help='Input feature model in FeatureIDE format.')
+    parser.add_argument('-cnf', '--featuremodel_cnf', dest='featuremodel_cnf', type=str, required=False, help='Input feature model in CNF with FeatureIDE (textual) format (required for complex constraints).')
+    parser.add_argument('-it', '--iterations', dest='iterations', type=int, required=False, default=100, help='Number of iterations for MCTS (default 100).')
+    parser.add_argument('-ew', '--exploration_weight', dest='exploration_weight', type=float, required=False, default=0.5, help='Exploration weight constant for UCT Algorithm (default 0.5).')
+    parser.add_argument('-m', '--method', dest='method', type=str, required=False, default="MCTS", help='Monte Carlo algorithm to be used ("MCTS" for the UCT Algorithm (default), "Greedy" for GreedyMCTS, "flat" for basic Monte Carlo).')
+    args = parser.parse_args()
+
+    if args.exploration_weight < 0 or args.exploration_weight > 1:
+        print(f"ERROR: the exploration weight constant must be in range [0,1].")
+        parser.print_help()
+        sys.exit()
+
+    if args.iterations <= 0:
+        print(f"ERROR: the number of iterations/simulations must be positive.")
+        parser.print_help()
+        sys.exit()
+
+    if args.method not in ['MCTS', 'Greedy', 'flat']:
+        print(f"ERROR: Algorithm not recognized.")
+        parser.print_help()
+        sys.exit()
+
+    if args.method == 'MCTS':
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=args.exploration_weight)
+    elif args.method == 'Greedy':
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=0)
+    elif args.method == 'flat':
+        algorithm = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=args.iterations)
+
+    main(algorithm, args.iterations, args.featuremodel, args.featuremodel_cnf)

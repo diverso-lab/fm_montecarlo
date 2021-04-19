@@ -25,8 +25,8 @@ STATS_PATH = OUTPUT_RESULTS_PATH + "stats/"
 
 
 def main(algorithm, simulations: int, input_fm_name: str, input_fm_cnf_name: str):
-    print("Problem 1 (simulated): Finding defective configurations.")
-    print("--------------------------------------------------------")
+    print("Problem 1 (simulated): Finding defective configurations in the AAFMs Python Framework feature model.")
+    print("----------------------------------------------------------------------------------------------------")
 
     print("Setting up the problem...")
     input_fm = INPUT_PATH + input_fm_name + ".xml"
@@ -103,7 +103,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Problem 1: Finding defective configurations in the AAFMs Python Framework feature model.')
     parser.add_argument('-it', '--iterations', dest='iterations', type=int, required=False, default=100, help='Number of iterations for MCTS (default 100).')
     parser.add_argument('-ew', '--exploration_weight', dest='exploration_weight', type=float, required=False, default=0.5, help='Exploration weight constant for UCT Algorithm (default 0.5).')
-    #parser.add_argument('-s', '--sample', dest='sample', type=int, required=False, default=1, help='Maximum number of defective configurations to be searched (default 1).')
     parser.add_argument('-m', '--method', dest='method', type=str, required=False, default="MCTS", help='Monte Carlo algorithm to be used ("MCTS" for the UCT Algorithm (default), "Greedy" for GreedyMCTS, "flat" for basic Monte Carlo).')
     parser.add_argument('-e', '--excerpt', dest='excerpt', action='store_true', required=False, help='Running the problem with the excerpt running example instead of the complete feature model.')
     args = parser.parse_args()

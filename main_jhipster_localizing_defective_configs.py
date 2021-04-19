@@ -1,6 +1,6 @@
+import sys
 import time
-import random
-import cProfile
+import argparse
 from functools import reduce
 from collections import defaultdict
 
@@ -12,7 +12,7 @@ from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
 from montecarlo4fms.problems.state_as_configuration.models import FailureConfigurationState
 from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList
 from montecarlo4fms.problems import ProblemData
-from montecarlo4fms.algorithms import MonteCarloAlgorithms
+from montecarlo4fms.algorithms import MonteCarloAlgorithms, MonteCarloTreeSearch
 from montecarlo4fms.utils import Heatmap, HeatmapFull
 from montecarlo4fms.utils import MCTSStatsIts, MCTSStats
 
@@ -20,38 +20,26 @@ from evaluation.jhipster import jhipster
 
 # CONSTANTS
 OUTPUT_RESULTS_PATH = "output_results/"
-OUTPUT_RESULTS_FILE = OUTPUT_RESULTS_PATH + "results.csv"
-OUTPUT_SUMMARY_FILE = OUTPUT_RESULTS_PATH + "summary.csv"
-HEATMAP_FILEPATH = "heatmap_loc_def_configs.csv"
 HEATMAP_PATH = OUTPUT_RESULTS_PATH + "heatmaps/"
 STATS_PATH = OUTPUT_RESULTS_PATH + "stats/"
 
-# PARAMETERS
-#iterations = 100
-exploration_weight = 0
-initial_config_features = []
-#initial_config_features = ['AAFMFramework', 'Metamodels', 'CNFModel', 'AutomatedReasoning', 'Solvers', 'Packages', 'DepMng', 'pip', 'setuptools', 'System', 'Linux']
 
-
-def main(iterations: int):
-    print("Problem 1 (simulated): Finding defective configurations.")
-    print("-----------------------------------------------")
+def main(algorithm, simulations: int):
+    print("Problem 1 (simulated): Finding defective configurations in the jHipster feature model.")
+    print("--------------------------------------------------------------------------------------")
 
     print("Setting up the problem...")
-
     print(f"Loading feature model: {jhipster.FM_FILE} ...")
     fide_parser = FeatureIDEParser(jhipster.FM_FILE, no_read_constraints=True)
     fm = fide_parser.transform()
     print(f"Feature model loaded with {len(fm.get_features())} features, {len(fm.get_constraints())} constraints, {len(fm.get_relations())} relations.")
-    print(fm)
-     # Read the feature model as CNF model with complex constraints
+    
+    # Read the feature model as CNF model with complex constraints
     cnf_reader = CNFReader(jhipster.CNF_FILE)
     cnf_model = cnf_reader.transform()
     
     # AAFMs
     aafms_helper = AAFMsHelper(fm, cnf_model)
-    #all_configurations = aafms_helper.get_configurations()
-    #print(f"#AllConfigs: {len(all_configurations)}")
 
     print(f"Creating set of actions...")
     actions = TreeActionsList(fm)
@@ -65,99 +53,84 @@ def main(iterations: int):
     problem_data.sample = defaultdict(bool)
 
     print(f"Creating initial state (configuration)...")
-    if initial_config_features:
-        initial_config = FMConfiguration(elements={fm.get_feature_by_name(f) : True for f in initial_config_features})
-    else:
-        initial_config = FMConfiguration()
-
+    initial_config = FMConfiguration()
     initial_state = FailureConfigurationState(configuration=initial_config, data=problem_data)
     print(f"Initial state: {initial_state}")
 
     print("Problem setted up.")
 
-    print(f"Configuring MonteCarlo algorithm...")
-    #montecarlo = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=iterations, exploration_weight=exploration_weight)
-    montecarlo = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=iterations)
-    print(f"{type(montecarlo).__name__} with {iterations} iterations, and {exploration_weight} exploration weight.")
+    print(f"Running algorithm {str(algorithm)}...")
 
-    print("Running algorithm...")
+    # Stats
+    mcts_stats = MCTSStats()
+    mcts_stats_its = MCTSStatsIts()
 
     n = 0
+    total_evaluations = 0
     state = initial_state
-    mcts_stats = MCTSStats()
     total_time_start = time.time()
-    state = montecarlo.run(state)
-    # while state.reward() <= 0 and state.get_actions(): #not state.is_terminal(): # state.reward() <= 0 and state.get_actions():
-    #     #print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
-    #     time_start = time.time()
-    #     new_state = montecarlo.run(state)
-    #     time_end = time.time()
+    while state.reward() <= 0 and state.get_actions():
+        print(f"Input state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
+        time_start = time.time()
+        new_state = algorithm.run(state)
+        time_end = time.time()
 
-    #     # heat map
-    #     # heatmap = Heatmap(fm, montecarlo.tree, montecarlo.Q, montecarlo.N, state)
-    #     # heatmap.extract_feature_knowledge()
-    #     # heatmap.serialize(HEATMAP_PATH + 'jhipster/jhipster-step' + str(n) + '.csv')
-    #     # stats
-    #     #mcts_stats.add_step(n, montecarlo.tree, state, new_state, iterations, montecarlo.n_evaluations, montecarlo.n_positive_evaluations, time_end-time_start)    
-    #     #montecarlo.n_evaluations = 0
-    #     #montecarlo.n_positive_evaluations = 0
+        if isinstance(algorithm, MonteCarloTreeSearch):  
+            # Heat map (only for MCTS)
+            heatmap = Heatmap(fm, algorithm.tree, algorithm.Q, algorithm.N, state)
+            heatmap.extract_feature_knowledge()
+            heatmap.serialize(HEATMAP_PATH + jhipster.FM_FILENAME + "-step" + str(n) + ".csv")
+        else:
+            algorithm.tree = None 
 
-    #     state = new_state
-    #     n += 1
-    #mcts_stats.serialize(STATS_PATH + 'jhipster/jhipster-step-it' + str(iterations) + '.csv')
+        # Stats
+        mcts_stats.add_step(n, algorithm.tree, state, new_state, simulations, algorithm.n_evaluations, algorithm.n_positive_evaluations, time_end-time_start)
+        total_evaluations += algorithm.n_evaluations
+        algorithm.n_evaluations = 0
 
+        state = new_state
+        n += 1
+        
     total_time_end = time.time()
-   
-    
+    print("Algorithm finished.")
     print(f"Final state {n}: {str(state)} -> valid={state.is_valid_configuration}, R={state.reward()}")
 
-    print(f"#Terminal states Visits {montecarlo.terminal_nodes_visits}")
-    print(f"#Terminal states Evaluations {len(montecarlo.states_evaluated)}")
-    print(f"#Rewards calls {montecarlo.nof_reward_function_calls}")
-    
-    #heatmap = HeatmapFull(fm, montecarlo.tree, montecarlo.Q, montecarlo.N)
-    #heatmap.extract_feature_knowledge()
-    #heatmap.serialize(HEATMAP_FILEPATH)
-    #montecarlo.print_heat_map(fm)
-    #montecarlo.print_MC_search_tree()
-    print("Finished!")
+    # Stats
+    print("Serializing results...")
+    mcts_stats.serialize(STATS_PATH + jhipster.FM_FILENAME + '-steps.csv')
+    mcts_stats_its.add_step(str(algorithm), n, algorithm.tree, simulations, total_evaluations, algorithm.n_positive_evaluations, total_time_end-total_time_start)
+    mcts_stats_its.serialize(STATS_PATH + jhipster.FM_FILENAME + '-summary.csv')
 
-    montecarlo.name = str(montecarlo)
-    return n, montecarlo, total_time_end-total_time_start
+    print("Done!")
 
-def random_sampling(sample_size: int) -> set:
-    jhipster_configurations = jhipster.read_jHipster_feature_model_configurations()
-
-    start = time.time()
-    configs_sample = random.sample(list(jhipster_configurations.keys()), sample_size)
-    execution_time = time.time() - start 
-    alg = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=0, exploration_weight=0)
-    alg.name = 'Random Sampling'
-    alg.tree = None
-    alg.n_evaluations = len(configs_sample)
-    alg.n_positive_evaluations = len([x for x in configs_sample if jhipster_configurations[x]])
-
-    return 1, alg, execution_time
 
 if __name__ == '__main__':
-    start = time.time()
-    #cProfile.run("main()")
+    parser = argparse.ArgumentParser(description='Problem 1: Finding defective configurations in the jHipster feature model.')
+    parser.add_argument('-it', '--iterations', dest='iterations', type=int, required=False, default=100, help='Number of iterations for MCTS (default 100).')
+    parser.add_argument('-ew', '--exploration_weight', dest='exploration_weight', type=float, required=False, default=0.5, help='Exploration weight constant for UCT Algorithm (default 0.5).')
+    parser.add_argument('-m', '--method', dest='method', type=str, required=False, default="MCTS", help='Monte Carlo algorithm to be used ("MCTS" for the UCT Algorithm (default), "Greedy" for GreedyMCTS, "flat" for basic Monte Carlo).')
+    args = parser.parse_args()
 
-    mcts_stats_its = MCTSStatsIts()
-    EV_RND_SAMPLING = [37, 105, 83, 123, 419, 245, 625, 396, 177, 194, 505]
-    #for i, it in enumerate([x*10 for x in range(10+1)]):
-    #for it in [1, 100, 250, 500, 750, 1000]:
-    for i, it in enumerate([x*250 for x in range(20+1)]):
-    #for it in [1, 250, 500, 750, 1000]:
-    #for it in [33, 680, 904, 908, 1079]:
-        if it == 0: 
-            it = 1
+    if args.exploration_weight < 0 or args.exploration_weight > 1:
+        print(f"ERROR: the exploration weight constant must be in range [0,1].")
+        parser.print_help()
+        sys.exit()
 
-        n, alg, exec_time = main(it)   
-        #n, alg, exec_time = random_sampling(it)   
-        alg.name = 'flat Monte Carlo'
-        alg.tree = None
-        mcts_stats_its.add_step(alg.name, n, alg.tree, it, alg.n_evaluations, alg.n_positive_evaluations, exec_time)
-    mcts_stats_its.serialize(STATS_PATH + 'jhipster/jhipster-its.csv')
-    end = time.time()
-    print(f"Total Time: {end-start} seconds")
+    if args.iterations <= 0:
+        print(f"ERROR: the number of iterations/simulations must be positive.")
+        parser.print_help()
+        sys.exit()
+
+    if args.method not in ['MCTS', 'Greedy', 'flat']:
+        print(f"ERROR: Algorithm not recognized.")
+        parser.print_help()
+        sys.exit()
+
+    if args.method == 'MCTS':
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=args.exploration_weight)
+    elif args.method == 'Greedy':
+        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=0)
+    elif args.method == 'flat':
+        algorithm = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=args.iterations)
+
+    main(algorithm, args.iterations)

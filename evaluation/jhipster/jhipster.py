@@ -1,12 +1,16 @@
 import csv 
 import ast
+import random 
+
 from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.fm_metamodel.models import FMConfiguration
 
+
 JHIPSTER_CONFIGS_FILE = "evaluation/jhipster/jhipster3.6.1-testresults.csv"
 JHIPSTER_CONFIGS_FAILURES_FILE = "evaluation/jhipster/jhipster3.6.1-configs-failures.csv"
-FM_FILE = "evaluation/jhipster/fm-3.6.1refined.xml"
-CNF_FILE = "evaluation/jhipster/fm-3.6.1refined-cnf.txt"
+FM_FILENAME = "fm-3.6.1refined"
+FM_FILE = "evaluation/jhipster/" + FM_FILENAME + ".xml"
+CNF_FILE = "evaluation/jhipster/" + FM_FILENAME + "-cnf.txt"
 
 
 # Mapping of feature names in the FM to filters to apply to the configurations according the values in the .csv. Feature name in the FM -> (variation point, variant, value_not_selected)
@@ -111,3 +115,11 @@ def read_jHipster_feature_model_configurations() -> dict:
             configs[configuration] = failure
             
     return configs
+
+def get_random_sampling(sample_size: int) -> tuple:
+    jhipster_configurations = read_jHipster_feature_model_configurations()
+
+    configs_sample = random.sample(list(jhipster_configurations.keys()), sample_size)
+    n_positive_evaluations = len([x for x in configs_sample if jhipster_configurations[x]])
+
+    return (configs_sample, n_positive_evaluations)

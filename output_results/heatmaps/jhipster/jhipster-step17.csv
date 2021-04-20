@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Authentication, 3, 1, 0.33, 1.0, RED
-EhCache, 3, 1, 0.33, 1.0, RED
-ElasticSearch, 2, 0, 0.0, 0.75, ORANGE
-Gatling, 1, -1, -1.0, 0.0, BLUE
-HazelCast, 1, -1, -1.0, 0.0, BLUE
-InternationalizationSupport, 2, 0, 0.0, 0.75, ORANGE

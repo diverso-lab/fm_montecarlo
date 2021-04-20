@@ -27,4 +27,4 @@ class UCTAlgorithm(MonteCarloTreeSearch):
         return max(self.tree[state], key=uct)
 
     def __str__(self) -> str:
-        return f"UCT MCTS (sc:{str(self.stopping_condition)}, ew={self.exploration_weight})"
+        return f"UCT Algorithm ({str(self.stopping_condition)}, ew={self.exploration_weight})"

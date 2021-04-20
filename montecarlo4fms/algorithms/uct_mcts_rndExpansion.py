@@ -40,4 +40,4 @@ class UCTRandomExpansion(UCTAlgorithm):
                         self.tree[state] += [child]
 
     def __str__(self) -> str:
-        return f"UCT MCTS Rnd Exp (sc:{str(self.stopping_condition)}, ew={self.exploration_weight})"
+        return f"UCT Algorithm Rnd Exp ({str(self.stopping_condition)}, ew={self.exploration_weight})"

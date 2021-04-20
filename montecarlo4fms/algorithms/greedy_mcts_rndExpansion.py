@@ -12,4 +12,4 @@ class GreedyMCTSRandomExpansion(UCTRandomExpansion):
         super().__init__(stopping_condition, selection_criteria, 0.0)
 
     def __str__(self) -> str:
-        return f"Greedy MCTS Rnd Exp (sc:{str(self.stopping_condition)})"
+        return f"Greedy MCTS Rnd Exp ({str(self.stopping_condition)})"

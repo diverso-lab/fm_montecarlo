@@ -51,4 +51,4 @@ class MonteCarlo(ABC):
         pass
 
     def __str__(self) -> str:
-        return f"MonteCarlo (sc:{str(self.stopping_condition)})"
+        return f"MonteCarlo ({str(self.stopping_condition)})"

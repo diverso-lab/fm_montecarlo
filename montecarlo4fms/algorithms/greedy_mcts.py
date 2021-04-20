@@ -16,4 +16,4 @@ class GreedyMCTS(UCTAlgorithm):
         super().__init__(stopping_condition, selection_criteria, 0.0)
 
     def __str__(self) -> str:
-        return f"Greedy MCTS (sc:{str(self.stopping_condition)})"
+        return f"Greedy MCTS ({str(self.stopping_condition)})"

@@ -1,6 +1,0 @@
-Method, Iterations, Decisions, Simulations, Evaluations, "Positive Evaluations", "% Positive Evaluations", "Tree Size", "Time (s)"
-"UCT Algorithm", 1, 19, 1, 21, 10, 0.47619047619047616, 37, 0.1152946949005127
-"UCT Algorithm", 250, 20, 250, 178, 108, 0.6067415730337079, 387, 3.9699761867523193
-"UCT Algorithm", 500, 20, 500, 118, 53, 0.4491525423728814, 331, 5.727010250091553
-"UCT Algorithm", 750, 19, 750, 185, 97, 0.5243243243243243, 495, 10.688117742538452
-"UCT Algorithm", 1000, 19, 1000, 145, 102, 0.7034482758620689, 326, 9.1230309009552

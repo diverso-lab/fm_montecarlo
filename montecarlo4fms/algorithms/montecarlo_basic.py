@@ -64,9 +64,5 @@ class MonteCarloBasic(MonteCarlo):
         self.terminal_nodes_visits += 1
         return z
 
-    def print_MC_values(self, state: State):
-        for s in self.Q.keys():
-            print(f"//MC values for state: {[str(f) for f in s.feature_model.get_features()]} -> {self.Q[s]}/{self.N[s]} = {self.score(s)}")
-
     def __str__(self) -> str:
-        return f"MonteCarlo basic (sc:{str(self.stopping_condition)})"
+        return f"flat Monte Carlo ({str(self.stopping_condition)})"

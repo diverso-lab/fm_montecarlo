@@ -1,8 +1,10 @@
 import random
 from collections import defaultdict
 
-from montecarlo4fms.algorithms import MonteCarlo
 from montecarlo4fms.models import State
+from montecarlo4fms.algorithms import MonteCarlo
+from montecarlo4fms.algorithms.stopping_conditions import StoppingCondition
+from montecarlo4fms.algorithms.selection_criterias import SelectionCriteria
 
 
 class MonteCarloBasic(MonteCarlo):
@@ -12,7 +14,7 @@ class MonteCarloBasic(MonteCarlo):
     The chooses the best state according to a criteria.
     """
 
-    def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
+    def __init__(self, stopping_condition: StoppingCondition, selection_criteria: SelectionCriteria):
         super().__init__(stopping_condition, selection_criteria)
         self.initialize()
         self.states_evaluated = dict()         # terminal state -> reward value

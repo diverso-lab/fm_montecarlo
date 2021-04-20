@@ -1,7 +1,8 @@
 import math
 
 from montecarlo4fms.algorithms import UCTAlgorithm
-from montecarlo4fms.models import State
+from montecarlo4fms.algorithms.stopping_conditions import StoppingCondition
+from montecarlo4fms.algorithms.selection_criterias import SelectionCriteria
 
 
 class GreedyMCTS(UCTAlgorithm):
@@ -12,7 +13,7 @@ class GreedyMCTS(UCTAlgorithm):
         Gelly[2011] - Monte-Carlo tree search and rapid action value estimation in computer Go
     """
 
-    def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
+    def __init__(self, stopping_condition: StoppingCondition, selection_criteria: SelectionCriteria):
         super().__init__(stopping_condition, selection_criteria, 0.0)
 
     def __str__(self) -> str:

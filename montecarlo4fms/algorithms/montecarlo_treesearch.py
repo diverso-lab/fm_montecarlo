@@ -1,9 +1,10 @@
 from abc import abstractmethod
 from collections import defaultdict
-from typing import List
 
-from montecarlo4fms.algorithms import MonteCarlo
 from montecarlo4fms.models import State
+from montecarlo4fms.algorithms import MonteCarlo
+from montecarlo4fms.algorithms.stopping_conditions import StoppingCondition
+from montecarlo4fms.algorithms.selection_criterias import SelectionCriteria
 
 
 class MonteCarloTreeSearch(MonteCarlo):
@@ -14,7 +15,7 @@ class MonteCarloTreeSearch(MonteCarlo):
     It uses uniform random choices as the default policy for simulations.
     """
 
-    def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
+    def __init__(self, stopping_condition: StoppingCondition, selection_criteria: SelectionCriteria):
         super().__init__(stopping_condition, selection_criteria)
         self.initialize()
         self.states_evaluated = dict()          # terminal state -> reward value, # for stats and/or cache
@@ -45,7 +46,7 @@ class MonteCarloTreeSearch(MonteCarlo):
     def score(self, state: State) -> float:
         return self.selection_criteria.score(state, self.Q, self.N)
 
-    def select(self, state: State) -> List[State]:
+    def select(self, state: State) -> list[State]:
         """
         Step 1: Selection.
         Find an expandable/unexplored child node of `state`.

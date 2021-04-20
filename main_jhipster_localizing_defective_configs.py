@@ -139,7 +139,7 @@ if __name__ == '__main__':
     if args.method == 'MCTS':
         algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=args.exploration_weight)
     elif args.method == 'Greedy':
-        algorithm = MonteCarloAlgorithms.uct_iterations_maxchild(iterations=args.iterations, exploration_weight=0)
+        algorithm = MonteCarloAlgorithms.greedy_iterations_maxchild(iterations=args.iterations, exploration_weight=0)
     elif args.method == 'flat':
         algorithm = MonteCarloAlgorithms.montecarlo_iterations_maxchild(iterations=args.iterations)
 

@@ -1,5 +1,8 @@
 from abc import ABC, abstractmethod
+
 from montecarlo4fms.models import State
+from montecarlo4fms.algorithms.stopping_conditions import StoppingCondition
+from montecarlo4fms.algorithms.selection_criterias import SelectionCriteria
 
 
 class MonteCarlo(ABC):
@@ -10,17 +13,13 @@ class MonteCarlo(ABC):
     """
 
     @abstractmethod
-    def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria'):
+    def __init__(self, stopping_condition: StoppingCondition, selection_criteria: SelectionCriteria):
         self.stopping_condition = stopping_condition
         self.selection_criteria = selection_criteria
         self.initialize()
 
     def run(self, state: State) -> State:
         """Run the Monte Carlo algorithm. Return the best performing state."""
-        # successors = state.find_successors()
-        # if len(successors) == 1:
-        #     return successors[0]
-
         self.stopping_condition.initialize()
         while not self.stopping_condition.reached():
             self.do_rollout(state)

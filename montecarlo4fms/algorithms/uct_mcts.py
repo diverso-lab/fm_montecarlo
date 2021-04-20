@@ -1,7 +1,9 @@
 import math
 
-from montecarlo4fms.algorithms import MonteCarloTreeSearch
 from montecarlo4fms.models import State
+from montecarlo4fms.algorithms import MonteCarloTreeSearch
+from montecarlo4fms.algorithms.stopping_conditions import StoppingCondition
+from montecarlo4fms.algorithms.selection_criterias import SelectionCriteria
 
 
 class UCTAlgorithm(MonteCarloTreeSearch):
@@ -12,7 +14,7 @@ class UCTAlgorithm(MonteCarloTreeSearch):
         Gelly[2011] - Monte-Carlo tree search and rapid action value estimation in computer Go
     """
 
-    def __init__(self, stopping_condition: 'StoppingCondition', selection_criteria: 'SelectionCriteria', exploration_weight: float = 0.5):
+    def __init__(self, stopping_condition: StoppingCondition, selection_criteria: SelectionCriteria, exploration_weight: float = 0.5):
         super().__init__(stopping_condition, selection_criteria)
         self.exploration_weight = exploration_weight
 

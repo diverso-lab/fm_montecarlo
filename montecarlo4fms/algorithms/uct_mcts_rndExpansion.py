@@ -1,7 +1,5 @@
-from typing import List
-
-from montecarlo4fms.algorithms import UCTAlgorithm
 from montecarlo4fms.models import State
+from montecarlo4fms.algorithms import UCTAlgorithm
 
 
 class UCTRandomExpansion(UCTAlgorithm):
@@ -9,7 +7,7 @@ class UCTRandomExpansion(UCTAlgorithm):
     It expands a random child node instead of all children of a node.
     """
 
-    def select(self, state: State) -> List[State]:
+    def select(self, state: State) -> list[State]:
         self.already_expanded = False
         path = [state]
         while state in self.tree and self.tree[state]:  # while state is neither explored nor terminal

@@ -1,9 +1,10 @@
 from montecarlo4fms.models import State
+from montecarlo4fms.algorithms.stopping_conditions import StoppingCondition
 
 
 class RandomStrategy:
 
-    def __init__(self, stopping_condition: 'StoppingCondition'):
+    def __init__(self, stopping_condition: StoppingCondition):
         self.stopping_condition = stopping_condition
 
     def run(self, state: State) -> State:

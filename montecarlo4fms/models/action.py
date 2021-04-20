@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List, Any
+from typing import Any
 
 
 class Action(ABC):
@@ -19,7 +19,7 @@ class Action(ABC):
         pass
 
     @abstractmethod
-    def executions(self, context: Any) -> List[Any]:
+    def executions(self, context: Any) -> list[Any]:
         """Return the list of possible objects resulting of applying this action to the given context."""
         pass
 

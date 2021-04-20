@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Sequence, Dict
+from collections.abc import Sequence
+
+from montecarlo4fms.models import State 
 
 
 class SelectionCriteria(ABC):
@@ -12,11 +14,11 @@ class SelectionCriteria(ABC):
         Chaslot[2009] - Progressive strategies for Monte-Carlo tree search.
     """
 
-    def score(self, s: 'State', rewards: Dict['State', float], visits: Dict['State', int]) -> float:
+    def score(self, s: State, rewards: dict[State, float], visits: dict[State, int]) -> float:
         """The score of the state"""
         pass
 
     @abstractmethod
-    def best_child(self, state: 'State', children: Sequence['State'], rewards: Dict['State', float], visits: Dict['State', int]) -> 'State':
+    def best_child(self, state: State, children: Sequence[State], rewards: dict[State, float], visits: dict[State, int]) -> State:
         """Select the best child of state according to its score."""
         pass

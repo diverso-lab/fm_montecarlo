@@ -9,7 +9,7 @@ class State(ABC):
     MonteCarlo techniques rely on these states (e.g., MCTS works by constructing a tree of these states).
     """
 
-    def find_successors(self) -> list:
+    def find_successors(self) -> list['State']:
         """All possible successors of this state."""
         return [self.state_transition_function(a) for a in self.get_actions()]
 
@@ -23,7 +23,7 @@ class State(ABC):
         pass
 
     @abstractmethod
-    def get_actions(self) -> list:
+    def get_actions(self) -> list['Action']:
         """Valid applicable actions that can be performed from this state."""
         pass
 

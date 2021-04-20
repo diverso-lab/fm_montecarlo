@@ -9,7 +9,6 @@ from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
 from famapy.metamodels.pysat_metamodel.transformations import CNFReader
 from famapy.metamodels.fm_metamodel.utils import AAFMsHelper, fm_utils
 
-from montecarlo4fms.models import VPState
 from montecarlo4fms.problems.state_as_configuration.models import DefectiveSimulatedConfigurationState
 from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList
 from montecarlo4fms.problems import ProblemData

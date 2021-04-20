@@ -1,4 +1,7 @@
 Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-MiniSAT, 44, 99, 2.25, 0.56, YELLOW
-Packages, 112, 260, 2.32, 1.0, RED
-PicoSAT, 19, 41, 2.16, 0.0, BLUE
+Solvers, 3, 1, 0.33, 0.67, ORANGE
+System, 1, -1, -1.0, 0.0, BLUE
+pyPicosat, 278, 278, 1.0, 1.0, RED
+pycosat, 1, -1, -1.0, 0.0, BLUE
+pyglucose, 1, -1, -1.0, 0.0, BLUE
+python-sat, 6, 2, 0.33, 0.67, ORANGE

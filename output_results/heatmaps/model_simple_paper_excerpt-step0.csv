@@ -1,5 +1,2 @@
 Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-MiniSAT, 2, 5, 2.5, 0.43, YELLOW
-Packages, 7, 19, 2.71, 0.62, ORANGE
-PicoSAT, 1, 2, 2.0, 0.0, BLUE
-System, 90, 284, 3.16, 1.0, RED
+AAFMFramework, 100, 76, 0.76, 1.0, RED

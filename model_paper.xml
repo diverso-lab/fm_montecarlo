@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendposition" value="978,166"/>
+		<graphics key="legendautolayout" value="false"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="0"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="AAFMFramework">
+			<graphics key="position" value="668,40"/>
+			<and name="Packages">
+				<graphics key="position" value="330,90"/>
+				<graphics key="collapsed" value="false"/>
+				<or name="Utils">
+					<graphics key="position" value="229,140"/>
+					<graphics key="collapsed" value="true"/>
+					<feature name="six">
+						<graphics key="position" value="568,190"/>
+					</feature>
+					<feature name="pybind11">
+						<graphics key="position" value="597,190"/>
+					</feature>
+				</or>
+				<or name="ParserTechnology">
+					<graphics key="position" value="266,140"/>
+					<graphics key="collapsed" value="true"/>
+					<feature name="antlr4-python3-runtime">
+						<graphics key="position" value="371,190"/>
+					</feature>
+					<feature name="SimpleParse">
+						<graphics key="position" value="492,190"/>
+					</feature>
+					<and name="lark-parser">
+						<graphics key="position" value="567,190"/>
+						<graphics key="collapsed" value="false"/>
+						<feature name="ebnf">
+							<graphics key="position" value="581,240"/>
+						</feature>
+					</and>
+				</or>
+				<and mandatory="true" name="DepMng">
+					<graphics key="position" value="369,140"/>
+					<graphics key="collapsed" value="true"/>
+					<and mandatory="true" name="pip">
+						<graphics key="position" value="-84,190"/>
+						<graphics key="collapsed" value="false"/>
+						<feature name="pipdeptree">
+							<graphics key="position" value="-102,240"/>
+						</feature>
+					</and>
+					<feature mandatory="true" name="setuptools">
+						<graphics key="position" value="-53,190"/>
+					</feature>
+					<feature name="wheel">
+						<graphics key="position" value="12,190"/>
+					</feature>
+					<feature name="pkg-resources">
+						<graphics key="position" value="57,190"/>
+					</feature>
+				</and>
+				<or name="APISolvers">
+					<graphics key="position" value="427,140"/>
+					<graphics key="collapsed" value="true"/>
+					<feature name="python-sat">
+						<graphics key="position" value="187,190"/>
+					</feature>
+					<feature name="pycosat">
+						<graphics key="position" value="253,190"/>
+					</feature>
+					<feature name="pylgl">
+						<graphics key="position" value="307,190"/>
+					</feature>
+					<feature name="pyPicosat">
+						<graphics key="position" value="345,190"/>
+					</feature>
+					<feature name="pyglucose">
+						<graphics key="position" value="408,190"/>
+					</feature>
+					<feature name="pycryptosat">
+						<graphics key="position" value="473,190"/>
+					</feature>
+					<feature name="satyrn">
+						<graphics key="position" value="544,190"/>
+					</feature>
+					<feature name="satispy">
+						<graphics key="position" value="589,190"/>
+					</feature>
+					<feature name="umo">
+						<graphics key="position" value="638,190"/>
+					</feature>
+					<feature name="pydepqbf">
+						<graphics key="position" value="675,190"/>
+					</feature>
+				</or>
+			</and>
+			<and mandatory="true" name="Metamodels">
+				<graphics key="position" value="577,90"/>
+				<graphics key="collapsed" value="false"/>
+				<feature name="FeatureModel">
+					<graphics key="position" value="496,140"/>
+				</feature>
+				<feature name="CNFModel">
+					<graphics key="position" value="578,140"/>
+				</feature>
+				<feature name="DecisionModel">
+					<graphics key="position" value="645,140"/>
+				</feature>
+			</and>
+			<and name="AutomatedReasoning">
+				<graphics key="position" value="758,90"/>
+				<graphics key="collapsed" value="false"/>
+				<or name="Operations">
+					<graphics key="position" value="758,140"/>
+					<graphics key="collapsed" value="true"/>
+					<feature name="ValidModel">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="ValidConfiguration">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="ValidProduct">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="AllProducts">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="DeadFeatures">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="CoreFeatures">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="ErrorDetection">
+						<graphics key="position" value="0,0"/>
+					</feature>
+					<feature name="ErrorDiagnosis">
+						<graphics key="position" value="0,0"/>
+					</feature>
+				</or>
+				<or mandatory="true" name="Solvers">
+					<graphics key="position" value="826,140"/>
+					<graphics key="collapsed" value="false"/>
+					<feature name="MiniSAT">
+						<graphics key="position" value="736,190"/>
+					</feature>
+					<feature name="PicoSAT">
+						<graphics key="position" value="793,190"/>
+					</feature>
+					<feature name="Glucose">
+						<graphics key="position" value="852,190"/>
+					</feature>
+					<feature name="Lingeling">
+						<graphics key="position" value="908,190"/>
+					</feature>
+				</or>
+			</and>
+			<or name="Interoperability">
+				<graphics key="position" value="916,90"/>
+				<graphics key="collapsed" value="false"/>
+				<feature name="FeatureIDE">
+					<graphics key="position" value="878,140"/>
+				</feature>
+				<feature name="SPLOT">
+					<graphics key="position" value="949,140"/>
+				</feature>
+				<feature name="UVL">
+					<graphics key="position" value="1001,140"/>
+				</feature>
+			</or>
+			<alt mandatory="true" name="System">
+				<graphics key="position" value="1052,90"/>
+				<graphics key="collapsed" value="false"/>
+				<feature name="Linux">
+					<graphics key="position" value="1039,140"/>
+				</feature>
+				<feature name="Win">
+					<graphics key="position" value="1081,140"/>
+				</feature>
+			</alt>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<graphics key="position" value="524,226"/>
+			<imp>
+				<var>MiniSAT</var>
+				<disj>
+					<var>satispy</var>
+					<disj>
+						<var>umo</var>
+						<var>python-sat</var>
+					</disj>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="523,243"/>
+			<imp>
+				<var>Lingeling</var>
+				<disj>
+					<var>satispy</var>
+					<disj>
+						<var>pylgl</var>
+						<var>python-sat</var>
+					</disj>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="540,260"/>
+			<imp>
+				<var>PicoSAT</var>
+				<disj>
+					<var>pycosat</var>
+					<var>pyPicosat</var>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="534,277"/>
+			<imp>
+				<var>Glucose</var>
+				<disj>
+					<var>python-sat</var>
+					<var>pyglucose</var>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="543,294"/>
+			<imp>
+				<disj>
+					<var>satyrn</var>
+					<var>pyglucose</var>
+				</disj>
+				<var>pybind11</var>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="782,223"/>
+			<imp>
+				<var>python-sat</var>
+				<var>six</var>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="757,240"/>
+			<imp>
+				<var>Win</var>
+				<conj>
+					<not>
+						<var>umo</var>
+					</not>
+					<not>
+						<var>pyPicosat</var>
+					</not>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="737,257"/>
+			<eq>
+				<var>CNFModel</var>
+				<var>AutomatedReasoning</var>
+			</eq>
+		</rule>
+		<rule>
+			<graphics key="position" value="752,274"/>
+			<imp>
+				<conj>
+					<var>Linux</var>
+					<var>pip</var>
+				</conj>
+				<var>pkg-resources</var>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="756,291"/>
+			<imp>
+				<var>UVL</var>
+				<var>ParserTechnology</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>

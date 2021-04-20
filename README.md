@@ -13,19 +13,19 @@ To illustrate the usage of the Monte Carlo framework, we have modeled and analyz
 - An implementation of *(state, actions)* where states represent configurations of a feature model.
 - An implementation of *(state, actions)* where states represent feature models.
 
-The analysis of each problem using those definitions are described below.
+The analysis of different problems using those definitions are described below.
 
 ## Requirements
 - [Python 3.9+](https://www.python.org/)
 The framework has been tested in Windows and Linux.
 
 ## Analyzing problems with the Monte Carlo framework
-The following use case diagram shows the four problems that have been implemented.
-
-![Core](img/heatmap.png)
-
+The following use case diagram shows the four problems that have been implemented, and the output results obtained from applying Monte Carlo methods.
 
 ![Core](img/usecases.png)
+
+
+![Core](img/heatmap.png)
 
 ## How to
 

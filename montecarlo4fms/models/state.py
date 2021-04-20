@@ -43,6 +43,6 @@ class State(ABC):
         pass
 
     @abstractmethod
-    def __eq__(s1: 'State', s2: 'State') -> bool:
+    def __eq__(self, other: 'State') -> bool:
         """States must be comparable."""
         pass

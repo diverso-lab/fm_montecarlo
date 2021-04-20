@@ -4,4 +4,4 @@ from .mctsstats import MCTSStats
 from .mctsstats_re import MCTSStatsRE
 from .mctsstats_its import MCTSStatsIts
 
-__all__ = ['Heatmap', 'MCTSStats', 'HeatmapFull', 'MCTSStatsIts']
+__all__ = ['Heatmap', 'MCTSStats', 'HeatmapFull', 'MCTSStatsIts', 'MCTSStatsRE']

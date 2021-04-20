@@ -166,5 +166,7 @@ if __name__ == '__main__':
 
     if args.features is None:
         features = []
+    else:
+        features = args.features
 
-    main(algorithm, args.iterations, args.featuremodel, args.featuremodel_cnf, args.features, args.minimum)
+    main(algorithm, args.iterations, args.featuremodel, args.featuremodel_cnf, features, args.minimum)

@@ -4,6 +4,7 @@ This repository contains all the resources and artifacts of the paper entitled *
 ## Artifact description
 This is a Monte Carlo based conceptual framework...
 
+![Core](img/core.emf)
 
 ## Requirements
 

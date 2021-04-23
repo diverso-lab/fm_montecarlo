@@ -1,0 +1,9 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Metamodels, 16, 32, 2.0, 1.0, RED
+System, 16, 32, 2.0, 1.0, RED
+pycosat, 16, 32, 2.0, 1.0, RED
+pycryptosat, 16, 32, 2.0, 1.0, RED
+pyglucose, 16, 32, 2.0, 1.0, RED
+pylgl, 16, 32, 2.0, 1.0, RED
+python-sat, 16, 32, 2.0, 1.0, RED
+satyrn, 15, 30, 2.0, 1.0, RED

@@ -110,15 +110,23 @@ The following use case diagram shows the four problems that have been implemente
             `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
 
 ## Results
-Three kinds of results are provided by the analyses:
+Four kinds of results are provided by the analyses:
 1. The optimal solution, as well as the optimal decisions taken step by step are shown in the terminal.
 <p align="center">
   <img width="750" src="img/results_console.png">
 </p>
 
+This result is shown for all type of analyses.
+
 2. Two .csv files with statistics of the analysis are generated in the `output_results/stats` folder.
    
-3. A set of heat maps are also generated containing valuable information about each decisions made in each step. A heat map file in .csv is generated for each step in the `output_results/heatmaps` folder. The heat maps contains the normalized *Q*-value for each decision and a mapping to a warm-cold colors scale which can be used to colored a feature model.
+This result is also generated for all type of analyses.
+   
+3. A set of heat maps are also generated containing valuable information about each decisions made in each step. A heat map file in .csv is generated for each step in the `output_results/heatmaps` folder. The heat maps contains the normalized *Q*-value for each decision and a mapping to a warm-cold colors scale which can be used to colored a feature model. 
+
+This result is only generated for the configuration-based analyses.
+
+4. In the case of the reverse engineering of feature models problem the output is feature model automatically extracted (in the new UVL format); and a .log file with all the decisions taken during the process, as well as all alternative decisions considered with their normalized *Q*-values.
 
 <p align="center">
   <img src="img/heatmap.png">

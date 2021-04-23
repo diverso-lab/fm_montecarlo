@@ -1,0 +1,20 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AllProducts, 6, 6, 1.0, 1.0, RED
+CoreFeatures, 6, 6, 1.0, 1.0, RED
+DeadFeatures, 6, 6, 1.0, 1.0, RED
+ErrorDetection, 6, 6, 1.0, 1.0, RED
+ErrorDiagnosis, 6, 6, 1.0, 1.0, RED
+Linux, 5, 5, 1.0, 1.0, RED
+SimpleParse, 5, 5, 1.0, 1.0, RED
+ValidProduct, 6, 6, 1.0, 1.0, RED
+antlr4-python3-runtime, 5, 5, 1.0, 1.0, RED
+lark-parser, 5, 5, 1.0, 1.0, RED
+pipdeptree, 5, 5, 1.0, 1.0, RED
+pybind11, 5, 5, 1.0, 1.0, RED
+pycryptosat, 6, 6, 1.0, 1.0, RED
+pydepqbf, 6, 6, 1.0, 1.0, RED
+pyglucose, 6, 6, 1.0, 1.0, RED
+satispy, 6, 6, 1.0, 1.0, RED
+satyrn, 6, 6, 1.0, 1.0, RED
+six, 5, 5, 1.0, 1.0, RED
+umo, 6, 6, 1.0, 1.0, RED

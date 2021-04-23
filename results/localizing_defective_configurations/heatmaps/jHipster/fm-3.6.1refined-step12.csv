@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Application, 15, 15, 1.0, 1.0, RED
+Cucumber, 14, 14, 1.0, 1.0, RED
+Gatling, 14, 14, 1.0, 1.0, RED
+Gradle, 14, 14, 1.0, 1.0, RED
+HTTPSession, 15, 15, 1.0, 1.0, RED
+JWT, 14, 14, 1.0, 1.0, RED
+Maven, 14, 14, 1.0, 1.0, RED
+Protractor, 14, 14, 1.0, 1.0, RED
+Uaa, 15, 15, 1.0, 1.0, RED

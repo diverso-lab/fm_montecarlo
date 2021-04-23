@@ -19,8 +19,16 @@ This repository is organized into three parts:
    
 
 ## Requirements
+The implementation of this conceptual framework has relied on the Python programming language. By convention all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
+
 - [Python 3.9+](https://www.python.org/)
-The framework has been tested in Windows and Linux.
+- [Python-sat](https://pysathq.github.io/)
+- [Graphviz](https://pypi.org/project/graphviz/)
+
+The framework has been tested in Windows and Linux and currently supports Docker as runtime enviroment. 
+
+## Execution and experiment replication
+
 
 ## The Monte Carlo conceptual framework
 <p align="center">
@@ -53,8 +61,9 @@ The following use case diagram shows the four problems that have been implemente
 
         To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` 
 
+        <div style="width: 100%;  border: 15px solid green;">
         To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` 
-
+        </div>
         The analysis can be configured with the following parameters:
 
             `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).

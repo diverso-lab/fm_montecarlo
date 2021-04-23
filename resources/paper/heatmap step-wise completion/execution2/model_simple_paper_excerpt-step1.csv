@@ -1,6 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Linux, 74, 199, 2.69, 1.0, RED
-MiniSAT, 2, 4, 2.0, 0.0, BLUE
-Packages, 33, 86, 2.61, 0.88, RED
-PicoSAT, 11, 27, 2.45, 0.66, ORANGE
-Win, 70, 188, 2.69, 0.99, RED

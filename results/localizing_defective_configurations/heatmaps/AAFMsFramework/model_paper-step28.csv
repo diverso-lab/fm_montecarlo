@@ -1,0 +1,17 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Metamodels, 7, 14, 2.0, 1.0, RED
+SimpleParse, 7, 14, 2.0, 1.0, RED
+Solvers, 7, 14, 2.0, 1.0, RED
+System, 7, 14, 2.0, 1.0, RED
+antlr4-python3-runtime, 7, 14, 2.0, 1.0, RED
+pipdeptree, 7, 14, 2.0, 1.0, RED
+pkg-resources, 7, 14, 2.0, 1.0, RED
+pybind11, 7, 14, 2.0, 1.0, RED
+pycosat, 7, 14, 2.0, 1.0, RED
+pycryptosat, 7, 14, 2.0, 1.0, RED
+pyglucose, 7, 14, 2.0, 1.0, RED
+pylgl, 7, 14, 2.0, 1.0, RED
+python-sat, 7, 14, 2.0, 1.0, RED
+satyrn, 7, 14, 2.0, 1.0, RED
+setuptools, 7, 14, 2.0, 1.0, RED
+wheel, 7, 14, 2.0, 1.0, RED

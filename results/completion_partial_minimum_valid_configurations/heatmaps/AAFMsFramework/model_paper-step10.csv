@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+APISolvers, 12, 12, 1.0, 1.0, RED
+AutomatedReasoning, 12, 12, 1.0, 1.0, RED
+Interoperability, 12, 12, 1.0, 1.0, RED
+Linux, 12, 12, 1.0, 1.0, RED
+ParserTechnology, 12, 12, 1.0, 1.0, RED
+Utils, 13, 13, 1.0, 1.0, RED
+Win, 12, 12, 1.0, 1.0, RED
+pipdeptree, 12, 12, 1.0, 1.0, RED
+pkg-resources, 13, 13, 1.0, 1.0, RED
+wheel, 13, 13, 1.0, 1.0, RED

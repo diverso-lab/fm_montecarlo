@@ -1,0 +1,7 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+pycosat, 25, 50, 2.0, 1.0, RED
+pycryptosat, 25, 50, 2.0, 1.0, RED
+pyglucose, 25, 50, 2.0, 1.0, RED
+pylgl, 25, 50, 2.0, 1.0, RED
+python-sat, 26, 52, 2.0, 1.0, RED
+satyrn, 25, 50, 2.0, 1.0, RED

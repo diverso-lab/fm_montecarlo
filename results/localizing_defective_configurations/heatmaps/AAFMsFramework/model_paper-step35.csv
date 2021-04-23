@@ -1,0 +1,14 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Glucose, 10, 20, 2.0, 1.0, RED
+Lingeling, 10, 20, 2.0, 1.0, RED
+Metamodels, 10, 20, 2.0, 1.0, RED
+MiniSAT, 11, 22, 2.0, 1.0, RED
+PicoSAT, 10, 20, 2.0, 1.0, RED
+System, 10, 20, 2.0, 1.0, RED
+pipdeptree, 10, 20, 2.0, 1.0, RED
+pycosat, 10, 20, 2.0, 1.0, RED
+pycryptosat, 10, 20, 2.0, 1.0, RED
+pyglucose, 10, 20, 2.0, 1.0, RED
+pylgl, 10, 20, 2.0, 1.0, RED
+python-sat, 10, 20, 2.0, 1.0, RED
+satyrn, 10, 20, 2.0, 1.0, RED

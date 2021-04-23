@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Linux, 14, 14, 1.0, 1.0, RED
+SimpleParse, 14, 14, 1.0, 1.0, RED
+antlr4-python3-runtime, 14, 14, 1.0, 1.0, RED
+lark-parser, 14, 14, 1.0, 1.0, RED
+pipdeptree, 14, 14, 1.0, 1.0, RED
+pybind11, 14, 14, 1.0, 1.0, RED
+pydepqbf, 14, 14, 1.0, 1.0, RED
+six, 14, 14, 1.0, 1.0, RED
+umo, 15, 15, 1.0, 1.0, RED

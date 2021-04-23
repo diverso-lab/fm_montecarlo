@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 19, 19, 1.0, 1.0, RED
+Gatling, 19, 19, 1.0, 1.0, RED
+Gradle, 19, 19, 1.0, 1.0, RED
+JWT, 19, 19, 1.0, 1.0, RED
+Maven, 19, 19, 1.0, 1.0, RED
+Protractor, 18, 18, 1.0, 1.0, RED
+Uaa, 19, 19, 1.0, 1.0, RED

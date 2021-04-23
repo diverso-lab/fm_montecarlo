@@ -1,0 +1,15 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Application, 10, 10, 1.0, 1.0, RED
+ClusteredSession, 10, 10, 1.0, 1.0, RED
+Cucumber, 9, 9, 1.0, 1.0, RED
+Gatling, 10, 10, 1.0, 1.0, RED
+Gradle, 10, 10, 1.0, 1.0, RED
+HTTPSession, 10, 10, 1.0, 1.0, RED
+InternationalizationSupport, 10, 10, 1.0, 1.0, RED
+JWT, 10, 10, 1.0, 1.0, RED
+Libsass, 10, 10, 1.0, 1.0, RED
+Maven, 10, 10, 1.0, 1.0, RED
+Protractor, 9, 9, 1.0, 1.0, RED
+Server, 10, 10, 1.0, 1.0, RED
+SpringWebSockets, 10, 10, 1.0, 1.0, RED
+Uaa, 10, 10, 1.0, 1.0, RED

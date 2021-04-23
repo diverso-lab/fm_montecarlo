@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 24, 20, 0.83, 0.92, RED
+ClusteredSession, 44, 40, 0.91, 0.95, RED
+Docker, 117, 117, 1.0, 1.0, RED
+Generator, 1, -1, -1.0, 0.0, BLUE
+Gradle, 1, -1, -1.0, 0.0, BLUE
+InternationalizationSupport, 34, 30, 0.88, 0.94, RED
+Libsass, 22, 18, 0.82, 0.91, RED
+Maven, 1, -1, -1.0, 0.0, BLUE
+SpringWebSockets, 3, 1, 0.33, 0.67, ORANGE
+TestingFrameworks, 10, 6, 0.6, 0.8, RED

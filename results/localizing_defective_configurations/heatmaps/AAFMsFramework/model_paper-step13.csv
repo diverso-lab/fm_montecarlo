@@ -1,0 +1,26 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AllProducts, 1, -1, -1.0, 0.0, BLUE
+CoreFeatures, 12, 20, 1.67, 1.0, RED
+DeadFeatures, 4, 4, 1.0, 0.75, ORANGE
+ErrorDetection, 5, 7, 1.4, 0.9, RED
+ErrorDiagnosis, 5, 7, 1.4, 0.9, RED
+Metamodels, 2, 2, 1.0, 0.75, ORANGE
+ParserTechnology, 3, 2, 0.67, 0.62, ORANGE
+SPLOT, 14, 23, 1.64, 0.99, RED
+Solvers, 9, 14, 1.56, 0.96, RED
+System, 2, 1, 0.5, 0.56, YELLOW
+Utils, 5, 7, 1.4, 0.9, RED
+ValidConfiguration, 2, 2, 1.0, 0.75, ORANGE
+ValidModel, 3, 4, 1.33, 0.87, RED
+ValidProduct, 12, 20, 1.67, 1.0, RED
+pipdeptree, 2, 1, 0.5, 0.56, YELLOW
+pkg-resources, 6, 9, 1.5, 0.94, RED
+pyPicosat, 3, 4, 1.33, 0.87, RED
+pycosat, 4, 4, 1.0, 0.75, ORANGE
+pycryptosat, 2, 2, 1.0, 0.75, ORANGE
+pyglucose, 2, 2, 1.0, 0.75, ORANGE
+pylgl, 3, 2, 0.67, 0.62, ORANGE
+python-sat, 3, 4, 1.33, 0.87, RED
+satyrn, 6, 9, 1.5, 0.94, RED
+setuptools, 3, 4, 1.33, 0.87, RED
+wheel, 4, 4, 1.0, 0.75, ORANGE

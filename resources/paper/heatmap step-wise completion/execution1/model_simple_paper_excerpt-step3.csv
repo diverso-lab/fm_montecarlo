@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Linux, 81, 186, 2.3, 0.98, RED
-MiniSAT, 29, 64, 2.21, 0.69, ORANGE
-PicoSAT, 16, 34, 2.12, 0.41, YELLOW
-Win, 83, 191, 2.3, 1.0, RED
-pycosat, 23, 50, 2.17, 0.58, YELLOW
-pyglucose, 8, 16, 2.0, 0.0, BLUE

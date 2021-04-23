@@ -81,7 +81,7 @@ Also, note that you will have to mount the volumes locally if you want the resul
 
         To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` or, incase of using Docker `docker run -i diversolab/fm_montecarlo python main_localizing_defective_configs.py`
 
-        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` or in case of using Docker, `docker run -i diversolab/fm_montecarlo python python main_jhipster_localizing_defective_configs.py`
+        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` or in case of using Docker, `docker run -i diversolab/fm_montecarlo python main_jhipster_localizing_defective_configs.py`
         
         The analysis can be configured with the following parameters:
 

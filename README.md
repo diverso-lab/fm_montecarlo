@@ -128,6 +128,7 @@ Also, note that you will have to mount the volumes locally if you want the resul
         This problem can be executed as the previous one to complete partial configurations, but using the `-min` option to indicate that the number of feature selections must be minimized:
             
             `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
+           
             Alternatively, you can execute:
         
             ```
@@ -143,7 +144,7 @@ Also, note that you will have to mount the volumes locally if you want the resul
             ```
                 docker run -i montecarlo:latest python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model
             ```
-            
+
         The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
 
         The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").

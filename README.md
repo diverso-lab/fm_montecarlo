@@ -54,6 +54,24 @@ The following use case diagram shows the four problems that have been implemente
   <img width="750" src="img/usecases.png">
 </p>
 
+To use the framework under python 3.9 you will need the folowing:
+```
+git clone https://github.com/diverso-lab/fm_montecarlo.git
+cd fm_montacarlo
+pip install -r requirements.txt
+```
+
+In case of using Docker, a Dockerfile is provided and a precompiled image available at dockerhub/diversolab
+To execute the commands in an interactive shell, execute:
+
+```
+    docker run -i montecarlo:latest
+```
+
+
+
+
+
 - **Configuration based analyses**
     - **Localizing defective configurations**: This problem consists in identifying the feature model configurations that lead to a given defect or some other undesired program behavior. Those defects may happen due to incompatibilities of features, anomalies or errors when the configuration is compiled, deployed or executed.
 
@@ -61,9 +79,19 @@ The following use case diagram shows the four problems that have been implemente
 
         To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` 
 
-        <div style="width: 100%;  border: 15px solid green;">
+        Alternatively, you can execute:
+        
+        ```
+            docker run -i montecarlo:latest python main_localizing_defective_configs.py
+        ```
+
         To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` 
-        </div>
+        
+        Alternatively, you can execute:
+        
+        ```
+            docker run -i montecarlo:latest python python main_jhipster_localizing_defective_configs.py
+        ```
         The analysis can be configured with the following parameters:
 
             `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
@@ -97,13 +125,21 @@ The following use case diagram shows the four problems that have been implemente
         This problem can be executed as the previous one to complete partial configurations, but using the `-min` option to indicate that the number of feature selections must be minimized:
             
             `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
-
-    
+            Alternatively, you can execute:
+        
+            ```
+                docker run -i montecarlo:latest python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min
+            ```
+            
 - **Feature models based analysis**
     - **Reverse engineering of feature models**: A well-known problem in SPLs is to synthesize a feature model from a set of configurations automatically. Given a set of feature combinations present in an SPL (i.e., a set of configurations), the goal is to extract a feature model that represents all the configurations.
 
     The problem can be executed with: `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
-
+          Alternatively, you can execute:
+        
+            ```
+                docker run -i montecarlo:latest python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model
+            ```
         The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
 
         The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").
@@ -140,7 +176,6 @@ This result is only generated for the configuration-based analyses.
 <p align="center">
   <img src="img/heatmap.png">
 </p>
-
 
 
 ## References

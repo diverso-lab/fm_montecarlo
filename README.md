@@ -113,7 +113,7 @@ The following use case diagram shows the four problems that have been implemente
 Three kinds of results are provided by the analyses:
 1. The optimal solution, as well as the optimal decisions taken step by step are shown in the terminal.
 <p align="center">
-  <img width="750" src="img/results_terminal.png">
+  <img width="750" src="img/results_console.png">
 </p>
 
 2. Two .csv files with statistics of the analysis are generated in the `output_results/stats` folder.

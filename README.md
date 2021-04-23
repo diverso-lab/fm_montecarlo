@@ -94,6 +94,7 @@ Also, note that you will have to mount the volumes locally if you want the resul
         ```
             docker run -i montecarlo:latest python python main_jhipster_localizing_defective_configs.py
         ```
+
         The analysis can be configured with the following parameters:
 
             `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
@@ -142,6 +143,7 @@ Also, note that you will have to mount the volumes locally if you want the resul
             ```
                 docker run -i montecarlo:latest python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model
             ```
+            
         The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
 
         The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").

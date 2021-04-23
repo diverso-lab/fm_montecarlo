@@ -17,7 +17,7 @@ class MyPrompt(Cmd):
         print(args)
         subprocess.call(['python','./main_jhipster_localizing_defective_configs.py'])
         
-    def do_completion_partial_configs(self, args):
+    def do_completion_defective_configs(self, args):
         print(args)
         subprocess.call(['python','./main_localizing_defective_configs.py'])
         

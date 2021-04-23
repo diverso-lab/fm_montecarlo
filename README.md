@@ -79,22 +79,10 @@ Also, note that you will have to mount the volumes locally if you want the resul
 
         Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
 
-        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` 
+        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` or, incase of using Docker `docker run -i montecarlo:latest python main_localizing_defective_configs.py`
 
-        Alternatively, you can execute:
+        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` or in case of using Docker, `docker run -i montecarlo:latest python python main_jhipster_localizing_defective_configs.py`
         
-        ```
-            docker run -i montecarlo:latest python main_localizing_defective_configs.py
-        ```
-
-        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` 
-        
-        Alternatively, you can execute:
-        
-        ```
-            docker run -i montecarlo:latest python python main_jhipster_localizing_defective_configs.py
-        ```
-
         The analysis can be configured with the following parameters:
 
             `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
@@ -129,21 +117,14 @@ Also, note that you will have to mount the volumes locally if you want the resul
             
             `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
            
-            Alternatively, you can execute:
-        
-            ```
-                docker run -i montecarlo:latest python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min
-            ```
+            or in case of Docker
+            
+            `docker run -i montecarlo:latest python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
             
 - **Feature models based analysis**
     - **Reverse engineering of feature models**: A well-known problem in SPLs is to synthesize a feature model from a set of configurations automatically. Given a set of feature combinations present in an SPL (i.e., a set of configurations), the goal is to extract a feature model that represents all the configurations.
 
-    The problem can be executed with: `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
-          Alternatively, you can execute:
-        
-            ```
-                docker run -i montecarlo:latest python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model
-            ```
+    The problem can be executed with: `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model` or in case of using docker `docker run -i montecarlo:latest python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
 
         The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
 

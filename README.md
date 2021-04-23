@@ -67,8 +67,10 @@ To execute the commands in an interactive shell, execute:
 ```
     docker run -i montecarlo:latest
 ```
-
-
+Also, note that you will have to mount the volumes locally if you want the results to be perseved. This can be done by adding the parameter to all docker run commands:
+```
+-v <localdir>:/usr/src/app/output_results
+```
 
 
 

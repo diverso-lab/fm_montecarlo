@@ -4,10 +4,13 @@ import time
 import argparse
 from functools import reduce
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel, FMConfiguration, Feature
-from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
-from famapy.metamodels.pysat_metamodel.transformations import CNFReader
-from famapy.metamodels.fm_metamodel.utils import AAFMsHelper, fm_utils
+from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
+from montecarlo4fms.aafm.models.feature_model import FeatureModel,  Feature
+
+from montecarlo4fms.aafm.fileformats.featureide_parser import FeatureIDEParser
+from montecarlo4fms.aafm.fileformats.cnf_reader import CNFReader
+from montecarlo4fms.aafm.utils.aafms_helper import AAFMsHelper
+import montecarlo4fms.aafm.utils.fm_utils
 
 from montecarlo4fms.problems.state_as_configuration.models import ValidConfigurationState, ValidMinimumConfigurationState
 from montecarlo4fms.problems.state_as_configuration.actions import TreeActionsList

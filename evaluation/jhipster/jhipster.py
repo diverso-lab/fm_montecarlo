@@ -2,8 +2,8 @@ import csv
 import ast
 import random 
 
-from famapy.metamodels.fm_metamodel.transformations import FeatureIDEParser
-from famapy.metamodels.fm_metamodel.models import FMConfiguration
+from montecarlo4fms.aafm.fileformats.featureide_parser import FeatureIDEParser
+from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
 
 
 JHIPSTER_CONFIGS_FILE = "evaluation/jhipster/jhipster3.6.1-testresults.csv"

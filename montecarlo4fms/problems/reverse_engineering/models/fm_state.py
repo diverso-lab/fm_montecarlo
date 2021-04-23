@@ -4,9 +4,10 @@ import random
 from functools import reduce
 from typing import List, Set
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation, Constraint, FMConfiguration
-from famapy.metamodels.fm_metamodel.utils import fm_utils
-from famapy.metamodels.fm_metamodel.utils import AAFMsHelper
+from montecarlo4fms.aafm.models.feature_model import FeatureModel, Feature, Relation, Constraint
+from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
+import montecarlo4fms.aafm.utils.fm_utils as fm_utils
+from montecarlo4fms.aafm.utils.aafms_helper import AAFMsHelper
 
 from montecarlo4fms.models import State, Action
 

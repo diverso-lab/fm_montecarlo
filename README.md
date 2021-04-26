@@ -61,7 +61,7 @@ cd fm_montecarlo
 pip install -r requirements.txt
 ```
 
-In case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at dockerhub/diversolab
+In case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile and is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
 To execute the commands in an interactive shell, execute:
 
 ```

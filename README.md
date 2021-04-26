@@ -57,7 +57,7 @@ The following use case diagram shows the four problems that have been implemente
 To use the framework under python 3.9 you will need the folowing:
 ```
 git clone https://github.com/diverso-lab/fm_montecarlo.git
-cd fm_montacarlo
+cd fm_montecarlo
 pip install -r requirements.txt
 ```
 
@@ -78,7 +78,7 @@ mkdir output
 docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarlo
 ```
 
-This is similar in case of willing to use your own models. Note that in there are a set of models already avaiable within the docker image. 
+This is similar in case of willing to use your own models. Note that in there are a set of models already available within the docker image. 
 For example, you can execute  `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
 
 
@@ -88,7 +88,7 @@ For example, you can execute  `docker run -i diversolab/fm_montecarlo python mai
 
         Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
 
-        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` or, incase of using Docker `docker run -i diversolab/fm_montecarlo python main_localizing_defective_configs.py`
+        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` or, in case of using Docker `docker run -i diversolab/fm_montecarlo python main_localizing_defective_configs.py`
 
         To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` or in case of using Docker, `docker run -i diversolab/fm_montecarlo python main_jhipster_localizing_defective_configs.py`
         

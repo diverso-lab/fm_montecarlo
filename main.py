@@ -93,5 +93,6 @@ class MyPrompt(Cmd):
         subprocess.call(['python','./main_reverse_engineering_fms.py'] + args.split())    
     
     def do_EOF(self, args):
+        print('Remember to execute this in docker using the -i option')
         return True
 MyPrompt().cmdloop()

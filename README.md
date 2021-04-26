@@ -61,16 +61,25 @@ cd fm_montacarlo
 pip install -r requirements.txt
 ```
 
-In case of using Docker, a Dockerfile is provided and a precompiled image available at dockerhub/diversolab
+In case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at dockerhub/diversolab
 To execute the commands in an interactive shell, execute:
 
 ```
     docker run -i diversolab/fm_montecarlo
 ```
 Also, note that you will have to mount the volumes locally if you want the results to be perseved. This can be done by adding the parameter to all docker run commands:
+
 ```
 -v <localdir>:/usr/src/app/output_results
 ```
+For example
+```
+mkdir output
+docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarlo
+```
+
+This is similar in case of willing to use your own models. Note that in there are a set of models already avaiable within the docker image. 
+For example, you can execute  `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
 
 
 

@@ -19,8 +19,16 @@ This repository is organized into three parts:
    
 
 ## Requirements
+The implementation of this conceptual framework has relied on the Python programming language. By convention all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
+
 - [Python 3.9+](https://www.python.org/)
-The framework has been tested in Windows and Linux.
+- [Python-sat](https://pysathq.github.io/)
+- [Graphviz](https://pypi.org/project/graphviz/)
+
+The framework has been tested in Windows and Linux and currently supports Docker as runtime enviroment. 
+
+## Execution and experiment replication
+
 
 ## The Monte Carlo conceptual framework
 <p align="center">
@@ -46,15 +54,44 @@ The following use case diagram shows the four problems that have been implemente
   <img width="750" src="img/usecases.png">
 </p>
 
+To use the framework under python 3.9 you will need the folowing:
+```
+git clone https://github.com/diverso-lab/fm_montecarlo.git
+cd fm_montacarlo
+pip install -r requirements.txt
+```
+
+In case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at dockerhub/diversolab
+To execute the commands in an interactive shell, execute:
+
+```
+    docker run -i diversolab/fm_montecarlo
+```
+Also, note that you will have to mount the volumes locally if you want the results to be perseved. This can be done by adding the parameter to all docker run commands:
+
+```
+-v <localdir>:/usr/src/app/output_results
+```
+For example
+```
+mkdir output
+docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarlo
+```
+
+This is similar in case of willing to use your own models. Note that in there are a set of models already avaiable within the docker image. 
+For example, you can execute  `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
+
+
+
 - **Configuration based analyses**
     - **Localizing defective configurations**: This problem consists in identifying the feature model configurations that lead to a given defect or some other undesired program behavior. Those defects may happen due to incompatibilities of features, anomalies or errors when the configuration is compiled, deployed or executed.
 
         Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
 
-        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` 
+        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` or, incase of using Docker `docker run -i diversolab/fm_montecarlo python main_localizing_defective_configs.py`
 
-        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` 
-
+        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` or in case of using Docker, `docker run -i diversolab/fm_montecarlo python main_jhipster_localizing_defective_configs.py`
+        
         The analysis can be configured with the following parameters:
 
             `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
@@ -88,12 +125,15 @@ The following use case diagram shows the four problems that have been implemente
         This problem can be executed as the previous one to complete partial configurations, but using the `-min` option to indicate that the number of feature selections must be minimized:
             
             `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
-
-    
+           
+            or in case of Docker
+            
+            `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
+            
 - **Feature models based analysis**
     - **Reverse engineering of feature models**: A well-known problem in SPLs is to synthesize a feature model from a set of configurations automatically. Given a set of feature combinations present in an SPL (i.e., a set of configurations), the goal is to extract a feature model that represents all the configurations.
 
-    The problem can be executed with: `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
+    The problem can be executed with: `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model` or in case of using docker `docker run -i diversolab/fm_montecarlo python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
 
         The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
 
@@ -131,7 +171,6 @@ This result is only generated for the configuration-based analyses.
 <p align="center">
   <img src="img/heatmap.png">
 </p>
-
 
 
 ## References

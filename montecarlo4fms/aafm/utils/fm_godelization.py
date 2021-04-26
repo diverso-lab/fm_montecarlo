@@ -17,7 +17,7 @@ For a configuration of 50k features:
 """
 from typing import List, Dict
 
-from famapy.metamodels.fm_metamodel.models import FMConfiguration
+from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
 
 class FMGodelization:
     """

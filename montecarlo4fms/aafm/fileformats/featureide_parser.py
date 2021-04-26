@@ -1,5 +1,5 @@
 from famapy.core.transformations import TextToModel
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation, Constraint
+from montecarlo4fms.aafm.models.feature_model import FeatureModel, Feature, Relation, Constraint
 from typing import List
 import xml.etree.ElementTree as ET
 

@@ -2,8 +2,8 @@ from typing import List, Set
 
 from pysat.solvers import Glucose3
 
-from famapy.metamodels.fm_metamodel.models import FMConfiguration
-from famapy.metamodels.pysat_metamodel.transformations import FmToPysat
+from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
+from montecarlo4fms.aafm.transformations.fm_to_pysat import FmToPysat
 
 
 class AAFMsHelper:

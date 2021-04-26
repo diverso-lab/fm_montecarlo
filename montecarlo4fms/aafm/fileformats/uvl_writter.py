@@ -3,7 +3,7 @@ from typing import List
 from famapy.core.transformations import ModelToText
 from famapy.core.models import VariabilityModel
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation, Constraint
+from montecarlo4fms.aafm.models.feature_model import FeatureModel, Feature, Relation, Constraint
 
 
 class UVLWritter(ModelToText):

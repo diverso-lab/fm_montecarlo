@@ -18,18 +18,6 @@ This repository is organized into three parts:
 3. Results of the analyses performed with Monte Carlo techniques over the problems modeled.
    
 
-## Requirements
-The implementation of this conceptual framework has relied on the Python programming language. By convention all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
-
-- [Python 3.9+](https://www.python.org/)
-- [Python-sat](https://pysathq.github.io/)
-- [Graphviz](https://pypi.org/project/graphviz/)
-
-The framework has been tested in Windows and Linux and currently supports Docker as runtime enviroment. 
-
-## Execution and experiment replication
-
-
 ## The Monte Carlo conceptual framework
 <p align="center">
   <img width="750" src="img/framework.png">
@@ -46,22 +34,34 @@ The following Monte Carlo algorithms are currently available:
 
 The details of the core components of the framework are described [here](montecarlo4fms/README.md).
 
+## Execution and experiment replication
 
-## Analyzing problems with the Monte Carlo framework
-The following use case diagram shows the four problems that have been implemented, and the output results obtained from applying Monte Carlo methods.
+### Requirements
+The implementation of this conceptual framework has relied on the Python programming language. By convention all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
 
-<p align="center">
-  <img width="750" src="img/usecases.png">
-</p>
+- [Python 3.9+](https://www.python.org/)
+- [Python-sat](https://pysathq.github.io/)
+- [Graphviz](https://pypi.org/project/graphviz/)
 
+The framework has been tested in Linux, but Windows is also supported using Docker as runtime environment (see below). 
+
+### Download and setup
 To use the framework under python 3.9 you will need the folowing:
 ```
 git clone https://github.com/diverso-lab/fm_montecarlo.git
 cd fm_montecarlo
-pip install -r requirements.txt
 ```
 
-In case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile and is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
+At this point, it is recommended to use a virtual environment:
+`python -m venv env`
+`.\env\Scripts\Activate` (in Windows)
+`source env/bin/activate` (in Linux)
+
+Finally, install the dependencies:
+`pip install -r requirements.txt`
+
+### Using the framework under Docker
+Alternatively, in case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
 To execute the commands in an interactive shell, execute:
 
 ```
@@ -81,6 +81,13 @@ docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarl
 This is similar in case of willing to use your own models. Note that in there are a set of models already available within the docker image. 
 For example, you can execute  `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
 
+
+### Analyzing problems with the Monte Carlo framework
+The following use case diagram shows the four problems that have been implemented, and the output results obtained from applying Monte Carlo methods.
+
+<p align="center">
+  <img width="750" src="img/usecases.png">
+</p>
 
 
 - **Configuration based analyses**
@@ -149,7 +156,7 @@ For example, you can execute  `docker run -i diversolab/fm_montecarlo python mai
 
             `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
 
-## Results
+### Results
 Four kinds of results are provided by the analyses:
 1. The optimal solution, as well as the optimal decisions taken step by step are shown in the terminal.
 <p align="center">

@@ -53,12 +53,15 @@ cd fm_montecarlo
 ```
 
 At this point, it is recommended to use a virtual environment:
-`python -m venv env`
-`.\env\Scripts\Activate` (in Windows)
-`source env/bin/activate` (in Linux)
 
-Finally, install the dependencies:
-`pip install -r requirements.txt`
+Create the virtual environment: `python -m venv env`
+
+Activate the environment (Linux): `source env/bin/activate`
+
+Activate the environment (Windows): `.\env\Scripts\Activate`
+
+Finally, install the dependencies: `pip install -r requirements.txt`
+
 
 ### Using the framework under Docker
 Alternatively, in case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
@@ -79,10 +82,13 @@ docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarl
 ```
 
 This is similar in case of willing to use your own models. Note that in there are a set of models already available within the docker image. 
-For example, you can execute  `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
+For example, you can execute: 
 
+`docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
 
-### Analyzing problems with the Monte Carlo framework
+(see the following section for further details)
+
+## Analyzing problems with the Monte Carlo framework
 The following use case diagram shows the four problems that have been implemented, and the output results obtained from applying Monte Carlo methods.
 
 <p align="center">
@@ -91,72 +97,96 @@ The following use case diagram shows the four problems that have been implemente
 
 
 - **Configuration based analyses**
-    - **Localizing defective configurations**: This problem consists in identifying the feature model configurations that lead to a given defect or some other undesired program behavior. Those defects may happen due to incompatibilities of features, anomalies or errors when the configuration is compiled, deployed or executed.
+    - **Localizing defective configurations**: This problem consists in identifying the feature model configurations that lead to a given defect or some other undesired program behavior. Those defects may happen due to incompatibilities of features, anomalies or errors when the configuration is compiled, deployed or executed. Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
 
-        Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
-
-        To analyze the feature model of the Python framework for AAFMs execute: `python main_localizing_defective_configs.py` or, in case of using Docker `docker run -i diversolab/fm_montecarlo python main_localizing_defective_configs.py`
-
-        To analyze the jHipster feature model execute: `python main_jhipster_localizing_defective_configs.py` or in case of using Docker, `docker run -i diversolab/fm_montecarlo python main_jhipster_localizing_defective_configs.py`
+      To analyze the feature model of the Python framework for AAFMs execute: 
+      
+      `python main_localizing_defective_configs.py` 
         
-        The analysis can be configured with the following parameters:
+      or, in case of using Docker: 
+      
+      `docker run -i diversolab/fm_montecarlo python main_localizing_defective_configs.py`
 
-            `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
+      To analyze the jHipster feature model execute: 
+      
+      `python main_jhipster_localizing_defective_configs.py` 
+          
+      or in case of using Docker: 
+      
+      `docker run -i diversolab/fm_montecarlo python main_jhipster_localizing_defective_configs.py`
+      
+      The analysis can be configured with the following parameters:
 
-            `-ew EXPLORATION_WEIGHT`: the exploration weight constant for MCTS to balance exploitation vs exploration (default 0.5).
+      `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
 
-            `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
+      `-ew EXPLORATION_WEIGHT`: the exploration weight constant for MCTS to balance exploitation vs exploration (default 0.5).
 
-        Additionally, the case study of the Python framework for AAFMs can be configured to use the complete version of the feature model (default) or the excerpt version presented in the paper (using the `-e` option).
+      `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
+
+      Additionally, the case study of the Python framework for AAFMs can be configured to use the complete version of the feature model (default) or the excerpt version presented in the paper (using the `-e` option).
 
     - **Completion of partial configurations**: The completion of partial configuration problem consists of finding the set of non-selected features necessary for getting a complete valid configuration. While in a complete configuration each feature is decided to be either present or absent in the resulting configuration, in partial configurations, some features are undecided. So, given a feature model and a partial configuration, we can use Monte Carlo methods to complete the given partial configuration with valid selections. 
     
-        The problem can be executed with: `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features`
+      The problem can be executed with: 
+      
+      `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features`
 
-            The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
+      The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
 
-            The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").
+      The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").
 
-            The `features` parameter is optional, it is a list of the features selection of the user representing the initial partial configuration. If not provided, the empty configuration is used by default.
-    
-        The analysis can be also configured with the following parameters:
+      The `features` parameter is optional, it is a list of the features selection of the user representing the initial partial configuration. If not provided, the empty configuration is used by default.
 
-            `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
+      In case of using Docker, the parameters can be provided as in the following example:
 
-            `-ew EXPLORATION_WEIGHT`: the exploration weight constant for MCTS to balance exploitation vs exploration (default 0.5).
+      `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
 
-            `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
   
+      The analysis can be also configured with the following parameters:
+
+      `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
+
+      `-ew EXPLORATION_WEIGHT`: the exploration weight constant for MCTS to balance exploitation vs exploration (default 0.5).
+
+      `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
+
     - **Minimizing valid configurations**: This problem consists in finding a valid configuration with the minimum number of features. 
     
-        This problem can be executed as the previous one to complete partial configurations, but using the `-min` option to indicate that the number of feature selections must be minimized:
-            
-            `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
-           
-            or in case of Docker
-            
-            `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
+      This problem can be executed as the previous one to complete partial configurations, but using the `-min` option to indicate that the number of feature selections must be minimized:
+          
+      `python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
+          
+      or in case of using Docker:
+          
+      `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
             
 - **Feature models based analysis**
     - **Reverse engineering of feature models**: A well-known problem in SPLs is to synthesize a feature model from a set of configurations automatically. Given a set of feature combinations present in an SPL (i.e., a set of configurations), the goal is to extract a feature model that represents all the configurations.
 
-    The problem can be executed with: `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model` or in case of using docker `docker run -i diversolab/fm_montecarlo python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
-
-        The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
-
-        The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").
-
-    We use all configurations of the given feature model as input configurations to extract a new feature model.
+      The problem can be executed with: 
     
-    The analysis can be also configured with the following parameters:
+      `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model` 
+          
+      or in case of using Docker:
+      
+      `docker run -i diversolab/fm_montecarlo python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model`
 
-            `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
 
-            `-ew EXPLORATION_WEIGHT`: the exploration weight constant for MCTS to balance exploitation vs exploration (default 0.5).
+      The `feature_model` parameters is mandatory and specifies the filepath of the feature model in FeatureIDE format.
+      
+      The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameters is only required is the feature model have complex constraints (others than "requires" and "excludes").
 
-            `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
+      We use all configurations of the given feature model as input configurations to extract a new feature model.
+      
+      The analysis can be also configured with the following parameters:
 
-### Results
+      `-it ITERATIONS`: specify the number of simulations to be executed by the Monte Carlo method (default 100).
+
+      `-ew EXPLORATION_WEIGHT`: the exploration weight constant for MCTS to balance exploitation vs exploration (default 0.5).
+
+      `-m METHOD`: the Monte Carlo method to be executed: "MCTS" for the UCT Algorithm (default), "Greedy" for the Greedy MCTS, and "flat" for the basic Monte Carlo method.
+
+## Results
 Four kinds of results are provided by the analyses:
 1. The optimal solution, as well as the optimal decisions taken step by step are shown in the terminal.
 <p align="center">

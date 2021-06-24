@@ -81,6 +81,10 @@ Finally, install the dependencies: `pip install -r requirements.txt`
 ### Using the framework under Docker
 Alternatively, in the case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image is available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
 
+To remove any previous version, run:
+```
+diversolab/fm_montecarlo
+```
 To execute the commands in an interactive shell, run:
 
 ```

@@ -27,8 +27,8 @@ This repository is organized into three parts:
   - An implementation of several Monte Carlo methods, including the Monte Carlo Tree Search (MCTS) method, ready to be used to solve any problem which implements the aforementioned interfaces.
 
 2. Instantiations of the framework to analyze different problems. In particular we provide two concrete implementations of the *(state, actions)* interfaces:
-  - An implementation of *(state, actions)* where states represent configurations of a feature model.
-  - An implementation of *(state, actions)* where states represent feature models.
+  - An implementation of *(state, actions)*, where states represent configurations of a feature model.
+  - An implementation of *(state, actions)*, where states represent feature models.
 
 3. Results of the analyses performed with Monte Carlo techniques over the problems modeled.
    
@@ -52,7 +52,7 @@ The details of the core components of the framework are described [here](monteca
 ## Installation and execution
 
 ### Requirements
-The implementation of this conceptual framework has relied on the Python programming language. By convention all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
+The implementation of this conceptual framework has relied on the Python programming language. By convention, all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
 
 - [Python 3.9+](https://www.python.org/)
 - [Python-sat](https://pysathq.github.io/)
@@ -61,7 +61,7 @@ The implementation of this conceptual framework has relied on the Python program
 The framework has been tested in Linux, but Windows is also supported using Docker as runtime environment (see below). 
 
 ### Download and setup
-To use the framework under python 3.9 you will need the folowing:
+To use the framework under Python 3.9 you will need the following:
 ```
 git clone https://github.com/diverso-lab/fm_montecarlo.git
 cd fm_montecarlo

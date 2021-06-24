@@ -290,20 +290,20 @@ To replicate these experiments, execute the analyses with the following paramete
 
     - For the AAFMs Python Framework feature model (complete version):
   
-      `python main_completion_partial_configs.py -fm evaluation/aafmsPythonFramework/model_paper.xml -cnf evaluation/aafmsPythonFramework/model_paper-cnf.txt -it 100 -s 2021 -min -m MCTS` 
+    `python main_completion_partial_configs.py -fm evaluation/aafmsPythonFramework/model_paper.xml -cnf evaluation/aafmsPythonFramework/model_paper-cnf.txt -it 100 -s 2021 -min -m MCTS` 
     
     Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
 
     - For the jHipster feature model:
   
-      `python main_completion_partial_configs.py -fm evaluation/jhipster/fm-3.6.1refined.xml -cnf evaluation/jhipster/fm-3.6.1refined-cnf.txt -it 100 -s 2021 -min -m MCTS`
+    `python main_completion_partial_configs.py -fm evaluation/jhipster/fm-3.6.1refined.xml -cnf evaluation/jhipster/fm-3.6.1refined-cnf.txt -it 100 -s 2021 -min -m MCTS`
     
     Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
 
 - Reverse engineering of feature models (results [here](https://github.com/diverso-lab/fm_montecarlo/tree/main/results/problems%20analyses/problem4_reverse_engineering_fms/model1_AAFMs_excerpt)):
   For this problem, due to the size of the problem, only the excerpt version of the AAFMs Python Framework is used. Even though, as explained in the paper, this can take a while (around 10-15 min) for 1000 iterations because 1000 feature models are generated in each decision and all configurations of those feature models are also generated to evaluate the fitness function.
   
-      `python main_reverse_engineering_fms.py -fm evaluation/aafmsPythonFramework/model_simple_paper_excerpt.xml -cnf evaluation/aafmsPythonFramework/model_simple_paper_excerpt-cnf.txt -it 1000 -s 2021 -m MCTS`
+    `python main_reverse_engineering_fms.py -fm evaluation/aafmsPythonFramework/model_simple_paper_excerpt.xml -cnf evaluation/aafmsPythonFramework/model_simple_paper_excerpt-cnf.txt -it 1000 -s 2021 -m MCTS`
     
     Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
 
@@ -314,7 +314,7 @@ To replicate the experiments of the evaluation, we provide the following scripts
 
 - For the AAFMs Python Framework feature model):
   
-      `python main_comparison_aafm.py -it 1000 -s 2021 -m MCTS`
+    `python main_comparison_aafm.py -it 1000 -s 2021 -m MCTS`
 
     Note that the `-it ITERATIONS` parameter here is the maximum number of iterations/simulations to be performed (5000 default). 
     The script will run the Monte Carlo methods from 1 to ITERATIONS with a step of 250 iterations.
@@ -322,11 +322,11 @@ To replicate the experiments of the evaluation, we provide the following scripts
     *Note*: Setting up the random seed, the execution can take a while (around 1 hour for each experiment) so be patient. For impatients, we also present additional results for a small-quick comparison using the `-e` option for the excerpt version of the model.
     To understand this, read the final note at the end of this document.
 
-    Change the `-m` parameter to `flat` for flat Monte Carlo method, `Greedy` for Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models you need to use the [BDD Sampler](https://github.com/davidfa71/BDDSampler) of Heradio et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is not script at this moment to automate the random sampling results from the BDD Sampler.
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, `Greedy` for Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models you need to use the [BDD Sampler](https://github.com/davidfa71/BDDSampler) of Heradio et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is not script at this moment to automate the random sampling results from the BDD Sampler. In case of using the excerpt version (`-e` parameter), the maximum number of iterations is equal to the maximum number of configurations of the feature model.
 
 - For the jHipster feature model):
 
-      `python main_comparison_jhipster.py -it 1000 -s 2021 -m MCTS`
+    `python main_comparison_jhipster.py -it 1000 -s 2021 -m MCTS`
 
     Same parameters and comments than the previous script hold. However, the Random Sampling strategy can be directly used for the jHipster feature model because all configurations are available.
 

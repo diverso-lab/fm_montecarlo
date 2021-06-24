@@ -1,0 +1,6 @@
+Method, Iterations, Decisions, Simulations, Evaluations, PositiveEvaluations, Percentage, TreeSize, Time
+"UCT Algorithm (iters=1000, ew=0.5)", 1, 27, 1, 952, 881, 0.9254201680672269, 16292, 285.20463705062866
+"UCT Algorithm (iters=1000, ew=0.5)", 250, 20, 250, 244, 177, 0.7254098360655737, 9374, 129.81642866134644
+"UCT Algorithm (iters=1000, ew=0.5)", 500, 15, 500, 254, 148, 0.5826771653543307, 6729, 70.65829181671143
+"UCT Algorithm (iters=1000, ew=0.5)", 750, 27, 750, 1246, 1064, 0.8539325842696629, 16476, 309.2943947315216
+"UCT Algorithm (iters=1000, ew=0.5)", 1000, 15, 1000, 324, 219, 0.6759259259259259, 5993, 64.6873607635498

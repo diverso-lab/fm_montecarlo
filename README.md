@@ -17,16 +17,16 @@ This repository contains all the resources and artifacts of the paper entitled *
 - [References](#References)
 
 ## Artifact description
-We present a [**Monte Carlo conceptual framework**](montecarlo4fms/) that allows analyzing SPL problems by modeling them as a sequence of decision-steps and solving them with Monte Carlo techniques.
+We present a [**Monte Carlo conceptual framework**](montecarlo4fms/) to analyze SPL problems by modeling them as a sequence of decision steps and solving them with Monte Carlo techniques.
 The Monte Carlo framework has been developed on top of the [Python framework for automated analysis of feature models](https://github.com/diverso-lab/core) proposed by [Galindo and Benavides](https://doi.org/10.1145/3382026.3425773).
 The details of the core components of the Monte Carlo framework are described [here](montecarlo4fms/README.md).
 
 This repository is organized into three parts:
 1. The [**Monte Carlo conceptual framework**](montecarlo4fms/). This includes:
   - A set of interfaces to be implemented in order to model SPL problems as sequences of *(state, actions)* pairs.
-  - An implementation of several Monte Carlo methods, including the Monte Carlo Tree Search (MCTS) method, ready to be used to solve any problem which implements the aforementioned interfaces.
+  - An implementation of several Monte Carlo methods, including the Monte Carlo Tree Search (MCTS) method, ready to be used to solve any problem that implements the aforementioned interfaces.
 
-2. Instantiations of the framework to analyze different problems. In particular we provide two concrete implementations of the *(state, actions)* interfaces:
+2. Instantiations of the framework to analyze different problems. In particular, we provide two concrete implementations of the *(state, actions)* interfaces:
   - An implementation of *(state, actions)*, where states represent configurations of a feature model.
   - An implementation of *(state, actions)*, where states represent feature models.
 

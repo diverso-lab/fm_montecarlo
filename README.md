@@ -240,7 +240,7 @@ To obtain the same results use the seed `2021` in all cases.
 #### Replicating results from problem analyses
 To replicate these experiments, execute the analyses with the following parameters:
 
-- Localizing defective configurations (results [here]()):
+- Localizing defective configurations (results [here](https://github.com/diverso-lab/fm_montecarlo/tree/main/results/problems%20analyses/problem1_localizing_defective_configs)):
     - For the AAFMs Python Framework feature model (excerpt version):
   
       `python main_localizing_defective_configs.py -e -it 100 -s 2021 -m MCTS`
@@ -259,7 +259,7 @@ To replicate these experiments, execute the analyses with the following paramete
     
     Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
 
-- Completion of partial configurations (results [here]()):
+- Completion of partial configurations (results [here](https://github.com/diverso-lab/fm_montecarlo/tree/main/results/problems%20analyses/problem2_completion_partial_configs)):
 
   - For the AAFMs Python Framework feature model (excerpt version):
   
@@ -279,7 +279,7 @@ To replicate these experiments, execute the analyses with the following paramete
     
     Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
 
-- Minimizing valid configurations (results [here]()):
+- Minimizing valid configurations (results [here](https://github.com/diverso-lab/fm_montecarlo/tree/main/results/problems%20analyses/problem3_minimizing_valid_configs)):
   The commands are the same than the previous problem but using the option `-min` activated.
 
   - For the AAFMs Python Framework feature model (excerpt version):
@@ -300,7 +300,7 @@ To replicate these experiments, execute the analyses with the following paramete
     
     Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
 
-- Reverse engineering of feature models (results [here]()):
+- Reverse engineering of feature models (results [here](https://github.com/diverso-lab/fm_montecarlo/tree/main/results/problems%20analyses/problem4_reverse_engineering_fms/model1_AAFMs_excerpt)):
   For this problem, due to the size of the problem, only the excerpt version of the AAFMs Python Framework is used. Even though, as explained in the paper, this can take a while (around 10-15 min) for 1000 iterations because 1000 feature models are generated in each decision and all configurations of those feature models are also generated to evaluate the fitness function.
   
       `python main_reverse_engineering_fms.py -fm evaluation/aafmsPythonFramework/model_simple_paper_excerpt.xml -cnf evaluation/aafmsPythonFramework/model_simple_paper_excerpt-cnf.txt -it 1000 -s 2021 -m MCTS`
@@ -309,9 +309,10 @@ To replicate these experiments, execute the analyses with the following paramete
 
 #### Replicating results from comparison of Monte Carlo methods
 The experiment of the evaluation compares the different Monte Carlo methods over the problem of finding defective configurations in both the AAFMs Python Framework and the jHipster feature models.
+Results are available [here](https://github.com/diverso-lab/fm_montecarlo/tree/main/results/evaluation%20comparison).
 To replicate the experiments of the evaluation, we provide the following scripts that can be executed as follows:
 
-- For the AAFMs Python Framework feature model (results [here]()):
+- For the AAFMs Python Framework feature model):
   
       `python main_comparison_aafm.py -it 1000 -s 2021 -m MCTS`
 
@@ -323,7 +324,7 @@ To replicate the experiments of the evaluation, we provide the following scripts
 
     Change the `-m` parameter to `flat` for flat Monte Carlo method, `Greedy` for Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models you need to use the [BDD Sampler](https://github.com/davidfa71/BDDSampler) of Heradio et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is not script at this moment to automate the random sampling results from the BDD Sampler.
 
-- For the jHipster feature model (results [here]()):
+- For the jHipster feature model):
 
       `python main_comparison_jhipster.py -it 1000 -s 2021 -m MCTS`
 
@@ -337,7 +338,7 @@ To provide reproducibility in our framework we use a random *seed* initialized a
 
 However, the `random` module is not the only source of randomness in our framework. The MCTS method highly works with data structures (e.g., the search tree) which do no maintain the order of the states (e.g., sets, maps or dictionaries). For instance, in a configuration of a feature model the order of the features is irrelevant.
 Using those structures does not guarantee reproducibility when using methods like `random.choice`.
-Moreover, states in our framework can represent features, configurations of the feature model, or even feature models like in the reverse engineering problem. Mantaining a total order for those concepts is not straighforward, for example, defining when a feature model is lesser than other is not trivial. This change also impacts and significatively degrades the performance of the solution because require to continuosly sort the collections or using inneficient sorted data structures which Monte Carlo methods do not really need. That is, there is an important trade-off between performance and reproducibility when dealing with Monte Carlo methods and randomness that should be considered.
+Moreover, states in our framework can represent features, configurations of the feature model, or even feature models like in the reverse engineering problem. Mantaining a total order for those concepts is not straighforward, for example, defining when a feature model is lesser than other is not trivial. This change also impacts and significatively degrades the performance of the solution because it requires to continuosly sorting the collections or using inneficient sorted data structures which Monte Carlo methods do not really need. That is, there is an important trade-off between performance and reproducibility when dealing with Monte Carlo methods and randomness that should be considered.
 
 To aleaviate these issues and provide maximum reproducibility we have modified our framework to use *sorted* data structures in all cases, defining when necessary a total order between the states.
 Despite this, some experiments can still present a small variation. This is due to in case of draws in the sorted elements (e.g., features with the same names).

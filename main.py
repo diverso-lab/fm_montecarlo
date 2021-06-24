@@ -9,6 +9,58 @@ class MyPrompt(Cmd):
         print("Thank you for using our montecarlo FM implementation!")
         return True
  
+    def do_comparison_aafm(self, args):
+        '''
+        The experiment of the evaluation compares the different Monte Carlo methods over the problem 
+        of finding defective configurations in both the AAFMs Python Framework and the jHipster feature 
+        models. To replicate the experiments of the evaluation, we provide the following scripts that 
+        can be executed as follows:
+
+        For the AAFMs Python Framework feature model (results here):
+            python main_comparison_aafm.py -it 1000 -s 2021 -m MCTS
+        
+        Note that the -it ITERATIONS parameter here is the maximum number of iterations/simulations to be 
+        performed (5000 default). The script will run the Monte Carlo methods from 1 to ITERATIONS with a 
+        step of 250 iterations.
+        
+        Note: Setting up the random seed, the execution can take a while (around 1 hour for each experiment)
+        so be patient. For impatients, we also present additional results for a small-quick comparison using 
+        the -e option for the excerpt version of the model. To understand this, read the final note at the end of this document.
+        Change the -m parameter to flat for flat Monte Carlo method, Greedy for Greedy MCTS, and random 
+        for Random Sampling. For the Random Sampling, in case of using the complete version of the feature 
+        model (10e9 configurations) or other large-scale feature models you need to use the BDD Sampler of Heradio 
+        et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is 
+        not script at this moment to automate the random sampling results from the BDD Sampler.
+        '''
+        subprocess.call(['python','./main_comparison_aafm.py'] + args.split())
+
+    def do_comparison_jhipster(self, args):
+        '''
+        The experiment of the evaluation compares the different Monte Carlo methods over the problem 
+        of finding defective configurations in both the AAFMs Python Framework and the jHipster feature 
+        models. To replicate the experiments of the evaluation, we provide the following scripts that 
+        can be executed as follows:
+
+        For the AAFMs Python Framework feature model (results here):
+            python main_comparison_jhipster.py -it 1000 -s 2021 -m MCTS
+        
+        The Random Sampling strategy can be directly used for the jHipster feature model because all configurations are available.
+        
+        Note that the -it ITERATIONS parameter here is the maximum number of iterations/simulations to be 
+        performed (5000 default). The script will run the Monte Carlo methods from 1 to ITERATIONS with a 
+        step of 250 iterations.
+        
+        Note: Setting up the random seed, the execution can take a while (around 1 hour for each experiment)
+        so be patient. For impatients, we also present additional results for a small-quick comparison using 
+        the -e option for the excerpt version of the model. To understand this, read the final note at the end of this document.
+        Change the -m parameter to flat for flat Monte Carlo method, Greedy for Greedy MCTS, and random 
+        for Random Sampling. For the Random Sampling, in case of using the complete version of the feature 
+        model (10e9 configurations) or other large-scale feature models you need to use the BDD Sampler of Heradio 
+        et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is 
+        not script at this moment to automate the random sampling results from the BDD Sampler.
+        '''
+        subprocess.call(['python','./main_comparison_jhipster.py'] + args.split())
+
     def do_completion_partial_configs(self, args):
         '''
         The completion of partial configuration problem consists of finding the set of non-selected features 

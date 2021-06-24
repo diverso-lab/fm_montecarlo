@@ -40,8 +40,8 @@ This repository is organized into three parts:
 
 The framework defines the two main interfaces (*State* and *Action*) to be implemented in order to model and solve a problem with Monte Carlo methods. 
 The *State* interface specifies the necessary methods to explore the whole search space so that from a given initial state, we can reach all states. 
-The *State* interface has to be implemented only once defining the state transition function (`find_successors()` and `find_random_successor()`), the `is_terminal()` condition, and the `reward()` function.
-The *Action* interface is defined for each applicable action. Different Monte Carlo algorithms can then be applied. Each Monte Carlo algorithm can be configured with a stopping condition such as a time, memory, or iteration constraint and with a selection criteria for the best action decision. For instance, to select the child with the highest reward, the most visited child, the child with both the highest visit count and the highest reward, or the child which maximizes a lower confidence bound.
+The *State* interface has to be implemented only once by defining the state transition function (`find_successors()` and `find_random_successor()`), the `is_terminal()` condition, and the `reward()` function.
+The *Action* interface is defined for each applicable action. Different Monte Carlo algorithms can then be applied. Each Monte Carlo algorithm can be configured with a stopping condition (such as a time, memory, or iteration constraints) and with a selection criteria for the best action decision. For instance, to select the child with the highest reward, the most visited child, the child with both the highest visit count and the highest reward, or the child which maximizes a lower confidence bound.
 The following Monte Carlo algorithms are currently available:
 - **UCT Algorithm:** An implementation of MCTS that builds a search tree and uses the *upper confidence bound for trees* (UCT) selection strategy. This strategy favors actions with a higher *Q*-value but allows at the same time to explore those actions that have not yet been sufficiently explored.
 - **Greedy MCTS:** A best-first strategy that favors exploitation against exploration.
@@ -52,7 +52,7 @@ The details of the core components of the framework are described [here](monteca
 ## Installation and execution
 
 ### Requirements
-The implementation of this conceptual framework has relied on the Python programming language. By convention, all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
+The implementation of this conceptual framework has relied on the Python programming language. By convention, all requirements are depicted in the requirements.txt file. In particular, the dependencies are:
 
 - [Python 3.9+](https://www.python.org/)
 - [Python-sat](https://pysathq.github.io/)
@@ -79,8 +79,9 @@ Finally, install the dependencies: `pip install -r requirements.txt`
 
 
 ### Using the framework under Docker
-Alternatively, in the case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
-To execute the commands in an interactive shell, execute:
+Alternatively, in the case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image is available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
+
+To execute the commands in an interactive shell, run:
 
 ```
     docker run -i diversolab/fm_montecarlo
@@ -95,7 +96,7 @@ mkdir output
 docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarlo
 ```
 
-This is similar to the case of willing to use your own models. Note that there are a set of models already available within the docker image. 
+This is similar to the case of willing to use your own models. Note that there is a set of models already available within the docker image. 
 For example, you can execute: 
 
 `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`
@@ -111,7 +112,7 @@ The following use case diagram shows the four problems that have been implemente
 
 
 - **Configuration based analyses**
-    - **Localizing defective configurations**: This problem consists in identifying the feature model configurations that lead to a given defect or some other undesired program behavior. Those defects may happen due to incompatibilities of features, anomalies or errors when the configuration is compiled, deployed or executed. Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
+    - **Localizing defective configurations**: This problem consists in identifying the feature model configurations that lead to a given defect or to some other undesired program behaviors. Those defects may happen due to incompatibilities of features, anomalies or errors when the configuration is compiled, deployed or executed. Two real-world feature models are analyzed: the jHipster and the Python framework for AAFMs. 
 
       To analyze the feature model of the Python framework for AAFMs, execute: 
       
@@ -139,7 +140,7 @@ The following use case diagram shows the four problems that have been implemente
 
       Additionally, the case study of the Python framework for AAFMs can be configured to use the complete version of the feature model (default) or the excerpt version presented in the paper (using the `-e` option).
 
-      - **Completion of partial configurations**: The problem of completing partial configurations deals with finding the set of non-selected features necessary for getting a complete valid configuration. While in a complete configuration each feature is decided to be either present or absent in the resulting configuration, in partial configurations, some features are undecided. So, given a feature model and a partial configuration, we can use Monte Carlo methods to complete the given partial configuration with valid selections. 
+      - **Completion of partial configurations**: The problem of completing partial configurations deals with finding the set of non-selected features necessary for getting a complete valid configuration. While in a complete configurationk, each feature is decided to be either present or absent, in partial configurations, some features are undecided. So, given a feature model and a partial configuration, we can use Monte Carlo methods to complete the given partial configuration with valid selections. 
     
       The problem can be executed with: 
       
@@ -149,7 +150,7 @@ The following use case diagram shows the four problems that have been implemente
 
       The `cnf_model` is optional and specifies the feature model in CNF with FeatureIDE (textual) format. This parameter is only required if the feature model has complex constraints (others than "requires" and "excludes").
   
-      The `features` parameter is optional. It is a list of the feature selection of the user representing the initial partial configuration. If not provided, the empty configuration is used by default.
+      The `features` parameter is optional. It is a list of the user's feature selection that represents the initial partial configuration. If it is not provided, the empty configuration is used by default.
 
       In the case of using Docker, the parameters can be provided as in the following example:
 
@@ -175,7 +176,7 @@ The following use case diagram shows the four problems that have been implemente
       `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm feature_model -cnf cnf_model -f features -min`
             
 - **Feature models based analysis**
-    - **Reverse engineering of feature models**: A well-known problem in SPLs is to synthesize a feature model from a set of configurations automatically. Given a set of feature combinations present in an SPL (i.e., a set of configurations), the goal is to extract a feature model representing all the configurations.
+    - **Reverse engineering of feature models**: A well-known problem in SPLs is to synthesize a feature model from a set of configurations automatically. Given a set of feature combinations present in a SPL (i.e., a set of configurations), the goal is to extract a feature model representing all the configurations.
       The problem can be executed with: 
     
       `python main_reverse_engineering_fms.py -fm feature_model -cnf cnf_model` 
@@ -223,7 +224,7 @@ This result is only generated for the configuration-based analyses using the Mon
 
 ### Experiment replication
 The results from the paper are available in the [Results](https://github.com/diverso-lab/fm_montecarlo/tree/main/results) folder.
-It is worthy to highlight that there are two types of experiments: (1) the experiments about the problem analyses previously presented, and (2) the experiments for the comparison of the Monte Carlo methods used in the evaluation.
+It is worthy to highlight that there are two types of experiments: (1) those about the problem analyses previously presented, and (2) experiments to compare Monte Carlo methods used in the evaluation.
 Here we explain how to replicate both experiments using the Python scripts provided.
 
 In order to allow replicating the results, we have added an optional parameter `-s SEED` in all experiments (analyses and comparison) to set up the random seed. 
@@ -319,7 +320,7 @@ To replicate these experiments, execute the analyses with the following paramete
         *Note*: Setting up the random seed, the execution can take a while (around 1 hour for each experiment), so be patient. For impatients, we also present additional results for a small-quick comparison using the `-e` option for the excerpt version of the model.
         To understand this, read the final note at the end of this document.
 
-        Change the `-m` parameter to `flat` for the flat Monte Carlo method, `Greedy` for the Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in the case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models, you need to use the [BDDSampler](https://github.com/davidfa71/BDDSampler) by Heradio et al. The integration of BDDSampler within our framework is out of the scope of this work. Thus, there is no script at this moment to automate the random sampling results from the BDD Sampler. In the case of using the excerpt version (`-e` parameter), the maximum number of iterations is equal to the maximum number of configurations of the feature model.
+        Change the `-m` parameter to `flat` for the flat Monte Carlo method, `Greedy` for the Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in the case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models, you need to use the [BDDSampler](https://github.com/davidfa71/BDDSampler) by Heradio et al. The integration of BDDSampler within our framework is out of the scope of this work. Thus, there is no script at this moment to automate the random sampling results from the BDDSampler. In the case of using the excerpt version (`-e` parameter), the maximum number of iterations is equal to the maximum number of configurations of the feature model.
 
     - For the jHipster feature model):
 
@@ -329,12 +330,12 @@ To replicate these experiments, execute the analyses with the following paramete
 
 
     ### Note about randomness in Monte Carlo methods
-    The underlying principle of operation of the Monte Carlo methods is to use randomness to solve problems.
+    The underlying principle of operation of Monte Carlo methods is to use randomness to solve problems.
     Our framework relies on the Python [`random`](https://docs.python.org/3/library/random.html#module-random) module, concretely we use the `choice`, `shuffle`, and `sample` methods to implement the *selection* and *simulation* steps of the MCTS method, as well as the possible successors of the *states* and possible *actions* of the problems.
     To provide reproducibility in our framework, we use a random *seed* initialized at the beginning of the experiment.
 
     However, the `random` module is not the only source of randomness in our framework. The MCTS method highly works with data structures (e.g., the search tree) that do not maintain the order of the states (e.g., sets, maps, or dictionaries). For instance, in a configuration of a feature model, the order of the features is irrelevant.
-    Using those structures does not guarantee reproducibility when using methods like `random.choice`.
+    Using those structures does not guarantee obtaining identical results when using methods like `random.choice`.
     Moreover, states in our framework can represent features, configurations of the feature model, or even feature models like in the reverse engineering problem. Maintaining a total order for those concepts is not straightforward. For example, defining when a feature model is lesser than others is not trivial. This change also impacts, and significatively degrades the performance of the solution because it requires continuously sorting the collections or using inefficient sorted data structures, which Monte Carlo methods do not really need. That is, there is an important trade-off between performance and reproducibility when dealing with Monte Carlo methods and randomness that should be considered.
 
     To alleviate these issues and provide maximum reproducibility, we have modified our framework to use *sorted* data structures in all cases, defining when necessary a total order between the states.
@@ -344,5 +345,5 @@ To replicate these experiments, execute the analyses with the following paramete
     ## References
     - [Python framework for automated analysis of feature models](https://github.com/diverso-lab/core)
     - [JHipster](https://github.com/jhipster)
-    - [BDD Sampler for Random Sampling](https://github.com/davidfa71/BDDSampler)
+    - [BDDSampler for Random Sampling](https://github.com/davidfa71/BDDSampler)
 

@@ -1,0 +1,13 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+BackEnd, 1, 1, 1.0, 1.0, RED
+ClusteredSession, 1, 1, 1.0, 1.0, RED
+Database, 1, 1, 1.0, 1.0, RED
+Docker, 1, 1, 1.0, 1.0, RED
+Generator, 1, 1, 1.0, 1.0, RED
+HTTPSession, 6, 4, 0.67, 0.83, RED
+JWT, 1, -1, -1.0, 0.0, BLUE
+OAuth2, 1, -1, -1.0, 0.0, BLUE
+SocialLogin, 1, -1, -1.0, 0.0, BLUE
+SpringWebSockets, 1, 1, 1.0, 1.0, RED
+TestingFrameworks, 1, 1, 1.0, 1.0, RED
+Uaa, 364, 364, 1.0, 1.0, RED

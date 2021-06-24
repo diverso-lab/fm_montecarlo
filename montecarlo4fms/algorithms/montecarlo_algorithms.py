@@ -42,13 +42,13 @@ class MonteCarloAlgorithms:
         return UCTRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit, exploration_weight=exploration_weight)
 
     @staticmethod
-    def greedy_iterations_maxchild_random_expansion(iterations: int = 100) -> 'MonteCarloTreeSearch':
+    def greedy_iterations_maxchild_random_expansion(iterations: int = 100, exploration_weight: float = 0.0) -> 'MonteCarloTreeSearch':
         stop_cond = IterationsStoppingCondition(iterations=iterations)
         select_crit = MaxChild()
         return GreedyMCTSRandomExpansion(stopping_condition=stop_cond, selection_criteria=select_crit)
 
     @staticmethod
-    def greedy_iterations_maxchild(iterations: int = 100) -> 'MonteCarloTreeSearch':
+    def greedy_iterations_maxchild(iterations: int = 100, exploration_weight: float = 0.0) -> 'MonteCarloTreeSearch':
         stop_cond = IterationsStoppingCondition(iterations=iterations)
         select_crit = MaxChild()
         return GreedyMCTS(stopping_condition=stop_cond, selection_criteria=select_crit)

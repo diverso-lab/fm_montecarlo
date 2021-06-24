@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 25, 25, 1.0, 1.0, RED
+ClusteredSession, 25, 25, 1.0, 1.0, RED
+Generator, 25, 25, 1.0, 1.0, RED
+Gradle, 24, 24, 1.0, 1.0, RED
+InternationalizationSupport, 24, 24, 1.0, 1.0, RED
+Libsass, 25, 25, 1.0, 1.0, RED
+Maven, 24, 24, 1.0, 1.0, RED
+SpringWebSockets, 25, 25, 1.0, 1.0, RED
+TestingFrameworks, 25, 25, 1.0, 1.0, RED

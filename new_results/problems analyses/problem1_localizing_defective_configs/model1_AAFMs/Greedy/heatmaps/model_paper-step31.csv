@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+DepMng, 19, 37, 1.95, 0.95, RED
+ErrorDetection, 5, 9, 1.8, 0.8, RED
+Glucose, 1, 2, 2.0, 1.0, RED
+Lingeling, 1, 2, 2.0, 1.0, RED
+Linux, 1, 2, 2.0, 1.0, RED
+Metamodels, 73, 145, 1.99, 0.99, RED
+MiniSAT, 29, 58, 2.0, 1.0, RED
+PicoSAT, 1, 2, 2.0, 1.0, RED
+Utils, 1, 1, 1.0, 0.0, BLUE
+ValidProduct, 21, 41, 1.95, 0.95, RED
+ebnf, 1, 2, 2.0, 1.0, RED

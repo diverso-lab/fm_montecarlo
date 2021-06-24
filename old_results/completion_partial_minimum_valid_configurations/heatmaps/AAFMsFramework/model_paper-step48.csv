@@ -1,0 +1,5 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Linux, 52, 52, 1.0, 1.0, RED
+ebnf, 53, 53, 1.0, 1.0, RED
+pybind11, 52, 52, 1.0, 1.0, RED
+six, 52, 52, 1.0, 1.0, RED

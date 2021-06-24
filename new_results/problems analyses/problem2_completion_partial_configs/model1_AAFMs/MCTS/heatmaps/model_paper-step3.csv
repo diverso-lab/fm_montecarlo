@@ -1,0 +1,9 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 19, 19, 1.0, 1.0, RED
+CNFModel, 18, 18, 1.0, 1.0, RED
+DecisionModel, 18, 18, 1.0, 1.0, RED
+FeatureModel, 18, 18, 1.0, 1.0, RED
+Interoperability, 18, 18, 1.0, 1.0, RED
+Linux, 18, 18, 1.0, 1.0, RED
+Packages, 19, 19, 1.0, 1.0, RED
+Win, 18, 18, 1.0, 1.0, RED

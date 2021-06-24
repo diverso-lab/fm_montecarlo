@@ -1,0 +1,9 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 19, 19, 1.0, 1.0, RED
+ElasticSearch, 19, 19, 1.0, 1.0, RED
+Gatling, 19, 19, 1.0, 1.0, RED
+Hibernate2ndLvlCache, 19, 19, 1.0, 1.0, RED
+MariaDB, 20, 20, 1.0, 1.0, RED
+MySQL, 20, 20, 1.0, 1.0, RED
+PostgreSQL, 20, 20, 1.0, 1.0, RED
+Protractor, 19, 19, 1.0, 1.0, RED

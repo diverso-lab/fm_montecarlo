@@ -1,0 +1,9 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 188, 5718, 30.41, 1.0, RED
+Docker, 16, 483, 30.19, 0.45, YELLOW
+Gatling, 6, 180, 30.0, 0.0, BLUE
+Gradle, 26, 787, 30.27, 0.65, ORANGE
+InternationalizationSupport, 19, 574, 30.21, 0.51, YELLOW
+Maven, 24, 726, 30.25, 0.6, ORANGE
+MicroserviceApplication, 21, 635, 30.24, 0.57, YELLOW
+UaaServer, 6, 180, 30.0, 0.0, BLUE

@@ -1,0 +1,21 @@
+namespace System
+
+features
+	System {abstract}
+		or
+			Linux {abstract}
+				or
+					Packages {abstract}
+						or
+							pycosat {abstract}
+							MiniSAT {abstract}
+							Win {abstract}
+							pyPicosat {abstract}
+					Glucose {abstract}
+						or
+							python-sat {abstract}
+							Solvers {abstract}
+								or
+									pyglucose {abstract}
+									AAFMFramework {abstract}
+			PicoSAT {abstract}

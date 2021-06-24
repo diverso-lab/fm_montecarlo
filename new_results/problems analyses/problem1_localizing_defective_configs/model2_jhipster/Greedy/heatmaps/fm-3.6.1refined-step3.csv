@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 280, 272, 0.97, 1.0, RED
+BackEnd, 1, -1, -1.0, 0.0, BLUE
+ClusteredSession, 6, 2, 0.33, 0.68, ORANGE
+Database, 2, 0, 0.0, 0.51, YELLOW
+Docker, 2, 0, 0.0, 0.51, YELLOW
+Generator, 1, -1, -1.0, 0.0, BLUE
+SocialLogin, 1, -1, -1.0, 0.0, BLUE
+SpringWebSockets, 2, 0, 0.0, 0.51, YELLOW
+TestingFrameworks, 1, -1, -1.0, 0.0, BLUE

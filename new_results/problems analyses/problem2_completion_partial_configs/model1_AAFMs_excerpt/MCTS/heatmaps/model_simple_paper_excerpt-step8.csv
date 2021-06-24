@@ -1,0 +1,5 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Glucose, 45, 45, 1.0, 1.0, RED
+Linux, 45, 45, 1.0, 1.0, RED
+MiniSAT, 45, 45, 1.0, 1.0, RED
+PicoSAT, 45, 45, 1.0, 1.0, RED

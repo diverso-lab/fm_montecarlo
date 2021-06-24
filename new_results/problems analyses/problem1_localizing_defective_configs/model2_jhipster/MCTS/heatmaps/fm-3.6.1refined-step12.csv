@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 12, 12, 1.0, 1.0, RED
+Development, 13, 13, 1.0, 1.0, RED
+Docker, 13, 13, 1.0, 1.0, RED
+ElasticSearch, 13, 13, 1.0, 1.0, RED
+Gatling, 12, 12, 1.0, 1.0, RED
+Hibernate2ndLvlCache, 13, 13, 1.0, 1.0, RED
+InternationalizationSupport, 13, 13, 1.0, 1.0, RED
+Libsass, 13, 13, 1.0, 1.0, RED
+Production, 13, 13, 1.0, 1.0, RED
+Protractor, 12, 12, 1.0, 1.0, RED
+SpringWebSockets, 13, 13, 1.0, 1.0, RED

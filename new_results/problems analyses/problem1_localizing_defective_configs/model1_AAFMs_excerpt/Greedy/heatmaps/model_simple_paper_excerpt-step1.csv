@@ -1,0 +1,4 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Packages, 198, 190, 0.96, 1.0, RED
+Solvers, 1, -1, -1.0, 0.0, BLUE
+System, 1, -1, -1.0, 0.0, BLUE

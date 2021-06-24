@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 14, 14, 1.0, 1.0, RED
+DiskBased, 15, 15, 1.0, 1.0, RED
+ElasticSearch, 14, 14, 1.0, 1.0, RED
+Gatling, 14, 14, 1.0, 1.0, RED
+Hibernate2ndLvlCache, 14, 14, 1.0, 1.0, RED
+InMemory, 14, 14, 1.0, 1.0, RED
+MicroserviceApplication, 14, 14, 1.0, 1.0, RED
+Production, 14, 14, 1.0, 1.0, RED
+UaaServer, 14, 14, 1.0, 1.0, RED

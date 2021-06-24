@@ -12,7 +12,7 @@ from montecarlo4fms.aafm.fileformats.cnf_reader import CNFReader
 from montecarlo4fms.aafm.utils.aafms_helper import AAFMsHelper
 
 from montecarlo4fms.problems.reverse_engineering.models import FMState
-from montecarlo4fms.algorithms import MonteCarloAlgorithms
+from montecarlo4fms.algorithms import MonteCarloAlgorithms, MonteCarloTreeSearch
 from montecarlo4fms.utils import MCTSStatsRE
 from montecarlo4fms.utils.mc_random import MCRandom as random
 
@@ -77,7 +77,10 @@ def main(algorithm, simulations: int, input_fm: str, input_cnf_model: str=None):
         new_state = algorithm.run(state)
         end_time = time.time()
         
-        mcts_stats_re.add_step(n, algorithm.tree, algorithm.Q, algorithm.N, state, new_state, simulations, end_time-start_time)
+        if isinstance(algorithm, MonteCarloTreeSearch):  
+            mcts_stats_re.add_step(n, algorithm.tree, algorithm.Q, algorithm.N, state, new_state, simulations, end_time-start_time)
+        else:
+            algorithm.tree = {} 
         state = new_state
         n += 1
 

@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Metamodels, 12, 24, 2.0, 1.0, RED
+SimpleParse, 12, 24, 2.0, 1.0, RED
+Solvers, 12, 24, 2.0, 1.0, RED
+System, 11, 22, 2.0, 1.0, RED
+pipdeptree, 12, 24, 2.0, 1.0, RED
+pycosat, 11, 22, 2.0, 1.0, RED
+pycryptosat, 11, 22, 2.0, 1.0, RED
+pyglucose, 11, 22, 2.0, 1.0, RED
+pylgl, 11, 22, 2.0, 1.0, RED
+python-sat, 11, 22, 2.0, 1.0, RED
+satyrn, 11, 22, 2.0, 1.0, RED

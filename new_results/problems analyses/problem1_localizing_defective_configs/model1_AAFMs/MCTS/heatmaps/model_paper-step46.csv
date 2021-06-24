@@ -1,0 +1,7 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Glucose, 25, 50, 2.0, 1.0, RED
+Lingeling, 24, 48, 2.0, 1.0, RED
+Linux, 24, 48, 2.0, 1.0, RED
+pipdeptree, 24, 48, 2.0, 1.0, RED
+pybind11, 24, 48, 2.0, 1.0, RED
+six, 24, 48, 2.0, 1.0, RED

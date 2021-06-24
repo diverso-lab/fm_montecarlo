@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+APISolvers, 13, 13, 1.0, 1.0, RED
+AutomatedReasoning, 14, 14, 1.0, 1.0, RED
+CNFModel, 14, 14, 1.0, 1.0, RED
+DecisionModel, 14, 14, 1.0, 1.0, RED
+DepMng, 13, 13, 1.0, 1.0, RED
+FeatureModel, 14, 14, 1.0, 1.0, RED
+Interoperability, 14, 14, 1.0, 1.0, RED
+Linux, 13, 13, 1.0, 1.0, RED
+ParserTechnology, 13, 13, 1.0, 1.0, RED
+Utils, 13, 13, 1.0, 1.0, RED
+Win, 13, 13, 1.0, 1.0, RED

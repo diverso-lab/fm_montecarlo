@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Lingeling, 13, 26, 2.0, 1.0, RED
+Metamodels, 13, 26, 2.0, 1.0, RED
+System, 13, 26, 2.0, 1.0, RED
+pipdeptree, 13, 26, 2.0, 1.0, RED
+pycosat, 12, 24, 2.0, 1.0, RED
+pycryptosat, 12, 24, 2.0, 1.0, RED
+pyglucose, 12, 24, 2.0, 1.0, RED
+pylgl, 12, 24, 2.0, 1.0, RED
+python-sat, 12, 24, 2.0, 1.0, RED
+satyrn, 12, 24, 2.0, 1.0, RED

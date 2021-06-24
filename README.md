@@ -11,6 +11,9 @@ This repository contains all the resources and artifacts of the paper entitled *
 - [Analyzing problems with the Monte Carlo framework](#analyzing-problems-with-the-Monte-Carlo-framework)
 - [Results](#Results)
     - [Experiment replication](#experiment-replication)
+      - [Replicating results from problem analyses](#replicating-results-from-problem-analyses)
+      - [Replicating results from comparison of Monte Carlo methods](#replicating-results-from-comparison-of-Monte-Carlo-methods)
+    - [Note about randomness in Monte Carlo methods](#note-about-randomness-in-Monte-Carlo-methods)
 - [References](#References)
 
 ## Artifact description
@@ -213,31 +216,134 @@ This result is also generated for all type of analyses.
    
 3. A set of heat maps are also generated containing valuable information about each decisions made in each step. A heat map file in .csv is generated for each step in the `output_results/heatmaps` folder. The heat maps contains the normalized *Q*-value for each decision and a mapping to a warm-cold colors scale which can be used to colored a feature model. 
 
-This result is only generated for the configuration-based analyses using the Monte Carlo Tree Search method or one of its variants that generate a search-tree (i.e., the heatmaps are not generated for flat Monte Carlo).
+This result is only generated for the configuration-based analyses using the Monte Carlo Tree Search method or one of its variants that builds a search-tree (i.e., the heatmaps are not generated for flat Monte Carlo).
 
-4. In the case of the reverse engineering of feature models problem the output is feature model automatically extracted (in the new UVL format); and a .log file with all the decisions taken during the process, as well as all alternative decisions considered with their normalized *Q*-values.
+4. In the case of the reverse engineering of feature models problem the output is a feature model automatically extracted (in the new UVL format); and a .log file with all the decisions taken during the process, as well as all alternative decisions considered with their normalized *Q*-values.
 
 <p align="center">
   <img src="img/heatmap.png">
 </p>
 
 ### Experiment replication
-The results from the paper for each problem are available in the [Result](https://github.com/diverso-lab/fm_montecarlo/tree/main/results) folder.
+The results from the paper are available in the [Results](https://github.com/diverso-lab/fm_montecarlo/tree/main/results) folder.
+It is worthy to highligh that there are two types of experiments: (1) the experiments about the problem analyses previously presented, and (2) the experiments for the comparison of the Monte Carlo methods used in the evaluation.
+Here we explain how to replicate both experiments using the Python scripts provided.
 
-In order to replicate these results, the following command can be executed:
+In order to allow replicating the results, we have added an optional parameter `-s SEED` in all experiments (analyses and comparison) to set up the random seed. 
+  
+  `-s SEED`: the seed to be used for the random module in order replicate the experiments (default None).
+  
+To obtain the same results use the seed `2021` in all cases.
 
-- Localizing defective configurations for the AAFMs feature model:
+*Note:* despite setting up the random seed used by the Monte Carlo methods, some results may present small variations due to the inherent randomness nature of the Monte Carlo methods (see note about randomness of the Monte Carlo methods at the end of this file for more details).
 
-  `python main_localizing_defective_configs.py` 
+#### Replicating results from problem analyses
+To replicate these experiments, execute the analyses with the following parameters:
+
+- Localizing defective configurations (results [here]()):
+    - For the AAFMs Python Framework feature model (excerpt version):
+  
+      `python main_localizing_defective_configs.py -e -it 100 -s 2021 -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+    - For the AAFMs Python Framework feature model (complete version) use the same command but without the `-e` parameter:
+  
+      `python main_localizing_defective_configs.py -it 100 -s 2021 -m MCTS` 
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+    - For the jHipster feature model:
+  
+      `python main_jhipster_localizing_defective_configs.py -it 100 -s 2021 -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+- Completion of partial configurations (results [here]()):
+
+  - For the AAFMs Python Framework feature model (excerpt version):
+  
+      `python main_completion_partial_configs.py -fm evaluation/aafmsPythonFramework/model_simple_paper_excerpt.xml -cnf evaluation/aafmsPythonFramework/model_simple_paper_excerpt-cnf.txt -it 100 -s 2021 -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+    - For the AAFMs Python Framework feature model (complete version):
+  
+      `python main_completion_partial_configs.py -fm evaluation/aafmsPythonFramework/model_paper.xml -cnf evaluation/aafmsPythonFramework/model_paper-cnf.txt -it 100 -s 2021 -m MCTS` 
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+    - For the jHipster feature model:
+  
+      `python main_completion_partial_configs.py -fm evaluation/jhipster/fm-3.6.1refined.xml -cnf evaluation/jhipster/fm-3.6.1refined-cnf.txt -it 100 -s 2021 -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+- Minimizing valid configurations (results [here]()):
+  The commands are the same than the previous problem but using the option `-min` activated.
+
+  - For the AAFMs Python Framework feature model (excerpt version):
+  
+      `python main_completion_partial_configs.py -fm evaluation/aafmsPythonFramework/model_simple_paper_excerpt.xml -cnf evaluation/aafmsPythonFramework/model_simple_paper_excerpt-cnf.txt -it 100 -s 2021 -min -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+    - For the AAFMs Python Framework feature model (complete version):
+  
+      `python main_completion_partial_configs.py -fm evaluation/aafmsPythonFramework/model_paper.xml -cnf evaluation/aafmsPythonFramework/model_paper-cnf.txt -it 100 -s 2021 -min -m MCTS` 
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+    - For the jHipster feature model:
+  
+      `python main_completion_partial_configs.py -fm evaluation/jhipster/fm-3.6.1refined.xml -cnf evaluation/jhipster/fm-3.6.1refined-cnf.txt -it 100 -s 2021 -min -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+- Reverse engineering of feature models (results [here]()):
+  For this problem, due to the size of the problem, only the excerpt version of the AAFMs Python Framework is used. Even though, as explained in the paper, this can take a while (around 10-15 min) for 1000 iterations because 1000 feature models are generated in each decision and all configurations of those feature models are also generated to evaluate the fitness function.
+  
+      `python main_reverse_engineering_fms.py -fm evaluation/aafmsPythonFramework/model_simple_paper_excerpt.xml -cnf evaluation/aafmsPythonFramework/model_simple_paper_excerpt-cnf.txt -it 1000 -s 2021 -m MCTS`
+    
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+
+#### Replicating results from comparison of Monte Carlo methods
+The experiment of the evaluation compares the different Monte Carlo methods over the problem of finding defective configurations in both the AAFMs Python Framework and the jHipster feature models.
+To replicate the experiments of the evaluation, we provide the following scripts that can be executed as follows:
+
+- For the AAFMs Python Framework feature model (results [here]()):
+  
+      `python main_comparison_aafm.py -it 1000 -s 2021 -m MCTS`
+
+    Note that the `-it ITERATIONS` parameter here is the maximum number of iterations/simulations to be performed (5000 default). 
+    The script will run the Monte Carlo methods from 1 to ITERATIONS with a step of 250 iterations.
+    
+    *Note*: Setting up the random seed, the execution can take a while (around 1 hour for each experiment) so be patient. For impatients, we also present additional results for a small-quick comparison using the `-e` option for the excerpt version of the model.
+    To understand this, read the final note at the end of this document.
+
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, `Greedy` for Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models you need to use the [BDD Sampler](https://github.com/davidfa71/BDDSampler) of Heradio et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is not script at this moment to automate the random sampling results from the BDD Sampler.
+
+- For the jHipster feature model (results [here]()):
+
+      `python main_comparison_jhipster.py -it 1000 -s 2021 -m MCTS`
+
+    Same parameters and comments than the previous script hold. However, the Random Sampling strategy can be directly used for the jHipster feature model because all configurations are available.
 
 
-1. The terminal output with the optimal solution and step-wise decisions are dumped in the .txt files.
+### Note about randomness in Monte Carlo methods
+The underlying principle of operation of the Monte Carlo methods is to use randomness to solve problems.
+Our framework relies on the Python [`random`](https://docs.python.org/3/library/random.html#module-random) module, concretely we use the `choice`, `shuffle`, and `sample` methods to implement the *selection* and *simulation* steps of the MCTS method, as well as the possible successors of the *states* and possible *actions* of the problems.
+To provide reproducibility in our framework we use a random *seed* initialized at the beginning of the experiment.
 
-2. The stats
+However, the `random` module is not the only source of randomness in our framework. The MCTS method highly works with data structures (e.g., the search tree) which do no maintain the order of the states (e.g., sets, maps or dictionaries). For instance, in a configuration of a feature model the order of the features is irrelevant.
+Using those structures does not guarantee reproducibility when using methods like `random.choice`.
+Moreover, states in our framework can represent features, configurations of the feature model, or even feature models like in the reverse engineering problem. Mantaining a total order for those concepts is not straighforward, for example, defining when a feature model is lesser than other is not trivial. This change also impacts and significatively degrades the performance of the solution because require to continuosly sort the collections or using inneficient sorted data structures which Monte Carlo methods do not really need. That is, there is an important trade-off between performance and reproducibility when dealing with Monte Carlo methods and randomness that should be considered.
 
-
-
-
+To aleaviate these issues and provide maximum reproducibility we have modified our framework to use *sorted* data structures in all cases, defining when necessary a total order between the states.
+Despite this, some experiments can still present a small variation. This is due to in case of draws in the sorted elements (e.g., features with the same names).
+However, these variations do not affect the overall results and conclusions of our research.
 
 ## References
 - [Python framework for automated analysis of feature models](https://github.com/diverso-lab/core)
+- [JHipster](https://github.com/jhipster)
+- [BDD Sampler for Random Sampling](https://github.com/davidfa71/BDDSampler)

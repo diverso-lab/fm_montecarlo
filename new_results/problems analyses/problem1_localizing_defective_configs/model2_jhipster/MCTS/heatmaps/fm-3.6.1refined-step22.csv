@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Cucumber, 29, 29, 1.0, 1.0, RED
-EhCache, 29, 29, 1.0, 1.0, RED
-ElasticSearch, 29, 29, 1.0, 1.0, RED
-Gatling, 29, 29, 1.0, 1.0, RED
-HazelCast, 29, 29, 1.0, 1.0, RED
-Protractor, 28, 28, 1.0, 1.0, RED

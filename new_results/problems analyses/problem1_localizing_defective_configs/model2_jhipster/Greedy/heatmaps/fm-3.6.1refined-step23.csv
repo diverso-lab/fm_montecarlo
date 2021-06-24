@@ -1,5 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Cucumber, 1, 1, 1.0, 1.0, RED
-ElasticSearch, 2147, 2147, 1.0, 1.0, RED
-Gatling, 1, 1, 1.0, 1.0, RED
-Protractor, 1, 1, 1.0, 1.0, RED

@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-BackEnd, 741, 741, 1.0, 1.0, RED
-ClusteredSession, 1, 1, 1.0, 1.0, RED
-Database, 1, 1, 1.0, 1.0, RED
-Docker, 1, 1, 1.0, 1.0, RED
-SpringWebSockets, 1, 1, 1.0, 1.0, RED
-TestingFrameworks, 1, 1, 1.0, 1.0, RED

@@ -1,9 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-ErrorDetection, 1, 2, 2.0, 1.0, RED
-Metamodels, 113, 226, 2.0, 1.0, RED
-ValidProduct, 1, 2, 2.0, 1.0, RED
-pip, 1, 2, 2.0, 1.0, RED
-pkg-resources, 1, 2, 2.0, 1.0, RED
-pybind11, 1, 2, 2.0, 1.0, RED
-setuptools, 1, 2, 2.0, 1.0, RED
-six, 1, 2, 2.0, 1.0, RED

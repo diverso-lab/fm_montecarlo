@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-AutomatedReasoning, 1, 10, 10.0, 0.0, BLUE
-Interoperability, 1, 10, 10.0, 0.0, BLUE
-Linux, 1, 10, 10.0, 0.0, BLUE
-Metamodels, 279, 4304, 15.43, 1.0, RED
-Packages, 10, 151, 15.1, 0.94, RED
-Win, 3, 37, 12.33, 0.43, YELLOW

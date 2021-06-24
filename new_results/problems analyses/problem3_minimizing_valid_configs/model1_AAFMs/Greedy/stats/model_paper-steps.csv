@@ -1,6 +1,0 @@
-Step, Decisions, Simulations, Evaluations, Positive Evaluations, Tree Size, Time (s), Choice
-0, 1, 100, 95, 95, 101, 0.6184041500091553, AAFMFramework
-1, 5, 100, 92, 187, 202, 0.716202974319458, System
-2, 6, 100, 98, 285, 303, 0.6862869262695312, Metamodels
-3, 8, 100, 96, 381, 404, 0.3680899143218994, DecisionModel
-4, 7, 100, 98, 479, 505, 0.3721187114715576, Win

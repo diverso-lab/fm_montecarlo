@@ -1,8 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Linux, 1, -1, -1.0, 0.0, BLUE
-Solvers, 1, -1, -1.0, 0.0, BLUE
-Win, 1, -1, -1.0, 0.0, BLUE
-pyPicosat, 386, 386, 1.0, 1.0, RED
-pycosat, 2, 0, 0.0, 0.5, YELLOW
-pyglucose, 2, 0, 0.0, 0.5, YELLOW
-python-sat, 2, 0, 0.0, 0.5, YELLOW

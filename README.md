@@ -39,9 +39,9 @@ This repository is organized into three parts:
 </p>
 
 The framework defines the two main interfaces (*State* and *Action*) to be implemented in order to model and solve a problem with Monte Carlo methods. 
-The *State* interface specifies the necessary methods to explore the whole search space, so that from a given initial state we can reach all states. 
+The *State* interface specifies the necessary methods to explore the whole search space so that from a given initial state, we can reach all states. 
 The *State* interface has to be implemented only once defining the state transition function (`find_successors()` and `find_random_successor()`), the `is_terminal()` condition, and the `reward()` function.
-The *Action* interface is defined for each applicable actions. Different Monte Carlo algorithms can be then applied. Each Monte Carlo algorithm can be configured with a stopping condition such as a time, memory, or iteration constraint, and with a selection criteria for the best action decision. For instance, to select the child with the highest reward, the most visited child, the child with both the highest visit count and the highest reward, or the child which maximizes a lower confidence bound.
+The *Action* interface is defined for each applicable action. Different Monte Carlo algorithms can then be applied. Each Monte Carlo algorithm can be configured with a stopping condition such as a time, memory, or iteration constraint and with a selection criteria for the best action decision. For instance, to select the child with the highest reward, the most visited child, the child with both the highest visit count and the highest reward, or the child which maximizes a lower confidence bound.
 The following Monte Carlo algorithms are currently available:
 - **UCT Algorithm:** An implementation of MCTS that builds a search tree and uses the *upper confidence bound for trees* (UCT) selection strategy. This strategy favors actions with a higher *Q*-value but allows at the same time to explore those actions that have not yet been sufficiently explored.
 - **Greedy MCTS:** A best-first strategy that favors exploitation against exploration.
@@ -61,7 +61,7 @@ The implementation of this conceptual framework has relied on the Python program
 The framework has been tested in Linux, but Windows is also supported using Docker as runtime environment (see below). 
 
 ### Download and setup
-To use the framework under Python 3.9 you will need the following:
+To use the framework under Python 3.9, you will need the following:
 ```
 git clone https://github.com/diverso-lab/fm_montecarlo.git
 cd fm_montecarlo
@@ -79,24 +79,23 @@ Finally, install the dependencies: `pip install -r requirements.txt`
 
 
 ### Using the framework under Docker
-Alternatively, in case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
+Alternatively, in the case of using [Docker]('https://docs.docker.com/get-docker/'), a Dockerfile is provided and a precompiled image available at [dockerhub/diversolab](https://hub.docker.com/r/diversolab/fm_montecarlo) 
 To execute the commands in an interactive shell, execute:
 
 ```
     docker run -i diversolab/fm_montecarlo
 ```
-Also, note that you will have to mount the volumes locally if you want the results to be perseved. This can be done by adding the parameter to all docker run commands:
-
+Also, note that you will have to mount the volumes locally if you want the results to be persistent. This can be done by adding the parameter to all docker run commands:
 ```
 -v <localdir>:/usr/src/app/output_results
 ```
-For example
+For example:
 ```
 mkdir output
 docker run -i -v $PWD/output:/usr/src/app/output_results diversolab/fm_montecarlo
 ```
 
-This is similar in case of willing to use your own models. Note that in there are a set of models already available within the docker image. 
+This is similar to the case of willing to use your own models. Note that there are a set of models already available within the docker image. 
 For example, you can execute: 
 
 `docker run -i diversolab/fm_montecarlo python main_completion_partial_configs.py -fm input_fms/pizzas.xml -it 100 -min`

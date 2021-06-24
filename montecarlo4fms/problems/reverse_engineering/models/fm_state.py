@@ -1,8 +1,8 @@
 import copy
 import itertools
-import random
 from functools import reduce
 from typing import List, Set
+from functools import total_ordering
 
 from montecarlo4fms.aafm.models.feature_model import FeatureModel, Feature, Relation, Constraint
 from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
@@ -10,14 +10,23 @@ import montecarlo4fms.aafm.utils.fm_utils as fm_utils
 from montecarlo4fms.aafm.utils.aafms_helper import AAFMsHelper
 
 from montecarlo4fms.models import State, Action
+from montecarlo4fms.utils.mc_random import MCRandom as random
 
 
+@total_ordering
 class FMStateAction(Action):
+
     def is_applicable(self, state: 'FMState') -> bool:
         return True 
 
     def executions(self, state: 'FMState') -> list['FMState']:
         pass
+    
+    def __lt__(self, other):
+        return str(self) < str(other)
+    
+    def __eq__(self, other: 'FMStateAction') -> bool:
+        return str(self) == str(other)
 
 class CreateFeatureModel(FMStateAction):
 
@@ -53,7 +62,6 @@ class AddRootFeature(FMStateAction):
         fm.relations = [relation]
         fm.features_by_name[root_feature.name] = root_feature
         return FMState(fm, state.configurations)
-
 
 class AddOptionalFeature(FMStateAction):
 
@@ -263,12 +271,12 @@ class AddExcludesConstraint(FMStateAction):
         fm.ctcs.append(ctc)
         return FMState(fm, state.configurations)
 
-
+@total_ordering
 class FMState(State):
 
     def __init__(self, feature_model: 'FeatureModel', configurations: Set['FMConfiguration']):
         self.feature_model = feature_model
-        self.configurations = configurations
+        self.configurations = sorted(configurations)
         self.missing_features = self._get_missing_features()
         self.actions = []
 
@@ -333,8 +341,8 @@ class FMState(State):
         if possible_ctcs:
             possible_actions.extend([AddRequiresConstraint, AddExcludesConstraint])
 
-        # Choose a random action
-        random_action = random.choice(possible_actions)
+        rnd_action = random.choice(range(len(possible_actions)))
+        random_action = possible_actions[rnd_action]
         if random_action.get_name() == AddOptionalFeature.get_name() or random_action.get_name() == AddMandatoryFeature.get_name():
             return random_action(random.choice(self.missing_features).name, random.choice(non_group_features).name).execute(self)
         if random_action.get_name() == AddOrGroupRelation.get_name() or random_action.get_name() == AddAlternativeGroupRelation.get_name():
@@ -448,3 +456,6 @@ class FMState(State):
 
     def __str__(self) -> str:
         return str(self.feature_model)
+    
+    def __lt__(self, other):
+        return self.feature_model < other.feature_model

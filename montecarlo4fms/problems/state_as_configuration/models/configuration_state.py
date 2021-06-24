@@ -1,6 +1,6 @@
-import random
 from abc import abstractmethod
 from montecarlo4fms.models import State
+from montecarlo4fms.utils.mc_random import MCRandom as random
 
 
 class ConfigurationState(State):
@@ -74,3 +74,6 @@ class ConfigurationState(State):
 
     def __str__(self) -> str:
         return str(self.configuration)
+    
+    def __lt__(self, other):
+        return self.configuration < other.configuration

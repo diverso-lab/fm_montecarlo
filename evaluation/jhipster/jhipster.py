@@ -1,9 +1,9 @@
 import csv 
 import ast
-import random 
 
 from montecarlo4fms.aafm.fileformats.featureide_parser import FeatureIDEParser
 from montecarlo4fms.aafm.models.fm_configuration import FMConfiguration
+from montecarlo4fms.utils.mc_random import MCRandom as random
 
 
 JHIPSTER_CONFIGS_FILE = "evaluation/jhipster/jhipster3.6.1-testresults.csv"

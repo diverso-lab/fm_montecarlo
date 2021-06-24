@@ -33,7 +33,7 @@ class MCTSStats():
         self.stats[step][MCTSStats.POSITIVE_EVALUATIONS_STR] = positive_evaluations
         self.stats[step][MCTSStats.TREESIZE_STR] = len(mcts_tree_search)
         self.stats[step][MCTSStats.TIME_STR] = time
-        self.stats[step][MCTSStats.CHOICE_STR] = list(result_state.configuration.get_selected_elements() - state.configuration.get_selected_elements())[0].name
+        self.stats[step][MCTSStats.CHOICE_STR] = sorted(set(result_state.configuration.get_selected_elements()) - set(state.configuration.get_selected_elements()))[0].name
         
     def serialize(self, filepath: str): 
         with open(filepath, 'w+') as file:

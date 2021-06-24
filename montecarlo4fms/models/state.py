@@ -1,4 +1,3 @@
-import random
 from abc import ABC, abstractmethod
 
 
@@ -15,7 +14,7 @@ class State(ABC):
 
     def find_random_successor(self) -> 'State':
         """Random successor of this state (redefine it for more efficient simulation)."""
-        return random.choice(self.find_successors())
+        pass
 
     @abstractmethod
     def state_transition_function(self, action: 'Action') -> 'State':

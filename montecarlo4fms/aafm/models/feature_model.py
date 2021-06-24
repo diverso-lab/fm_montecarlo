@@ -5,6 +5,7 @@ from typing import Sequence
 from famapy.core.models import VariabilityModel
 from famapy.core.exceptions import ElementNotFound
 
+@total_ordering
 class Relation:
 
     def __init__(self, parent: 'Feature', children: Sequence['Feature'], card_min: int, card_max: int):
@@ -35,10 +36,13 @@ class Relation:
         return res
 
     def __hash__(self) -> int:
-        return hash((self.parent, tuple(self.children), self.card_min, self.card_max))
+        return hash((self.parent, tuple(sorted(self.children)), self.card_min, self.card_max))
 
     def __eq__(self, other: 'Relation') -> bool:
         return self.parent == other.parent and self.children == other.children and self.card_min == other.card_min and self.card_max == other.card_max
+
+    def __lt__(self, other):
+        return self.parent < other.parent and sorted(self.children) < sorted(other.children) and self.card_min < other.card_min and self.card_max < other.card_max
 
 @total_ordering
 class Feature:
@@ -68,8 +72,13 @@ class Feature:
         return self.name == other.name
 
     def __lt__(self, other):
+        if self is None:
+            return True
+        if other is None:
+            return False
         return self.name < other.name
 
+@total_ordering
 class Constraint:
     #This is heavily limited. Currently this will only support requires and excludes
     def __init__(self, name: str, origin:'Feature', destination:'Feature', ctc_type:str):
@@ -84,6 +93,10 @@ class Constraint:
     def __eq__(self, other: 'Constraint') -> bool:
         return self.origin == other.origin and self.destination == other.destination and self.ctc_type == other.ctc_type
 
+    def __lt__(self, other):
+        return self.origin < other.origin and self.destination < other.destination and self.ctc_type < other.ctc_type
+
+@total_ordering
 class FeatureModel(VariabilityModel):
 
     @staticmethod
@@ -92,9 +105,9 @@ class FeatureModel(VariabilityModel):
 
     def __init__(self, root: Feature, constraint: Sequence[Constraint]=[], features: Sequence[Feature]=[], relations: Sequence[Relation]=[]):
         self.root = root
-        self.ctcs = constraint  # implementar CTC con AST
-        self.features = features
-        self.relations = relations
+        self.ctcs = sorted(constraint)  # implementar CTC con AST
+        self.features = sorted(features)
+        self.relations = sorted(relations)
         if not features:
             self.features = self.get_features()
         if not relations:
@@ -114,7 +127,7 @@ class FeatureModel(VariabilityModel):
                 for _feature in relation.children:
                     relations.extend(self.get_relations(_feature))
             self.relations
-        return self.relations
+        return sorted(self.relations)
 
     def get_features(self):
         if not self.root:   # Empty feature model
@@ -126,7 +139,7 @@ class FeatureModel(VariabilityModel):
             for relation in self.get_relations():
                 features.extend(relation.children)
             self.features = features
-        return self.features
+        return sorted(self.features)
 
     #This method is for consistency with the getters
     def get_constraints(self):
@@ -161,3 +174,6 @@ class FeatureModel(VariabilityModel):
 
     def __eq__(self, other: 'FeatureModel'):
         return self.root == other.root and self.features == other.features and self.relations == other.relations and self.ctcs == other.ctcs
+
+    def __lt__(self, other):
+        return self.root < other.root and sorted(self.features) < sorted(other.features) and sorted(self.relations) < sorted(other.relations) and sorted(self.ctcs) < sorted(other.ctcs)

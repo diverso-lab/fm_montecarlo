@@ -1,7 +1,7 @@
-import random
 from abc import abstractmethod
 from typing import List
 from montecarlo4fms.problems.state_as_configuration.actions import SelectFeature
+from montecarlo4fms.utils.mc_random import MCRandom as random
 
 
 class SelectRandomFeature(SelectFeature):

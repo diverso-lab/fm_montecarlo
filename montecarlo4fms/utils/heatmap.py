@@ -36,7 +36,7 @@ class Heatmap():
         feature_rewards = defaultdict(int)
         feature_visits = defaultdict(int)
         for state in self.mcts_tree_search[self.state]:
-            feature_set = list(state.configuration.get_selected_elements() - self.state.configuration.get_selected_elements())
+            feature_set = sorted(set(state.configuration.get_selected_elements()) - set(self.state.configuration.get_selected_elements()))
             if len(feature_set) == 1:
                 feature = feature_set[0]
                 feature_rewards[feature] = self.mcts_q_values[state]
@@ -60,8 +60,11 @@ class Heatmap():
                 feature_stats[Heatmap.QVALUE_STR] = round(feature_qvalues[feature], Heatmap.ROUND_DECIMALS)
                 if n > 0:
                     normalized_value = round((feature_qvalues[feature]-min_value) / n, Heatmap.ROUND_DECIMALS)
-                else:
+                elif feature_qvalues[feature] > 0:
                     normalized_value = feature_qvalues[feature] / feature_qvalues[feature]
+                else: 
+                    normalized_value = feature_qvalues[feature]
+                    
                 feature_stats[Heatmap.NORMALIZED_STR] = normalized_value
                 feature_stats[Heatmap.COLOR_STR] = self._assign_color(normalized_value)
             else:

@@ -35,7 +35,7 @@ class HeatmapFull():
         feature_visits = defaultdict(int)
         for state in self.mcts_tree_search:
             for child in self.mcts_tree_search[state]:
-                feature_set = list(child.configuration.get_selected_elements() - state.configuration.get_selected_elements())
+                feature_set = sorted(set(child.configuration.get_selected_elements()) - set(state.configuration.get_selected_elements()))
                 if len(feature_set) == 1:
                     feature = feature_set[0]
                     feature_rewards[feature] += self.mcts_q_values[child]

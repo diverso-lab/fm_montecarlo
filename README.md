@@ -1,11 +1,23 @@
 # Monte Carlo Tree Search for feature model analyses: a new framework for decision-making
 This repository contains all the resources and artifacts of the paper entitled *Monte Carlo Tree Search for feature model analyses: a new framework for decision-making* submitted in the 25th International Systems and Software Product Line Conference (SPLC 2021) by the authors José Miguel Horcas, José A. Galindo, Ruben Heradio, David Fernández-Amoros, and David Benavides.
 
+# Table of Contents
+- [Artifact description](#artifact-description)
+- [The Monte Carlo conceptual framework](#the-monte-carlo-conceptual-framework)
+- [Installation and execution](#installation-and-execution)
+    - [Requirements](#requirements)
+    - [Download and setup](#download-and-setup)
+    - [Using the framework under Docker](#using-the-framework-under-Docker)
+- [Analyzing problems with the Monte Carlo framework](#analyzing-problems-with-the-Monte-Carlo-framework)
+- [Results](#Results)
+    - [Experiment replication](#experiment-replication)
+- [References](#References)
+
+## Artifact description
 We present a [**Monte Carlo conceptual framework**](montecarlo4fms/) that allows analyzing SPL problems by modeling them as a sequence of decision-steps and solving them with Monte Carlo techniques.
 The Monte Carlo framework has been developed on top of the [Python framework for automated analysis of feature models](https://github.com/diverso-lab/core) proposed by [Galindo and Benavides](https://doi.org/10.1145/3382026.3425773).
 The details of the core components of the Monte Carlo framework are described [here](montecarlo4fms/README.md).
 
-## Artifact description
 This repository is organized into three parts:
 1. The [**Monte Carlo conceptual framework**](montecarlo4fms/). This includes:
   - A set of interfaces to be implemented in order to model SPL problems as sequences of *(state, actions)* pairs.
@@ -34,7 +46,7 @@ The following Monte Carlo algorithms are currently available:
 
 The details of the core components of the framework are described [here](montecarlo4fms/README.md).
 
-## Execution and experiment replication
+## Installation and execution
 
 ### Requirements
 The implementation of this conceptual framework has relied on the Python programming language. By convention all requirements are depicted in the requirements.txt file. Concretely, the dependencies are:
@@ -201,13 +213,30 @@ This result is also generated for all type of analyses.
    
 3. A set of heat maps are also generated containing valuable information about each decisions made in each step. A heat map file in .csv is generated for each step in the `output_results/heatmaps` folder. The heat maps contains the normalized *Q*-value for each decision and a mapping to a warm-cold colors scale which can be used to colored a feature model. 
 
-This result is only generated for the configuration-based analyses.
+This result is only generated for the configuration-based analyses using the Monte Carlo Tree Search method or one of its variants that generate a search-tree (i.e., the heatmaps are not generated for flat Monte Carlo).
 
 4. In the case of the reverse engineering of feature models problem the output is feature model automatically extracted (in the new UVL format); and a .log file with all the decisions taken during the process, as well as all alternative decisions considered with their normalized *Q*-values.
 
 <p align="center">
   <img src="img/heatmap.png">
 </p>
+
+### Experiment replication
+The results from the paper for each problem are available in the [Result](https://github.com/diverso-lab/fm_montecarlo/tree/main/results) folder.
+
+In order to replicate these results, the following command can be executed:
+
+- Localizing defective configurations for the AAFMs feature model:
+
+  `python main_localizing_defective_configs.py` 
+
+
+1. The terminal output with the optimal solution and step-wise decisions are dumped in the .txt files.
+
+2. The stats
+
+
+
 
 
 ## References

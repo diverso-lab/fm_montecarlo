@@ -245,7 +245,7 @@ To replicate these experiments, execute the analyses with the following paramete
   
       `python main_localizing_defective_configs.py -e -it 100 -s 2021 -m MCTS`
     
-    Change the `-m` parameter to `flat` for flat Monte Carlo method, and `Greedy` for Greedy MCTS.
+    Change the `-m` parameter to `flat` for the flat Monte Carlo method, and `Greedy` for the Greedy MCTS.
 
     - For the AAFMs Python Framework feature model (complete version) use the same command but without the `-e` parameter:
   
@@ -322,7 +322,7 @@ To replicate the experiments of the evaluation, we provide the following scripts
     *Note*: Setting up the random seed, the execution can take a while (around 1 hour for each experiment) so be patient. For impatients, we also present additional results for a small-quick comparison using the `-e` option for the excerpt version of the model.
     To understand this, read the final note at the end of this document.
 
-    Change the `-m` parameter to `flat` for flat Monte Carlo method, `Greedy` for Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models you need to use the [BDD Sampler](https://github.com/davidfa71/BDDSampler) of Heradio et al.). The integration of BDD Sampler within our framework is out of scope of this work, thus, there is not script at this moment to automate the random sampling results from the BDD Sampler. In case of using the excerpt version (`-e` parameter), the maximum number of iterations is equal to the maximum number of configurations of the feature model.
+    Change the `-m` parameter to `flat` for flat Monte Carlo method, `Greedy` for Greedy MCTS, and `random` for Random Sampling. For the Random Sampling, in case of using the complete version of the feature model (10e9 configurations) or other large-scale feature models, you need to use the [BDDSampler](https://github.com/davidfa71/BDDSampler) by Heradio et al. The integration of BDDSampler within our framework is out of the scope of this work. Thus, there is no script at this moment to automate the random sampling results from the BDD Sampler. In the case of using the excerpt version (`-e` parameter), the maximum number of iterations is equal to the maximum number of configurations of the feature model.
 
 - For the jHipster feature model):
 

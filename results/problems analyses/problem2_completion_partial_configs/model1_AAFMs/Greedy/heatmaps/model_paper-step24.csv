@@ -1,0 +1,14 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+APISolvers, 1, 1, 1.0, 1.0, RED
+Glucose, 1, 1, 1.0, 1.0, RED
+Lingeling, 1, 1, 1.0, 1.0, RED
+Linux, 1, 1, 1.0, 1.0, RED
+MiniSAT, 1, 1, 1.0, 1.0, RED
+ParserTechnology, 1, 1, 1.0, 1.0, RED
+PicoSAT, 1, 1, 1.0, 1.0, RED
+Utils, 1, 1, 1.0, 1.0, RED
+Win, 1, 1, 1.0, 1.0, RED
+pipdeptree, 1, 1, 1.0, 1.0, RED
+pkg-resources, 1, 1, 1.0, 1.0, RED
+setuptools, 2169, 2169, 1.0, 1.0, RED
+wheel, 1, 1, 1.0, 1.0, RED

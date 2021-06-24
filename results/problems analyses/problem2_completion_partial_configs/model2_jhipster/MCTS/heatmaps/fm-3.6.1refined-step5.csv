@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+BackEnd, 18, 18, 1.0, 1.0, RED
+Database, 18, 18, 1.0, 1.0, RED
+Docker, 18, 18, 1.0, 1.0, RED
+InternationalizationSupport, 18, 18, 1.0, 1.0, RED
+MicroserviceApplication, 18, 18, 1.0, 1.0, RED
+TestingFrameworks, 18, 18, 1.0, 1.0, RED
+UaaServer, 17, 17, 1.0, 1.0, RED

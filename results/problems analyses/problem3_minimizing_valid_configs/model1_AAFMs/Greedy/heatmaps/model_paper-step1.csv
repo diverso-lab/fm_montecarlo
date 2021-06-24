@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 1, 8, 8.0, 0.26, GREEN
+Interoperability, 1, 5, 5.0, 0.0, BLUE
+Metamodels, 1, 10, 10.0, 0.44, YELLOW
+Packages, 2, 27, 13.5, 0.75, ORANGE
+System, 195, 3190, 16.36, 1.0, RED

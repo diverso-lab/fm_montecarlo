@@ -1,8 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-FeatureIDE, 2, 0, 0.0, 0.0, BLUE
-Metamodels, 4, 2, 0.5, 0.36, GREEN
-Operations, 67, 88, 1.31, 0.94, RED
-Packages, 94, 131, 1.39, 1.0, RED
-SPLOT, 25, 29, 1.16, 0.83, RED
-Solvers, 15, 17, 1.13, 0.81, RED
-System, 17, 20, 1.18, 0.84, RED

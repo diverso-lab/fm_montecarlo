@@ -1,6 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Glucose, 37, 37, 1.0, 1.0, RED
-MiniSAT, 38, 38, 1.0, 1.0, RED
-PicoSAT, 38, 38, 1.0, 1.0, RED
-pycosat, 38, 38, 1.0, 1.0, RED
-pyglucose, 38, 38, 1.0, 1.0, RED

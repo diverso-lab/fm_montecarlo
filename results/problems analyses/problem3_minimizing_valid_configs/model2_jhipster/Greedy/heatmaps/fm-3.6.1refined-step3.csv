@@ -1,0 +1,13 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 2, 47, 23.5, 0.52, YELLOW
+BackEnd, 1, 25, 25.0, 0.64, ORANGE
+Cassandra, 275, 8136, 29.59, 1.0, RED
+ClusteredSession, 1, 17, 17.0, 0.0, BLUE
+Docker, 1, 26, 26.0, 0.72, ORANGE
+Generator, 5, 130, 26.0, 0.72, ORANGE
+Libsass, 1, 18, 18.0, 0.08, BLUE
+MongoDB, 1, 26, 26.0, 0.72, ORANGE
+SQL, 1, 20, 20.0, 0.24, GREEN
+SocialLogin, 1, 18, 18.0, 0.08, BLUE
+SpringWebSockets, 1, 26, 26.0, 0.72, ORANGE
+TestingFrameworks, 1, 25, 25.0, 0.64, ORANGE

@@ -1,0 +1,35 @@
+Problem: Completion of partial configurations.
+----------------------------------------------
+Setting up the problem...
+Creating output folders...
+Loading feature model: evaluation/jhipster/fm-3.6.1refined.xml ...
+Feature model loaded with 45 features, 0 constraints, 28 relations.
+Creating set of actions...
+91 actions.
+Creating initial state (configuration)...
+Initial state: []
+Problem setted up.
+Running algorithm flat Monte Carlo (iters=100)...
+Input state 0: [] -> valid=False, R=-1
+Input state 1: ['JHipster'] -> valid=False, R=-1
+Input state 2: ['Authentication', 'JHipster'] -> valid=False, R=-1
+Input state 3: ['Authentication', 'BackEnd', 'JHipster'] -> valid=False, R=-1
+Input state 4: ['Authentication', 'BackEnd', 'JHipster', 'Maven'] -> valid=False, R=-1
+Input state 5: ['Authentication', 'BackEnd', 'JHipster', 'Maven', 'Uaa'] -> valid=False, R=-1
+Input state 6: ['Authentication', 'BackEnd', 'JHipster', 'Maven', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 7: ['Authentication', 'BackEnd', 'InternationalizationSupport', 'JHipster', 'Maven', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 8: ['Authentication', 'BackEnd', 'ClusteredSession', 'InternationalizationSupport', 'JHipster', 'Maven', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 9: ['Authentication', 'BackEnd', 'ClusteredSession', 'Generator', 'InternationalizationSupport', 'JHipster', 'Maven', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 10: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Generator', 'InternationalizationSupport', 'JHipster', 'Maven', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 11: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Maven', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 12: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Maven', 'Protractor', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 13: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'Protractor', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 14: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'Protractor', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 15: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'Protractor', 'SpringWebSockets', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 16: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Docker', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'Protractor', 'SpringWebSockets', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 17: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Docker', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'MicroserviceGateway', 'Protractor', 'SpringWebSockets', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Input state 18: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'MicroserviceGateway', 'Protractor', 'SpringWebSockets', 'TestingFrameworks', 'Uaa'] -> valid=False, R=-1
+Algorithm finished.
+Final state 19: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'Generator', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'MicroserviceGateway', 'MongoDB', 'Protractor', 'SpringWebSockets', 'TestingFrameworks', 'Uaa'] -> valid=True, R=1
+Serializing results...
+Done!

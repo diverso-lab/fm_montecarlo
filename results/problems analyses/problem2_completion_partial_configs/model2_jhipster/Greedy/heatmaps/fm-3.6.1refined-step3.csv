@@ -1,0 +1,9 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 372, 372, 1.0, 1.0, RED
+BackEnd, 1, 1, 1.0, 1.0, RED
+Database, 1, 1, 1.0, 1.0, RED
+Docker, 1, 1, 1.0, 1.0, RED
+InternationalizationSupport, 1, 1, 1.0, 1.0, RED
+MicroserviceApplication, 1, 1, 1.0, 1.0, RED
+TestingFrameworks, 1, 1, 1.0, 1.0, RED
+UaaServer, 1, 1, 1.0, 1.0, RED

@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Glucose, 11, 22, 2.0, 1.0, RED
+Lingeling, 11, 22, 2.0, 1.0, RED
+Linux, 11, 22, 2.0, 1.0, RED
+MiniSAT, 12, 24, 2.0, 1.0, RED
+PicoSAT, 12, 24, 2.0, 1.0, RED
+SimpleParse, 12, 24, 2.0, 1.0, RED
+pipdeptree, 11, 22, 2.0, 1.0, RED
+pkg-resources, 12, 24, 2.0, 1.0, RED
+pybind11, 11, 22, 2.0, 1.0, RED
+six, 11, 22, 2.0, 1.0, RED
+wheel, 12, 24, 2.0, 1.0, RED

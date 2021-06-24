@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 1, 1, 1.0, 0.71, ORANGE
+FeatureIDE, 280, 336, 1.2, 1.0, RED
+Metamodels, 2, 1, 0.5, 0.0, BLUE
+Packages, 1, 1, 1.0, 0.71, ORANGE
+SPLOT, 1, 1, 1.0, 0.71, ORANGE
+System, 2, 1, 0.5, 0.0, BLUE
+UVL, 1, 1, 1.0, 0.71, ORANGE

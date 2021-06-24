@@ -1,0 +1,36 @@
+Problem 1 (simulated): Finding defective configurations in the jHipster feature model.
+--------------------------------------------------------------------------------------
+Setting up the problem...
+Creating output folders...
+Loading feature model: evaluation/jhipster/fm-3.6.1refined.xml ...
+Feature model loaded with 45 features, 0 constraints, 28 relations.
+Creating set of actions...
+91 actions.
+Creating initial state (configuration)...
+Initial state: []
+Problem setted up.
+Running algorithm flat Monte Carlo (iters=100)...
+Input state 0: [] -> valid=False, R=-1
+Input state 1: ['JHipster'] -> valid=False, R=-1
+Input state 2: ['Database', 'JHipster'] -> valid=False, R=-1
+Input state 3: ['ClusteredSession', 'Database', 'JHipster'] -> valid=False, R=-1
+Input state 4: ['ClusteredSession', 'Database', 'InternationalizationSupport', 'JHipster'] -> valid=False, R=-1
+Input state 5: ['ClusteredSession', 'Database', 'InternationalizationSupport', 'JHipster', 'MongoDB'] -> valid=False, R=-1
+Input state 6: ['ClusteredSession', 'Database', 'InternationalizationSupport', 'JHipster', 'MongoDB', 'SocialLogin'] -> valid=False, R=-1
+Input state 7: ['ClusteredSession', 'Database', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin'] -> valid=False, R=-1
+Input state 8: ['ClusteredSession', 'Database', 'Docker', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin'] -> valid=False, R=-1
+Input state 9: ['Authentication', 'ClusteredSession', 'Database', 'Docker', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin'] -> valid=False, R=-1
+Input state 10: ['Authentication', 'ClusteredSession', 'Database', 'Docker', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin', 'SpringWebSockets'] -> valid=False, R=-1
+Input state 11: ['Authentication', 'ClusteredSession', 'Database', 'Docker', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin', 'SpringWebSockets'] -> valid=False, R=-1
+Input state 12: ['Authentication', 'ClusteredSession', 'Database', 'Docker', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 13: ['Authentication', 'ClusteredSession', 'Database', 'Docker', 'Gatling', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 14: ['Authentication', 'ClusteredSession', 'Database', 'Docker', 'Gatling', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 15: ['Authentication', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 16: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 17: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'Generator', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'MongoDB', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 18: ['Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'Generator', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'MongoDB', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Input state 19: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'Generator', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'MongoDB', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=False, R=-1
+Algorithm finished.
+Final state 20: ['Application', 'Authentication', 'BackEnd', 'ClusteredSession', 'Cucumber', 'Database', 'Docker', 'Gatling', 'Generator', 'HTTPSession', 'InternationalizationSupport', 'JHipster', 'Libsass', 'Maven', 'MongoDB', 'Monolithic', 'Protractor', 'SocialLogin', 'SpringWebSockets', 'TestingFrameworks'] -> valid=True, R=1
+Serializing results...
+Done!

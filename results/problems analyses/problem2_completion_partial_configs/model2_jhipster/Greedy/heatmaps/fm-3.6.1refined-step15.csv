@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 1, 1, 1.0, 1.0, RED
+ElasticSearch, 1, 1, 1.0, 1.0, RED
+Gatling, 1, 1, 1.0, 1.0, RED
+Hibernate2ndLvlCache, 1, 1, 1.0, 1.0, RED
+MicroserviceApplication, 1, 1, 1.0, 1.0, RED
+Production, 1484, 1484, 1.0, 1.0, RED
+UaaServer, 1, 1, 1.0, 1.0, RED

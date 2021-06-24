@@ -1,0 +1,14 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AAFMFramework, 201, 201, 1.0, 1.0, RED
+Glucose, 2323, 2323, 1.0, 1.0, RED
+Linux, 1167, 1167, 1.0, 1.0, RED
+MiniSAT, 2028, 2028, 1.0, 1.0, RED
+Packages, 889, 889, 1.0, 1.0, RED
+PicoSAT, 2225, 2225, 1.0, 1.0, RED
+Solvers, 1079, 1079, 1.0, 1.0, RED
+System, 696, 696, 1.0, 1.0, RED
+Win, 5, 5, 1.0, 1.0, RED
+pyPicosat, 1641, 1641, 1.0, 1.0, RED
+pycosat, 1452, 1452, 1.0, 1.0, RED
+pyglucose, 1834, 1834, 1.0, 1.0, RED
+python-sat, 1265, 1265, 1.0, 1.0, RED

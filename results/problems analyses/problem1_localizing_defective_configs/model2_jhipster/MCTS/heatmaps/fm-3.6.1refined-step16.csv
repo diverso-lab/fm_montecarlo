@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 18, 18, 1.0, 1.0, RED
+Development, 19, 19, 1.0, 1.0, RED
+ElasticSearch, 18, 18, 1.0, 1.0, RED
+Gatling, 18, 18, 1.0, 1.0, RED
+Hibernate2ndLvlCache, 18, 18, 1.0, 1.0, RED
+Production, 18, 18, 1.0, 1.0, RED
+Protractor, 18, 18, 1.0, 1.0, RED

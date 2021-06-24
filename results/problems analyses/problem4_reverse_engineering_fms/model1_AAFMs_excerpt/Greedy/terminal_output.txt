@@ -1,0 +1,32 @@
+Problem: Reverse engineering of feature models.
+-----------------------------------------------
+Setting up the problem...
+Creating output folders...
+Loading feature model: model_simple_paper_excerpt ...
+Feature model loaded with 13 features, 0 constraints, 6 relations.
+Generating configurations of the feature model...
+#Configurations: 110
+Creating initial state (empty feature model)...
+Problem setted up.
+Running algorithm Greedy MCTS (iters=1000)...
+State 0: [] -> 110
+State 1: ['System'] -> 110
+State 2: ['AAFMFramework', 'Solvers', 'System'] -> 110
+State 3: ['AAFMFramework', 'Packages', 'Solvers', 'System', 'python-sat'] -> 108
+State 4: ['AAFMFramework', 'Linux', 'Packages', 'Solvers', 'System', 'pycosat', 'python-sat'] -> 98
+State 5: ['AAFMFramework', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'pycosat', 'python-sat'] -> 83
+State 6: ['AAFMFramework', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat'] -> 61
+State 7: ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat'] -> 72
+Algorithm finished.
+Final State 8: ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'Win', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat'] -> 76
+Serializing generated feature model in UVL format in output_results/generated_fms/System.uvl
+Generating configurations of the extracted feature model...
+Results:
+#Features: 13 -> ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'Win', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat']
+#Configurations: 255
+Input configurations captured (Relaxed objective function): 76
+Deficit of configurations: 34
+Irrelevant configurations: 179
+Mininal difference (MinDiff) objective function (deficit_value + surplus_value): 34 + 179 = 213
+Final objective function (Relaxed - MinDiff): -137
+Execution time: 637.3237073421478

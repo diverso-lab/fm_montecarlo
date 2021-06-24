@@ -1,0 +1,17 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 7, 13, 1.86, 0.86, RED
+DepMng, 9, 17, 1.89, 0.89, RED
+Interoperability, 13, 26, 2.0, 1.0, RED
+Metamodels, 3, 5, 1.67, 0.67, ORANGE
+SimpleParse, 2, 3, 1.5, 0.5, YELLOW
+System, 5, 9, 1.8, 0.8, RED
+Utils, 10, 19, 1.9, 0.9, RED
+antlr4-python3-runtime, 5, 9, 1.8, 0.8, RED
+lark-parser, 12, 24, 2.0, 1.0, RED
+pycosat, 4, 7, 1.75, 0.75, ORANGE
+pycryptosat, 4, 7, 1.75, 0.75, ORANGE
+pydepqbf, 1, 1, 1.0, 0.0, BLUE
+pyglucose, 4, 7, 1.75, 0.75, ORANGE
+python-sat, 12, 23, 1.92, 0.92, RED
+satispy, 12, 24, 2.0, 1.0, RED
+satyrn, 12, 24, 2.0, 1.0, RED

@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 30, 30, 1.0, 1.0, RED
+ElasticSearch, 31, 31, 1.0, 1.0, RED
+Gatling, 30, 30, 1.0, 1.0, RED
+MicroserviceApplication, 31, 31, 1.0, 1.0, RED
+UaaServer, 31, 31, 1.0, 1.0, RED

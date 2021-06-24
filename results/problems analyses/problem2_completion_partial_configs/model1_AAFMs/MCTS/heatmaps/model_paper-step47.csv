@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Linux, 32, 32, 1.0, 1.0, RED
+ebnf, 31, 31, 1.0, 1.0, RED
+pipdeptree, 31, 31, 1.0, 1.0, RED
+pybind11, 32, 32, 1.0, 1.0, RED
+six, 32, 32, 1.0, 1.0, RED

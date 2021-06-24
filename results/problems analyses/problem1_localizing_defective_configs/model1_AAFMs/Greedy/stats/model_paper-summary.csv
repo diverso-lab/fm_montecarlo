@@ -1,0 +1,2 @@
+Method, Iterations, Decisions, Simulations, Evaluations, PositiveEvaluations, Percentage, TreeSize, Time
+"Greedy MCTS (iters=100)", 100, 51, 100, 2334, 2281, 0.9772922022279349, 4085, 28.00620126724243

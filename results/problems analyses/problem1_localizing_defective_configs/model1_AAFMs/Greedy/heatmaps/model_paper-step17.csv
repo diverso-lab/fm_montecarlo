@@ -1,0 +1,18 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+DepMng, 1, 2, 2.0, 1.0, RED
+Glucose, 1, 2, 2.0, 1.0, RED
+Lingeling, 1, 2, 2.0, 1.0, RED
+Linux, 1, 2, 2.0, 1.0, RED
+Metamodels, 100, 199, 1.99, 0.94, RED
+MiniSAT, 1, 2, 2.0, 1.0, RED
+Operations, 1, 2, 2.0, 1.0, RED
+PicoSAT, 1, 2, 2.0, 1.0, RED
+SPLOT, 1, 2, 2.0, 1.0, RED
+SimpleParse, 1, 2, 2.0, 1.0, RED
+UVL, 1, 2, 2.0, 1.0, RED
+Utils, 1, 2, 2.0, 1.0, RED
+ebnf, 1, 2, 2.0, 1.0, RED
+pycosat, 6, 11, 1.83, 0.0, BLUE
+pydepqbf, 28, 56, 2.0, 1.0, RED
+satispy, 19, 37, 1.95, 0.68, ORANGE
+umo, 34, 67, 1.97, 0.82, RED

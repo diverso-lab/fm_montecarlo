@@ -1,0 +1,8 @@
+Step, Decisions, Simulations, Evaluations, Positive Evaluations, Tree Size, Time (s), Choice
+0, 1, 100, 92, 92, 101, 0.7239725589752197, AAFMFramework
+1, 5, 100, 96, 188, 202, 0.6759634017944336, Interoperability
+2, 7, 100, 98, 286, 303, 0.43271660804748535, SPLOT
+3, 6, 100, 99, 385, 404, 0.4488534927368164, Metamodels
+4, 8, 100, 94, 479, 505, 0.44086146354675293, DecisionModel
+5, 7, 100, 99, 578, 606, 0.34505748748779297, System
+6, 8, 100, 100, 678, 707, 0.3646838665008545, Win

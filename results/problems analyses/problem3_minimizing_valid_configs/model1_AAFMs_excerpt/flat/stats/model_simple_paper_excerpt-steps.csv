@@ -1,0 +1,4 @@
+Step, Decisions, Simulations, Evaluations, Positive Evaluations, Tree Size, Time (s), Choice
+0, 0, 100, 45, 45, 0, 0.03937792778015137, AAFMFramework
+1, 0, 100, 20, 65, 0, 0.03661751747131348, System
+2, 0, 100, 3, 68, 0, 0.01947188377380371, Win

@@ -1,0 +1,10 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cassandra, 19, 19, 1.0, 1.0, RED
+Cucumber, 18, 18, 1.0, 1.0, RED
+Docker, 19, 19, 1.0, 1.0, RED
+Gatling, 18, 18, 1.0, 1.0, RED
+InternationalizationSupport, 19, 19, 1.0, 1.0, RED
+MicroserviceApplication, 19, 19, 1.0, 1.0, RED
+MongoDB, 19, 19, 1.0, 1.0, RED
+SQL, 19, 19, 1.0, 1.0, RED
+UaaServer, 18, 18, 1.0, 1.0, RED

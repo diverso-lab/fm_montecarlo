@@ -1,0 +1,20 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+DepMng, 4, 7, 1.75, 0.0, BLUE
+FeatureIDE, 6, 12, 2.0, 1.0, RED
+Linux, 6, 12, 2.0, 1.0, RED
+Metamodels, 7, 14, 2.0, 1.0, RED
+Operations, 6, 12, 2.0, 1.0, RED
+SPLOT, 6, 12, 2.0, 1.0, RED
+SimpleParse, 6, 12, 2.0, 1.0, RED
+Solvers, 6, 12, 2.0, 1.0, RED
+UVL, 6, 12, 2.0, 1.0, RED
+Utils, 6, 12, 2.0, 1.0, RED
+antlr4-python3-runtime, 6, 12, 2.0, 1.0, RED
+ebnf, 6, 12, 2.0, 1.0, RED
+pycosat, 7, 14, 2.0, 1.0, RED
+pycryptosat, 6, 12, 2.0, 1.0, RED
+pydepqbf, 6, 12, 2.0, 1.0, RED
+pyglucose, 7, 14, 2.0, 1.0, RED
+python-sat, 7, 14, 2.0, 1.0, RED
+satispy, 6, 12, 2.0, 1.0, RED
+satyrn, 6, 12, 2.0, 1.0, RED

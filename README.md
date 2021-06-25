@@ -83,7 +83,7 @@ Alternatively, in the case of using [Docker]('https://docs.docker.com/get-docker
 
 To remove any previous version, run:
 ```
-    docker images rm diversolab/fm_montecarlo
+    docker image rm -f diversolab/fm_montecarlo
 ```
 To execute the commands in an interactive shell, run:
 

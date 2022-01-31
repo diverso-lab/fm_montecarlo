@@ -1,0 +1,7 @@
+******************************busybox-1.18.0******************************
+==========random_strategy==========
+Loading models/busybox-1.18.0.xml feature model...
+The BDD model cannot be build for this feature model.
+Initial state: []
+Running 30 executions of algorithm "Random strategy" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 

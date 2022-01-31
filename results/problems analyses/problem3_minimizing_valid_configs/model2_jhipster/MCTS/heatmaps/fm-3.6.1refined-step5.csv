@@ -1,8 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Authentication, 70, 2117, 30.24, 0.44, YELLOW
-BackEnd, 10, 300, 30.0, 0.0, BLUE
-Docker, 14, 421, 30.07, 0.13, BLUE
-InternationalizationSupport, 22, 663, 30.14, 0.25, GREEN
-MicroserviceApplication, 47, 1420, 30.21, 0.38, GREEN
-TestingFrameworks, 303, 9258, 30.55, 1.0, RED
-UaaServer, 9, 270, 30.0, 0.0, BLUE

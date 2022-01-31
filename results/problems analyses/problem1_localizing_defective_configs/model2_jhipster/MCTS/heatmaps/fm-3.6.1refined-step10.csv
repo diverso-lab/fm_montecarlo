@@ -1,9 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Cucumber, 18, 18, 1.0, 1.0, RED
-Database, 19, 19, 1.0, 1.0, RED
-Docker, 18, 18, 1.0, 1.0, RED
-Gatling, 18, 18, 1.0, 1.0, RED
-InternationalizationSupport, 12, 10, 0.83, 0.58, YELLOW
-Libsass, 18, 18, 1.0, 1.0, RED
-Protractor, 18, 18, 1.0, 1.0, RED
-SpringWebSockets, 5, 3, 0.6, 0.0, BLUE

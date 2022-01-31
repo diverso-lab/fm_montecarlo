@@ -1,0 +1,199 @@
+******************************mobilemedia2******************************
+==========random_strategy==========
+Loading models/mobilemedia2.xml feature model...
+Initial state: ['Speakerphone', 'Radio', 'MediaManagement', 'CallManager', 'MediaSelection', 'Calendar', 'ScreenSize', 'Language', 'OS', 'MobileMedia2']
+Running 30 executions of algorithm "Random strategy" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> ['Speakerphone', 'Radio', 'MediaManagement', 'CallManager', 'MediaSelection', 'Calendar', 'ScreenSize', 'Language', 'OS', 'MobileMedia2']
+ |Step 1: Select feature 'WindowsMobile' -> ['Speakerphone', 'Radio', 'MediaManagement', 'CallManager', 'MediaSelection', 'Calendar', 'ScreenSize', 'Language', 'OS', 'MobileMedia2', 'WindowsMobile']
+ |Step 2: Select feature 'Screen1' -> ['Speakerphone', 'Radio', 'MediaManagement', 'CallManager', 'MediaSelection', 'Calendar', 'ScreenSize', 'Language', 'OS', 'MobileMedia2', 'WindowsMobile', 'Screen1']
+ |Step 3: Select feature 'Spanish' -> ['Speakerphone', 'Radio', 'MediaManagement', 'CallManager', 'MediaSelection', 'Calendar', 'ScreenSize', 'Language', 'OS', 'MobileMedia2', 'WindowsMobile', 'Screen1', 'Spanish']
+ |Step 4: Select feature 'Photo' -> ['Speakerphone', 'Radio', 'MediaManagement', 'CallManager', 'MediaSelection', 'Calendar', 'ScreenSize', 'Language', 'OS', 'MobileMedia2', 'WindowsMobile', 'Screen1', 'Spanish', 'Photo']
+#Features: 14
+#Decisions: 4
+#Best solutions (bests/sols): 1/30 (3.33%)
+#Different best solutions (diffs/sols): 1/30 (3.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 34.0
+ |mean: 30.9333
+ |stdev: 7.0512
+#Decisions:
+ |median: 24.0
+ |mean: 20.9333
+ |stdev: 7.0512
+Execution time:
+ |median: 0.0032 s
+ |mean: 0.0028 s
+ |stdev: 0.0009 s
+Memory consumption:
+ |median: 0.6354 MB
+ |mean: 0.6417 MB
+ |stdev: 0.3491 MB
+Experiment total execution time: 0.0837 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========flat_montecarlo==========
+Loading models/mobilemedia2.xml feature model...
+Initial state: ['Language', 'MobileMedia2', 'CallManager', 'Speakerphone', 'MediaManagement', 'Calendar', 'OS', 'Radio', 'MediaSelection', 'ScreenSize']
+Running 30 executions of algorithm "Flat Monte Carlo" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> ['Language', 'MobileMedia2', 'CallManager', 'Speakerphone', 'MediaManagement', 'Calendar', 'OS', 'Radio', 'MediaSelection', 'ScreenSize']
+ |Step 1: Select feature 'Screen2' -> ['Language', 'MobileMedia2', 'CallManager', 'Speakerphone', 'MediaManagement', 'Calendar', 'OS', 'Radio', 'MediaSelection', 'ScreenSize', 'Screen2']
+ |Step 2: Select feature 'Portuguese' -> ['Language', 'MobileMedia2', 'CallManager', 'Speakerphone', 'MediaManagement', 'Calendar', 'OS', 'Radio', 'MediaSelection', 'ScreenSize', 'Screen2', 'Portuguese']
+ |Step 3: Select feature 'Video' -> ['Language', 'MobileMedia2', 'CallManager', 'Speakerphone', 'MediaManagement', 'Calendar', 'OS', 'Radio', 'MediaSelection', 'ScreenSize', 'Screen2', 'Portuguese', 'Video']
+ |Step 4: Select feature 'WindowsMobile' -> ['Language', 'MobileMedia2', 'CallManager', 'Speakerphone', 'MediaManagement', 'Calendar', 'OS', 'Radio', 'MediaSelection', 'ScreenSize', 'Screen2', 'Portuguese', 'Video', 'WindowsMobile']
+#Features: 14
+#Decisions: 4
+#Best solutions (bests/sols): 14/30 (46.67%)
+#Different best solutions (diffs/sols): 13/30 (43.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 15.0
+ |mean: 14.8333
+ |stdev: 1.2341
+#Decisions:
+ |median: 5.0
+ |mean: 4.8333
+ |stdev: 1.2341
+Execution time:
+ |median: 0.961 s
+ |mean: 0.98 s
+ |stdev: 0.2539 s
+Memory consumption:
+ |median: 0.9111 MB
+ |mean: 0.9474 MB
+ |stdev: 0.2636 MB
+Experiment total execution time: 29.4015 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========uct_mcts==========
+Loading models/mobilemedia2.xml feature model...
+Initial state: ['ScreenSize', 'MobileMedia2', 'Speakerphone', 'OS', 'CallManager', 'Calendar', 'MediaSelection', 'Radio', 'Language', 'MediaManagement']
+Running 30 executions of algorithm "UCT MCTS" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> ['ScreenSize', 'MobileMedia2', 'Speakerphone', 'OS', 'CallManager', 'Calendar', 'MediaSelection', 'Radio', 'Language', 'MediaManagement']
+ |Step 1: Select feature 'Video' -> ['ScreenSize', 'MobileMedia2', 'Speakerphone', 'OS', 'CallManager', 'Calendar', 'MediaSelection', 'Radio', 'Language', 'MediaManagement', 'Video']
+ |Step 2: Select feature 'Symbia' -> ['ScreenSize', 'MobileMedia2', 'Speakerphone', 'OS', 'CallManager', 'Calendar', 'MediaSelection', 'Radio', 'Language', 'MediaManagement', 'Video', 'Symbia']
+ |Step 3: Select feature 'Portuguese' -> ['ScreenSize', 'MobileMedia2', 'Speakerphone', 'OS', 'CallManager', 'Calendar', 'MediaSelection', 'Radio', 'Language', 'MediaManagement', 'Video', 'Symbia', 'Portuguese']
+ |Step 4: Select feature 'Screen1' -> ['ScreenSize', 'MobileMedia2', 'Speakerphone', 'OS', 'CallManager', 'Calendar', 'MediaSelection', 'Radio', 'Language', 'MediaManagement', 'Video', 'Symbia', 'Portuguese', 'Screen1']
+#Features: 14
+#Decisions: 4
+#Best solutions (bests/sols): 22/30 (73.33%)
+#Different best solutions (diffs/sols): 20/30 (66.67%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 14.0
+ |mean: 14.3
+ |stdev: 0.535
+#Decisions:
+ |median: 4.0
+ |mean: 4.3
+ |stdev: 0.535
+Execution time:
+ |median: 0.9321 s
+ |mean: 0.9973 s
+ |stdev: 0.1403 s
+Memory consumption:
+ |median: 11.0523 MB
+ |mean: 11.7933 MB
+ |stdev: 1.3833 MB
+Experiment total execution time: 29.9201 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========greedy_mcts==========
+Loading models/mobilemedia2.xml feature model...
+Initial state: ['ScreenSize', 'MobileMedia2', 'MediaSelection', 'Speakerphone', 'CallManager', 'Radio', 'OS', 'Language', 'Calendar', 'MediaManagement']
+Running 30 executions of algorithm "Greedy MCTS" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> ['ScreenSize', 'MobileMedia2', 'MediaSelection', 'Speakerphone', 'CallManager', 'Radio', 'OS', 'Language', 'Calendar', 'MediaManagement']
+ |Step 1: Select feature 'Androide' -> ['ScreenSize', 'MobileMedia2', 'MediaSelection', 'Speakerphone', 'CallManager', 'Radio', 'OS', 'Language', 'Calendar', 'MediaManagement', 'Androide']
+ |Step 2: Select feature 'Photo' -> ['ScreenSize', 'MobileMedia2', 'MediaSelection', 'Speakerphone', 'CallManager', 'Radio', 'OS', 'Language', 'Calendar', 'MediaManagement', 'Androide', 'Photo']
+ |Step 3: Select feature 'Spanish' -> ['ScreenSize', 'MobileMedia2', 'MediaSelection', 'Speakerphone', 'CallManager', 'Radio', 'OS', 'Language', 'Calendar', 'MediaManagement', 'Androide', 'Photo', 'Spanish']
+ |Step 4: Select feature 'Screen3' -> ['ScreenSize', 'MobileMedia2', 'MediaSelection', 'Speakerphone', 'CallManager', 'Radio', 'OS', 'Language', 'Calendar', 'MediaManagement', 'Androide', 'Photo', 'Spanish', 'Screen3']
+#Features: 14
+#Decisions: 4
+#Best solutions (bests/sols): 19/30 (63.33%)
+#Different best solutions (diffs/sols): 14/30 (46.67%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 14.0
+ |mean: 14.3667
+ |stdev: 0.4901
+#Decisions:
+ |median: 4.0
+ |mean: 4.3667
+ |stdev: 0.4901
+Execution time:
+ |median: 0.9802 s
+ |mean: 1.0544 s
+ |stdev: 0.149 s
+Memory consumption:
+ |median: 10.7561 MB
+ |mean: 11.2739 MB
+ |stdev: 1.185 MB
+Experiment total execution time: 63.2601 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========parallel_flat_montecarlo==========
+Loading models/mobilemedia2.xml feature model...
+Initial state: ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2']
+Running 30 executions of algorithm "Parallel Flat Monte Carlo" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2']
+ |Step 1: Select feature 'Spanish' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish']
+ |Step 2: Select feature 'Symbia' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish', 'Symbia']
+ |Step 3: Select feature 'Video' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish', 'Symbia', 'Video']
+ |Step 4: Select feature 'Photo' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish', 'Symbia', 'Video', 'Photo']
+ |Step 5: Select feature 'English' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish', 'Symbia', 'Video', 'Photo', 'English']
+ |Step 6: Select feature 'GPS' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish', 'Symbia', 'Video', 'Photo', 'English', 'GPS']
+ |Step 7: Select feature 'Screen3' -> ['Speakerphone', 'Language', 'Calendar', 'MediaSelection', 'ScreenSize', 'OS', 'CallManager', 'MediaManagement', 'Radio', 'MobileMedia2', 'Spanish', 'Symbia', 'Video', 'Photo', 'English', 'GPS', 'Screen3']
+#Features: 17
+#Decisions: 7
+#Best solutions (bests/sols): 3/30 (10.0%)
+#Different best solutions (diffs/sols): 3/30 (10.0%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 27.5
+ |mean: 25.6
+ |stdev: 5.035
+#Decisions:
+ |median: 17.5
+ |mean: 15.6
+ |stdev: 5.035
+Execution time:
+ |median: 1.2986 s
+ |mean: 1.1747 s
+ |stdev: 0.3696 s
+Memory consumption:
+ |median: 1.1021 MB
+ |mean: 1.1107 MB
+ |stdev: 0.2713 MB
+Experiment total execution time: 35.2408 s.
+Serializing results...
+Files saved in "results".
+Finished.

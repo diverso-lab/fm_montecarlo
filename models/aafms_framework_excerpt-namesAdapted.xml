@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="0"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="AAFMFramework">
+			<graphics key="position" value="668,40"/>
+			<or name="Packages">
+				<graphics key="position" value="520,90"/>
+				<graphics key="collapsed" value="false"/>
+				<feature name="pythonSat">
+					<graphics key="position" value="429,140"/>
+				</feature>
+				<feature name="pycosat">
+					<graphics key="position" value="495,140"/>
+				</feature>
+				<feature name="pyPicosat">
+					<graphics key="position" value="549,140"/>
+				</feature>
+				<feature name="pyglucose">
+					<graphics key="position" value="612,140"/>
+				</feature>
+			</or>
+			<or name="Solvers">
+				<graphics key="position" value="737,90"/>
+				<graphics key="collapsed" value="false"/>
+				<feature name="MiniSAT">
+					<graphics key="position" value="677,140"/>
+				</feature>
+				<feature name="PicoSAT">
+					<graphics key="position" value="734,140"/>
+				</feature>
+				<feature name="Glucose">
+					<graphics key="position" value="793,140"/>
+				</feature>
+			</or>
+			<alt mandatory="true" name="System">
+				<graphics key="position" value="862,90"/>
+				<graphics key="collapsed" value="false"/>
+				<feature name="Linux">
+					<graphics key="position" value="849,140"/>
+				</feature>
+				<feature name="Win">
+					<graphics key="position" value="891,140"/>
+				</feature>
+			</alt>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<graphics key="position" value="533,169"/>
+			<imp>
+				<var>PicoSAT</var>
+				<disj>
+					<var>pycosat</var>
+					<var>pyPicosat</var>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="527,186"/>
+			<imp>
+				<var>Glucose</var>
+				<disj>
+					<var>pythonSat</var>
+					<var>pyglucose</var>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="739,170"/>
+			<imp>
+				<var>MiniSAT</var>
+				<var>pythonSat</var>
+			</imp>
+		</rule>
+		<rule>
+			<graphics key="position" value="748,187"/>
+			<imp>
+				<var>Win</var>
+				<not>
+					<var>pyPicosat</var>
+				</not>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>

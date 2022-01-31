@@ -1,0 +1,6 @@
+====================aafms_framework-namesAdapted====================
+==========a_star==========
+==========random_strategy==========
+==========flat_montecarlo==========
+==========uct_mcts==========
+==========greedy_mcts==========

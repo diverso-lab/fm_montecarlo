@@ -1,4 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Cucumber, 1114, 33422, 30.0, 1.0, RED
-Docker, 1, 30, 30.0, 0.0, BLUE
-Gatling, 1, 30, 30.0, 0.0, BLUE

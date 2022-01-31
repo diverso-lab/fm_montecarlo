@@ -1,0 +1,238 @@
+******************************jHipster******************************
+==========random_strategy==========
+Loading models/jHipster.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Random strategy" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'JHipster' -> ['JHipster']
+ |Step 2: Select feature 'Generator' -> ['JHipster', 'Generator']
+ |Step 3: Select feature 'Server' -> ['JHipster', 'Generator', 'Server']
+ |Step 4: Select feature 'BackEnd' -> ['JHipster', 'Generator', 'Server', 'BackEnd']
+ |Step 5: Select feature 'Gradle' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle']
+ |Step 6: Select feature 'UaaServer' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer']
+ |Step 7: Select feature 'InternationalizationSupport' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport']
+ |Step 8: Select feature 'Database' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database']
+ |Step 9: Select feature 'Docker' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker']
+ |Step 10: Select feature 'Authentication' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker', 'Authentication']
+ |Step 11: Select feature 'Cassandra' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker', 'Authentication', 'Cassandra']
+ |Step 12: Select feature 'TestingFrameworks' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker', 'Authentication', 'Cassandra', 'TestingFrameworks']
+ |Step 13: Select feature 'Uaa' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker', 'Authentication', 'Cassandra', 'TestingFrameworks', 'Uaa']
+ |Step 14: Select feature 'Cucumber' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker', 'Authentication', 'Cassandra', 'TestingFrameworks', 'Uaa', 'Cucumber']
+ |Step 15: Select feature 'Gatling' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Gradle', 'UaaServer', 'InternationalizationSupport', 'Database', 'Docker', 'Authentication', 'Cassandra', 'TestingFrameworks', 'Uaa', 'Cucumber', 'Gatling']
+#Features: 15
+#Decisions: 15
+#Best solutions (bests/sols): 1/30 (3.33%)
+#Different best solutions (diffs/sols): 1/30 (3.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 20.0
+ |mean: 21.4667
+ |stdev: 3.4813
+#Decisions:
+ |median: 20.0
+ |mean: 21.4667
+ |stdev: 3.4813
+Execution time:
+ |median: 0.0018 s
+ |mean: 0.002 s
+ |stdev: 0.0006 s
+Memory consumption:
+ |median: 0.607 MB
+ |mean: 0.6263 MB
+ |stdev: 0.3636 MB
+Experiment total execution time: 0.0614 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========flat_montecarlo==========
+Loading models/jHipster.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Flat Monte Carlo" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'JHipster' -> ['JHipster']
+ |Step 2: Select feature 'Authentication' -> ['JHipster', 'Authentication']
+ |Step 3: Select feature 'Generator' -> ['JHipster', 'Authentication', 'Generator']
+ |Step 4: Select feature 'Server' -> ['JHipster', 'Authentication', 'Generator', 'Server']
+ |Step 5: Select feature 'JWT' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT']
+ |Step 6: Select feature 'TestingFrameworks' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT', 'TestingFrameworks']
+ |Step 7: Select feature 'BackEnd' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT', 'TestingFrameworks', 'BackEnd']
+ |Step 8: Select feature 'MicroserviceApplication' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT', 'TestingFrameworks', 'BackEnd', 'MicroserviceApplication']
+ |Step 9: Select feature 'Gatling' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT', 'TestingFrameworks', 'BackEnd', 'MicroserviceApplication', 'Gatling']
+ |Step 10: Select feature 'Maven' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT', 'TestingFrameworks', 'BackEnd', 'MicroserviceApplication', 'Gatling', 'Maven']
+ |Step 11: Select feature 'Cucumber' -> ['JHipster', 'Authentication', 'Generator', 'Server', 'JWT', 'TestingFrameworks', 'BackEnd', 'MicroserviceApplication', 'Gatling', 'Maven', 'Cucumber']
+#Features: 11
+#Decisions: 11
+#Best solutions (bests/sols): 1/30 (3.33%)
+#Different best solutions (diffs/sols): 1/30 (3.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 14.0
+ |mean: 14.6333
+ |stdev: 2.0924
+#Decisions:
+ |median: 14.0
+ |mean: 14.6333
+ |stdev: 2.0924
+Execution time:
+ |median: 1.3843 s
+ |mean: 1.4834 s
+ |stdev: 0.2985 s
+Memory consumption:
+ |median: 1.7878 MB
+ |mean: 1.8106 MB
+ |stdev: 0.3915 MB
+Experiment total execution time: 44.5029 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========uct_mcts==========
+Loading models/jHipster.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "UCT MCTS" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'JHipster' -> ['JHipster']
+ |Step 2: Select feature 'BackEnd' -> ['JHipster', 'BackEnd']
+ |Step 3: Select feature 'Generator' -> ['JHipster', 'BackEnd', 'Generator']
+ |Step 4: Select feature 'Server' -> ['JHipster', 'BackEnd', 'Generator', 'Server']
+ |Step 5: Select feature 'MicroserviceApplication' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication']
+ |Step 6: Select feature 'Authentication' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication', 'Authentication']
+ |Step 7: Select feature 'TestingFrameworks' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication', 'Authentication', 'TestingFrameworks']
+ |Step 8: Select feature 'Gatling' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication', 'Authentication', 'TestingFrameworks', 'Gatling']
+ |Step 9: Select feature 'Maven' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication', 'Authentication', 'TestingFrameworks', 'Gatling', 'Maven']
+ |Step 10: Select feature 'JWT' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication', 'Authentication', 'TestingFrameworks', 'Gatling', 'Maven', 'JWT']
+ |Step 11: Select feature 'Cucumber' -> ['JHipster', 'BackEnd', 'Generator', 'Server', 'MicroserviceApplication', 'Authentication', 'TestingFrameworks', 'Gatling', 'Maven', 'JWT', 'Cucumber']
+#Features: 11
+#Decisions: 11
+#Best solutions (bests/sols): 1/30 (3.33%)
+#Different best solutions (diffs/sols): 1/30 (3.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 13.0
+ |mean: 13.4
+ |stdev: 0.9322
+#Decisions:
+ |median: 13.0
+ |mean: 13.4
+ |stdev: 0.9322
+Execution time:
+ |median: 3.2334 s
+ |mean: 3.1764 s
+ |stdev: 0.5795 s
+Memory consumption:
+ |median: 9.072 MB
+ |mean: 9.7775 MB
+ |stdev: 3.3305 MB
+Experiment total execution time: 95.2917 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========greedy_mcts==========
+Loading models/jHipster.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Greedy MCTS" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'JHipster' -> ['JHipster']
+ |Step 2: Select feature 'Generator' -> ['JHipster', 'Generator']
+ |Step 3: Select feature 'Server' -> ['JHipster', 'Generator', 'Server']
+ |Step 4: Select feature 'BackEnd' -> ['JHipster', 'Generator', 'Server', 'BackEnd']
+ |Step 5: Select feature 'Authentication' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication']
+ |Step 6: Select feature 'TestingFrameworks' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication', 'TestingFrameworks']
+ |Step 7: Select feature 'MicroserviceApplication' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication', 'TestingFrameworks', 'MicroserviceApplication']
+ |Step 8: Select feature 'Gradle' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication', 'TestingFrameworks', 'MicroserviceApplication', 'Gradle']
+ |Step 9: Select feature 'Gatling' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication', 'TestingFrameworks', 'MicroserviceApplication', 'Gradle', 'Gatling']
+ |Step 10: Select feature 'Cucumber' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication', 'TestingFrameworks', 'MicroserviceApplication', 'Gradle', 'Gatling', 'Cucumber']
+ |Step 11: Select feature 'Uaa' -> ['JHipster', 'Generator', 'Server', 'BackEnd', 'Authentication', 'TestingFrameworks', 'MicroserviceApplication', 'Gradle', 'Gatling', 'Cucumber', 'Uaa']
+#Features: 11
+#Decisions: 11
+#Best solutions (bests/sols): 6/30 (20.0%)
+#Different best solutions (diffs/sols): 4/30 (13.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 13.5
+ |mean: 13.5333
+ |stdev: 1.9429
+#Decisions:
+ |median: 13.5
+ |mean: 13.5333
+ |stdev: 1.9429
+Execution time:
+ |median: 2.3297 s
+ |mean: 2.6638 s
+ |stdev: 1.1921 s
+Memory consumption:
+ |median: 5.6517 MB
+ |mean: 6.3935 MB
+ |stdev: 2.7585 MB
+Experiment total execution time: 159.824 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========parallel_flat_montecarlo==========
+Loading models/jHipster.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Parallel Flat Monte Carlo" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'JHipster' -> ['JHipster']
+ |Step 2: Select feature 'Generator' -> ['JHipster', 'Generator']
+ |Step 3: Select feature 'TestingFrameworks' -> ['JHipster', 'Generator', 'TestingFrameworks']
+ |Step 4: Select feature 'BackEnd' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd']
+ |Step 5: Select feature 'InternationalizationSupport' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport']
+ |Step 6: Select feature 'Server' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server']
+ |Step 7: Select feature 'Gradle' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle']
+ |Step 8: Select feature 'Cucumber' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber']
+ |Step 9: Select feature 'Database' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber', 'Database']
+ |Step 10: Select feature 'Authentication' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber', 'Database', 'Authentication']
+ |Step 11: Select feature 'UaaServer' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber', 'Database', 'Authentication', 'UaaServer']
+ |Step 12: Select feature 'MongoDB' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber', 'Database', 'Authentication', 'UaaServer', 'MongoDB']
+ |Step 13: Select feature 'Gatling' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber', 'Database', 'Authentication', 'UaaServer', 'MongoDB', 'Gatling']
+ |Step 14: Select feature 'Uaa' -> ['JHipster', 'Generator', 'TestingFrameworks', 'BackEnd', 'InternationalizationSupport', 'Server', 'Gradle', 'Cucumber', 'Database', 'Authentication', 'UaaServer', 'MongoDB', 'Gatling', 'Uaa']
+#Features: 14
+#Decisions: 14
+#Best solutions (bests/sols): 4/30 (13.33%)
+#Different best solutions (diffs/sols): 4/30 (13.33%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 18.0
+ |mean: 18.9333
+ |stdev: 3.4133
+#Decisions:
+ |median: 18.0
+ |mean: 18.9333
+ |stdev: 3.4133
+Execution time:
+ |median: 1.335 s
+ |mean: 1.4105 s
+ |stdev: 0.3086 s
+Memory consumption:
+ |median: 1.1868 MB
+ |mean: 1.192 MB
+ |stdev: 0.3264 MB
+Experiment total execution time: 42.3158 s.
+Serializing results...
+Files saved in "results".
+Finished.

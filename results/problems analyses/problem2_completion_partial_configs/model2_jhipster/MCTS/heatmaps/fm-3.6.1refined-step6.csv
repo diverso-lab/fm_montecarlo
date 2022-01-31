@@ -1,9 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Database, 18, 18, 1.0, 1.0, RED
-Docker, 17, 17, 1.0, 1.0, RED
-Gradle, 18, 18, 1.0, 1.0, RED
-InternationalizationSupport, 18, 18, 1.0, 1.0, RED
-Maven, 18, 18, 1.0, 1.0, RED
-MicroserviceApplication, 17, 17, 1.0, 1.0, RED
-TestingFrameworks, 18, 18, 1.0, 1.0, RED
-UaaServer, 17, 17, 1.0, 1.0, RED

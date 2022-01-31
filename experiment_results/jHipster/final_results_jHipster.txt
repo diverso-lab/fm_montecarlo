@@ -1,0 +1,46 @@
+====================jHipster====================
+==========a_star==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 12.0, 'Mode': 12, 'Mean': 12, 'StDev': 0, 'Variance': 0, 'Min': 12, 'Max': 12}
+Simulations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Time (s): {'Median': 89.3246, 'Mode': 90.95, 'Mean': 90, 'StDev': 1, 'Variance': 1, 'Min': 89, 'Max': 93}
+Memory (MB): {'Median': 932.8751, 'Mode': 932.4815, 'Mean': 933, 'StDev': 0, 'Variance': 0, 'Min': 932, 'Max': 933}
+==========random_strategy==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 21.0, 'Mode': 21, 'Mean': 22, 'StDev': 4, 'Variance': 13, 'Min': 16, 'Max': 29}
+Simulations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Time (s): {'Median': 0.0043, 'Mode': 0.0042, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Memory (MB): {'Median': 0.8036, 'Mode': 0.0651, 'Mean': 1, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 2}
+==========flat_montecarlo==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 15.0, 'Mode': 14, 'Mean': 16, 'StDev': 2, 'Variance': 6, 'Min': 12, 'Max': 21}
+Simulations: {'Median': 100.0, 'Mode': 100, 'Mean': 100, 'StDev': 0, 'Variance': 0, 'Min': 100, 'Max': 100}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Time (s): {'Median': 3.3128, 'Mode': 3.0609, 'Mean': 4, 'StDev': 1, 'Variance': 1, 'Min': 3, 'Max': 5}
+Memory (MB): {'Median': 0.9932, 'Mode': 1.0014, 'Mean': 1, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 2}
+==========uct_mcts==========
+Run: {'Median': 30.5, 'Mode': 1, 'Mean': 30, 'StDev': 17, 'Variance': 305, 'Min': 1, 'Max': 60}
+Steps: {'Median': 14.0, 'Mode': 14, 'Mean': 15, 'StDev': 1, 'Variance': 2, 'Min': 12, 'Max': 18}
+Simulations: {'Median': 100.0, 'Mode': 100, 'Mean': 100, 'StDev': 0, 'Variance': 0, 'Min': 100, 'Max': 100}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 472.0, 'Mode': 456, 'Mean': 515, 'StDev': 253, 'Variance': 64236, 'Min': 123, 'Max': 1304}
+Time (s): {'Median': 3.752, 'Mode': 3.9906, 'Mean': 4, 'StDev': 1, 'Variance': 1, 'Min': 2, 'Max': 7}
+Memory (MB): {'Median': 9.3512, 'Mode': 4.8452, 'Mean': 9, 'StDev': 3, 'Variance': 9, 'Min': 4, 'Max': 16}
+==========greedy_mcts==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 15.0, 'Mode': 15, 'Mean': 15, 'StDev': 1, 'Variance': 2, 'Min': 12, 'Max': 18}
+Simulations: {'Median': 100.0, 'Mode': 100, 'Mean': 100, 'StDev': 0, 'Variance': 0, 'Min': 100, 'Max': 100}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 364.5, 'Mode': 468, 'Mean': 388, 'StDev': 199, 'Variance': 39674, 'Min': 123, 'Max': 1090}
+Time (s): {'Median': 3.3201, 'Mode': 4.1842, 'Mean': 4, 'StDev': 1, 'Variance': 2, 'Min': 2, 'Max': 7}
+Memory (MB): {'Median': 9.7618, 'Mode': 10.5911, 'Mean': 10, 'StDev': 2, 'Variance': 3, 'Min': 8, 'Max': 16}

@@ -1,8 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Glucose, 20, 40, 2.0, 1.0, RED
-Lingeling, 20, 40, 2.0, 1.0, RED
-Linux, 20, 40, 2.0, 1.0, RED
-PicoSAT, 20, 40, 2.0, 1.0, RED
-pipdeptree, 19, 38, 2.0, 1.0, RED
-pybind11, 19, 38, 2.0, 1.0, RED
-six, 19, 38, 2.0, 1.0, RED

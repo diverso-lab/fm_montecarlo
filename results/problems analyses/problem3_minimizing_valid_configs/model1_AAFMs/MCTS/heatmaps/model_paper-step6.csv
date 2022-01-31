@@ -1,9 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-AutomatedReasoning, 1, 8, 8.0, 0.0, BLUE
-CNFModel, 1, 12, 12.0, 0.29, GREEN
-FeatureIDE, 54, 723, 13.39, 0.4, YELLOW
-FeatureModel, 1, 8, 8.0, 0.0, BLUE
-Linux, 15, 197, 13.13, 0.38, GREEN
-Packages, 1, 10, 10.0, 0.15, BLUE
-UVL, 1, 8, 8.0, 0.0, BLUE
-Win, 565, 12210, 21.61, 1.0, RED

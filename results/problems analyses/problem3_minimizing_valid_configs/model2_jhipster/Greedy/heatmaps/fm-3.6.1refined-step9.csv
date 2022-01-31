@@ -1,7 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-Docker, 1, 30, 30.0, 0.0, BLUE
-Gradle, 820, 24604, 30.0, 1.0, RED
-Maven, 1, 30, 30.0, 0.0, BLUE
-MicroserviceApplication, 1, 30, 30.0, 0.0, BLUE
-TestingFrameworks, 1, 30, 30.0, 0.0, BLUE
-UaaServer, 1, 30, 30.0, 0.0, BLUE

@@ -1,0 +1,246 @@
+******************************tankwar******************************
+==========random_strategy==========
+Loading models/tankwar.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Random strategy" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'TankWar' -> ['TankWar']
+ |Step 2: Select feature 'GUI' -> ['TankWar', 'GUI']
+ |Step 3: Select feature 'Map' -> ['TankWar', 'GUI', 'Map']
+ |Step 4: Select feature 'Platform' -> ['TankWar', 'GUI', 'Map', 'Platform']
+ |Step 5: Select feature 'Language' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language']
+ |Step 6: Select feature 'DE' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE']
+ |Step 7: Select feature 'Tools' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools']
+ |Step 8: Select feature 'Bombe' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe']
+ |Step 9: Select feature 'Tanks' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks']
+ |Step 10: Select feature 'AI' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI']
+ |Step 11: Select feature 'Beschleunigung' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung']
+ |Step 12: Select feature 'PC' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC']
+ |Step 13: Select feature 'Record' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC', 'Record']
+ |Step 14: Select feature 'Re_fuer_Handy' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC', 'Record', 'Re_fuer_Handy']
+ |Step 15: Select feature 'explodieren' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC', 'Record', 'Re_fuer_Handy', 'explodieren']
+ |Step 16: Select feature 'Easy' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC', 'Record', 'Re_fuer_Handy', 'explodieren', 'Easy']
+ |Step 17: Select feature 'M_780' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC', 'Record', 'Re_fuer_Handy', 'explodieren', 'Easy', 'M_780']
+ |Step 18: Select feature 'Germany_Leopard' -> ['TankWar', 'GUI', 'Map', 'Platform', 'Language', 'DE', 'Tools', 'Bombe', 'Tanks', 'AI', 'Beschleunigung', 'PC', 'Record', 'Re_fuer_Handy', 'explodieren', 'Easy', 'M_780', 'Germany_Leopard']
+#Features: 18
+#Decisions: 18
+#Best solutions (bests/sols): 2/30 (6.67%)
+#Different best solutions (diffs/sols): 2/30 (6.67%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 26.0
+ |mean: 25.7333
+ |stdev: 3.3418
+#Decisions:
+ |median: 26.0
+ |mean: 25.7333
+ |stdev: 3.3418
+Execution time:
+ |median: 0.0026 s
+ |mean: 0.0026 s
+ |stdev: 0.0004 s
+Memory consumption:
+ |median: 0.7039 MB
+ |mean: 0.7151 MB
+ |stdev: 0.4143 MB
+Experiment total execution time: 0.0783 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========flat_montecarlo==========
+Loading models/tankwar.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Flat Monte Carlo" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'TankWar' -> ['TankWar']
+ |Step 2: Select feature 'Tanks' -> ['TankWar', 'Tanks']
+ |Step 3: Select feature 'USA_M1Abrams' -> ['TankWar', 'Tanks', 'USA_M1Abrams']
+ |Step 4: Select feature 'Platform' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform']
+ |Step 5: Select feature 'AI' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI']
+ |Step 6: Select feature 'Handy' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy']
+ |Step 7: Select feature 'GUI' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy', 'GUI']
+ |Step 8: Select feature 'Language' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy', 'GUI', 'Language']
+ |Step 9: Select feature 'EN' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy', 'GUI', 'Language', 'EN']
+ |Step 10: Select feature 'Hard' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy', 'GUI', 'Language', 'EN', 'Hard']
+ |Step 11: Select feature 'Map' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy', 'GUI', 'Language', 'EN', 'Hard', 'Map']
+ |Step 12: Select feature 'M_780' -> ['TankWar', 'Tanks', 'USA_M1Abrams', 'Platform', 'AI', 'Handy', 'GUI', 'Language', 'EN', 'Hard', 'Map', 'M_780']
+#Features: 12
+#Decisions: 12
+#Best solutions (bests/sols): 6/30 (20.0%)
+#Different best solutions (diffs/sols): 6/30 (20.0%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 14.5
+ |mean: 14.3667
+ |stdev: 1.5643
+#Decisions:
+ |median: 14.5
+ |mean: 14.3667
+ |stdev: 1.5643
+Execution time:
+ |median: 2.4181 s
+ |mean: 2.3835 s
+ |stdev: 0.2099 s
+Memory consumption:
+ |median: 2.3455 MB
+ |mean: 2.3735 MB
+ |stdev: 0.2529 MB
+Experiment total execution time: 71.5037 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========uct_mcts==========
+Loading models/tankwar.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "UCT MCTS" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'TankWar' -> ['TankWar']
+ |Step 2: Select feature 'Platform' -> ['TankWar', 'Platform']
+ |Step 3: Select feature 'Language' -> ['TankWar', 'Platform', 'Language']
+ |Step 4: Select feature 'GUI' -> ['TankWar', 'Platform', 'Language', 'GUI']
+ |Step 5: Select feature 'AI' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI']
+ |Step 6: Select feature 'Easy' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy']
+ |Step 7: Select feature 'Tanks' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy', 'Tanks']
+ |Step 8: Select feature 'PC' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy', 'Tanks', 'PC']
+ |Step 9: Select feature 'Map' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy', 'Tanks', 'PC', 'Map']
+ |Step 10: Select feature 'M_240' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy', 'Tanks', 'PC', 'Map', 'M_240']
+ |Step 11: Select feature 'DE' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy', 'Tanks', 'PC', 'Map', 'M_240', 'DE']
+ |Step 12: Select feature 'Germany_Leopard' -> ['TankWar', 'Platform', 'Language', 'GUI', 'AI', 'Easy', 'Tanks', 'PC', 'Map', 'M_240', 'DE', 'Germany_Leopard']
+#Features: 12
+#Decisions: 12
+#Best solutions (bests/sols): 16/30 (53.33%)
+#Different best solutions (diffs/sols): 14/30 (46.67%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 12.0
+ |mean: 12.9333
+ |stdev: 1.1121
+#Decisions:
+ |median: 12.0
+ |mean: 12.9333
+ |stdev: 1.1121
+Execution time:
+ |median: 4.2667 s
+ |mean: 4.6997 s
+ |stdev: 0.7702 s
+Memory consumption:
+ |median: 25.3059 MB
+ |mean: 24.616 MB
+ |stdev: 1.3794 MB
+Experiment total execution time: 140.9896 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========greedy_mcts==========
+Loading models/tankwar.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Greedy MCTS" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'TankWar' -> ['TankWar']
+ |Step 2: Select feature 'AI' -> ['TankWar', 'AI']
+ |Step 3: Select feature 'Platform' -> ['TankWar', 'AI', 'Platform']
+ |Step 4: Select feature 'GUI' -> ['TankWar', 'AI', 'Platform', 'GUI']
+ |Step 5: Select feature 'Map' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map']
+ |Step 6: Select feature 'Tanks' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks']
+ |Step 7: Select feature 'Language' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks', 'Language']
+ |Step 8: Select feature 'China_Type99' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks', 'Language', 'China_Type99']
+ |Step 9: Select feature 'DE' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks', 'Language', 'China_Type99', 'DE']
+ |Step 10: Select feature 'Hard' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks', 'Language', 'China_Type99', 'DE', 'Hard']
+ |Step 11: Select feature 'Handy' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks', 'Language', 'China_Type99', 'DE', 'Hard', 'Handy']
+ |Step 12: Select feature 'M_600' -> ['TankWar', 'AI', 'Platform', 'GUI', 'Map', 'Tanks', 'Language', 'China_Type99', 'DE', 'Hard', 'Handy', 'M_600']
+#Features: 12
+#Decisions: 12
+#Best solutions (bests/sols): 6/30 (20.0%)
+#Different best solutions (diffs/sols): 6/30 (20.0%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 14.0
+ |mean: 13.6
+ |stdev: 1.1626
+#Decisions:
+ |median: 14.0
+ |mean: 13.6
+ |stdev: 1.1626
+Execution time:
+ |median: 5.4389 s
+ |mean: 5.5131 s
+ |stdev: 0.9017 s
+Memory consumption:
+ |median: 23.3839 MB
+ |mean: 23.6573 MB
+ |stdev: 1.4121 MB
+Experiment total execution time: 330.7846 s.
+Serializing results...
+Files saved in "results".
+Finished.
+==========parallel_flat_montecarlo==========
+Loading models/tankwar.xml feature model...
+Initial state: []
+Running 30 executions of algorithm "Parallel Flat Monte Carlo" with None as stopping condition...
+  |run: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+Search finished.
+Valid solutions: 30/30 (100.0%)
+One of the best solution found from 30 executions:
+ |Step 0: None -> []
+ |Step 1: Select feature 'TankWar' -> ['TankWar']
+ |Step 2: Select feature 'Record' -> ['TankWar', 'Record']
+ |Step 3: Select feature 'Soundeffekt' -> ['TankWar', 'Record', 'Soundeffekt']
+ |Step 4: Select feature 'GUI' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI']
+ |Step 5: Select feature 'Re_fuer_Handy' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy']
+ |Step 6: Select feature 'Language' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language']
+ |Step 7: Select feature 'AI' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI']
+ |Step 8: Select feature 'Sound_fuer_pc' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc']
+ |Step 9: Select feature 'Tanks' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks']
+ |Step 10: Select feature 'DE' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE']
+ |Step 11: Select feature 'Platform' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE', 'Platform']
+ |Step 12: Select feature 'Easy' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE', 'Platform', 'Easy']
+ |Step 13: Select feature 'PC' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE', 'Platform', 'Easy', 'PC']
+ |Step 14: Select feature 'Map' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE', 'Platform', 'Easy', 'PC', 'Map']
+ |Step 15: Select feature 'M_780' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE', 'Platform', 'Easy', 'PC', 'Map', 'M_780']
+ |Step 16: Select feature 'China_Type99' -> ['TankWar', 'Record', 'Soundeffekt', 'GUI', 'Re_fuer_Handy', 'Language', 'AI', 'Sound_fuer_pc', 'Tanks', 'DE', 'Platform', 'Easy', 'PC', 'Map', 'M_780', 'China_Type99']
+#Features: 16
+#Decisions: 16
+#Best solutions (bests/sols): 2/30 (6.67%)
+#Different best solutions (diffs/sols): 2/30 (6.67%)
+Statistics summary:
+-------------------
+#Features:
+ |median: 20.0
+ |mean: 19.8333
+ |stdev: 2.3206
+#Decisions:
+ |median: 20.0
+ |mean: 19.8333
+ |stdev: 2.3206
+Execution time:
+ |median: 1.5221 s
+ |mean: 1.4997 s
+ |stdev: 0.1791 s
+Memory consumption:
+ |median: 1.2302 MB
+ |mean: 1.2139 MB
+ |stdev: 0.3243 MB
+Experiment total execution time: 44.9921 s.
+Serializing results...
+Files saved in "results".
+Finished.

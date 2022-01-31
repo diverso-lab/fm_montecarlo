@@ -1,0 +1,52 @@
+====================pizzas====================
+==========a_star==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 8.0, 'Mode': 8, 'Mean': 8, 'StDev': 0, 'Variance': 0, 'Min': 8, 'Max': 8}
+Simulations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Time (s): {'Median': 0.0231, 'Mode': 0.0229, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.0225, 'Max': 0.0334}
+Memory (MB): {'Median': 0.6838, 'Mode': 0.5526, 'Mean': 1, 'StDev': 0, 'Variance': 0, 'Min': 0.512076, 'Max': 0.863254}
+==========random_strategy==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 11.0, 'Mode': 11, 'Mean': 10, 'StDev': 1, 'Variance': 1, 'Min': 8, 'Max': 11}
+Simulations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Time (s): {'Median': 0.0009, 'Mode': 0.0009, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.0006, 'Max': 0.0013}
+Memory (MB): {'Median': 0.2472, 'Mode': 0.0287, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.028676, 'Max': 0.46471399999999996}
+==========flat_montecarlo==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 8.0, 'Mode': 8, 'Mean': 8, 'StDev': 0, 'Variance': 0, 'Min': 8, 'Max': 8}
+Simulations: {'Median': 100.0, 'Mode': 100, 'Mean': 100, 'StDev': 0, 'Variance': 0, 'Min': 100, 'Max': 100}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Time (s): {'Median': 0.2263, 'Mode': 0.2263, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.221, 'Max': 0.2312}
+Memory (MB): {'Median': 0.4502, 'Mode': 0.5517, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.25196199999999996, 'Max': 0.635811}
+==========uct_mcts==========
+Run: {'Median': 30.5, 'Mode': 1, 'Mean': 30, 'StDev': 17, 'Variance': 305, 'Min': 1, 'Max': 60}
+Steps: {'Median': 8.0, 'Mode': 8, 'Mean': 8, 'StDev': 0, 'Variance': 0, 'Min': 8, 'Max': 9}
+Simulations: {'Median': 100.0, 'Mode': 100, 'Mean': 100, 'StDev': 0, 'Variance': 0, 'Min': 100, 'Max': 100}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 150.5, 'Mode': 167, 'Mean': 146, 'StDev': 28, 'Variance': 763, 'Min': 46, 'Max': 188}
+Time (s): {'Median': 0.4997, 'Mode': 0.5126, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.2877, 'Max': 0.5508}
+Memory (MB): {'Median': 1.6483, 'Mode': 1.0365, 'Mean': 2, 'StDev': 0, 'Variance': 0, 'Min': 1.036499, 'Max': 2.300694}
+==========greedy_mcts==========
+Run: {'Median': 15.5, 'Mode': 1, 'Mean': 16, 'StDev': 9, 'Variance': 78, 'Min': 1, 'Max': 30}
+Steps: {'Median': 8.0, 'Mode': 8, 'Mean': 8, 'StDev': 0, 'Variance': 0, 'Min': 8, 'Max': 9}
+Simulations: {'Median': 100.0, 'Mode': 100, 'Mean': 100, 'StDev': 0, 'Variance': 0, 'Min': 100, 'Max': 100}
+Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Positive Evaluations: {'Median': 0.0, 'Mode': 0, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0, 'Max': 0}
+Tree Size: {'Median': 132.5, 'Mode': 132, 'Mean': 128, 'StDev': 26, 'Variance': 662, 'Min': 46, 'Max': 174}
+Time (s): {'Median': 0.474, 'Mode': 0.4658, 'Mean': 0, 'StDev': 0, 'Variance': 0, 'Min': 0.2878, 'Max': 0.5509}
+Memory (MB): {'Median': 1.9251, 'Mode': 1.7492, 'Mean': 2, 'StDev': 0, 'Variance': 0, 'Min': 1.631503, 'Max': 2.3003389999999997}
+====================pizzas====================
+==========a_star==========
+==========random_strategy==========
+==========flat_montecarlo==========
+==========uct_mcts==========
+==========greedy_mcts==========

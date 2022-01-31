@@ -1,8 +1,0 @@
-Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
-System, 20, 40, 2.0, 1.0, RED
-pycosat, 20, 40, 2.0, 1.0, RED
-pycryptosat, 19, 38, 2.0, 1.0, RED
-pyglucose, 19, 38, 2.0, 1.0, RED
-pylgl, 19, 38, 2.0, 1.0, RED
-python-sat, 20, 40, 2.0, 1.0, RED
-satyrn, 19, 38, 2.0, 1.0, RED

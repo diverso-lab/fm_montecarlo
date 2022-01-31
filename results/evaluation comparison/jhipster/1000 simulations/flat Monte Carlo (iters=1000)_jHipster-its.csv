@@ -1,6 +1,0 @@
-Method, Iterations, Decisions, Simulations, Evaluations, PositiveEvaluations, Percentage, TreeSize, Time
-"flat Monte Carlo (iters=1000)", 1, 18, 1, 1014, 481, 0.47435897435897434, 0, 60.3516891002655
-"flat Monte Carlo (iters=1000)", 250, 18, 250, 1043, 550, 0.5273250239693192, 0, 65.69148802757263
-"flat Monte Carlo (iters=1000)", 500, 20, 500, 1180, 518, 0.43898305084745765, 0, 86.49914288520813
-"flat Monte Carlo (iters=1000)", 750, 20, 750, 948, 418, 0.4409282700421941, 0, 67.8307454586029
-"flat Monte Carlo (iters=1000)", 1000, 19, 1000, 1292, 678, 0.5247678018575851, 0, 71.79296016693115

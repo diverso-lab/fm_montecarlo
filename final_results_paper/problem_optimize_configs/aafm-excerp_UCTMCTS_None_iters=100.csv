@@ -1,0 +1,2 @@
+Algorithm,Run,Steps,Iterations,Simulations,Total simulations,Evaluations,Positive Evaluations,Tree Size,Time (s),Memory (MB),Solution
+UCT MCTS,1,5,None,100,500,92,7,92,0.4106,0.5793,"['Solvers', 'AAFMFramework', 'System', 'Win', 'Packages', 'pythonsat', 'MiniSAT']"

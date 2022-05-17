@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Glucose, 22, -21380000.0, -971818.18, 0.67, ORANGE
+MiniSAT, 3, -2934500.0, -978166.67, 0.66, ORANGE
+Packages, 1, -1308500.0, -1308500.0, 0.0, BLUE
+PicoSAT, 2, -1938000, -969000.0, 0.67, ORANGE
+System, 71, -57131500.0, -804669.01, 1.0, RED

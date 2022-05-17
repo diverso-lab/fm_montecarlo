@@ -1,4 +1,5 @@
 import math
+from montecarlo_framework.utils.montecarlo_heatmap import MonteCarloHeatmap
 
 from montecarlo_framework.models import Problem, Node, Solution
 from montecarlo_framework.algorithms import MonteCarloTreeSearch
@@ -43,6 +44,7 @@ class UCTMCTS(MonteCarloTreeSearch):
         return f"UCT Algorithm ({str(self.stopping_condition)}, ew={self.exploration_weight})"
 
     #@MonteCarloStats('uct_mcts_steps', logger=get_logger('uct_mcts_steps'))
+    @MonteCarloHeatmap('UCTMCTS')
     def choose(self, node: Node) -> Node:
         return super().choose(node)
 

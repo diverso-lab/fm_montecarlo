@@ -122,7 +122,7 @@ class MonteCarloStats(ContextDecorator):
                       alternatives=alternatives, 
                       decisions=decisions, 
                       choice=choice, 
-                      simulations=algorithm.get_iteration_stopping_condition().get_value(), 
+                      simulations=algorithm.get_decision_stopping_condition().get_value(), 
                       evaluations=0, 
                       positive_evaluations=0, 
                       tree_size=tree_size, 

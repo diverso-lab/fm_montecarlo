@@ -45,7 +45,7 @@ class FlatMonteCarlo(MonteCarloAlgorithm):
     def get_decision_stopping_condition(self) -> StoppingCondition:
         return self.decision_stopping_condition
 
-    #@MonteCarloStats('flat_montecarlo_steps', logger=get_logger('flat_montecarlo_steps'))
+    @MonteCarloStats('flat_montecarlo_steps', logger=get_logger('flat_montecarlo_steps'))
     #@MonteCarloStats('flat_montecarlo_steps', logger=print)
     def choose(self, node: Node) -> Node:
         self.Q = defaultdict(int)   # total reward of each state

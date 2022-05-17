@@ -7,6 +7,7 @@ from montecarlo_framework.algorithms.stopping_conditions import StoppingConditio
 from montecarlo_framework.algorithms.selection_criterias import SelectionCriteria
 from montecarlo_framework.models import Problem, State, Node, Solution
 
+from montecarlo_framework.utils.heatmap import Heatmap
 
 class MonteCarloTreeSearch(MonteCarloAlgorithm):
     """
@@ -23,10 +24,10 @@ class MonteCarloTreeSearch(MonteCarloAlgorithm):
         self.initialize()
 
     def initialize(self) -> None:
-        self.Q: dict[State, float] = defaultdict(int)  # total reward of each state
-        self.N: dict[State, int] = defaultdict(int)  # total visit count of each state
-        self.tree: dict[State, list[State]] = dict()  # the MC tree as a dict of state -> children
-        self.terminal_states_evaluated: dict[State, float] = dict()  # terminal states -> reward
+        self.Q: dict[Node, float] = defaultdict(int)  # total reward of each state
+        self.N: dict[Node, int] = defaultdict(int)  # total visit count of each state
+        self.tree: dict[Node, list[Node]] = dict()  # the MC tree as a dict of node -> children
+        self.terminal_states_evaluated: dict[Node, float] = dict()  # terminal states -> reward
         self.total_nof_simulations: int = 0
         self.total_nof_positive_evaluations: int = 0
 

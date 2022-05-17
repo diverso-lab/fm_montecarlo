@@ -64,8 +64,8 @@ class OptimizeConfigurationState(ConfigurationState):
         #     median_ratings = 0
         median_dates = statistics.median(last_update_dates) if last_update_dates else 0
         median_ratings = statistics.median(user_ratings) if user_ratings else 0
-        print(f'Median dates: {median_dates}')
-        print(f'Median ratings: {median_ratings}')
+        #print(f'Median dates: {median_dates}')
+        #print(f'Median ratings: {median_ratings}')
         return -median_dates * 1000 + median_ratings * 1000
 
 

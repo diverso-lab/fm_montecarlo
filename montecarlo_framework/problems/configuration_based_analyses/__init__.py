@@ -17,9 +17,14 @@ from .jhipster_defective_config_state import (
     JHipsterFindingDefectiveConfigProblem,
     JHipsterDefectiveConfigurationState
 )
+from .optimize_config_state import (
+    OptimizeConfigurationState,
+    FindingOptimumConfigProblem
+)
 
 __all__ = [ConfigurationState, SelectFeature,
            CompletionPartialConfigProblem, ValidConfigurationState, FindAllValidConfigurationState,
            ValidMinConfigProblem, ValidMinimumConfigurationState, FindAllValidMinimumConfigurationState,
            FindingDefectiveConfigProblem, DefectiveConfigurationState,
-           JHipsterFindingDefectiveConfigProblem, JHipsterDefectiveConfigurationState]
+           JHipsterFindingDefectiveConfigProblem, JHipsterDefectiveConfigurationState,
+           OptimizeConfigurationState, FindingOptimumConfigProblem]

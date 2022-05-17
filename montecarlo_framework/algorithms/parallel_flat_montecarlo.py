@@ -8,7 +8,7 @@ from montecarlo_framework.models import Problem, State, Node, Solution
 
 from montecarlo_framework.utils.montecarlo_stats import MonteCarloStats
 from montecarlo_framework.utils.algorithm_stats import AlgorithmStats
-from montecarlo_framework.utils import get_logger
+from montecarlo_framework.utils.algorithm_logger import get_logger
 
 
 class ParallelFlatMonteCarlo(MonteCarloAlgorithm):

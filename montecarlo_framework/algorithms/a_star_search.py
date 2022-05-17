@@ -4,7 +4,7 @@ from montecarlo_framework.algorithms import Algorithm
 from montecarlo_framework.algorithms.stopping_conditions import StoppingCondition, NoneStoppingCondition
 from montecarlo_framework.models import Problem, Node, NodeValue, Solution
 from montecarlo_framework.utils.algorithm_stats import AlgorithmStats
-from montecarlo_framework.utils import get_logger
+from montecarlo_framework.utils.algorithm_logger import get_logger
 
 
 class AStarSearch(Algorithm):

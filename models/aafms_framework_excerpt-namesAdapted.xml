@@ -14,7 +14,7 @@
 			<or name="Packages">
 				<graphics key="position" value="520,90"/>
 				<graphics key="collapsed" value="false"/>
-				<feature name="pythonSat">
+				<feature name="pythonsat">
 					<graphics key="position" value="429,140"/>
 				</feature>
 				<feature name="pycosat">
@@ -68,7 +68,7 @@
 			<imp>
 				<var>Glucose</var>
 				<disj>
-					<var>pythonSat</var>
+					<var>pythonsat</var>
 					<var>pyglucose</var>
 				</disj>
 			</imp>
@@ -77,7 +77,7 @@
 			<graphics key="position" value="739,170"/>
 			<imp>
 				<var>MiniSAT</var>
-				<var>pythonSat</var>
+				<var>pythonsat</var>
 			</imp>
 		</rule>
 		<rule>

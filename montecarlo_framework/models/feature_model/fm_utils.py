@@ -16,7 +16,14 @@ class RelationType(Enum):
 
 def initialize_configuration(fm: FeatureModel, 
                              features_names: list[str]) -> Configuration:
-    features = {fm.get_feature_by_name(f): True for f in features_names}
+    features = {}
+    features_activated = {fm.get_feature_by_name(f): True for f in features_names}
+    for feature in features_activated:
+        features[feature] = True
+        parents = select_parent_features(feature)
+        for parent in parents:
+            features[parent] = True
+
     return Configuration(elements=features)
 
 

@@ -84,6 +84,8 @@ class MonteCarloHeatmap(ContextDecorator):
         knowledge = {}
         # To normalize values in range 0..1
         values = [feature_qvalues[f] for f in feature_qvalues if feature_visits[f] > 0]
+        if len(values) == 0:
+            return knowledge
         min_value = min(values)
         max_value = max(values)
         n = max_value - min_value

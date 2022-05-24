@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 14, 14, 1.0, 1.0, RED
+ElasticSearch, 14, 14, 1.0, 1.0, RED
+Gatling, 14, 14, 1.0, 1.0, RED
+H2, 15, 15, 1.0, 1.0, RED
+Hibernate2ndLvlCache, 14, 14, 1.0, 1.0, RED
+MariaDBDev, 15, 15, 1.0, 1.0, RED
+MySql, 14, 14, 1.0, 1.0, RED
+PostgreSQLDev, 15, 15, 1.0, 1.0, RED
+Production, 14, 14, 1.0, 1.0, RED
+Protractor, 14, 14, 1.0, 1.0, RED

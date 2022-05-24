@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 21, 21, 1.0, 1.0, RED
+Database, 22, 22, 1.0, 1.0, RED
+Docker, 22, 22, 1.0, 1.0, RED
+Gatling, 22, 22, 1.0, 1.0, RED
+InternationalizationSupport, 22, 22, 1.0, 1.0, RED
+MicroserviceApplication, 22, 22, 1.0, 1.0, RED
+UaaServer, 22, 22, 1.0, 1.0, RED

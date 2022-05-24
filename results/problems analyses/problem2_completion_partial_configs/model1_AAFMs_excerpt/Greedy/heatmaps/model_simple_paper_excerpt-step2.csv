@@ -1,0 +1,5 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Linux, 1, 1, 1.0, 1.0, RED
+Packages, 295, 295, 1.0, 1.0, RED
+Solvers, 1, 1, 1.0, 1.0, RED
+Win, 1, 1, 1.0, 1.0, RED

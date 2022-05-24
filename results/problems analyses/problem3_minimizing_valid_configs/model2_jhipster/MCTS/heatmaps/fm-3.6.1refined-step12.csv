@@ -1,0 +1,4 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Docker, 43, 1290, 30.0, 0.0, BLUE
+Gatling, 84, 2524, 30.05, 1.0, RED
+InternationalizationSupport, 54, 1621, 30.02, 0.39, GREEN

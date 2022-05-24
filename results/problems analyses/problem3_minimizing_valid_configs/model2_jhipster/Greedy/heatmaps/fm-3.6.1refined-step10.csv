@@ -1,0 +1,5 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Docker, 1, 30, 30.0, 0.0, BLUE
+MicroserviceApplication, 917, 27514, 30.0, 1.0, RED
+TestingFrameworks, 1, 30, 30.0, 0.0, BLUE
+UaaServer, 1, 30, 30.0, 0.0, BLUE

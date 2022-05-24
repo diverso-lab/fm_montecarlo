@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Solvers, 27, 63, 2.33, 0.81, RED
+pyPicosat, 55, 128, 2.33, 0.67, ORANGE
+pycosat, 30, 69, 2.3, 0.0, BLUE
+pyglucose, 44, 103, 2.34, 1.0, RED
+python-sat, 128, 299, 2.34, 0.88, RED

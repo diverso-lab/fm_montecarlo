@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 1, 2, 2.0, 1.0, RED
+DecisionModel, 1, 2, 2.0, 1.0, RED
+ErrorDetection, 1, 2, 2.0, 1.0, RED
+FeatureModel, 1, 2, 2.0, 1.0, RED
+ValidProduct, 1, 2, 2.0, 1.0, RED
+pip, 210, 420, 2.0, 1.0, RED
+pkg-resources, 1, 2, 2.0, 1.0, RED
+pybind11, 1, 2, 2.0, 1.0, RED
+setuptools, 1, 2, 2.0, 1.0, RED
+six, 1, 2, 2.0, 1.0, RED

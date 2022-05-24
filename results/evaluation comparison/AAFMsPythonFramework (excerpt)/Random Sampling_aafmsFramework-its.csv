@@ -1,0 +1,3 @@
+Method, Iterations, Decisions, Simulations, Evaluations, PositiveEvaluations, Percentage, TreeSize, Time
+"Random Sampling", 1, 0, 1, 1, 0, 0.0, 0, 0.0023784637451171875
+"Random Sampling", 110, 0, 110, 110, 44, 0.4, 0, 0.0025086402893066406

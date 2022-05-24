@@ -1,0 +1,6 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Linux, 97, 97, 1.0, 1.0, RED
+Solvers, 98, 98, 1.0, 1.0, RED
+pycosat, 97, 97, 1.0, 1.0, RED
+pyglucose, 97, 97, 1.0, 1.0, RED
+python-sat, 97, 97, 1.0, 1.0, RED

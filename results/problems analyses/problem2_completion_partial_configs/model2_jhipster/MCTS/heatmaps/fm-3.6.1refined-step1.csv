@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Authentication, 19, 19, 1.0, 1.0, RED
+BackEnd, 18, 18, 1.0, 1.0, RED
+ClusteredSession, 18, 18, 1.0, 1.0, RED
+Database, 18, 18, 1.0, 1.0, RED
+Docker, 18, 18, 1.0, 1.0, RED
+Generator, 19, 19, 1.0, 1.0, RED
+InternationalizationSupport, 18, 18, 1.0, 1.0, RED
+Libsass, 18, 18, 1.0, 1.0, RED
+SocialLogin, 18, 18, 1.0, 1.0, RED
+SpringWebSockets, 18, 18, 1.0, 1.0, RED
+TestingFrameworks, 18, 18, 1.0, 1.0, RED

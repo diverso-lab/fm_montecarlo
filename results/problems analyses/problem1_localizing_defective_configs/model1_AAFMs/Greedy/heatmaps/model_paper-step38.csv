@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+ErrorDetection, 1, 1, 1.0, 0.0, BLUE
+Linux, 28, 56, 2.0, 1.0, RED
+Metamodels, 18, 35, 1.94, 0.94, RED
+ValidProduct, 1, 1, 1.0, 0.0, BLUE
+ebnf, 1, 2, 2.0, 1.0, RED
+pip, 23, 45, 1.96, 0.96, RED
+pkg-resources, 33, 65, 1.97, 0.97, RED
+pybind11, 1, 2, 2.0, 1.0, RED
+setuptools, 11, 21, 1.91, 0.91, RED
+six, 1, 2, 2.0, 1.0, RED

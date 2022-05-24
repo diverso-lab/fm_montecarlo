@@ -1,0 +1,7 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+AutomatedReasoning, 1, 6, 6.0, 0.08, BLUE
+FeatureIDE, 1, 5, 5.0, 0.0, BLUE
+Metamodels, 359, 6551, 18.25, 1.0, RED
+Packages, 1, 11, 11.0, 0.45, YELLOW
+System, 4, 51, 12.75, 0.58, YELLOW
+UVL, 1, 7, 7.0, 0.15, BLUE

@@ -1,0 +1,15 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+CNFModel, 8, 16, 2.0, 1.0, RED
+DecisionModel, 6, 11, 1.83, 0.0, BLUE
+DepMng, 8, 16, 2.0, 1.0, RED
+FeatureIDE, 9, 18, 2.0, 1.0, RED
+FeatureModel, 8, 16, 2.0, 1.0, RED
+Linux, 8, 16, 2.0, 1.0, RED
+Operations, 9, 18, 2.0, 1.0, RED
+SPLOT, 8, 16, 2.0, 1.0, RED
+SimpleParse, 8, 16, 2.0, 1.0, RED
+Solvers, 9, 18, 2.0, 1.0, RED
+UVL, 8, 16, 2.0, 1.0, RED
+Utils, 8, 16, 2.0, 1.0, RED
+antlr4-python3-runtime, 8, 16, 2.0, 1.0, RED
+ebnf, 8, 16, 2.0, 1.0, RED

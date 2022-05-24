@@ -1,0 +1,32 @@
+Problem: Reverse engineering of feature models.
+-----------------------------------------------
+Setting up the problem...
+Creating output folders...
+Loading feature model: model_simple_paper_excerpt ...
+Feature model loaded with 13 features, 0 constraints, 6 relations.
+Generating configurations of the feature model...
+#Configurations: 110
+Creating initial state (empty feature model)...
+Problem setted up.
+Running algorithm flat Monte Carlo (iters=1000)...
+State 0: [] -> 110
+State 1: ['System'] -> 110
+State 2: ['Linux', 'PicoSAT', 'System'] -> 88
+State 3: ['Glucose', 'Linux', 'Packages', 'PicoSAT', 'System'] -> 76
+State 4: ['Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'System', 'pycosat'] -> 56
+State 5: ['Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'pycosat', 'python-sat'] -> 30
+State 6: ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'pycosat', 'pyglucose', 'python-sat'] -> 26
+State 7: ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'Win', 'pycosat', 'pyglucose', 'python-sat'] -> 26
+Algorithm finished.
+Final State 8: ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'Win', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat'] -> 32
+Serializing generated feature model in UVL format in output_results/generated_fms/System.uvl
+Generating configurations of the extracted feature model...
+Results:
+#Features: 13 -> ['AAFMFramework', 'Glucose', 'Linux', 'MiniSAT', 'Packages', 'PicoSAT', 'Solvers', 'System', 'Win', 'pyPicosat', 'pycosat', 'pyglucose', 'python-sat']
+#Configurations: 255
+Input configurations captured (Relaxed objective function): 32
+Deficit of configurations: 78
+Irrelevant configurations: 223
+Mininal difference (MinDiff) objective function (deficit_value + surplus_value): 78 + 223 = 301
+Final objective function (Relaxed - MinDiff): -269
+Execution time: 46.26394033432007

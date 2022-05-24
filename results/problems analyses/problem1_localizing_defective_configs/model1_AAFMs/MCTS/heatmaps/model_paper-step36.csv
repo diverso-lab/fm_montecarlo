@@ -1,0 +1,12 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+DepMng, 11, 21, 1.91, 0.45, YELLOW
+Glucose, 15, 30, 2.0, 1.0, RED
+Lingeling, 15, 30, 2.0, 1.0, RED
+Linux, 10, 19, 1.9, 0.4, YELLOW
+MiniSAT, 6, 11, 1.83, 0.0, BLUE
+PicoSAT, 12, 23, 1.92, 0.5, YELLOW
+SimpleParse, 6, 11, 1.83, 0.0, BLUE
+antlr4-python3-runtime, 16, 32, 2.0, 1.0, RED
+ebnf, 15, 30, 2.0, 1.0, RED
+pybind11, 15, 30, 2.0, 1.0, RED
+six, 10, 19, 1.9, 0.4, YELLOW

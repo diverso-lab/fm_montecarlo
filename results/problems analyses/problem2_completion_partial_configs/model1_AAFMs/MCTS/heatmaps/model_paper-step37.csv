@@ -1,0 +1,15 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Glucose, 8, 8, 1.0, 1.0, RED
+Lingeling, 8, 8, 1.0, 1.0, RED
+Linux, 8, 8, 1.0, 1.0, RED
+MiniSAT, 8, 8, 1.0, 1.0, RED
+PicoSAT, 8, 8, 1.0, 1.0, RED
+SimpleParse, 8, 8, 1.0, 1.0, RED
+antlr4-python3-runtime, 8, 8, 1.0, 1.0, RED
+lark-parser, 8, 8, 1.0, 1.0, RED
+pipdeptree, 8, 8, 1.0, 1.0, RED
+pybind11, 8, 8, 1.0, 1.0, RED
+pydepqbf, 8, 8, 1.0, 1.0, RED
+satispy, 9, 9, 1.0, 1.0, RED
+six, 8, 8, 1.0, 1.0, RED
+umo, 8, 8, 1.0, 1.0, RED

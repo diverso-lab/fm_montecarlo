@@ -1,0 +1,11 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+BackEnd, 11, 9, 0.82, 0.0, BLUE
+Cucumber, 21, 21, 1.0, 1.0, RED
+Database, 20, 18, 0.9, 0.45, YELLOW
+Docker, 21, 21, 1.0, 1.0, RED
+Gatling, 21, 21, 1.0, 1.0, RED
+Generator, 22, 22, 1.0, 1.0, RED
+InternationalizationSupport, 21, 21, 1.0, 1.0, RED
+Libsass, 22, 22, 1.0, 1.0, RED
+Protractor, 15, 13, 0.87, 0.27, GREEN
+SpringWebSockets, 22, 22, 1.0, 1.0, RED

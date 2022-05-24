@@ -1,0 +1,22 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+APISolvers, 5, 5, 1.0, 1.0, RED
+AllProducts, 5, 5, 1.0, 1.0, RED
+CNFModel, 6, 6, 1.0, 1.0, RED
+CoreFeatures, 5, 5, 1.0, 1.0, RED
+DeadFeatures, 5, 5, 1.0, 1.0, RED
+DecisionModel, 6, 6, 1.0, 1.0, RED
+DepMng, 5, 5, 1.0, 1.0, RED
+ErrorDetection, 5, 5, 1.0, 1.0, RED
+ErrorDiagnosis, 5, 5, 1.0, 1.0, RED
+FeatureModel, 6, 6, 1.0, 1.0, RED
+Glucose, 5, 5, 1.0, 1.0, RED
+Lingeling, 5, 5, 1.0, 1.0, RED
+Linux, 5, 5, 1.0, 1.0, RED
+MiniSAT, 5, 5, 1.0, 1.0, RED
+ParserTechnology, 5, 5, 1.0, 1.0, RED
+PicoSAT, 5, 5, 1.0, 1.0, RED
+Utils, 5, 5, 1.0, 1.0, RED
+ValidConfiguration, 5, 5, 1.0, 1.0, RED
+ValidModel, 5, 5, 1.0, 1.0, RED
+ValidProduct, 5, 5, 1.0, 1.0, RED
+Win, 5, 5, 1.0, 1.0, RED

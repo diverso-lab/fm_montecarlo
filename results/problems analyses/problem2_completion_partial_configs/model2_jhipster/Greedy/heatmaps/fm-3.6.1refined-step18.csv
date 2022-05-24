@@ -1,0 +1,8 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+Cucumber, 1, 1, 1.0, 1.0, RED
+EhCache, 1, 1, 1.0, 1.0, RED
+ElasticSearch, 1, 1, 1.0, 1.0, RED
+Gatling, 1, 1, 1.0, 1.0, RED
+HazelCast, 1765, 1765, 1.0, 1.0, RED
+MicroserviceApplication, 1, 1, 1.0, 1.0, RED
+UaaServer, 1, 1, 1.0, 1.0, RED

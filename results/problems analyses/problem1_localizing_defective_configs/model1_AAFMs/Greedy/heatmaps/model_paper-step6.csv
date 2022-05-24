@@ -1,0 +1,20 @@
+Feature, Visits, Acc. Reward, Q-value, Normalized value, Color
+DepMng, 2, 3, 1.5, 0.9, RED
+Metamodels, 4, 4, 1.0, 0.72, ORANGE
+Operations, 2, 1, 0.5, 0.54, YELLOW
+ParserTechnology, 1, 1, 1.0, 0.72, ORANGE
+SPLOT, 1, 1, 1.0, 0.72, ORANGE
+Solvers, 5, 6, 1.2, 0.79, ORANGE
+System, 1, 1, 1.0, 0.72, ORANGE
+UVL, 1, -1, -1.0, 0.0, BLUE
+Utils, 1, 1, 1.0, 0.72, ORANGE
+pyPicosat, 1, 1, 1.0, 0.72, ORANGE
+pycosat, 1, 1, 1.0, 0.72, ORANGE
+pycryptosat, 4, 4, 1.0, 0.72, ORANGE
+pydepqbf, 25, 37, 1.48, 0.89, RED
+pyglucose, 2, 3, 1.5, 0.9, RED
+pylgl, 414, 734, 1.77, 1.0, RED
+python-sat, 7, 10, 1.43, 0.88, RED
+satispy, 1, 1, 1.0, 0.72, ORANGE
+satyrn, 1, 1, 1.0, 0.72, ORANGE
+umo, 1, 1, 1.0, 0.72, ORANGE

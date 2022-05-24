@@ -41,6 +41,7 @@ class ConfigurationState(State):
         return (state, action)
 
     def get_random_terminal_state(self) -> State:
+        #return self.get_random_terminal_state_bdd()
         new_config = FMConfiguration.from_configuration(self.configuration)
         state = self.configuration_transition_function(new_config)
         while not state.is_terminal():
@@ -64,7 +65,7 @@ class ConfigurationState(State):
             else:
                 unselected_features.append(self.configuration.fm.get_feature_by_name(feature_name))
                 unselected_variables.append(-self.configuration.fm.sat_model.variables[feature_name])
-        fm_config = FMConfiguration(selected_features, unselected_features, selected_variables, unselected_variables)
+        fm_config = FMConfiguration(self.configuration.fm, selected_features, unselected_features, selected_variables, unselected_variables)
         return self.configuration_transition_function(fm_config)
 
     def is_terminal(self) -> bool:

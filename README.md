@@ -2,19 +2,21 @@
 This repository contains all the resources and artifacts of the Monte Carlo Tree Search conceptual framework, supporting the papers entitled *A Monte Carlo Tree Search Conceptual Framework for Feature Model Analyses* submmited to the Journal of Systems and Software (Special Issue on Systems and Software Product Lines of the Future); and the paper *Monte Carlo Tree Search for feature model analyses: a new framework for decision-making* published in the 25th International Systems and Software Product Line Conference (SPLC 2021) by the authors José Miguel Horcas, José A. Galindo, Ruben Heradio, David Fernández-Amoros, and David Benavides.
 
 # Table of Contents
-- [Artifact description](#artifact-description)
-- [The Monte Carlo conceptual framework](#the-monte-carlo-conceptual-framework)
-- [Installation and execution](#installation-and-execution)
+- [A Monte Carlo Tree Search conceptual framework for feature model analyses](#a-monte-carlo-tree-search-conceptual-framework-for-feature-model-analyses)
+- [Table of Contents](#table-of-contents)
+  - [Artifact description](#artifact-description)
+  - [The Monte Carlo conceptual framework](#the-monte-carlo-conceptual-framework)
+    - [Interfaces](#interfaces)
+    - [Algorithms and Monte Carlo methods](#algorithms-and-monte-carlo-methods)
+      - [Configuration](#configuration)
+    - [Knowledge inference](#knowledge-inference)
+  - [Installation and execution](#installation-and-execution)
     - [Requirements](#requirements)
     - [Download and setup](#download-and-setup)
-    - [Using the framework under Docker](#using-the-framework-under-Docker)
-- [Analyzing problems with the Monte Carlo framework](#analyzing-problems-with-the-Monte-Carlo-framework)
-- [Results](#Results)
+  - [Analyzing problems with the Monte Carlo framework](#analyzing-problems-with-the-monte-carlo-framework)
+  - [Results](#results)
     - [Experiment replication](#experiment-replication)
       - [Replicating results from problem analyses](#replicating-results-from-problem-analyses)
-      - [Replicating results from comparison of Monte Carlo methods](#replicating-results-from-comparison-of-Monte-Carlo-methods)
-    - [Note about randomness in Monte Carlo methods](#note-about-randomness-in-Monte-Carlo-methods)
-- [References](#References)
 
 ## Artifact description
 We present a [**Monte Carlo conceptual framework**](montecarlo4fms/) to analyze SPL problems by modeling them as a sequence of decision steps and solving them with Monte Carlo techniques.

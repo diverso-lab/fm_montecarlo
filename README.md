@@ -1,6 +1,11 @@
 # A Monte Carlo Tree Search conceptual framework for feature model analyses
 This repository contains all the resources and artifacts of the Monte Carlo Tree Search conceptual framework, supporting the papers entitled *A Monte Carlo Tree Search Conceptual Framework for Feature Model Analyses* submmited to the Journal of Systems and Software (Special Issue on Systems and Software Product Lines of the Future); and the paper *Monte Carlo Tree Search for feature model analyses: a new framework for decision-making* published in the 25th International Systems and Software Product Line Conference (SPLC 2021) by the authors José Miguel Horcas, José A. Galindo, Ruben Heradio, David Fernández-Amoros, and David Benavides.
 
+Links to published material: 
+- JSS journal paper: https://doi.org/10.1016/j.jss.2022.111551
+- SPLC 2021 best paper awarded paper: https://doi.org/10.1145/3461001.3471146
+- Video with the presentation: https://www.youtube.com/watch?v=a7kYYQHbnZo
+
 # Table of Contents
 - [A Monte Carlo Tree Search conceptual framework for feature model analyses](#a-monte-carlo-tree-search-conceptual-framework-for-feature-model-analyses)
 - [Table of Contents](#table-of-contents)

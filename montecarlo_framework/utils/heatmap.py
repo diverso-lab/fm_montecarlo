@@ -1,7 +1,7 @@
 import csv
 from collections import defaultdict
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature
+from flamapy.metamodels.fm_metamodel.models import FeatureModel, Feature
 from montecarlo_framework.models import State
 
 

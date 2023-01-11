@@ -4,13 +4,13 @@ from typing import Optional
 
 from pysat.solvers import Glucose3
 
-from famapy.core.models import Configuration
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature
-from famapy.metamodels.pysat_metamodel.operations.glucose3_valid_configuration import Glucose3ValidConfiguration
-from famapy.metamodels.pysat_metamodel.operations.glucose3_valid_product import Glucose3ValidProduct
-from famapy.metamodels.pysat_metamodel.operations.glucose3_products import Glucose3Products
-from famapy.metamodels.pysat_metamodel.transformations.fm_to_pysat import FmToPysat
-from famapy.metamodels.bdd_metamodel.transformations.fm_to_bdd import FmToBDD
+from flamapy.metamodels.configuration_metamodel.models.configuration import Configuration
+from flamapy.metamodels.fm_metamodel.models import FeatureModel, Feature
+from flamapy.metamodels.pysat_metamodel.operations.glucose3_valid_configuration import Glucose3ValidConfiguration
+from flamapy.metamodels.pysat_metamodel.operations.glucose3_valid_product import Glucose3ValidProduct
+from flamapy.metamodels.pysat_metamodel.operations.glucose3_products import Glucose3Products
+from flamapy.metamodels.pysat_metamodel.transformations.fm_to_pysat import FmToPysat
+from flamapy.metamodels.bdd_metamodel.transformations.fm_to_bdd import FmToBDD
 from montecarlo_framework.models.feature_model import fm_utils
 
 

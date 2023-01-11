@@ -3,7 +3,7 @@ import itertools
 import random
 from functools import reduce
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation
+from flamapy.metamodels.fm_metamodel.models import FeatureModel, Feature, Relation
 from montecarlo_framework.models.feature_model import FM, FMConfiguration
 from montecarlo_framework.models import State, Action, Problem
 

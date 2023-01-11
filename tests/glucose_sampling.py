@@ -1,9 +1,9 @@
-from famapy.metamodels.fm_metamodel.models import FeatureModel
-from famapy.metamodels.fm_metamodel.operations import FMEstimatedProductsNumber, average_branching_factor
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
-from famapy.metamodels.bdd_metamodel.operations import BDDProductsNumber
-from famapy.metamodels.bdd_metamodel.transformations.fm_to_bdd import FmToBDD
-from famapy.metamodels.pysat_metamodel.transformations.fm_to_pysat import FmToPysat
+from flamapy.metamodels.fm_metamodel.models import FeatureModel
+from flamapy.metamodels.fm_metamodel.operations import FMEstimatedProductsNumber, average_branching_factor
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.bdd_metamodel.operations import BDDProductsNumber
+from flamapy.metamodels.bdd_metamodel.transformations.fm_to_bdd import FmToBDD
+from flamapy.metamodels.pysat_metamodel.transformations.fm_to_pysat import FmToPysat
 
 from models.models_info import *
 

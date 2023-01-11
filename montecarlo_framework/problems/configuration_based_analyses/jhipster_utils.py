@@ -2,7 +2,7 @@ import csv
 import ast
 import random 
 
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
 
 from montecarlo_framework.models.feature_model import FMConfiguration, FM
 

@@ -3,16 +3,16 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
-from famapy.core.models import Configuration
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
-from famapy.metamodels.bdd_metamodel.operations import BDDProductDistributionBF
+from flamapy.metamodels.configuration_metamodel.models.configuration import Configuration
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.bdd_metamodel.operations import BDDProductDistribution
 
 
 from montecarlo_framework.models.feature_model import FM, FMConfiguration
 from montecarlo_framework.algorithms import FlatMonteCarlo, UCTMCTS, AStarSearch
 from montecarlo_framework.algorithms.stopping_conditions import IterationsStoppingCondition, NoneStoppingCondition
 from montecarlo_framework.algorithms.selection_criterias import MaxChild
-from montecarlo_framework.problems.configuration_based_analyses.valid_min_config import ValidMinimumConfigurationState, FindAllValidMinimumConfigurationState, ValidMinConfigProblem
+from montecarlo_framework.problems.configuration_based_analyses.valid_min_config_state import ValidMinimumConfigurationState, FindAllValidMinimumConfigurationState, ValidMinConfigProblem
 from montecarlo_framework.utils.montecarlo_stats import MonteCarloStats
 from montecarlo_framework.utils.algorithm_stats import AlgorithmStats
 from montecarlo_framework.models.feature_model import fm_utils
@@ -28,7 +28,7 @@ INITIAL_CONFIGURATION_FEATURES = {}
 
 def plot_product_distribution(fm: FM, configurations: list[FMConfiguration] = None):
     # Calcualte the product distribution with BDD
-    dist = BDDProductDistributionBF().execute(fm.bdd_model).get_result()
+    dist = BDDProductDistribution().execute(fm.bdd_model).get_result()
     print(f'Product Distribution: {dist}')
 
     # Create data for the PD

@@ -1,9 +1,9 @@
 from collections.abc import Iterable
 from enum import Enum, auto 
 
-from famapy.core.models import Configuration
-from famapy.metamodels.fm_metamodel.models import FeatureModel, Feature
-from famapy.metamodels.fm_metamodel.operations import get_core_features
+from flamapy.metamodels.configuration_metamodel.models.configuration import Configuration
+from flamapy.metamodels.fm_metamodel.models import FeatureModel, Feature
+from flamapy.metamodels.fm_metamodel.operations import get_core_features
 
 
 class RelationType(Enum):

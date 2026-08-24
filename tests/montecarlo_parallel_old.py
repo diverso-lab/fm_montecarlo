@@ -2,8 +2,8 @@ from multiprocessing.queues import Queue
 import time 
 import multiprocessing
 
-from famapy.metamodels.fm_metamodel.models import FeatureModel
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.fm_metamodel.models import FeatureModel
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
 
 
 def do_something(fm: FeatureModel, result_queue: Queue):

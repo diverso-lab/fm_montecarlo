@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from contextlib import ContextDecorator
 from typing import Any, Callable, ClassVar, Dict, Optional
 
-from famapy.metamodels.fm_metamodel.models import Feature 
+from flamapy.metamodels.fm_metamodel.models import Feature 
 
 from montecarlo_framework.models import Node, State
 from montecarlo_framework.algorithms.montecarlo_algorithm import MonteCarloAlgorithm

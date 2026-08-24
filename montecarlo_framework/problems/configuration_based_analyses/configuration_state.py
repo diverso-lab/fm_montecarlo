@@ -1,9 +1,9 @@
 import random 
 from abc import abstractmethod
 
-from famapy.core.models import Configuration
-from famapy.metamodels.fm_metamodel.models import Feature
-from famapy.metamodels.bdd_metamodel.operations import random_configuration
+from flamapy.metamodels.configuration_metamodel.models.configuration import Configuration
+from flamapy.metamodels.fm_metamodel.models import Feature
+from flamapy.metamodels.bdd_metamodel.operations import random_configuration
 
 from montecarlo_framework.models.problem import State, Action
 from montecarlo_framework.models.feature_model import FMConfiguration

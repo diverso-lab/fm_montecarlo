@@ -6,10 +6,10 @@ from functools import reduce
 from pathlib import Path
 
 
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
-from famapy.metamodels.bdd_metamodel.operations import BDDProductDistributionBF
-from famapy.metamodels.fm_metamodel.transformations.uvl_writter import UVLWriter
-from famapy.metamodels.fm_metamodel.models import FeatureModel
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.bdd_metamodel.operations import BDDProductDistribution
+from flamapy.metamodels.fm_metamodel.transformations.uvl_writer import UVLWriter
+from flamapy.metamodels.fm_metamodel.models import FeatureModel
 
 from montecarlo_framework.algorithms.montecarlo_algorithm import MonteCarloAlgorithm
 from montecarlo_framework.algorithms.stopping_conditions import IterationsStoppingCondition, TimeStoppingCondition, NoneStoppingCondition

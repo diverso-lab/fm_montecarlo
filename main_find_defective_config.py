@@ -4,8 +4,8 @@ import argparse
 import random
 from collections import defaultdict 
 
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
-from famapy.metamodels.bdd_metamodel.operations import BDDProductDistributionBF
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.bdd_metamodel.operations import BDDProductDistribution
 
 from montecarlo_framework.algorithms.montecarlo_algorithm import MonteCarloAlgorithm
 from montecarlo_framework.algorithms.stopping_conditions import IterationsStoppingCondition, TimeStoppingCondition, NoneStoppingCondition
@@ -55,7 +55,7 @@ def main(runs: int,
     unselected_variables = [-fm.sat_model.variables[f.name] for f in unselected_features]
     initial_config = FMConfiguration(fm, selected_features, unselected_features, selected_variables, unselected_variables)
 
-    if input_model in ['aafm-excerpt', 'affm']:
+    if input_model in ['aafm-excerpt', 'aafm']:
         initial_state = DefectiveConfigurationState(initial_config)
         problem = FindingDefectiveConfigProblem(initial_state)
     elif input_model == 'jhipster':

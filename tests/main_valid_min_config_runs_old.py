@@ -5,15 +5,15 @@ import os
 
 import matplotlib.pyplot as plt
 
-from famapy.core.models import Configuration
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
-from famapy.metamodels.bdd_metamodel.operations import BDDProductDistributionBF
+from flamapy.metamodels.configuration_metamodel.models.configuration import Configuration
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.bdd_metamodel.operations import BDDProductDistribution
 
 from montecarlo_framework.models.feature_model import FM, FMConfiguration
 from montecarlo_framework.algorithms import FlatMonteCarlo, UCTMCTS, GreedyMCTS, RandomStrategy, AStarSearch
 from montecarlo_framework.algorithms.stopping_conditions import IterationsStoppingCondition, NoneStoppingCondition
 from montecarlo_framework.algorithms.selection_criterias import MaxChild
-from montecarlo_framework.problems.configuration_based_analyses.valid_min_config import ValidMinimumConfigurationState, ValidMinConfigProblem
+from montecarlo_framework.problems.configuration_based_analyses.valid_min_config_state import ValidMinimumConfigurationState, ValidMinConfigProblem
 from montecarlo_framework.models.feature_model import fm_utils
 
 
@@ -64,7 +64,7 @@ def main(input_fm: str, iterations: int, runs: int):
     fm.bdd_model = None
     # Serialize the product distribution
     if fm.bdd_model is not None:
-        pd_op = BDDProductDistributionBF().execute(fm.bdd_model)
+        pd_op = BDDProductDistribution().execute(fm.bdd_model)
         pd_op.serialize(f'{OUTPUT_RESULTS + fm.fm_model.root.name.lower()}_product_distribution.csv')
 
         # Plot the product distribution

@@ -2,7 +2,7 @@ import csv
 import datetime
 from typing import Any 
 
-from famapy.metamodels.fm_metamodel.models import (
+from flamapy.metamodels.fm_metamodel.models import (
     Feature,
     FeatureModel
 )

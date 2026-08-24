@@ -3,8 +3,8 @@ import os
 import argparse
 import random
 
-from famapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
-from famapy.metamodels.bdd_metamodel.operations import BDDProductDistributionBF
+from flamapy.metamodels.fm_metamodel.transformations.featureide_reader import FeatureIDEReader
+from flamapy.metamodels.bdd_metamodel.operations import BDDProductDistribution
 
 from montecarlo_framework.algorithms.montecarlo_algorithm import MonteCarloAlgorithm
 from montecarlo_framework.algorithms.stopping_conditions import IterationsStoppingCondition, TimeStoppingCondition, NoneStoppingCondition
@@ -154,7 +154,7 @@ def main(runs: int,
     # This requires the BDD
     # if fm.bdd_model is not None:
     #     try:
-    #         pd = BDDProductDistributionBF().execute(fm.bdd_model).get_result()
+    #         pd = BDDProductDistribution().execute(fm.bdd_model).get_result()
     #     except:
     #         print(f"ERROR: the product distribution cannot be calculated in a brute force way.")
     #         sys.exit()

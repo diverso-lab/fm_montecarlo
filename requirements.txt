@@ -1,6 +1,7 @@
-famapy==0.1.0
-famapy-fm==0.1.0
-famapy-sat==0.1.0
+flamapy==1.0.1
+flamapy-bdd==1.0.1
+flamapy-fm==1.0.1
+flamapy-sat==1.0.1
 graphviz==0.16
-python-sat==0.1.5.dev16
+python-sat==0.1.7.dev21
 six==1.15.0

@@ -2,7 +2,7 @@ import statistics
 import datetime
 from typing import Any 
 
-from famapy.metamodels.fm_metamodel.models import Feature 
+from flamapy.metamodels.fm_metamodel.models import Feature 
 
 from montecarlo_framework.models import Problem
 from montecarlo_framework.models.feature_model import FMConfiguration
